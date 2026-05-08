@@ -5,7 +5,7 @@ provider: Vapi
 providerId: vapi
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,10 +15,14 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Vapi. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Vapi. Vapi's billing model is consumption-based per minute of
+  voice agent runtime, with pass-through component costs for transcription, LLM, TTS, and
+  telephony. Total cost ownership requires tracking each provider in the stack.
+notes: Cost optimization on Vapi often means rightsizing the LLM/voice provider stack rather than the Vapi platform fee itself.
 sources:
-- https://vapi.ai/
+- https://vapi.ai/pricing
+- https://docs.vapi.ai/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,7 +33,7 @@ alignedWith:
 publisherName: Vapi
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Usage-Based (Per Minute)
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -37,7 +41,7 @@ billingModel:
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Vapi
+  ServiceName: Vapi Voice AI Platform
   ServiceCategory: AI
   ProviderName: Vapi
   PublisherName: Vapi
@@ -45,22 +49,51 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: voice_minutes
+  description: Per-minute platform fee for voice agent runtime.
+  unit: minute
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - assistant
+  - call
+- name: telephony_minutes
+  description: Pass-through telephony charges for inbound/outbound PSTN calls.
+  unit: minute
+  aggregation: sum
+  dimensions:
+  - account
+  - phone_number
+- name: transcription_minutes
+  description: Pass-through STT cost for voice transcription.
+  unit: minute
+  aggregation: sum
+  dimensions:
+  - account
+  - provider
+- name: tts_minutes
+  description: Pass-through TTS cost for synthesized voice output.
+  unit: minute
+  aggregation: sum
+  dimensions:
+  - account
+  - voice_provider
+- name: llm_tokens
+  description: Pass-through LLM token cost for assistant reasoning.
+  unit: token
+  aggregation: sum
+  dimensions:
+  - account
+  - model
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Use Vapi call analytics plus underlying provider invoices to assemble total cost per call.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag assistants and phone numbers to business units so call charges can be split in your FinOps store.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Cheaper LLM and TTS providers usually drive far more savings than negotiating the Vapi platform fee.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign owners for each component vendor (LLM, STT, TTS, telephony) since Vapi pass-through pricing depends on those contracts.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

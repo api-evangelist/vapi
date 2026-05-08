@@ -3,7 +3,11 @@ url: https://raw.githubusercontent.com/api-evangelist/vapi/refs/heads/main/apis.
 name: Vapi
 x-type: company
 description: >-
-  Vapi is a voice AI agents platform for building, testing, and deploying real-time voice agents. APIs cover assistants, calls, phone numbers, tools, blocks, and SIP.
+  Vapi is a voice AI agents platform for building, testing, and deploying real-time voice
+  agents across phone, web, and SIP. The Vapi REST API exposes assistants, calls, chats,
+  campaigns, phone numbers, tools, files, squads, sessions, structured outputs, and analytics,
+  plus server/client webhook events. A published OpenAPI spec is available at
+  https://api.vapi.ai/api-json.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -14,10 +18,54 @@ tags:
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: vapi:platform
+    name: Vapi Platform API
+    description: >-
+      REST API for managing Vapi voice AI agents. Supports CRUD on Assistants, Squads, Calls,
+      Chats, Campaigns, Sessions, Phone Numbers, Tools, Files, Structured Outputs, Insight,
+      Eval, Observability, and Analytics. Auth is bearer token; base URL is
+      https://api.vapi.ai.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.vapi.ai/api-reference
+    baseURL: https://api.vapi.ai
+    tags:
+      - Voice
+      - Agents
+      - Calls
+      - Phone Numbers
+      - Realtime
+    properties:
+      - type: Documentation
+        url: https://docs.vapi.ai/api-reference
+      - type: OpenAPI
+        url: openapi/vapi-openapi.yml
+      - type: SignUp
+        url: https://dashboard.vapi.ai/
+      - type: Pricing
+        url: https://vapi.ai/pricing
+  - aid: vapi:webhooks
+    name: Vapi Webhooks API
+    description: >-
+      Server- and client-side webhook events emitted by Vapi during voice sessions, including
+      end-of-call reports, transcripts, function calls, status updates, and tool invocations.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.vapi.ai/server-url
+    baseURL: https://docs.vapi.ai
+    tags:
+      - Webhooks
+      - Events
+      - Voice
+    properties:
+      - type: Documentation
+        url: https://docs.vapi.ai/server-url
 common:
   - type: Website
     url: https://vapi.ai/
+  - type: Documentation
+    url: https://docs.vapi.ai/
+  - type: OpenAPI
+    url: openapi/vapi-openapi.yml
   - type: Plans
     url: plans/vapi-plans-pricing.yml
   - type: RateLimits

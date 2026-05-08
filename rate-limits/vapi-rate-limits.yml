@@ -5,7 +5,7 @@ provider: Vapi
 providerId: vapi
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Voice
@@ -15,21 +15,32 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Vapi. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Vapi documents concurrency limits per account and applies standard 429 throttling on the
+  REST API. Concurrent call limits scale with plan/contract; specific RPS quotas are not
+  publicly documented and should be confirmed with Vapi support.
+notes: Concurrent calls are the primary scaling lever for Vapi; HTTP rate limits are not publicly stated.
 sources:
-- https://vapi.ai/
+- https://vapi.ai/pricing
+- https://docs.vapi.ai/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Concurrent Calls
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: concurrent_calls
+  limit: scales by plan; contact support for higher concurrency
+  notes: Vapi enforces a per-account concurrent active call cap.
+- name: API Requests
+  scope: account
+  metric: requests
+  limit: not publicly documented
+  notes: Standard 429 backoff applies; verify limits with Vapi support before high-volume integrations.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Clients should implement exponential backoff with jitter and honor any Retry-After header on 429 responses.
+- name: Concurrency Planning
+  description: Provision concurrent call capacity in advance for outbound campaigns and high-volume inbound use cases.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
