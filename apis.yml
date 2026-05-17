@@ -1,7 +1,7 @@
 aid: vapi
 url: https://raw.githubusercontent.com/api-evangelist/vapi/refs/heads/main/apis.yml
 name: Vapi
-x-type: company
+kind: company
 description: >-
   Vapi is a voice AI agents platform for building, testing, and deploying real-time voice
   agents across phone, web, and SIP. The Vapi REST API exposes assistants, calls, chats,
