@@ -1,0 +1,368 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vapi API — Provider Resources
+  description: 'Vapi API — Provider Resources. 5 operations. Lead operation: Create Provider Resource. Self-contained Naftiko
+    capability covering one Vapi business surface.'
+  tags:
+  - Vapi
+  - Provider Resources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VAPI_API_KEY: VAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vapi-provider-resources
+    baseUri: https://api.vapi.ai
+    description: Vapi API — Provider Resources business capability. Self-contained, no shared references.
+    resources:
+    - name: provider-provider-resourceName
+      path: /provider/{provider}/{resourceName}
+      operations:
+      - name: providerresourcecontrollercreateproviderresource
+        method: POST
+        description: Create Provider Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: content-type
+          in: header
+          type: string
+          required: true
+        - name: provider
+          in: path
+          type: string
+          description: The provider (e.g., 11labs)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The resource name (e.g., pronunciation-dictionary)
+          required: true
+      - name: providerresourcecontrollergetproviderresourcespaginated
+        method: GET
+        description: List Provider Resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: provider
+          in: path
+          type: string
+          description: The provider (e.g., 11labs)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The resource name (e.g., pronunciation-dictionary)
+          required: true
+        - name: id
+          in: query
+          type: string
+        - name: resourceId
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: number
+          description: This is the page number to return. Defaults to 1.
+        - name: sortOrder
+          in: query
+          type: string
+          description: This is the sort order for pagination. Defaults to 'DESC'.
+        - name: sortBy
+          in: query
+          type: string
+          description: This is the column to sort by. Defaults to 'createdAt'.
+        - name: limit
+          in: query
+          type: number
+          description: This is the maximum number of items to return. Defaults to 100.
+        - name: createdAtGt
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than the specified value.
+        - name: createdAtLt
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than the specified value.
+        - name: createdAtGe
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than or equal to the specified value.
+        - name: createdAtLe
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than or equal to the specified value.
+        - name: updatedAtGt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than the specified value.
+        - name: updatedAtLt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than the specified value.
+        - name: updatedAtGe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than or equal to the specified value.
+        - name: updatedAtLe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than or equal to the specified value.
+    - name: provider-provider-resourceName-id
+      path: /provider/{provider}/{resourceName}/{id}
+      operations:
+      - name: providerresourcecontrollergetproviderresource
+        method: GET
+        description: Get Provider Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: provider
+          in: path
+          type: string
+          description: The provider (e.g., 11labs)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The resource name (e.g., pronunciation-dictionary)
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: providerresourcecontrollerdeleteproviderresource
+        method: DELETE
+        description: Delete Provider Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: provider
+          in: path
+          type: string
+          description: The provider (e.g., 11labs)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The resource name (e.g., pronunciation-dictionary)
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: providerresourcecontrollerupdateproviderresource
+        method: PATCH
+        description: Update Provider Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: provider
+          in: path
+          type: string
+          description: The provider (e.g., 11labs)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The resource name (e.g., pronunciation-dictionary)
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.VAPI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vapi-provider-resources-rest
+    port: 8080
+    description: REST adapter for Vapi API — Provider Resources. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/provider/{provider}/{resourcename}
+      name: provider-provider-resourcename
+      description: REST surface for provider-provider-resourceName.
+      operations:
+      - method: POST
+        name: providerresourcecontrollercreateproviderresource
+        description: Create Provider Resource
+        call: vapi-provider-resources.providerresourcecontrollercreateproviderresource
+        with:
+          content-type: rest.content-type
+          provider: rest.provider
+          resourceName: rest.resourceName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: providerresourcecontrollergetproviderresourcespaginated
+        description: List Provider Resources
+        call: vapi-provider-resources.providerresourcecontrollergetproviderresourcespaginated
+        with:
+          provider: rest.provider
+          resourceName: rest.resourceName
+          id: rest.id
+          resourceId: rest.resourceId
+          page: rest.page
+          sortOrder: rest.sortOrder
+          sortBy: rest.sortBy
+          limit: rest.limit
+          createdAtGt: rest.createdAtGt
+          createdAtLt: rest.createdAtLt
+          createdAtGe: rest.createdAtGe
+          createdAtLe: rest.createdAtLe
+          updatedAtGt: rest.updatedAtGt
+          updatedAtLt: rest.updatedAtLt
+          updatedAtGe: rest.updatedAtGe
+          updatedAtLe: rest.updatedAtLe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provider/{provider}/{resourcename}/{id}
+      name: provider-provider-resourcename-id
+      description: REST surface for provider-provider-resourceName-id.
+      operations:
+      - method: GET
+        name: providerresourcecontrollergetproviderresource
+        description: Get Provider Resource
+        call: vapi-provider-resources.providerresourcecontrollergetproviderresource
+        with:
+          provider: rest.provider
+          resourceName: rest.resourceName
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: providerresourcecontrollerdeleteproviderresource
+        description: Delete Provider Resource
+        call: vapi-provider-resources.providerresourcecontrollerdeleteproviderresource
+        with:
+          provider: rest.provider
+          resourceName: rest.resourceName
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: providerresourcecontrollerupdateproviderresource
+        description: Update Provider Resource
+        call: vapi-provider-resources.providerresourcecontrollerupdateproviderresource
+        with:
+          provider: rest.provider
+          resourceName: rest.resourceName
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vapi-provider-resources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Vapi API — Provider Resources. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-provider-resource
+      description: Create Provider Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vapi-provider-resources.providerresourcecontrollercreateproviderresource
+      with:
+        content-type: tools.content-type
+        provider: tools.provider
+        resourceName: tools.resourceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-provider-resources
+      description: List Provider Resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-provider-resources.providerresourcecontrollergetproviderresourcespaginated
+      with:
+        provider: tools.provider
+        resourceName: tools.resourceName
+        id: tools.id
+        resourceId: tools.resourceId
+        page: tools.page
+        sortOrder: tools.sortOrder
+        sortBy: tools.sortBy
+        limit: tools.limit
+        createdAtGt: tools.createdAtGt
+        createdAtLt: tools.createdAtLt
+        createdAtGe: tools.createdAtGe
+        createdAtLe: tools.createdAtLe
+        updatedAtGt: tools.updatedAtGt
+        updatedAtLt: tools.updatedAtLt
+        updatedAtGe: tools.updatedAtGe
+        updatedAtLe: tools.updatedAtLe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-provider-resource
+      description: Get Provider Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-provider-resources.providerresourcecontrollergetproviderresource
+      with:
+        provider: tools.provider
+        resourceName: tools.resourceName
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-provider-resource
+      description: Delete Provider Resource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vapi-provider-resources.providerresourcecontrollerdeleteproviderresource
+      with:
+        provider: tools.provider
+        resourceName: tools.resourceName
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-provider-resource
+      description: Update Provider Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vapi-provider-resources.providerresourcecontrollerupdateproviderresource
+      with:
+        provider: tools.provider
+        resourceName: tools.resourceName
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

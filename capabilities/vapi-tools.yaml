@@ -1,0 +1,278 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vapi API — Tools
+  description: 'Vapi API — Tools. 5 operations. Lead operation: Create Tool. Self-contained Naftiko capability covering one
+    Vapi business surface.'
+  tags:
+  - Vapi
+  - Tools
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VAPI_API_KEY: VAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vapi-tools
+    baseUri: https://api.vapi.ai
+    description: Vapi API — Tools business capability. Self-contained, no shared references.
+    resources:
+    - name: tool
+      path: /tool
+      operations:
+      - name: toolcontrollercreate
+        method: POST
+        description: Create Tool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: toolcontrollerfindall
+        method: GET
+        description: List Tools
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: number
+          description: This is the maximum number of items to return. Defaults to 100.
+        - name: createdAtGt
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than the specified value.
+        - name: createdAtLt
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than the specified value.
+        - name: createdAtGe
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than or equal to the specified value.
+        - name: createdAtLe
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than or equal to the specified value.
+        - name: updatedAtGt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than the specified value.
+        - name: updatedAtLt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than the specified value.
+        - name: updatedAtGe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than or equal to the specified value.
+        - name: updatedAtLe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than or equal to the specified value.
+    - name: tool-id
+      path: /tool/{id}
+      operations:
+      - name: toolcontrollerfindone
+        method: GET
+        description: Get Tool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: toolcontrollerupdate
+        method: PATCH
+        description: Update Tool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: toolcontrollerremove
+        method: DELETE
+        description: Delete Tool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.VAPI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vapi-tools-rest
+    port: 8080
+    description: REST adapter for Vapi API — Tools. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/tool
+      name: tool
+      description: REST surface for tool.
+      operations:
+      - method: POST
+        name: toolcontrollercreate
+        description: Create Tool
+        call: vapi-tools.toolcontrollercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: toolcontrollerfindall
+        description: List Tools
+        call: vapi-tools.toolcontrollerfindall
+        with:
+          limit: rest.limit
+          createdAtGt: rest.createdAtGt
+          createdAtLt: rest.createdAtLt
+          createdAtGe: rest.createdAtGe
+          createdAtLe: rest.createdAtLe
+          updatedAtGt: rest.updatedAtGt
+          updatedAtLt: rest.updatedAtLt
+          updatedAtGe: rest.updatedAtGe
+          updatedAtLe: rest.updatedAtLe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tool/{id}
+      name: tool-id
+      description: REST surface for tool-id.
+      operations:
+      - method: GET
+        name: toolcontrollerfindone
+        description: Get Tool
+        call: vapi-tools.toolcontrollerfindone
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: toolcontrollerupdate
+        description: Update Tool
+        call: vapi-tools.toolcontrollerupdate
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: toolcontrollerremove
+        description: Delete Tool
+        call: vapi-tools.toolcontrollerremove
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vapi-tools-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Vapi API — Tools. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-tool
+      description: Create Tool
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vapi-tools.toolcontrollercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tools
+      description: List Tools
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-tools.toolcontrollerfindall
+      with:
+        limit: tools.limit
+        createdAtGt: tools.createdAtGt
+        createdAtLt: tools.createdAtLt
+        createdAtGe: tools.createdAtGe
+        createdAtLe: tools.createdAtLe
+        updatedAtGt: tools.updatedAtGt
+        updatedAtLt: tools.updatedAtLt
+        updatedAtGe: tools.updatedAtGe
+        updatedAtLe: tools.updatedAtLe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-tool
+      description: Get Tool
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-tools.toolcontrollerfindone
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-tool
+      description: Update Tool
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vapi-tools.toolcontrollerupdate
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-tool
+      description: Delete Tool
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vapi-tools.toolcontrollerremove
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

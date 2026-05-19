@@ -1,0 +1,522 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vapi API — Eval
+  description: 'Vapi API — Eval. 9 operations. Lead operation: Create Eval. Self-contained Naftiko capability covering one
+    Vapi business surface.'
+  tags:
+  - Vapi
+  - Eval
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VAPI_API_KEY: VAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vapi-eval
+    baseUri: https://api.vapi.ai
+    description: Vapi API — Eval business capability. Self-contained, no shared references.
+    resources:
+    - name: eval
+      path: /eval
+      operations:
+      - name: evalcontrollercreate
+        method: POST
+        description: Create Eval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: evalcontrollergetpaginated
+        method: GET
+        description: List Evals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: number
+          description: This is the page number to return. Defaults to 1.
+        - name: sortOrder
+          in: query
+          type: string
+          description: This is the sort order for pagination. Defaults to 'DESC'.
+        - name: sortBy
+          in: query
+          type: string
+          description: This is the column to sort by. Defaults to 'createdAt'.
+        - name: limit
+          in: query
+          type: number
+          description: This is the maximum number of items to return. Defaults to 100.
+        - name: createdAtGt
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than the specified value.
+        - name: createdAtLt
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than the specified value.
+        - name: createdAtGe
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than or equal to the specified value.
+        - name: createdAtLe
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than or equal to the specified value.
+        - name: updatedAtGt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than the specified value.
+        - name: updatedAtLt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than the specified value.
+        - name: updatedAtGe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than or equal to the specified value.
+        - name: updatedAtLe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than or equal to the specified value.
+    - name: eval-run
+      path: /eval/run
+      operations:
+      - name: evalcontrollerrun
+        method: POST
+        description: Create Eval Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: evalcontrollergetrunspaginated
+        method: GET
+        description: List Eval Runs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: number
+          description: This is the page number to return. Defaults to 1.
+        - name: sortOrder
+          in: query
+          type: string
+          description: This is the sort order for pagination. Defaults to 'DESC'.
+        - name: sortBy
+          in: query
+          type: string
+          description: This is the column to sort by. Defaults to 'createdAt'.
+        - name: limit
+          in: query
+          type: number
+          description: This is the maximum number of items to return. Defaults to 100.
+        - name: createdAtGt
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than the specified value.
+        - name: createdAtLt
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than the specified value.
+        - name: createdAtGe
+          in: query
+          type: string
+          description: This will return items where the createdAt is greater than or equal to the specified value.
+        - name: createdAtLe
+          in: query
+          type: string
+          description: This will return items where the createdAt is less than or equal to the specified value.
+        - name: updatedAtGt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than the specified value.
+        - name: updatedAtLt
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than the specified value.
+        - name: updatedAtGe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is greater than or equal to the specified value.
+        - name: updatedAtLe
+          in: query
+          type: string
+          description: This will return items where the updatedAt is less than or equal to the specified value.
+    - name: eval-run-id
+      path: /eval/run/{id}
+      operations:
+      - name: evalcontrollerremoverun
+        method: DELETE
+        description: Delete Eval Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: evalcontrollergetrun
+        method: GET
+        description: Get Eval Run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: eval-id
+      path: /eval/{id}
+      operations:
+      - name: evalcontrollerupdate
+        method: PATCH
+        description: Update Eval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: evalcontrollerremove
+        method: DELETE
+        description: Delete Eval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: evalcontrollerget
+        method: GET
+        description: Get Eval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.VAPI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vapi-eval-rest
+    port: 8080
+    description: REST adapter for Vapi API — Eval. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/eval
+      name: eval
+      description: REST surface for eval.
+      operations:
+      - method: POST
+        name: evalcontrollercreate
+        description: Create Eval
+        call: vapi-eval.evalcontrollercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: evalcontrollergetpaginated
+        description: List Evals
+        call: vapi-eval.evalcontrollergetpaginated
+        with:
+          id: rest.id
+          page: rest.page
+          sortOrder: rest.sortOrder
+          sortBy: rest.sortBy
+          limit: rest.limit
+          createdAtGt: rest.createdAtGt
+          createdAtLt: rest.createdAtLt
+          createdAtGe: rest.createdAtGe
+          createdAtLe: rest.createdAtLe
+          updatedAtGt: rest.updatedAtGt
+          updatedAtLt: rest.updatedAtLt
+          updatedAtGe: rest.updatedAtGe
+          updatedAtLe: rest.updatedAtLe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eval/run
+      name: eval-run
+      description: REST surface for eval-run.
+      operations:
+      - method: POST
+        name: evalcontrollerrun
+        description: Create Eval Run
+        call: vapi-eval.evalcontrollerrun
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: evalcontrollergetrunspaginated
+        description: List Eval Runs
+        call: vapi-eval.evalcontrollergetrunspaginated
+        with:
+          id: rest.id
+          page: rest.page
+          sortOrder: rest.sortOrder
+          sortBy: rest.sortBy
+          limit: rest.limit
+          createdAtGt: rest.createdAtGt
+          createdAtLt: rest.createdAtLt
+          createdAtGe: rest.createdAtGe
+          createdAtLe: rest.createdAtLe
+          updatedAtGt: rest.updatedAtGt
+          updatedAtLt: rest.updatedAtLt
+          updatedAtGe: rest.updatedAtGe
+          updatedAtLe: rest.updatedAtLe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eval/run/{id}
+      name: eval-run-id
+      description: REST surface for eval-run-id.
+      operations:
+      - method: DELETE
+        name: evalcontrollerremoverun
+        description: Delete Eval Run
+        call: vapi-eval.evalcontrollerremoverun
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: evalcontrollergetrun
+        description: Get Eval Run
+        call: vapi-eval.evalcontrollergetrun
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eval/{id}
+      name: eval-id
+      description: REST surface for eval-id.
+      operations:
+      - method: PATCH
+        name: evalcontrollerupdate
+        description: Update Eval
+        call: vapi-eval.evalcontrollerupdate
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: evalcontrollerremove
+        description: Delete Eval
+        call: vapi-eval.evalcontrollerremove
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: evalcontrollerget
+        description: Get Eval
+        call: vapi-eval.evalcontrollerget
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vapi-eval-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Vapi API — Eval. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-eval
+      description: Create Eval
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vapi-eval.evalcontrollercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-evals
+      description: List Evals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-eval.evalcontrollergetpaginated
+      with:
+        id: tools.id
+        page: tools.page
+        sortOrder: tools.sortOrder
+        sortBy: tools.sortBy
+        limit: tools.limit
+        createdAtGt: tools.createdAtGt
+        createdAtLt: tools.createdAtLt
+        createdAtGe: tools.createdAtGe
+        createdAtLe: tools.createdAtLe
+        updatedAtGt: tools.updatedAtGt
+        updatedAtLt: tools.updatedAtLt
+        updatedAtGe: tools.updatedAtGe
+        updatedAtLe: tools.updatedAtLe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-eval-run
+      description: Create Eval Run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vapi-eval.evalcontrollerrun
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-eval-runs
+      description: List Eval Runs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-eval.evalcontrollergetrunspaginated
+      with:
+        id: tools.id
+        page: tools.page
+        sortOrder: tools.sortOrder
+        sortBy: tools.sortBy
+        limit: tools.limit
+        createdAtGt: tools.createdAtGt
+        createdAtLt: tools.createdAtLt
+        createdAtGe: tools.createdAtGe
+        createdAtLe: tools.createdAtLe
+        updatedAtGt: tools.updatedAtGt
+        updatedAtLt: tools.updatedAtLt
+        updatedAtGe: tools.updatedAtGe
+        updatedAtLe: tools.updatedAtLe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-eval-run
+      description: Delete Eval Run
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vapi-eval.evalcontrollerremoverun
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-eval-run
+      description: Get Eval Run
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-eval.evalcontrollergetrun
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-eval
+      description: Update Eval
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vapi-eval.evalcontrollerupdate
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-eval
+      description: Delete Eval
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: vapi-eval.evalcontrollerremove
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-eval
+      description: Get Eval
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vapi-eval.evalcontrollerget
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

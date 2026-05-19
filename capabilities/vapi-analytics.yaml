@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Vapi API — Analytics
+  description: 'Vapi API — Analytics. 1 operations. Lead operation: Create Analytics Queries. Self-contained Naftiko capability
+    covering one Vapi business surface.'
+  tags:
+  - Vapi
+  - Analytics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    VAPI_API_KEY: VAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vapi-analytics
+    baseUri: https://api.vapi.ai
+    description: Vapi API — Analytics business capability. Self-contained, no shared references.
+    resources:
+    - name: analytics
+      path: /analytics
+      operations:
+      - name: analyticscontrollerquery
+        method: POST
+        description: Create Analytics Queries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.VAPI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vapi-analytics-rest
+    port: 8080
+    description: REST adapter for Vapi API — Analytics. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/analytics
+      name: analytics
+      description: REST surface for analytics.
+      operations:
+      - method: POST
+        name: analyticscontrollerquery
+        description: Create Analytics Queries
+        call: vapi-analytics.analyticscontrollerquery
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vapi-analytics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Vapi API — Analytics. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-analytics-queries
+      description: Create Analytics Queries
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vapi-analytics.analyticscontrollerquery
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
