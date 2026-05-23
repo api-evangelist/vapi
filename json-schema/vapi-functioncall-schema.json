@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FunctionCall",
+  "title": "FunctionCall",
+  "type": "object",
+  "properties": {
+    "arguments": {
+      "type": "string",
+      "description": "This is the arguments to call the function with"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the function to call",
+      "maxLength": 40
+    }
+  },
+  "required": [
+    "arguments",
+    "name"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JsonSchema",
+  "title": "JsonSchema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of output you'd like.\n\n`string`, `number`, `integer`, `boolean` are the primitive types and should be obvious.\n\n`array` and `object` are more interesting and quite powerful. They allow you to define nested structures.\n\nFor `array`, you can define the schema of the items in the array using the `items` property.\n\nFor `object`, you can define the properties of the object using the `properties` property.",
+      "enum": [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "array",
+        "object"
+      ]
+    },
+    "items": {
+      "description": "This is required if the type is \"array\". This is the schema of the items in the array. This is a recursive reference to JsonSchema.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JsonSchema"
+        }
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "description": "This is required if the type is \"object\". This specifies the properties of the object. This is a map of property names to JsonSchema objects.",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/JsonSchema"
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description to help the model understand what it needs to output."
+    },
+    "pattern": {
+      "type": "string",
+      "description": "This is the pattern of the string. This is a regex that will be used to validate the data in question. To use a common format, use the `format` property instead.\n\nOpenAI documentation: https://platform.openai.com/docs/guides/structured-outputs#supported-properties"
+    },
+    "format": {
+      "type": "string",
+      "description": "This is the format of the string. To pass a regex, use the `pattern` property instead.\n\nOpenAI documentation: https://platform.openai.com/docs/guides/structured-outputs?api-mode=chat&type-restrictions=string-restrictions",
+      "enum": [
+        "date-time",
+        "time",
+        "date",
+        "duration",
+        "email",
+        "hostname",
+        "ipv4",
+        "ipv6",
+        "uuid"
+      ]
+    },
+    "required": {
+      "description": "This is a list of properties that are required.\n\nThis only makes sense if the type is \"object\".",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "enum": {
+      "description": "This array specifies the allowed values that can be used to restrict the output of the model.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "title": {
+      "type": "string",
+      "description": "This is the title of the schema."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

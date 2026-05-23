@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Condition",
+  "title": "Condition",
+  "type": "object",
+  "properties": {
+    "operator": {
+      "type": "string",
+      "description": "This is the operator you want to use to compare the parameter and value.",
+      "enum": [
+        "eq",
+        "neq",
+        "gt",
+        "gte",
+        "lt",
+        "lte"
+      ]
+    },
+    "param": {
+      "type": "string",
+      "description": "This is the name of the parameter that you want to check.",
+      "maxLength": 1000
+    },
+    "value": {
+      "type": "string",
+      "description": "This is the value you want to compare against the parameter.",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "operator",
+    "param",
+    "value"
+  ]
+}

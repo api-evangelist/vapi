@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRunTestAttempt",
+  "title": "TestSuiteRunTestAttempt",
+  "type": "object",
+  "properties": {
+    "scorerResults": {
+      "type": "array",
+      "description": "These are the results of the scorers used to evaluate the test attempt.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TestSuiteRunScorerAI",
+            "title": "AI"
+          }
+        ]
+      }
+    },
+    "call": {
+      "description": "This is the call made during the test attempt.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TestSuiteRunTestAttemptCall"
+        }
+      ]
+    },
+    "callId": {
+      "type": "string",
+      "description": "This is the call ID for the test attempt."
+    },
+    "metadata": {
+      "description": "This is the metadata for the test attempt.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TestSuiteRunTestAttemptMetadata"
+        }
+      ]
+    }
+  },
+  "required": [
+    "scorerResults"
+  ]
+}

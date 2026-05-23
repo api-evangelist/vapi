@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvaluationPlanItem",
+  "title": "EvaluationPlanItem",
+  "type": "object",
+  "properties": {
+    "structuredOutputId": {
+      "type": "string",
+      "description": "This is the ID of an existing structured output to use for evaluation.\nMutually exclusive with structuredOutput.",
+      "format": "uuid"
+    },
+    "structuredOutput": {
+      "description": "This is an inline structured output definition for evaluation.\nMutually exclusive with structuredOutputId.\nOnly primitive schema types (string, number, integer, boolean) are allowed.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateStructuredOutputDTO"
+        }
+      ]
+    },
+    "comparator": {
+      "type": "string",
+      "description": "This is the comparison operator to use when evaluating the extracted value against the expected value.\nAvailable operators depend on the structured output's schema type:\n- boolean: '=', '!='\n- string: '=', '!='\n- number/integer: '=', '!=', '>', '<', '>=', '<='",
+      "enum": [
+        "=",
+        "!=",
+        ">",
+        "<",
+        ">=",
+        "<="
+      ],
+      "example": "="
+    },
+    "value": {
+      "description": "This is the expected value to compare against the extracted structured output result.\nType should match the structured output's schema type.",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "required": {
+      "type": "boolean",
+      "description": "This is whether this evaluation must pass for the simulation to pass.\nDefaults to true. If false, the result is informational only.",
+      "default": true
+    }
+  },
+  "required": [
+    "comparator",
+    "value"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RegexCondition",
+  "title": "RegexCondition",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type discriminator for regex condition",
+      "example": "regex",
+      "enum": [
+        "regex"
+      ]
+    },
+    "regex": {
+      "type": "string",
+      "description": "This is the regular expression pattern to match against message content.\n\nNote:\n- This works by using the RegExp.test method in Node.JS. Eg. /hello/.test(\"hello there\") will return true.\n\nHot tips:\n- In JavaScript, escape \\ when sending the regex pattern. Eg. \"hello\\sthere\" will be sent over the wire as \"hellosthere\". Send \"hello\\\\sthere\" instead.\n- RegExp.test does substring matching, so /cat/.test(\"I love cats\") will return true. To do full string matching, use anchors: /^cat$/ will only match exactly \"cat\".\n- Word boundaries \\b are useful for matching whole words: /\\bcat\\b/ matches \"cat\" but not \"cats\" or \"category\".\n- Use inline flags for portability: (?i) for case insensitive, (?m) for multiline",
+      "examples": [
+        "\\\\b(cancel|stop|wait)\\\\b - Matches whole words",
+        "^yes$ - Matches exactly yes (full string match)",
+        "(?i)hello - Case insensitive match"
+      ]
+    },
+    "target": {
+      "description": "This is the target for messages to check against.\nIf not specified, the condition will run on the last message (position: -1).\nIf role is not specified, it will look at the last message regardless of role.\n@default { position: -1 }",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MessageTarget"
+        }
+      ]
+    },
+    "negate": {
+      "type": "boolean",
+      "description": "This is the flag that when true, the condition matches if the pattern does NOT match.\nUseful for ensuring certain words/phrases are absent.\n\n@default false",
+      "example": "true - Reject if user hasn\"t said goodbye: { regex: \"\\\\b(bye|goodbye)\\\\b\", negate: true }"
+    }
+  },
+  "required": [
+    "type",
+    "regex"
+  ]
+}

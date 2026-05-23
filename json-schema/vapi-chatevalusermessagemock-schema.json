@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalUserMessageMock",
+  "title": "ChatEvalUserMessageMock",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "user"
+      ],
+      "description": "This is the role of the message author.\nFor a mock user message, the role is always 'user'\n@default 'user'",
+      "default": "user"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the user message.\nThis is the message that the user would have sent.",
+      "example": "Hello, how are you?",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "role",
+    "content"
+  ]
+}

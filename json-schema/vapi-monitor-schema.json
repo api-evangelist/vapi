@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Monitor",
+  "title": "Monitor",
+  "type": "object",
+  "properties": {
+    "monitors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MonitorResult"
+      }
+    },
+    "listenUrl": {
+      "type": "string",
+      "description": "This is the URL where the assistant's calls can be listened to in real-time. To enable, set `assistant.monitorPlan.listenEnabled` to `true`."
+    },
+    "controlUrl": {
+      "type": "string",
+      "description": "This is the URL where the assistant's calls can be controlled in real-time. To enable, set `assistant.monitorPlan.controlEnabled` to `true`."
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantSpeechWordProgressTiming",
+  "title": "AssistantSpeechWordProgressTiming",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Discriminator for cursor-based word progress (e.g. Minimax subtitle data).",
+      "enum": [
+        "word-progress"
+      ]
+    },
+    "wordsSpoken": {
+      "type": "number",
+      "description": "Number of words spoken so far in this turn."
+    },
+    "totalWords": {
+      "type": "number",
+      "description": "Total number of words sent to the TTS provider for this turn.\n\n**Important**: this value grows across events within a single turn because\nMinimax synthesizes audio incrementally as the LLM streams tokens. Treat\nit as \"best known total so far\" \u2014 it will stabilize once synthesis is\ncomplete.\n\nA value of `0` is a valid sentinel meaning \"not yet known\". This can occur\non the very first `assistant-speech` event of a turn if audio begins\nplaying before the TTS provider has confirmed word-count data. Clients\n**must** guard against divide-by-zero when computing a progress fraction:\n\n```ts\nconst pct = totalWords > 0 ? wordsSpoken / totalWords : 0;\n```"
+    },
+    "segment": {
+      "type": "string",
+      "description": "The text of the latest spoken segment (sentence or clause). Use this\nfor caption display \u2014 it corresponds to the chunk just confirmed by\nthe TTS provider, unlike `text` on the parent message which carries\nthe full turn text."
+    },
+    "segmentDurationMs": {
+      "type": "number",
+      "description": "Audio duration in milliseconds for the latest spoken segment. Pair\nwith `segment` to animate karaoke-style word reveals \u2014 divide the\nsegment text across this duration for approximate per-word timing."
+    },
+    "words": {
+      "description": "Per-word timestamps for the latest spoken segment. Available when the\nTTS provider supports word-level timing (e.g. Minimax with\nsubtitle_type: \"word\"). Syllables from the provider are aggregated\ninto whole words with start/end times relative to the segment start.\n\nUse these for precise karaoke-style highlighting instead of\ninterpolating from segmentDurationMs.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AssistantSpeechWordTimestamp"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "wordsSpoken",
+    "totalWords"
+  ]
+}

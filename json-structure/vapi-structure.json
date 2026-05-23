@@ -1,0 +1,8553 @@
+{
+  "provider": "Vapi",
+  "providerId": "vapi",
+  "kind": "json-structure",
+  "description": "Structural overview of the Vapi API surface; extracted from openapi/.",
+  "schemaCount": 880,
+  "operationCount": 79,
+  "schemas": [
+    {
+      "name": "FallbackTranscriberPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AssemblyAITranscriber",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "AzureSpeechTranscriber",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CartesiaTranscriber",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "BackoffPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "maxRetries",
+        "baseDelaySeconds"
+      ]
+    },
+    {
+      "name": "Server",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "CustomTranscriber",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "server"
+      ]
+    },
+    {
+      "name": "DeepgramTranscriber",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "ElevenLabsTranscriber",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "GladiaCustomVocabularyConfigDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "vocabulary"
+      ]
+    },
+    {
+      "name": "GladiaTranscriber",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "SonioxContextGeneralItem",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    {
+      "name": "SonioxTranscriber",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "SpeechmaticsCustomVocabularyItem",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "content"
+      ]
+    },
+    {
+      "name": "SpeechmaticsTranscriber",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "provider",
+        "customVocabulary"
+      ]
+    },
+    {
+      "name": "TalkscriberTranscriber",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "GoogleTranscriber",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "OpenAITranscriber",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "FallbackAssemblyAITranscriber",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackAzureSpeechTranscriber",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackCartesiaTranscriber",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackCustomTranscriber",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider",
+        "server"
+      ]
+    },
+    {
+      "name": "FallbackDeepgramTranscriber",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackElevenLabsTranscriber",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "GladiaVocabularyItemDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "value"
+      ]
+    },
+    {
+      "name": "FallbackGladiaTranscriber",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackSonioxTranscriber",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackSpeechmaticsTranscriber",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "provider",
+        "customVocabulary"
+      ]
+    },
+    {
+      "name": "FallbackTalkscriberTranscriber",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackGoogleTranscriber",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "FallbackOpenAITranscriber",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "LangfuseObservabilityPlan",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "tags"
+      ]
+    },
+    {
+      "name": "TextContent",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "text",
+        "language"
+      ]
+    },
+    {
+      "name": "Condition",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "operator",
+        "param",
+        "value"
+      ]
+    },
+    {
+      "name": "ToolMessageStart",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ToolMessageComplete",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ToolMessageFailed",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ToolMessageDelayed",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "MessageTarget",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "RegexCondition",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "regex"
+      ]
+    },
+    {
+      "name": "LiquidCondition",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "liquid"
+      ]
+    },
+    {
+      "name": "GroupCondition",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "operator",
+        "conditions"
+      ]
+    },
+    {
+      "name": "ToolRejectionPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateDtmfToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateEndCallToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateVoicemailToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "JsonSchema",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "VariableExtractionAlias",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    {
+      "name": "VariableExtractionPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ToolParameter",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    {
+      "name": "OpenAIFunctionParameters",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "properties"
+      ]
+    },
+    {
+      "name": "OpenAIFunction",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "CreateFunctionToolDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GhlToolMetadata",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CreateGhlToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "metadata"
+      ]
+    },
+    {
+      "name": "MakeToolMetadata",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CreateMakeToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CustomMessage",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "TransferDestinationAssistant",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "assistantName"
+      ]
+    },
+    {
+      "name": "TransferFallbackPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "message"
+      ]
+    },
+    {
+      "name": "TransferAssistantModel",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "RegexOption",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "enabled"
+      ]
+    },
+    {
+      "name": "AssistantCustomEndpointingRule",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "regex",
+        "timeoutSeconds"
+      ]
+    },
+    {
+      "name": "CustomerCustomEndpointingRule",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "regex",
+        "timeoutSeconds"
+      ]
+    },
+    {
+      "name": "BothCustomEndpointingRule",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "assistantRegex",
+        "customerRegex",
+        "timeoutSeconds"
+      ]
+    },
+    {
+      "name": "VapiSmartEndpointingPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "LivekitSmartEndpointingPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CustomEndpointingModelSmartEndpointingPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "TranscriptionEndpointingPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "StartSpeakingPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "SmartDenoisingPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "FourierDenoisingPlan",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "BackgroundSpeechDenoisingPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TransferAssistant",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "model"
+      ]
+    },
+    {
+      "name": "TransferCancelToolUserEditable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "TransferSuccessfulToolUserEditable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SummaryPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "TransferPlan",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "mode"
+      ]
+    },
+    {
+      "name": "TransferDestinationNumber",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "number"
+      ]
+    },
+    {
+      "name": "TransferDestinationSip",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "sipUri"
+      ]
+    },
+    {
+      "name": "CreateTransferCallToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ContextEngineeringPlanLastNMessages",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "maxMessages"
+      ]
+    },
+    {
+      "name": "ContextEngineeringPlanNone",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ContextEngineeringPlanAll",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ContextEngineeringPlanUserAndAssistantMessages",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ContextEngineeringPlanPreviousAssistantMessages",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "HandoffDestinationAssistant",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "HandoffDestinationDynamic",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SquadMemberDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateSquadDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "members"
+      ]
+    },
+    {
+      "name": "HandoffDestinationSquad",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateHandoffToolDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateCustomKnowledgeBaseDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider",
+        "server"
+      ]
+    },
+    {
+      "name": "KnowledgeBase",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "provider",
+        "description",
+        "fileIds"
+      ]
+    },
+    {
+      "name": "CreateQueryToolDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoogleCalendarCreateEventToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoogleSheetsRowAppendToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoogleCalendarCheckAvailabilityToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateSlackSendMessageToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "McpToolMessages",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "McpToolMetadata",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateMcpToolDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelCalendarAvailabilityToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelCalendarEventCreateToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelContactCreateToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelContactGetToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "OpenAIMessage",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "content",
+        "role"
+      ]
+    },
+    {
+      "name": "AnyscaleModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "AnthropicThinkingConfig",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "budgetTokens"
+      ]
+    },
+    {
+      "name": "AnthropicModel",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "AnthropicBedrockModel",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "CerebrasModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "CustomLLMModel",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider",
+        "url",
+        "model"
+      ]
+    },
+    {
+      "name": "DeepInfraModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "DeepSeekModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "GeminiMultimodalLivePrebuiltVoiceConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "voiceName"
+      ]
+    },
+    {
+      "name": "GeminiMultimodalLiveVoiceConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "prebuiltVoiceConfig"
+      ]
+    },
+    {
+      "name": "GeminiMultimodalLiveSpeechConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "voiceConfig"
+      ]
+    },
+    {
+      "name": "GoogleRealtimeConfig",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "GoogleModel",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "GroqModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "InflectionAIModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "MinimaxLLMModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "OpenAIModel",
+      "type": "object",
+      "propertyCount": 14,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "OpenRouterModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "PerplexityAIModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "TogetherAIModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "HangupNode",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "name"
+      ]
+    },
+    {
+      "name": "WorkflowOpenAIModel",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "WorkflowAnthropicModel",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "WorkflowAnthropicBedrockModel",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "WorkflowGoogleModel",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "WorkflowCustomModel",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "url",
+        "model"
+      ]
+    },
+    {
+      "name": "GlobalNodePlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ConversationNode",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "name"
+      ]
+    },
+    {
+      "name": "ToolNode",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "name"
+      ]
+    },
+    {
+      "name": "VoicemailDetectionBackoffPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "GoogleVoicemailDetectionPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "OpenAIVoicemailDetectionPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "TwilioVoicemailDetectionPlan",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "VapiVoicemailDetectionPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "TransferHookAction",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "FunctionCallHookAction",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SayHookAction",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "MessageAddHookAction",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "message"
+      ]
+    },
+    {
+      "name": "CallHookFilter",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "key",
+        "oneOf"
+      ]
+    },
+    {
+      "name": "CallHookCallEnding",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "CallHookAssistantSpeechInterrupted",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "CallHookCustomerSpeechInterrupted",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "ToolCallHookAction",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CustomerSpeechTimeoutOptions",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "timeoutSeconds"
+      ]
+    },
+    {
+      "name": "CallHookCustomerSpeechTimeout",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "CallHookModelResponseTimeout",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "AIEdgeCondition",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "prompt"
+      ]
+    },
+    {
+      "name": "Edge",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "from",
+        "to"
+      ]
+    },
+    {
+      "name": "RecordingConsentPlanStayOnLine",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "message",
+        "type"
+      ]
+    },
+    {
+      "name": "RecordingConsentPlanVerbal",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "message",
+        "type"
+      ]
+    },
+    {
+      "name": "SecurityFilterBase",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SecurityFilterPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CompliancePlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "StructuredDataPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "StructuredDataMultiPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "key",
+        "plan"
+      ]
+    },
+    {
+      "name": "SuccessEvaluationPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "AnalysisPlan",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "TranscriptPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ComplianceOverride",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateStructuredOutputDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "name",
+        "schema"
+      ]
+    },
+    {
+      "name": "ScorecardMetric",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "structuredOutputId",
+        "conditions"
+      ]
+    },
+    {
+      "name": "CreateScorecardDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "metrics"
+      ]
+    },
+    {
+      "name": "ArtifactPlan",
+      "type": "object",
+      "propertyCount": 17,
+      "required": []
+    },
+    {
+      "name": "StopSpeakingPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "MonitorPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "KeypadInputPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "WorkflowUserEditable",
+      "type": "object",
+      "propertyCount": 24,
+      "required": [
+        "nodes",
+        "name",
+        "edges"
+      ]
+    },
+    {
+      "name": "VapiModel",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "provider",
+        "model"
+      ]
+    },
+    {
+      "name": "XaiModel",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "model",
+        "provider"
+      ]
+    },
+    {
+      "name": "ExactReplacement",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "key",
+        "value"
+      ]
+    },
+    {
+      "name": "RegexReplacement",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "regex",
+        "value"
+      ]
+    },
+    {
+      "name": "FormatPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ChunkPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "FallbackPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "voices"
+      ]
+    },
+    {
+      "name": "AzureVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "CartesiaExperimentalControls",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CartesiaGenerationConfigExperimental",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CartesiaGenerationConfig",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CartesiaVoice",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "CustomVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "server"
+      ]
+    },
+    {
+      "name": "DeepgramVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "ElevenLabsPronunciationDictionaryLocator",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "pronunciationDictionaryId",
+        "versionId"
+      ]
+    },
+    {
+      "name": "ElevenLabsVoice",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "WellSaidVoice",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "HumeVoice",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "LMNTVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "NeuphonicVoice",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "voiceId",
+        "language"
+      ]
+    },
+    {
+      "name": "OpenAIVoice",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "PlayHTVoice",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "RimeAIVoice",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "SesameVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId",
+        "model"
+      ]
+    },
+    {
+      "name": "SmallestAIVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "TavusConversationProperties",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "TavusVoice",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "VapiPronunciationDictionaryLocator",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "pronunciationDictId"
+      ]
+    },
+    {
+      "name": "VapiVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "InworldVoice",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "MinimaxVoice",
+      "type": "object",
+      "propertyCount": 14,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackMinimaxVoice",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackWellSaidVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackAzureVoice",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackCartesiaVoice",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackCustomVoice",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "server"
+      ]
+    },
+    {
+      "name": "FallbackDeepgramVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackElevenLabsVoice",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackHumeVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackLMNTVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackNeuphonicVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId",
+        "language"
+      ]
+    },
+    {
+      "name": "FallbackOpenAIVoice",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackPlayHTVoice",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackRimeAIVoice",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackSesameVoice",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "voiceId",
+        "model"
+      ]
+    },
+    {
+      "name": "FallbackSmallestAIVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackTavusVoice",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackVapiVoice",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "FallbackInworldVoice",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "voiceId"
+      ]
+    },
+    {
+      "name": "TransportConfigurationTwilio",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CreateAnthropicCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateAnthropicBedrockCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "region",
+        "authenticationPlan"
+      ]
+    },
+    {
+      "name": "CreateAnyscaleCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateAssemblyAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "AzureBlobStorageBucketPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "connectionString",
+        "containerName"
+      ]
+    },
+    {
+      "name": "CreateAzureCredentialDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "service"
+      ]
+    },
+    {
+      "name": "CreateAzureOpenAICredentialDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "region",
+        "models",
+        "openAIKey",
+        "openAIEndpoint"
+      ]
+    },
+    {
+      "name": "SipTrunkGateway",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "ip"
+      ]
+    },
+    {
+      "name": "SipTrunkOutboundSipRegisterPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SipTrunkOutboundAuthenticationPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SbcConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CreateByoSipTrunkCredentialDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "gateways"
+      ]
+    },
+    {
+      "name": "CreateCartesiaCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CloudflareR2BucketPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "CreateCloudflareCredentialDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "OAuth2AuthenticationPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "url",
+        "clientId",
+        "clientSecret"
+      ]
+    },
+    {
+      "name": "CreateCustomLLMCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateDeepgramCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateDeepInfraCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateDeepSeekCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateElevenLabsCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "GcpKey",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "projectId",
+        "privateKeyId",
+        "privateKey",
+        "clientEmail",
+        "clientId",
+        "authUri",
+        "tokenUri",
+        "authProviderX509CertUrl",
+        "clientX509CertUrl",
+        "universeDomain"
+      ]
+    },
+    {
+      "name": "BucketPlan",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "CreateGcpCredentialDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "gcpKey"
+      ]
+    },
+    {
+      "name": "CreateGladiaCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateGroqCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateLangfuseCredentialDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "publicKey",
+        "apiKey",
+        "apiUrl"
+      ]
+    },
+    {
+      "name": "CreateLmntCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateMakeCredentialDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "teamId",
+        "region",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateOpenAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateOpenRouterCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreatePerplexityAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreatePlayHTCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey",
+        "userId"
+      ]
+    },
+    {
+      "name": "CreateRimeAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateRunpodCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateS3CredentialDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "awsAccessKeyId",
+        "awsSecretAccessKey",
+        "region",
+        "s3BucketName",
+        "s3PathPrefix"
+      ]
+    },
+    {
+      "name": "SupabaseBucketPlan",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "region",
+        "url",
+        "accessKeyId",
+        "secretAccessKey",
+        "name"
+      ]
+    },
+    {
+      "name": "CreateSupabaseCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CreateSmallestAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateTavusCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateTogetherAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateTwilioCredentialDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "accountSid"
+      ]
+    },
+    {
+      "name": "CreateVonageCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiSecret",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateWebhookCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "authenticationPlan"
+      ]
+    },
+    {
+      "name": "CreateXAiCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateGoogleCalendarOAuth2ClientCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CreateGoogleCalendarOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "authorizationId"
+      ]
+    },
+    {
+      "name": "CreateGoogleSheetsOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "authorizationId"
+      ]
+    },
+    {
+      "name": "CreateSlackOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "authorizationId"
+      ]
+    },
+    {
+      "name": "CreateMinimaxCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey",
+        "groupId"
+      ]
+    },
+    {
+      "name": "EndpointedSpeechLowConfidenceOptions",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CallHookTranscriberEndpointedSpeechLowConfidence",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "do",
+        "on"
+      ]
+    },
+    {
+      "name": "SessionCreatedHook",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "SQLInjectionSecurityFilter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "XSSSecurityFilter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SSRFSecurityFilter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RCESecurityFilter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "PromptInjectionSecurityFilter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RegexSecurityFilter",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "regex"
+      ]
+    },
+    {
+      "name": "AssistantOverrides",
+      "type": "object",
+      "propertyCount": 33,
+      "required": []
+    },
+    {
+      "name": "CreateAssistantDTO",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "Assistant",
+      "type": "object",
+      "propertyCount": 35,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "PaginationMeta",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "itemsPerPage",
+        "totalItems",
+        "currentPage"
+      ]
+    },
+    {
+      "name": "AssistantPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "AssistantVersionPaginatedResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "UpdateAssistantDTO",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "Squad",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "members",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateSquadDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "members"
+      ]
+    },
+    {
+      "name": "Workflow",
+      "type": "object",
+      "propertyCount": 28,
+      "required": [
+        "nodes",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "edges"
+      ]
+    },
+    {
+      "name": "CreateWorkflowDTO",
+      "type": "object",
+      "propertyCount": 24,
+      "required": [
+        "nodes",
+        "name",
+        "edges"
+      ]
+    },
+    {
+      "name": "UpdateWorkflowDTO",
+      "type": "object",
+      "propertyCount": 24,
+      "required": []
+    },
+    {
+      "name": "SubscriptionLimits",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AnalysisCostBreakdown",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "CostBreakdown",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "Analysis",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "MonitorResult",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "monitorId",
+        "filterPassed"
+      ]
+    },
+    {
+      "name": "Monitor",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Mono",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Recording",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "NodeArtifact",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AssistantActivation",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "assistantName"
+      ]
+    },
+    {
+      "name": "TurnLatency",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "PerformanceMetrics",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "Artifact",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "RecordingConsent",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "Compliance",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "WorkflowOverrides",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "TransferPhoneNumberHookAction",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SayPhoneNumberHookAction",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "exact"
+      ]
+    },
+    {
+      "name": "PhoneNumberCallRingingHookFilter",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "key",
+        "startsWith"
+      ]
+    },
+    {
+      "name": "PhoneNumberHookCallRinging",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "PhoneNumberCallEndingHookFilter",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "key",
+        "oneOf"
+      ]
+    },
+    {
+      "name": "PhoneNumberHookCallEnding",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "on"
+      ]
+    },
+    {
+      "name": "ImportTwilioPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "twilioPhoneNumber",
+        "twilioAccountSid"
+      ]
+    },
+    {
+      "name": "CreateCustomerDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "SchedulePlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "earliestAt"
+      ]
+    },
+    {
+      "name": "Call",
+      "type": "object",
+      "propertyCount": 40,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CallBatchError",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "customer",
+        "error"
+      ]
+    },
+    {
+      "name": "CallBatchResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "results",
+        "errors"
+      ]
+    },
+    {
+      "name": "AssistantSpeechWordAlignmentTiming",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "words",
+        "wordsStartTimesMs",
+        "wordsEndTimesMs"
+      ]
+    },
+    {
+      "name": "AssistantSpeechWordTimestamp",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "word",
+        "startMs",
+        "endMs"
+      ]
+    },
+    {
+      "name": "AssistantSpeechWordProgressTiming",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "wordsSpoken",
+        "totalWords"
+      ]
+    },
+    {
+      "name": "CreateCallDTO",
+      "type": "object",
+      "propertyCount": 17,
+      "required": []
+    },
+    {
+      "name": "StructuredOutputFilterDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "CallPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CreateOutboundCallDTO",
+      "type": "object",
+      "propertyCount": 17,
+      "required": []
+    },
+    {
+      "name": "CreateWebCallDTO",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "UpdateCallDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "DeleteCallDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "DeveloperMessage",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "role",
+        "content"
+      ]
+    },
+    {
+      "name": "SystemMessage",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "role",
+        "message",
+        "time",
+        "secondsFromStart"
+      ]
+    },
+    {
+      "name": "UserMessage",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "role",
+        "message",
+        "time",
+        "endTime",
+        "secondsFromStart"
+      ]
+    },
+    {
+      "name": "ToolCallFunction",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "arguments",
+        "name"
+      ]
+    },
+    {
+      "name": "ToolCall",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "id",
+        "type",
+        "function"
+      ]
+    },
+    {
+      "name": "AssistantMessage",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "role"
+      ]
+    },
+    {
+      "name": "ToolMessage",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "role",
+        "content",
+        "tool_call_id"
+      ]
+    },
+    {
+      "name": "FunctionCall",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "arguments",
+        "name"
+      ]
+    },
+    {
+      "name": "Chat",
+      "type": "object",
+      "propertyCount": 18,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TwilioSMSChatTransport",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateChatDTO",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "input"
+      ]
+    },
+    {
+      "name": "GetChatPaginatedDTO",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "ChatPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CreateChatStreamResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "id",
+        "path",
+        "delta"
+      ]
+    },
+    {
+      "name": "OpenAIResponsesRequest",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "input"
+      ]
+    },
+    {
+      "name": "ChatAssistantOverrides",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateWebCustomerDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "CreateWebChatDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "input"
+      ]
+    },
+    {
+      "name": "WebChat",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "id",
+        "output"
+      ]
+    },
+    {
+      "name": "OpenAIWebChatRequest",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "input"
+      ]
+    },
+    {
+      "name": "ExportChatDTO",
+      "type": "object",
+      "propertyCount": 21,
+      "required": []
+    },
+    {
+      "name": "ResponseOutputText",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "annotations",
+        "text",
+        "type"
+      ]
+    },
+    {
+      "name": "ResponseOutputMessage",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "id",
+        "content",
+        "role",
+        "status",
+        "type"
+      ]
+    },
+    {
+      "name": "ResponseObject",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "id",
+        "object",
+        "created_at",
+        "status",
+        "output"
+      ]
+    },
+    {
+      "name": "ResponseTextDeltaEvent",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "content_index",
+        "delta",
+        "item_id",
+        "output_index",
+        "type"
+      ]
+    },
+    {
+      "name": "ResponseTextDoneEvent",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "content_index",
+        "item_id",
+        "output_index",
+        "text",
+        "type"
+      ]
+    },
+    {
+      "name": "ResponseCompletedEvent",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "response",
+        "type"
+      ]
+    },
+    {
+      "name": "ResponseErrorEvent",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "code",
+        "message",
+        "sequence_number"
+      ]
+    },
+    {
+      "name": "DialPlanEntry",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "phoneNumberId",
+        "customers"
+      ]
+    },
+    {
+      "name": "CreateCampaignDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "Campaign",
+      "type": "object",
+      "propertyCount": 20,
+      "required": [
+        "status",
+        "name",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "calls",
+        "callsCounterScheduled",
+        "callsCounterQueued",
+        "callsCounterInProgress",
+        "callsCounterEndedVoicemail",
+        "callsCounterEnded"
+      ]
+    },
+    {
+      "name": "CampaignPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "UpdateCampaignDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "RelayTargetAssistant",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RelayTargetSquad",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RelayTargetOptions",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RelayCommandSay",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "content"
+      ]
+    },
+    {
+      "name": "RelayCommandNote",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "content"
+      ]
+    },
+    {
+      "name": "RelayCommandOptions",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "RelayRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "source",
+        "target",
+        "customerId",
+        "commands"
+      ]
+    },
+    {
+      "name": "RelayResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "status"
+      ]
+    },
+    {
+      "name": "Session",
+      "type": "object",
+      "propertyCount": 20,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CreateSessionDTO",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "UpdateSessionDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "GetSessionPaginatedDTO",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "SessionPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "ExportSessionDTO",
+      "type": "object",
+      "propertyCount": 25,
+      "required": []
+    },
+    {
+      "name": "ByoPhoneNumber",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "TwilioPhoneNumber",
+      "type": "object",
+      "propertyCount": 19,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "number",
+        "twilioAccountSid"
+      ]
+    },
+    {
+      "name": "VonagePhoneNumber",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "number",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "SipAuthentication",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    {
+      "name": "VapiPhoneNumber",
+      "type": "object",
+      "propertyCount": 17,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TelnyxPhoneNumber",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "number",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "CreateByoPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "CreateTwilioPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 14,
+      "required": [
+        "provider",
+        "number",
+        "twilioAccountSid"
+      ]
+    },
+    {
+      "name": "CreateVonagePhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "number",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "CreateVapiPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CreateTelnyxPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "number",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "UpdateByoPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "UpdateTwilioPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "UpdateVonagePhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "UpdateVapiPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "UpdateTelnyxPhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "ImportVonagePhoneNumberDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "vonagePhoneNumber",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "PhoneNumberPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "ApiRequestTool",
+      "type": "object",
+      "propertyCount": 19,
+      "required": [
+        "type",
+        "method",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "url"
+      ]
+    },
+    {
+      "name": "CodeToolEnvironmentVariable",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "name": "CodeTool",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "type",
+        "code",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "DtmfTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "EndCallTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "FunctionTool",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GhlTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "metadata"
+      ]
+    },
+    {
+      "name": "MakeTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "metadata"
+      ]
+    },
+    {
+      "name": "TransferCallTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "HandoffTool",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "OutputTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "BashTool",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "subType",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name"
+      ]
+    },
+    {
+      "name": "ComputerTool",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "type",
+        "subType",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "displayWidthPx",
+        "displayHeightPx"
+      ]
+    },
+    {
+      "name": "TextEditorTool",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "subType",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name"
+      ]
+    },
+    {
+      "name": "QueryTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleCalendarCreateEventTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleSheetsRowAppendTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleCalendarCheckAvailabilityTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SlackSendMessageTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SmsTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "McpTool",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarAvailabilityTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarEventCreateTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactCreateTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactGetTool",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SipRequestTool",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "verb",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "VoicemailTool",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CreateApiRequestToolDTO",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "type",
+        "method",
+        "url"
+      ]
+    },
+    {
+      "name": "CreateCodeToolDTO",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "code"
+      ]
+    },
+    {
+      "name": "CreateOutputToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateBashToolDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "subType",
+        "name"
+      ]
+    },
+    {
+      "name": "CreateComputerToolDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "subType",
+        "name",
+        "displayWidthPx",
+        "displayHeightPx"
+      ]
+    },
+    {
+      "name": "CreateTextEditorToolDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "subType",
+        "name"
+      ]
+    },
+    {
+      "name": "CreateSmsToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CreateSipRequestToolDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "verb"
+      ]
+    },
+    {
+      "name": "UpdateApiRequestToolDTO",
+      "type": "object",
+      "propertyCount": 14,
+      "required": []
+    },
+    {
+      "name": "UpdateCodeToolDTO",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "UpdateDtmfToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateEndCallToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateFunctionToolDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UpdateGhlToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateMakeToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateHandoffToolDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateTransferCallToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateOutputToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateBashToolDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateComputerToolDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "UpdateTextEditorToolDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateQueryToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleCalendarCreateEventToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleSheetsRowAppendToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleCalendarCheckAvailabilityToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSlackSendMessageToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSmsToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateMcpToolDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelCalendarAvailabilityToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelCalendarEventCreateToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelContactCreateToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelContactGetToolDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSipRequestToolDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateVoicemailToolDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateFileDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "file"
+      ]
+    },
+    {
+      "name": "File",
+      "type": "object",
+      "propertyCount": 18,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateFileDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CustomKnowledgeBase",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "server",
+        "id",
+        "orgId"
+      ]
+    },
+    {
+      "name": "UpdateCustomKnowledgeBaseDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "StructuredOutput",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "schema"
+      ]
+    },
+    {
+      "name": "StructuredOutputPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "UpdateStructuredOutputDTO",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "StructuredOutputRunDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "callIds"
+      ]
+    },
+    {
+      "name": "TesterPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "TestSuitePhoneNumber",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "provider",
+        "number"
+      ]
+    },
+    {
+      "name": "TargetPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TestSuite",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TestSuitesPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CreateTestSuiteDto",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "UpdateTestSuiteDto",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TestSuiteTestVoice",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "scorers",
+        "type",
+        "id",
+        "testSuiteId",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "script"
+      ]
+    },
+    {
+      "name": "TestSuiteTestChat",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "scorers",
+        "type",
+        "id",
+        "testSuiteId",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "script"
+      ]
+    },
+    {
+      "name": "CreateTestSuiteTestVoiceDto",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "scorers",
+        "type",
+        "script"
+      ]
+    },
+    {
+      "name": "CreateTestSuiteTestChatDto",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "scorers",
+        "type",
+        "script"
+      ]
+    },
+    {
+      "name": "UpdateTestSuiteTestVoiceDto",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateTestSuiteTestChatDto",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "TestSuiteTestScorerAI",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "rubric"
+      ]
+    },
+    {
+      "name": "TestSuiteTestsPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "TestSuiteRunScorerAI",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "result",
+        "reasoning",
+        "rubric"
+      ]
+    },
+    {
+      "name": "TestSuiteRunTestAttemptCall",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "artifact"
+      ]
+    },
+    {
+      "name": "TestSuiteRunTestAttemptMetadata",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "sessionId"
+      ]
+    },
+    {
+      "name": "TestSuiteRunTestAttempt",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "scorerResults"
+      ]
+    },
+    {
+      "name": "TestSuiteRunTestResult",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "test",
+        "attempts"
+      ]
+    },
+    {
+      "name": "TestSuiteRun",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "status",
+        "id",
+        "orgId",
+        "testSuiteId",
+        "createdAt",
+        "updatedAt",
+        "testResults"
+      ]
+    },
+    {
+      "name": "TestSuiteRunsPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CreateTestSuiteRunDto",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "UpdateTestSuiteRunDto",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreatePersonalityDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "assistant"
+      ]
+    },
+    {
+      "name": "Personality",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "assistant"
+      ]
+    },
+    {
+      "name": "UpdatePersonalityDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SimulationHookInclude",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SimulationHookWebhookAction",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SimulationHookCallStarted",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "SimulationHookCallEnded",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "on",
+        "do"
+      ]
+    },
+    {
+      "name": "EvaluationPlanItem",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "comparator",
+        "value"
+      ]
+    },
+    {
+      "name": "ScenarioToolMock",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "toolName"
+      ]
+    },
+    {
+      "name": "CreateScenarioDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "name",
+        "instructions",
+        "evaluations"
+      ]
+    },
+    {
+      "name": "Scenario",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "instructions",
+        "evaluations"
+      ]
+    },
+    {
+      "name": "UpdateScenarioDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "SimulationRunSimulationEntry",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SimulationRunSuiteEntry",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SimulationRunTargetAssistant",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SimulationRunTargetSquad",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "SimulationRunTransportConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "CreateSimulationRunDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "simulations",
+        "target"
+      ]
+    },
+    {
+      "name": "SimulationRunItemCounts",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "total",
+        "passed",
+        "failed",
+        "running",
+        "queued",
+        "canceled"
+      ]
+    },
+    {
+      "name": "SimulationRun",
+      "type": "object",
+      "propertyCount": 14,
+      "required": [
+        "id",
+        "orgId",
+        "status",
+        "queuedAt",
+        "createdAt",
+        "updatedAt",
+        "simulations",
+        "target"
+      ]
+    },
+    {
+      "name": "SimulationRunItemCallMonitor",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "SimulationRunItemCallMetadata",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "SimulationRunItemMetadata",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "StructuredOutputEvaluationResult",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "structuredOutputId",
+        "name",
+        "extractedValue",
+        "expectedValue",
+        "comparator",
+        "passed",
+        "required"
+      ]
+    },
+    {
+      "name": "LatencyMetrics",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "turnCount"
+      ]
+    },
+    {
+      "name": "SimulationRunItemResults",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "evaluations",
+        "passed"
+      ]
+    },
+    {
+      "name": "SimulationRunItemImprovementSuggestion",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "issue",
+        "suggestion"
+      ]
+    },
+    {
+      "name": "SimulationRunItemImprovements",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "analysis",
+        "systemPromptSuggestions",
+        "toolSuggestions",
+        "scenarioSuggestions"
+      ]
+    },
+    {
+      "name": "SimulationRunConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "SimulationRunItem",
+      "type": "object",
+      "propertyCount": 23,
+      "required": [
+        "id",
+        "orgId",
+        "simulationId",
+        "status",
+        "queuedAt",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CreateSimulationSuiteDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name",
+        "simulationIds"
+      ]
+    },
+    {
+      "name": "SimulationSuite",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "name",
+        "simulationIds"
+      ]
+    },
+    {
+      "name": "UpdateSimulationSuiteDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "GenerateScenariosDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "GeneratedScenario",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name",
+        "instructions",
+        "category",
+        "reasoning"
+      ]
+    },
+    {
+      "name": "GenerateScenariosResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "scenarios",
+        "coverageNotes"
+      ]
+    },
+    {
+      "name": "CreateSimulationDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "scenarioId",
+        "personalityId"
+      ]
+    },
+    {
+      "name": "Simulation",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "scenarioId",
+        "personalityId"
+      ]
+    },
+    {
+      "name": "UpdateSimulationDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "SimulationConcurrencyResponse",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "orgId",
+        "concurrencyLimit",
+        "activeSimulations",
+        "availableToStart",
+        "createdAt",
+        "updatedAt",
+        "isDefault"
+      ]
+    },
+    {
+      "name": "BarInsightMetadata",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "InsightTimeRangeWithStep",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "BarInsight",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "queries",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "InsightTimeRange",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "PieInsight",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "queries",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "LineInsightMetadata",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "LineInsight",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "queries",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TextInsight",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "queries",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateBarInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UpdatePieInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "UpdateLineInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UpdateTextInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "CreateBarInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "CreatePieInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "CreateLineInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "CreateTextInsightFromCallTableDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "JSONQueryOnCallTableWithStringTypeColumn",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "table",
+        "column",
+        "operation"
+      ]
+    },
+    {
+      "name": "JSONQueryOnCallTableWithNumberTypeColumn",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "table",
+        "column",
+        "operation"
+      ]
+    },
+    {
+      "name": "JSONQueryOnCallTableWithStructuredOutputColumn",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "table",
+        "column",
+        "operation"
+      ]
+    },
+    {
+      "name": "JSONQueryOnEventsTable",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "table",
+        "on",
+        "operation"
+      ]
+    },
+    {
+      "name": "FilterStringTypeColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "FilterNumberTypeColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "FilterDateTypeColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "FilterStructuredOutputColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "FilterStringArrayTypeColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "FilterNumberArrayTypeColumnOnCallTable",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "EventsTableStringCondition",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "EventsTableNumberCondition",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "EventsTableBooleanCondition",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "column",
+        "operator",
+        "value"
+      ]
+    },
+    {
+      "name": "BarInsightFromCallTable",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "PieInsightFromCallTable",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "LineInsightFromCallTable",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "TextInsightFromCallTable",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "queries"
+      ]
+    },
+    {
+      "name": "InsightFormula",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "formula"
+      ]
+    },
+    {
+      "name": "InsightRunFormatPlan",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "InsightRunDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "InsightRunResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "id",
+        "insightId",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "Insight",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "InsightPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "CreateEvalDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "messages",
+        "type"
+      ]
+    },
+    {
+      "name": "Eval",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "messages",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "type"
+      ]
+    },
+    {
+      "name": "EvalModelListOptions",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "provider"
+      ]
+    },
+    {
+      "name": "EvalUserEditable",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "messages",
+        "type"
+      ]
+    },
+    {
+      "name": "ChatEvalAssistantMessageMockToolCall",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "ChatEvalAssistantMessageMock",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "role"
+      ]
+    },
+    {
+      "name": "ChatEvalSystemMessageMock",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role",
+        "content"
+      ]
+    },
+    {
+      "name": "ChatEvalToolResponseMessageMock",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role",
+        "content"
+      ]
+    },
+    {
+      "name": "ChatEvalUserMessageMock",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role",
+        "content"
+      ]
+    },
+    {
+      "name": "AssistantMessageEvaluationContinuePlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ChatEvalAssistantMessageEvaluation",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "role",
+        "judgePlan"
+      ]
+    },
+    {
+      "name": "EvalOpenAIModel",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "model",
+        "messages"
+      ]
+    },
+    {
+      "name": "EvalAnthropicModel",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "model",
+        "messages"
+      ]
+    },
+    {
+      "name": "EvalGoogleModel",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "model",
+        "messages"
+      ]
+    },
+    {
+      "name": "EvalGroqModel",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "provider",
+        "model",
+        "messages"
+      ]
+    },
+    {
+      "name": "EvalCustomModel",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "url",
+        "model",
+        "messages"
+      ]
+    },
+    {
+      "name": "AssistantMessageJudgePlanAI",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "model",
+        "type"
+      ]
+    },
+    {
+      "name": "ChatEvalToolResponseMessageEvaluation",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role",
+        "judgePlan"
+      ]
+    },
+    {
+      "name": "AssistantMessageJudgePlanExact",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "content"
+      ]
+    },
+    {
+      "name": "AssistantMessageJudgePlanRegex",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "content"
+      ]
+    },
+    {
+      "name": "GetEvalPaginatedDTO",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "EvalPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "UpdateEvalDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateEvalRunDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "target",
+        "type"
+      ]
+    },
+    {
+      "name": "EvalRunResult",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "status",
+        "messages",
+        "startedAt",
+        "endedAt"
+      ]
+    },
+    {
+      "name": "EvalRun",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "status",
+        "endedReason",
+        "target",
+        "id",
+        "orgId",
+        "createdAt",
+        "startedAt",
+        "endedAt",
+        "results",
+        "cost",
+        "costs",
+        "type"
+      ]
+    },
+    {
+      "name": "EvalRunPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "GetEvalRunPaginatedDTO",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "EvalRunTargetAssistant",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "EvalRunTargetSquad",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "Scorecard",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "metrics"
+      ]
+    },
+    {
+      "name": "ScorecardPaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "UpdateScorecardDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateOrgDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "AutoReloadPlan",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "credits",
+        "threshold"
+      ]
+    },
+    {
+      "name": "InvoicePlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Subscription",
+      "type": "object",
+      "propertyCount": 43,
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "type",
+        "status",
+        "credits",
+        "concurrencyCounter",
+        "concurrencyLimitIncluded",
+        "concurrencyLimitPurchased"
+      ]
+    },
+    {
+      "name": "Org",
+      "type": "object",
+      "propertyCount": 18,
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateOrgDTO",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "User",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "email"
+      ]
+    },
+    {
+      "name": "InviteUserDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "emails",
+        "role"
+      ]
+    },
+    {
+      "name": "UpdateUserRoleDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "userId",
+        "role"
+      ]
+    },
+    {
+      "name": "JwtResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "accessToken",
+        "aud"
+      ]
+    },
+    {
+      "name": "TokenRestrictions",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateTokenDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Token",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateTokenDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AnthropicCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "AWSStsAuthenticationArtifact",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "externalId"
+      ]
+    },
+    {
+      "name": "AWSStsAssumeRoleUser",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AWSStsCredentials",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "AWSStsAuthenticationSession",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "AnthropicBedrockCredential",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "region",
+        "authenticationPlan",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "AnyscaleCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "AssemblyAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "AzureCredential",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "service",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "AzureOpenAICredential",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "region",
+        "models",
+        "openAIKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "openAIEndpoint"
+      ]
+    },
+    {
+      "name": "ByoSipTrunkCredential",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "gateways"
+      ]
+    },
+    {
+      "name": "CartesiaCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CerebrasCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CloudflareCredential",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "Oauth2AuthenticationSession",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CustomLLMCredential",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "DeepgramCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "DeepInfraCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "DeepSeekCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "ElevenLabsCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GcpCredential",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "gcpKey"
+      ]
+    },
+    {
+      "name": "GladiaCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GroqCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "HumeCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "InflectionAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "LangfuseCredential",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "publicKey",
+        "apiKey",
+        "apiUrl",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "LmntCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "MakeCredential",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "teamId",
+        "region",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "MistralCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "NeuphonicCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "OpenAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "OpenRouterCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "PerplexityAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "PlayHTCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "userId"
+      ]
+    },
+    {
+      "name": "RimeAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "RunpodCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "WellSaidCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "S3Credential",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "provider",
+        "awsAccessKeyId",
+        "awsSecretAccessKey",
+        "region",
+        "s3BucketName",
+        "s3PathPrefix",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SmallestAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SonioxCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SpeechmaticsCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SupabaseCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TavusCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TogetherAICredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "TwilioCredential",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "accountSid"
+      ]
+    },
+    {
+      "name": "VonageCredential",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "vonageApplicationPrivateKey",
+        "provider",
+        "apiSecret",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "vonageApplicationId",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "WebhookCredential",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "provider",
+        "authenticationPlan",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "authenticationSession"
+      ]
+    },
+    {
+      "name": "SpkiPemPublicKeyConfig",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "format",
+        "pem"
+      ]
+    },
+    {
+      "name": "PublicKeyEncryptionPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "algorithm",
+        "publicKey"
+      ]
+    },
+    {
+      "name": "CustomCredential",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "provider",
+        "authenticationPlan",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "authenticationSession"
+      ]
+    },
+    {
+      "name": "XAiCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleCalendarOAuth2ClientCredential",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "provider",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleCalendarOAuth2AuthorizationCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "authorizationId",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoogleSheetsOAuth2AuthorizationCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "authorizationId",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SlackOAuth2AuthorizationCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "authorizationId",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "GoHighLevelMCPCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "authenticationSession",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "InworldCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "apiKey",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "EmailCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "email",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SlackWebhookCredential",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "provider",
+        "webhookUrl",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "CreateCerebrasCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateGoogleCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateHumeCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateInflectionAICredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateMistralCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateNeuphonicCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateWellSaidCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateSonioxCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateSpeechmaticsCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateCustomCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "provider",
+        "authenticationPlan"
+      ]
+    },
+    {
+      "name": "CreateGoHighLevelMCPCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "authenticationSession"
+      ]
+    },
+    {
+      "name": "CreateInworldCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "apiKey"
+      ]
+    },
+    {
+      "name": "CreateEmailCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "email"
+      ]
+    },
+    {
+      "name": "CreateSlackWebhookCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "provider",
+        "webhookUrl"
+      ]
+    },
+    {
+      "name": "UpdateAnthropicCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateAnthropicBedrockCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateAnyscaleCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateAssemblyAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateAzureCredentialDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "UpdateAzureOpenAICredentialDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "UpdateByoSipTrunkCredentialDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UpdateCartesiaCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateCerebrasCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateCloudflareCredentialDTO",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "UpdateCustomLLMCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateDeepgramCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateDeepInfraCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateDeepSeekCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateElevenLabsCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGcpCredentialDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateGladiaCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGroqCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateHumeCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateInflectionAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateLangfuseCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "UpdateLmntCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateMakeCredentialDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "UpdateMistralCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateNeuphonicCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateOpenAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateOpenRouterCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdatePerplexityAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdatePlayHTCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateRimeAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateRunpodCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateWellSaidCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateS3CredentialDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "UpdateTogetherAICredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateTwilioCredentialDTO",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "UpdateVonageCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateWebhookCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateCustomCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateXAiCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleCalendarOAuth2ClientCredentialDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleCalendarOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoogleSheetsOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSlackOAuth2AuthorizationCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateGoHighLevelMCPCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateInworldCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateEmailCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSlackWebhookCredentialDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSonioxCredentialDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CredentialSessionResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "sessionToken"
+      ]
+    },
+    {
+      "name": "CredentialEndUser",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "endUserId",
+        "organizationId"
+      ]
+    },
+    {
+      "name": "CredentialSessionError",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "description"
+      ]
+    },
+    {
+      "name": "CredentialWebhookDTO",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "operation",
+        "from",
+        "connectionId",
+        "authMode",
+        "providerConfigKey",
+        "provider",
+        "environment",
+        "success",
+        "endUser"
+      ]
+    },
+    {
+      "name": "CredentialActionRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "action_name",
+        "input"
+      ]
+    },
+    {
+      "name": "HMACAuthenticationPlan",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "secretKey",
+        "algorithm"
+      ]
+    },
+    {
+      "name": "BearerAuthenticationPlan",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "token"
+      ]
+    },
+    {
+      "name": "AWSIAMCredentialsAuthenticationPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "awsAccessKeyId",
+        "awsSecretAccessKey"
+      ]
+    },
+    {
+      "name": "AWSStsAuthenticationPlan",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "roleArn"
+      ]
+    },
+    {
+      "name": "ToolTemplateSetup",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "title"
+      ]
+    },
+    {
+      "name": "MakeToolProviderDetails",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GhlToolProviderDetails",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "FunctionToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoogleCalendarCreateEventToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoogleSheetsRowAppendToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarAvailabilityToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarEventCreateToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactCreateToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactGetToolProviderDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ToolTemplateMetadata",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateToolTemplateDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "Template",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "UpdateToolTemplateDTO",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "VoiceLibrary",
+      "type": "object",
+      "propertyCount": 20,
+      "required": [
+        "id",
+        "orgId",
+        "isPublic",
+        "isDeleted",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "SyncVoiceLibraryDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateSesameVoiceDTO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CartesiaPronunciationDictItem",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "text",
+        "alias"
+      ]
+    },
+    {
+      "name": "CartesiaPronunciationDictionary",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "id",
+        "name",
+        "ownerId",
+        "pinned",
+        "items",
+        "createdAt"
+      ]
+    },
+    {
+      "name": "ElevenLabsPronunciationDictionary",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "pronunciationDictionaryId",
+        "dictionaryName",
+        "createdBy",
+        "creationTimeUnix",
+        "versionId",
+        "versionRulesNum"
+      ]
+    },
+    {
+      "name": "ProviderResource",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "id",
+        "orgId",
+        "createdAt",
+        "updatedAt",
+        "provider",
+        "resourceName",
+        "resourceId",
+        "resource"
+      ]
+    },
+    {
+      "name": "ProviderResourcePaginatedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "results",
+        "metadata"
+      ]
+    },
+    {
+      "name": "VoiceLibraryVoiceResponse",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "voiceId",
+        "name"
+      ]
+    },
+    {
+      "name": "AddVoiceToProviderDTO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ownerId",
+        "voiceId",
+        "name"
+      ]
+    },
+    {
+      "name": "CloneVoiceDTO",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name",
+        "files"
+      ]
+    },
+    {
+      "name": "VariableValueGroupBy",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "key"
+      ]
+    },
+    {
+      "name": "TimeRange",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "AnalyticsOperation",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "operation",
+        "column"
+      ]
+    },
+    {
+      "name": "AnalyticsQuery",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "table",
+        "name",
+        "operations"
+      ]
+    },
+    {
+      "name": "AnalyticsQueryDTO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "queries"
+      ]
+    },
+    {
+      "name": "AnalyticsQueryResult",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "timeRange",
+        "result"
+      ]
+    },
+    {
+      "name": "ClientMessageWorkflowNodeStarted",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "node"
+      ]
+    },
+    {
+      "name": "ClientMessageAssistantStarted",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "newAssistant"
+      ]
+    },
+    {
+      "name": "ClientMessageConversationUpdate",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "messagesOpenAIFormatted"
+      ]
+    },
+    {
+      "name": "ClientMessageHang",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientMessageMetadata",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "metadata"
+      ]
+    },
+    {
+      "name": "ClientMessageModelOutput",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "output"
+      ]
+    },
+    {
+      "name": "ClientMessageSpeechUpdate",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "status",
+        "role"
+      ]
+    },
+    {
+      "name": "ClientMessageTranscript",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "role",
+        "transcriptType",
+        "transcript"
+      ]
+    },
+    {
+      "name": "ClientMessageToolCalls",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "toolWithToolCallList",
+        "toolCallList"
+      ]
+    },
+    {
+      "name": "ClientMessageToolCallsResult",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "toolCallResult"
+      ]
+    },
+    {
+      "name": "ClientMessageTransferUpdate",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientMessageUserInterrupted",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientMessageLanguageChangeDetected",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "language"
+      ]
+    },
+    {
+      "name": "ClientMessageVoiceInput",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "input"
+      ]
+    },
+    {
+      "name": "ClientMessageAssistantSpeech",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "text"
+      ]
+    },
+    {
+      "name": "ClientMessageChatCreated",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "chat"
+      ]
+    },
+    {
+      "name": "ClientMessageChatDeleted",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "chat"
+      ]
+    },
+    {
+      "name": "ClientMessageSessionCreated",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ClientMessageSessionUpdated",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ClientMessageSessionDeleted",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ClientMessageCallDeleted",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientMessageCallDeleteFailed",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientMessage",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "message"
+      ]
+    },
+    {
+      "name": "ServerMessageAssistantRequest",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageConversationUpdate",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "messagesOpenAIFormatted"
+      ]
+    },
+    {
+      "name": "ServerMessageEndOfCallReport",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "type",
+        "endedReason",
+        "artifact",
+        "analysis"
+      ]
+    },
+    {
+      "name": "ServerMessageHandoffDestinationRequest",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "parameters"
+      ]
+    },
+    {
+      "name": "ServerMessageHang",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageKnowledgeBaseRequest",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "messagesOpenAIFormatted"
+      ]
+    },
+    {
+      "name": "ServerMessageModelOutput",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "output"
+      ]
+    },
+    {
+      "name": "ServerMessagePhoneCallControl",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "request"
+      ]
+    },
+    {
+      "name": "ServerMessageSpeechUpdate",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "type",
+        "status",
+        "role"
+      ]
+    },
+    {
+      "name": "ServerMessageStatusUpdate",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "type",
+        "status"
+      ]
+    },
+    {
+      "name": "ServerMessageToolCalls",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "toolWithToolCallList",
+        "toolCallList"
+      ]
+    },
+    {
+      "name": "ServerMessageTransferDestinationRequest",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageTransferUpdate",
+      "type": "object",
+      "propertyCount": 13,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageTranscript",
+      "type": "object",
+      "propertyCount": 14,
+      "required": [
+        "type",
+        "role",
+        "transcriptType",
+        "transcript"
+      ]
+    },
+    {
+      "name": "ServerMessageUserInterrupted",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageLanguageChangeDetected",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "language"
+      ]
+    },
+    {
+      "name": "ServerMessageVoiceInput",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "input"
+      ]
+    },
+    {
+      "name": "ServerMessageAssistantSpeech",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "type",
+        "text"
+      ]
+    },
+    {
+      "name": "ServerMessageVoiceRequest",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "text",
+        "sampleRate"
+      ]
+    },
+    {
+      "name": "ServerMessageCallEndpointingRequest",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "messagesOpenAIFormatted"
+      ]
+    },
+    {
+      "name": "ServerMessageChatCreated",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "chat"
+      ]
+    },
+    {
+      "name": "ServerMessageChatDeleted",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "chat"
+      ]
+    },
+    {
+      "name": "ServerMessageSessionCreated",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ServerMessageSessionUpdated",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ServerMessageSessionDeleted",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "session"
+      ]
+    },
+    {
+      "name": "ServerMessageCallDeleted",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessageCallDeleteFailed",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ServerMessage",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "message"
+      ]
+    },
+    {
+      "name": "ServerMessageResponseAssistantRequest",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "ServerMessageResponseHandoffDestinationRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "destination"
+      ]
+    },
+    {
+      "name": "KnowledgeBaseResponseDocument",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "content",
+        "similarity"
+      ]
+    },
+    {
+      "name": "ServerMessageResponseKnowledgeBaseRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ToolCallResult",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "name",
+        "toolCallId"
+      ]
+    },
+    {
+      "name": "ServerMessageResponseToolCalls",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ServerMessageResponseTransferDestinationRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ServerMessageResponseVoiceRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "ServerMessageResponseCallEndpointingRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "timeoutSeconds"
+      ]
+    },
+    {
+      "name": "ServerMessageResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "messageResponse"
+      ]
+    },
+    {
+      "name": "ClientInboundMessageAddMessage",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "message"
+      ]
+    },
+    {
+      "name": "ClientInboundMessageControl",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "control"
+      ]
+    },
+    {
+      "name": "ClientInboundMessageSay",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ClientInboundMessageEndCall",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientInboundMessageTransfer",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "ClientInboundMessageSendTransportMessage",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "message"
+      ]
+    },
+    {
+      "name": "ClientInboundMessage",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "message"
+      ]
+    },
+    {
+      "name": "BotMessage",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "role",
+        "message",
+        "time",
+        "endTime",
+        "secondsFromStart"
+      ]
+    },
+    {
+      "name": "ToolCallMessage",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "role",
+        "toolCalls",
+        "message",
+        "time",
+        "secondsFromStart"
+      ]
+    },
+    {
+      "name": "ToolCallResultMessageWarning",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "tokenCount",
+        "threshold"
+      ]
+    },
+    {
+      "name": "ToolCallResultMessage",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "role",
+        "toolCallId",
+        "name",
+        "result",
+        "time",
+        "secondsFromStart"
+      ]
+    },
+    {
+      "name": "TransportCost",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "minutes",
+        "cost"
+      ]
+    },
+    {
+      "name": "TranscriberCost",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "transcriber",
+        "minutes",
+        "cost"
+      ]
+    },
+    {
+      "name": "ModelCost",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "type",
+        "model",
+        "promptTokens",
+        "completionTokens",
+        "cost"
+      ]
+    },
+    {
+      "name": "VoiceCost",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "voice",
+        "characters",
+        "cost"
+      ]
+    },
+    {
+      "name": "VapiCost",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "subType",
+        "minutes",
+        "cost"
+      ]
+    },
+    {
+      "name": "AnalysisCost",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "analysisType",
+        "model",
+        "promptTokens",
+        "completionTokens",
+        "cost"
+      ]
+    },
+    {
+      "name": "VoicemailDetectionCost",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "type",
+        "model",
+        "provider",
+        "promptTextTokens",
+        "promptAudioTokens",
+        "completionTextTokens",
+        "completionAudioTokens",
+        "cost"
+      ]
+    },
+    {
+      "name": "KnowledgeBaseCost",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "model",
+        "promptTokens",
+        "completionTokens",
+        "cost"
+      ]
+    },
+    {
+      "name": "ChatCost",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "cost"
+      ]
+    },
+    {
+      "name": "SessionCost",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "type",
+        "cost"
+      ]
+    },
+    {
+      "name": "FunctionToolWithToolCall",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GhlToolWithToolCall",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "toolCall",
+        "metadata"
+      ]
+    },
+    {
+      "name": "MakeToolWithToolCall",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "type",
+        "toolCall",
+        "metadata"
+      ]
+    },
+    {
+      "name": "BashToolWithToolCall",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "subType",
+        "toolCall",
+        "name"
+      ]
+    },
+    {
+      "name": "ComputerToolWithToolCall",
+      "type": "object",
+      "propertyCount": 10,
+      "required": [
+        "type",
+        "subType",
+        "toolCall",
+        "name",
+        "displayWidthPx",
+        "displayHeightPx"
+      ]
+    },
+    {
+      "name": "TextEditorToolWithToolCall",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "type",
+        "subType",
+        "toolCall",
+        "name"
+      ]
+    },
+    {
+      "name": "GoogleCalendarCreateEventToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GoogleSheetsRowAppendToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarAvailabilityToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GoHighLevelCalendarEventCreateToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactCreateToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "GoHighLevelContactGetToolWithToolCall",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "type",
+        "toolCall"
+      ]
+    },
+    {
+      "name": "VapiSipTransportMessage",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "transport",
+        "sipVerb"
+      ]
+    },
+    {
+      "name": "TwilioTransportMessage",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "transport",
+        "twiml"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/assistant",
+      "operationId": "AssistantController_findAll",
+      "summary": "List Assistants",
+      "tags": [
+        "Assistants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/assistant",
+      "operationId": "AssistantController_create",
+      "summary": "Create Assistant",
+      "tags": [
+        "Assistants"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/assistant/{id}",
+      "operationId": "AssistantController_findOne",
+      "summary": "Get Assistant",
+      "tags": [
+        "Assistants"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/assistant/{id}",
+      "operationId": "AssistantController_remove",
+      "summary": "Delete Assistant",
+      "tags": [
+        "Assistants"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/assistant/{id}",
+      "operationId": "AssistantController_update",
+      "summary": "Update Assistant",
+      "tags": [
+        "Assistants"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/squad",
+      "operationId": "SquadController_findAll",
+      "summary": "List Squads",
+      "tags": [
+        "Squads"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/squad",
+      "operationId": "SquadController_create",
+      "summary": "Create Squad",
+      "tags": [
+        "Squads"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/squad/{id}",
+      "operationId": "SquadController_findOne",
+      "summary": "Get Squad",
+      "tags": [
+        "Squads"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/squad/{id}",
+      "operationId": "SquadController_remove",
+      "summary": "Delete Squad",
+      "tags": [
+        "Squads"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/squad/{id}",
+      "operationId": "SquadController_update",
+      "summary": "Update Squad",
+      "tags": [
+        "Squads"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/call",
+      "operationId": "CallController_findAll",
+      "summary": "List Calls",
+      "tags": [
+        "Calls"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/call",
+      "operationId": "CallController_create",
+      "summary": "Create Call",
+      "tags": [
+        "Calls"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/call/{id}",
+      "operationId": "CallController_findOne",
+      "summary": "Get Call",
+      "tags": [
+        "Calls"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/call/{id}",
+      "operationId": "CallController_deleteCallData",
+      "summary": "Delete Call",
+      "tags": [
+        "Calls"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/call/{id}",
+      "operationId": "CallController_update",
+      "summary": "Update Call",
+      "tags": [
+        "Calls"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/chat",
+      "operationId": "ChatController_listChats",
+      "summary": "List Chats",
+      "tags": [
+        "Chats"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/chat",
+      "operationId": "ChatController_createChat",
+      "summary": "Create Chat",
+      "tags": [
+        "Chats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/chat/{id}",
+      "operationId": "ChatController_getChat",
+      "summary": "Get Chat",
+      "tags": [
+        "Chats"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/chat/{id}",
+      "operationId": "ChatController_deleteChat",
+      "summary": "Delete Chat",
+      "tags": [
+        "Chats"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/chat/responses",
+      "operationId": "ChatController_createOpenAIChat",
+      "summary": "Create Chat (OpenAI Compatible)",
+      "tags": [
+        "Chats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/campaign",
+      "operationId": "CampaignController_findAll",
+      "summary": "List Campaigns",
+      "tags": [
+        "Campaigns"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/campaign",
+      "operationId": "CampaignController_create",
+      "summary": "Create Campaign",
+      "tags": [
+        "Campaigns"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/campaign/{id}",
+      "operationId": "CampaignController_findOne",
+      "summary": "Get Campaign",
+      "tags": [
+        "Campaigns"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/campaign/{id}",
+      "operationId": "CampaignController_remove",
+      "summary": "Delete Campaign",
+      "tags": [
+        "Campaigns"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/campaign/{id}",
+      "operationId": "CampaignController_update",
+      "summary": "Update Campaign",
+      "tags": [
+        "Campaigns"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/session",
+      "operationId": "SessionController_findAllPaginated",
+      "summary": "List Sessions",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/session",
+      "operationId": "SessionController_create",
+      "summary": "Create Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/session/{id}",
+      "operationId": "SessionController_findOne",
+      "summary": "Get Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/session/{id}",
+      "operationId": "SessionController_remove",
+      "summary": "Delete Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/session/{id}",
+      "operationId": "SessionController_update",
+      "summary": "Update Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/phone-number",
+      "operationId": "PhoneNumberController_findAll",
+      "summary": "List Phone Numbers",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/phone-number",
+      "operationId": "PhoneNumberController_create",
+      "summary": "Create Phone Number",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v2/phone-number",
+      "operationId": "PhoneNumberController_findAllPaginated",
+      "summary": "List Phone Numbers",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/phone-number/{id}",
+      "operationId": "PhoneNumberController_findOne",
+      "summary": "Get Phone Number",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/phone-number/{id}",
+      "operationId": "PhoneNumberController_remove",
+      "summary": "Delete Phone Number",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/phone-number/{id}",
+      "operationId": "PhoneNumberController_update",
+      "summary": "Update Phone Number",
+      "tags": [
+        "Phone Numbers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tool",
+      "operationId": "ToolController_findAll",
+      "summary": "List Tools",
+      "tags": [
+        "Tools"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/tool",
+      "operationId": "ToolController_create",
+      "summary": "Create Tool",
+      "tags": [
+        "Tools"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tool/{id}",
+      "operationId": "ToolController_findOne",
+      "summary": "Get Tool",
+      "tags": [
+        "Tools"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/tool/{id}",
+      "operationId": "ToolController_remove",
+      "summary": "Delete Tool",
+      "tags": [
+        "Tools"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/tool/{id}",
+      "operationId": "ToolController_update",
+      "summary": "Update Tool",
+      "tags": [
+        "Tools"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/file",
+      "operationId": "FileController_findAll",
+      "summary": "List Files",
+      "tags": [
+        "Files"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/file",
+      "operationId": "FileController_create",
+      "summary": "Upload File",
+      "tags": [
+        "Files"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/file/{id}",
+      "operationId": "FileController_findOne",
+      "summary": "Get File",
+      "tags": [
+        "Files"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/file/{id}",
+      "operationId": "FileController_remove",
+      "summary": "Delete File",
+      "tags": [
+        "Files"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/file/{id}",
+      "operationId": "FileController_update",
+      "summary": "Update File",
+      "tags": [
+        "Files"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/structured-output",
+      "operationId": "StructuredOutputController_findAll",
+      "summary": "List Structured Outputs",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/structured-output",
+      "operationId": "StructuredOutputController_create",
+      "summary": "Create Structured Output",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/structured-output/{id}",
+      "operationId": "StructuredOutputController_findOne",
+      "summary": "Get Structured Output",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/structured-output/{id}",
+      "operationId": "StructuredOutputController_remove",
+      "summary": "Delete Structured Output",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/structured-output/{id}",
+      "operationId": "StructuredOutputController_update",
+      "summary": "Update Structured Output",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/structured-output/run",
+      "operationId": "StructuredOutputController_run",
+      "summary": "Run Structured Output",
+      "tags": [
+        "Structured Outputs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reporting/insight",
+      "operationId": "InsightController_findAll",
+      "summary": "Get Insights",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/reporting/insight",
+      "operationId": "InsightController_create",
+      "summary": "Create Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reporting/insight/{id}",
+      "operationId": "InsightController_findOne",
+      "summary": "Get Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/reporting/insight/{id}",
+      "operationId": "InsightController_remove",
+      "summary": "Delete Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/reporting/insight/{id}",
+      "operationId": "InsightController_update",
+      "summary": "Update Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/reporting/insight/{id}/run",
+      "operationId": "InsightController_run",
+      "summary": "Run Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/reporting/insight/preview",
+      "operationId": "InsightController_preview",
+      "summary": "Preview Insight",
+      "tags": [
+        "Insight"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/eval",
+      "operationId": "EvalController_getPaginated",
+      "summary": "List Evals",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/eval",
+      "operationId": "EvalController_create",
+      "summary": "Create Eval",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/eval/{id}",
+      "operationId": "EvalController_get",
+      "summary": "Get Eval",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/eval/{id}",
+      "operationId": "EvalController_remove",
+      "summary": "Delete Eval",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/eval/{id}",
+      "operationId": "EvalController_update",
+      "summary": "Update Eval",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/eval/run/{id}",
+      "operationId": "EvalController_getRun",
+      "summary": "Get Eval Run",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/eval/run/{id}",
+      "operationId": "EvalController_removeRun",
+      "summary": "Delete Eval Run",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/eval/run",
+      "operationId": "EvalController_getRunsPaginated",
+      "summary": "List Eval Runs",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/eval/run",
+      "operationId": "EvalController_run",
+      "summary": "Create Eval Run",
+      "tags": [
+        "Eval"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/observability/scorecard/{id}",
+      "operationId": "ScorecardController_get",
+      "summary": "Get Scorecard",
+      "tags": [
+        "Observability/Scorecard"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/observability/scorecard/{id}",
+      "operationId": "ScorecardController_remove",
+      "summary": "Delete Scorecard",
+      "tags": [
+        "Observability/Scorecard"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/observability/scorecard/{id}",
+      "operationId": "ScorecardController_update",
+      "summary": "Update Scorecard",
+      "tags": [
+        "Observability/Scorecard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/observability/scorecard",
+      "operationId": "ScorecardController_getPaginated",
+      "summary": "List Scorecards",
+      "tags": [
+        "Observability/Scorecard"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/observability/scorecard",
+      "operationId": "ScorecardController_create",
+      "summary": "Create Scorecard",
+      "tags": [
+        "Observability/Scorecard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/provider/{provider}/{resourceName}",
+      "operationId": "ProviderResourceController_getProviderResourcesPaginated",
+      "summary": "List Provider Resources",
+      "tags": [
+        "Provider Resources"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/provider/{provider}/{resourceName}",
+      "operationId": "ProviderResourceController_createProviderResource",
+      "summary": "Create Provider Resource",
+      "tags": [
+        "Provider Resources"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/provider/{provider}/{resourceName}/{id}",
+      "operationId": "ProviderResourceController_getProviderResource",
+      "summary": "Get Provider Resource",
+      "tags": [
+        "Provider Resources"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/provider/{provider}/{resourceName}/{id}",
+      "operationId": "ProviderResourceController_deleteProviderResource",
+      "summary": "Delete Provider Resource",
+      "tags": [
+        "Provider Resources"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/provider/{provider}/{resourceName}/{id}",
+      "operationId": "ProviderResourceController_updateProviderResource",
+      "summary": "Update Provider Resource",
+      "tags": [
+        "Provider Resources"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/analytics",
+      "operationId": "AnalyticsController_query",
+      "summary": "Create Analytics Queries",
+      "tags": [
+        "Analytics"
+      ]
+    }
+  ]
+}

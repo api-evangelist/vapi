@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TwilioSMSChatTransport",
+  "title": "TwilioSMSChatTransport",
+  "type": "object",
+  "properties": {
+    "conversationType": {
+      "type": "string",
+      "description": "This is the conversation type of the call (ie, voice or chat).",
+      "default": "chat",
+      "enum": [
+        "chat"
+      ]
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number that will be used to send the SMS.\nIf provided, will create a new session. If not provided, uses existing session's phoneNumberId.\nThe phone number must have SMS enabled and belong to your organization."
+    },
+    "customer": {
+      "description": "This is the customer who will receive the SMS.\nIf provided, will create a new session. If not provided, uses existing session's customer.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "customerId": {
+      "type": "string",
+      "description": "This is the customerId of the customer who will receive the SMS."
+    },
+    "useLLMGeneratedMessageForOutbound": {
+      "type": "boolean",
+      "description": "Whether to use LLM-generated messages for outbound SMS.\nWhen true (default), input is processed by the assistant for a response.\nWhen false, the input text is forwarded directly as the SMS message without LLM processing.\nUseful for sending pre-defined messages or notifications.",
+      "default": true
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of transport to use for sending the chat response.\nCurrently supports 'twilio.sms' for SMS delivery via Twilio.",
+      "enum": [
+        "twilio.sms"
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

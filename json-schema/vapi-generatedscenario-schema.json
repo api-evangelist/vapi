@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeneratedScenario",
+  "title": "GeneratedScenario",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Short descriptive name"
+    },
+    "instructions": {
+      "type": "string",
+      "description": "Instructions for the tester"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "happy_path",
+        "edge_case",
+        "failure_mode"
+      ],
+      "description": "Scenario category"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Why this scenario is valuable"
+    }
+  },
+  "required": [
+    "name",
+    "instructions",
+    "category",
+    "reasoning"
+  ]
+}

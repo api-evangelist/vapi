@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackHumeVoice",
+  "title": "FallbackHumeVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "hume"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used.",
+      "enum": [
+        "octave",
+        "octave2"
+      ],
+      "example": "octave2"
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "The ID of the particular voice you want to use."
+    },
+    "isCustomHumeVoice": {
+      "type": "boolean",
+      "description": "Indicates whether the chosen voice is a preset Hume AI voice or a custom voice.",
+      "example": false
+    },
+    "description": {
+      "type": "string",
+      "description": "Natural language instructions describing how the synthesized speech should sound, including but not limited to tone, intonation, pacing, and accent (e.g., 'a soft, gentle voice with a strong British accent').\n\nIf a Voice is specified in the request, this description serves as acting instructions.\nIf no Voice is specified, a new voice is generated based on this description."
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

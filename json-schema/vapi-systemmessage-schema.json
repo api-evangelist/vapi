@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SystemMessage",
+  "title": "SystemMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the system in the conversation."
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content from the system."
+    },
+    "time": {
+      "type": "number",
+      "description": "The timestamp when the message was sent."
+    },
+    "secondsFromStart": {
+      "type": "number",
+      "description": "The number of seconds from the start of the conversation."
+    }
+  },
+  "required": [
+    "role",
+    "message",
+    "time",
+    "secondsFromStart"
+  ]
+}

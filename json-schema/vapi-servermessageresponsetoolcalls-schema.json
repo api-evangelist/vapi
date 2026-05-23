@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseToolCalls",
+  "title": "ServerMessageResponseToolCalls",
+  "type": "object",
+  "properties": {
+    "results": {
+      "description": "These are the results of the \"tool-calls\" message.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ToolCallResult"
+      }
+    },
+    "error": {
+      "type": "string",
+      "description": "This is the error message if the tool call was not successful."
+    }
+  }
+}

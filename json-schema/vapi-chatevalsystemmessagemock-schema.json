@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalSystemMessageMock",
+  "title": "ChatEvalSystemMessageMock",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "system"
+      ],
+      "description": "This is the role of the message author.\nFor a mock system message, the role is always 'system'\n@default 'system'",
+      "default": "system"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the system message that would have been added in the middle of the conversation.\nDo not include the assistant prompt as a part of this message. It will automatically be fetched during runtime.",
+      "example": "You are a helpful assistant."
+    }
+  },
+  "required": [
+    "role",
+    "content"
+  ]
+}

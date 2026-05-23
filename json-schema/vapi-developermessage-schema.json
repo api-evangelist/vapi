@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeveloperMessage",
+  "title": "DeveloperMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "This is the role of the message author",
+      "default": "developer",
+      "enum": [
+        "developer"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the developer message",
+      "maxLength": 10000
+    },
+    "name": {
+      "type": "string",
+      "description": "This is an optional name for the participant",
+      "maxLength": 40
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is an optional metadata for the message"
+    }
+  },
+  "required": [
+    "role",
+    "content"
+  ]
+}

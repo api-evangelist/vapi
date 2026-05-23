@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TokenRestrictions",
+  "title": "TokenRestrictions",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "This determines whether the token is enabled or disabled. Default is true, it's enabled."
+    },
+    "allowedOrigins": {
+      "description": "This determines the allowed origins for this token. Validates the `Origin` header. Default is any origin.\n\nOnly relevant for `public` tokens.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowedAssistantIds": {
+      "description": "This determines which assistantIds can be used when creating a call. Default is any assistantId.\n\nOnly relevant for `public` tokens.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowTransientAssistant": {
+      "type": "boolean",
+      "description": "This determines whether transient assistants can be used when creating a call. Default is true.\n\nIf `allowedAssistantIds` is provided, this is automatically false.\n\nOnly relevant for `public` tokens."
+    }
+  }
+}

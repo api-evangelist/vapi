@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ArtifactPlan",
+  "title": "ArtifactPlan",
+  "type": "object",
+  "properties": {
+    "recordingEnabled": {
+      "type": "boolean",
+      "description": "This determines whether assistant's calls are recorded. Defaults to true.\n\nUsage:\n- If you don't want to record the calls, set this to false.\n- If you want to record the calls when `assistant.hipaaEnabled` (deprecated) or `assistant.compliancePlan.hipaaEnabled` explicity set this to true and make sure to provide S3 or GCP credentials on the Provider Credentials page in the Dashboard.\n\nYou can find the recording at `call.artifact.recordingUrl` and `call.artifact.stereoRecordingUrl` after the call is ended.\n\n@default true",
+      "example": true
+    },
+    "recordingFormat": {
+      "type": "string",
+      "description": "This determines the format of the recording. Defaults to `wav;l16`.\n\n@default 'wav;l16'",
+      "enum": [
+        "wav;l16",
+        "mp3"
+      ]
+    },
+    "recordingUseCustomStorageEnabled": {
+      "type": "boolean",
+      "description": "This determines whether to use custom storage (S3 or GCP) for call recordings when storage credentials are configured.\n\nWhen set to false, recordings will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.\n\nUsage:\n- Set to false if you have custom storage configured but want to store recordings on Vapi's storage for this assistant.\n- Set to true (or leave unset) to use your custom storage for recordings when available.\n\n@default true",
+      "example": true
+    },
+    "videoRecordingEnabled": {
+      "type": "boolean",
+      "description": "This determines whether the video is recorded during the call. Defaults to false. Only relevant for `webCall` type.\n\nYou can find the video recording at `call.artifact.videoRecordingUrl` after the call is ended.\n\n@default false",
+      "example": false
+    },
+    "fullMessageHistoryEnabled": {
+      "type": "boolean",
+      "description": "This determines whether the artifact contains the full message history, even after handoff context engineering. Defaults to false.",
+      "example": false
+    },
+    "pcapEnabled": {
+      "type": "boolean",
+      "description": "This determines whether the SIP packet capture is enabled. Defaults to true. Only relevant for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`.\n\nYou can find the packet capture at `call.artifact.pcapUrl` after the call is ended.\n\n@default true",
+      "example": true
+    },
+    "pcapS3PathPrefix": {
+      "type": "string",
+      "description": "This is the path where the SIP packet capture will be uploaded. This is only used if you have provided S3 or GCP credentials on the Provider Credentials page in the Dashboard.\n\nIf credential.s3PathPrefix or credential.bucketPlan.path is set, this will append to it.\n\nUsage:\n- If you want to upload the packet capture to a specific path, set this to the path. Example: `/my-assistant-captures`.\n- If you want to upload the packet capture to the root of the bucket, set this to `/`.\n\n@default '/'",
+      "example": "/pcaps"
+    },
+    "pcapUseCustomStorageEnabled": {
+      "type": "boolean",
+      "description": "This determines whether to use custom storage (S3 or GCP) for SIP packet captures when storage credentials are configured.\n\nWhen set to false, packet captures will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.\n\nUsage:\n- Set to false if you have custom storage configured but want to store packet captures on Vapi's storage for this assistant.\n- Set to true (or leave unset) to use your custom storage for packet captures when available.\n\n@default true",
+      "example": true
+    },
+    "loggingEnabled": {
+      "type": "boolean",
+      "description": "This determines whether the call logs are enabled. Defaults to true.\n\n@default true",
+      "example": true
+    },
+    "loggingUseCustomStorageEnabled": {
+      "type": "boolean",
+      "description": "This determines whether to use custom storage (S3 or GCP) for call logs when storage credentials are configured.\n\nWhen set to false, logs will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.\n\nUsage:\n- Set to false if you have custom storage configured but want to store logs on Vapi's storage for this assistant.\n- Set to true (or leave unset) to use your custom storage for logs when available.\n\n@default true",
+      "example": true
+    },
+    "transcriptPlan": {
+      "description": "This is the plan for `call.artifact.transcript`. To disable, set `transcriptPlan.enabled` to false.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TranscriptPlan"
+        }
+      ]
+    },
+    "recordingPath": {
+      "type": "string",
+      "description": "This is the path where the recording will be uploaded. This is only used if you have provided S3 or GCP credentials on the Provider Credentials page in the Dashboard.\n\nIf credential.s3PathPrefix or credential.bucketPlan.path is set, this will append to it.\n\nUsage:\n- If you want to upload the recording to a specific path, set this to the path. Example: `/my-assistant-recordings`.\n- If you want to upload the recording to the root of the bucket, set this to `/`.\n\n@default '/'"
+    },
+    "structuredOutputIds": {
+      "description": "This is an array of structured output IDs to be calculated during the call.\nThe outputs will be extracted and stored in `call.artifact.structuredOutputs` after the call is ended.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structuredOutputs": {
+      "description": "This is an array of transient structured outputs to be calculated during the call.\nThe outputs will be extracted and stored in `call.artifact.structuredOutputs` after the call is ended.\nUse this to provide inline structured output configurations instead of referencing existing ones via structuredOutputIds.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CreateStructuredOutputDTO"
+      }
+    },
+    "scorecardIds": {
+      "description": "This is an array of scorecard IDs that will be evaluated based on the structured outputs extracted during the call.\nThe scorecards will be evaluated and the results will be stored in `call.artifact.scorecards` after the call has ended.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scorecards": {
+      "description": "This is the array of scorecards that will be evaluated based on the structured outputs extracted during the call.\nThe scorecards will be evaluated and the results will be stored in `call.artifact.scorecards` after the call has ended.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CreateScorecardDTO"
+      }
+    },
+    "loggingPath": {
+      "type": "string",
+      "description": "This is the path where the call logs will be uploaded. This is only used if you have provided S3 or GCP credentials on the Provider Credentials page in the Dashboard.\n\nIf credential.s3PathPrefix or credential.bucketPlan.path is set, this will append to it.\n\nUsage:\n- If you want to upload the call logs to a specific path, set this to the path. Example: `/my-assistant-logs`.\n- If you want to upload the call logs to the root of the bucket, set this to `/`.\n\n@default '/'"
+    }
+  }
+}

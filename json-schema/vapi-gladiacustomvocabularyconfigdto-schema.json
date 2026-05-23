@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GladiaCustomVocabularyConfigDTO",
+  "title": "GladiaCustomVocabularyConfigDTO",
+  "type": "object",
+  "properties": {
+    "vocabulary": {
+      "type": "array",
+      "description": "Array of vocabulary items (strings or objects with value, pronunciations, intensity, language)",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/components/schemas/GladiaVocabularyItemDTO"
+          }
+        ]
+      }
+    },
+    "defaultIntensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Default intensity for vocabulary items (0.0 to 1.0)",
+      "default": 0.5
+    }
+  },
+  "required": [
+    "vocabulary"
+  ]
+}

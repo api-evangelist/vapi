@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomerSpeechTimeoutOptions",
+  "title": "CustomerSpeechTimeoutOptions",
+  "type": "object",
+  "properties": {
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is the timeout in seconds before action is triggered.\nThe clock starts when the assistant finishes speaking and remains active until the user speaks.\n\n@default 7.5\n@minimum 2\n@maximum 1000",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "triggerMaxCount": {
+      "type": "number",
+      "description": "This is the maximum number of times the hook will trigger in a call.\n\n@default 3",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "triggerResetMode": {
+      "type": "object",
+      "description": "This is whether the counter for hook trigger resets the user speaks.\n\n@default never"
+    }
+  },
+  "required": [
+    "timeoutSeconds"
+  ]
+}

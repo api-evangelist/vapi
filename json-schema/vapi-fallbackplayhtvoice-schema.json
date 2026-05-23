@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackPlayHTVoice",
+  "title": "FallbackPlayHTVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "playht"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "jennifer",
+            "melissa",
+            "will",
+            "chris",
+            "matt",
+            "jack",
+            "ruby",
+            "davis",
+            "donna",
+            "michael"
+          ],
+          "title": "Preset Voice Options"
+        },
+        {
+          "type": "string",
+          "title": "PlayHT Voice ID"
+        }
+      ]
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.",
+      "minimum": 0.1,
+      "maximum": 5,
+      "example": null
+    },
+    "temperature": {
+      "type": "number",
+      "description": "A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
+      "minimum": 0.1,
+      "maximum": 2,
+      "example": null
+    },
+    "emotion": {
+      "type": "string",
+      "description": "An emotion to be applied to the speech.",
+      "enum": [
+        "female_happy",
+        "female_sad",
+        "female_angry",
+        "female_fearful",
+        "female_disgust",
+        "female_surprised",
+        "male_happy",
+        "male_sad",
+        "male_angry",
+        "male_fearful",
+        "male_disgust",
+        "male_surprised"
+      ],
+      "example": null
+    },
+    "voiceGuidance": {
+      "type": "number",
+      "description": "A number between 1 and 6. Use lower numbers to reduce how unique your chosen voice will be compared to other voices.",
+      "minimum": 1,
+      "maximum": 6,
+      "example": null
+    },
+    "styleGuidance": {
+      "type": "number",
+      "description": "A number between 1 and 30. Use lower numbers to to reduce how strong your chosen emotion will be. Higher numbers will create a very emotional performance.",
+      "minimum": 1,
+      "maximum": 30,
+      "example": null
+    },
+    "textGuidance": {
+      "type": "number",
+      "description": "A number between 1 and 2. This number influences how closely the generated speech adheres to the input text. Use lower values to create more fluid speech, but with a higher chance of deviating from the input text. Higher numbers will make the generated speech more accurate to the input text, ensuring that the words spoken align closely with the provided text.",
+      "minimum": 1,
+      "maximum": 2,
+      "example": null
+    },
+    "model": {
+      "type": "string",
+      "description": "Playht voice model/engine to use.",
+      "enum": [
+        "PlayHT2.0",
+        "PlayHT2.0-turbo",
+        "Play3.0-mini",
+        "PlayDialog"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "The language to use for the speech.",
+      "enum": [
+        "afrikaans",
+        "albanian",
+        "amharic",
+        "arabic",
+        "bengali",
+        "bulgarian",
+        "catalan",
+        "croatian",
+        "czech",
+        "danish",
+        "dutch",
+        "english",
+        "french",
+        "galician",
+        "german",
+        "greek",
+        "hebrew",
+        "hindi",
+        "hungarian",
+        "indonesian",
+        "italian",
+        "japanese",
+        "korean",
+        "malay",
+        "mandarin",
+        "polish",
+        "portuguese",
+        "russian",
+        "serbian",
+        "spanish",
+        "swedish",
+        "tagalog",
+        "thai",
+        "turkish",
+        "ukrainian",
+        "urdu",
+        "xhosa"
+      ]
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateFileDTO",
+  "title": "CreateFileDTO",
+  "type": "object",
+  "properties": {
+    "file": {
+      "type": "string",
+      "description": "This is the File you want to upload for use with the Knowledge Base.",
+      "format": "binary"
+    }
+  },
+  "required": [
+    "file"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreatePersonalityDTO",
+  "title": "CreatePersonalityDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the personality (e.g., \"Confused Carl\", \"Rude Rob\").",
+      "maxLength": 80
+    },
+    "assistant": {
+      "description": "This is the full assistant configuration for this personality.\nIt defines the tester's voice, model, behavior via system prompt, and other settings.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing personalities.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  },
+  "required": [
+    "name",
+    "assistant"
+  ]
+}

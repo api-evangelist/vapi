@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TargetPlan",
+  "title": "TargetPlan",
+  "type": "object",
+  "properties": {
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number that is being tested.\nDuring the actual test, it'll be called and the assistant attached to it will pick up and be tested.\nTo test an assistant directly, send assistantId instead."
+    },
+    "phoneNumber": {
+      "description": "This can be any phone number (even not on Vapi).\nDuring the actual test, it'll be called.\nTo test a Vapi number, send phoneNumberId. To test an assistant directly, send assistantId instead.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TestSuitePhoneNumber"
+        }
+      ]
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant being tested.\nDuring the actual test, it'll invoked directly.\nTo test the assistant over phone number, send phoneNumberId instead."
+    },
+    "assistantOverrides": {
+      "description": "This is the assistant overrides applied to assistantId before it is tested.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    }
+  }
+}

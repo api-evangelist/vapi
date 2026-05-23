@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ByoPhoneNumber",
+  "title": "ByoPhoneNumber",
+  "type": "object",
+  "properties": {
+    "fallbackDestination": {
+      "description": "This is the fallback destination an inbound call will be transferred to if:\n1. `assistantId` is not set\n2. `squadId` is not set\n3. and, `assistant-request` message to the `serverUrl` fails\n\nIf this is not set and above conditions are met, the inbound call is hung up with an error message.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "array",
+      "description": "This is the hooks that will be used for incoming calls to this phone number.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallRinging",
+            "title": "PhoneNumberHookCallRinging"
+          },
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallEnding",
+            "title": "PhoneNumberHookCallEnding"
+          }
+        ]
+      }
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is to bring your own phone numbers from your own SIP trunks or Carriers.",
+      "enum": [
+        "byo-phone-number"
+      ]
+    },
+    "numberE164CheckEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.\n\nUse cases:\n- `false`: To allow non-E164 numbers like `+001234567890`, `1234`, or `abc`. This is useful for dialing out to non-E164 numbers on your SIP trunks.\n- `true` (default): To allow only E164 numbers like `+14155551234`. This is standard for PSTN calls.\n\nIf `false`, the `number` is still required to only contain alphanumeric characters (regex: `/^\\+?[a-zA-Z0-9]+$/`).\n\n@default true (E164 check is enabled)",
+      "default": true
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the phone number."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this phone number belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was last updated."
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the status of the phone number.",
+      "enum": [
+        "active",
+        "activating",
+        "blocked"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the phone number. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "server": {
+      "description": "This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.\n\nThe order of precedence is:\n\n1. assistant.server\n2. phoneNumber.server\n3. org.server",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "number": {
+      "type": "string",
+      "description": "This is the number of the customer.",
+      "minLength": 3,
+      "maxLength": 40
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "This is the credential of your own SIP trunk or Carrier (type `byo-sip-trunk`) which can be used to make calls to this phone number.\n\nYou can add the SIP trunk or Carrier credential in the Provider Credentials page on the Dashboard to get the credentialId."
+    }
+  },
+  "required": [
+    "provider",
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "credentialId"
+  ]
+}

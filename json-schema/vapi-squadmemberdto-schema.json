@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SquadMemberDTO",
+  "title": "SquadMemberDTO",
+  "type": "object",
+  "properties": {
+    "assistantDestinations": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TransferDestinationAssistant",
+            "title": "Transfer Destination"
+          },
+          {
+            "$ref": "#/components/schemas/HandoffDestinationAssistant",
+            "title": "Handoff Destination"
+          }
+        ]
+      }
+    },
+    "assistantId": {
+      "type": "string",
+      "nullable": true,
+      "description": "This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead."
+    },
+    "assistant": {
+      "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "This can be used to override the assistant's settings and provide values for it's template variables.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Artifact",
+  "title": "Artifact",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "description": "These are the messages that were spoken during the call.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserMessage",
+            "title": "UserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/SystemMessage",
+            "title": "SystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/BotMessage",
+            "title": "BotMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallMessage",
+            "title": "ToolCallMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallResultMessage",
+            "title": "ToolCallResultMessage"
+          }
+        ]
+      }
+    },
+    "messagesOpenAIFormatted": {
+      "description": "These are the messages that were spoken during the call, formatted for OpenAI.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/OpenAIMessage"
+      }
+    },
+    "recordingUrl": {
+      "type": "string",
+      "description": "This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.",
+      "deprecated": true
+    },
+    "stereoRecordingUrl": {
+      "type": "string",
+      "description": "This is the stereo recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.",
+      "deprecated": true
+    },
+    "videoRecordingUrl": {
+      "type": "string",
+      "description": "This is video recording url for the call. To enable, set `assistant.artifactPlan.videoRecordingEnabled`.",
+      "deprecated": true
+    },
+    "videoRecordingStartDelaySeconds": {
+      "type": "number",
+      "description": "This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps.",
+      "deprecated": true
+    },
+    "recording": {
+      "description": "This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Recording"
+        }
+      ]
+    },
+    "transcript": {
+      "type": "string",
+      "description": "This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience."
+    },
+    "pcapUrl": {
+      "type": "string",
+      "description": "This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`."
+    },
+    "logUrl": {
+      "type": "string",
+      "description": "This is the url for the call logs. This includes all logging output during the call for debugging purposes."
+    },
+    "nodes": {
+      "description": "This is the history of workflow nodes that were executed during the call.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/NodeArtifact"
+      }
+    },
+    "assistantActivations": {
+      "description": "Ordered list of assistants that were active during the call, including after transfers and handoffs.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AssistantActivation"
+      }
+    },
+    "variableValues": {
+      "type": "object",
+      "description": "These are the variable values at the end of the workflow execution."
+    },
+    "performanceMetrics": {
+      "description": "This is the performance metrics for the call. It contains the turn latency, broken down by component.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PerformanceMetrics"
+        }
+      ]
+    },
+    "structuredOutputs": {
+      "type": "object",
+      "description": "These are the structured outputs that will be extracted from the call.\nTo enable, set `assistant.artifactPlan.structuredOutputIds` with the IDs of the structured outputs you want to extract."
+    },
+    "scorecards": {
+      "type": "object",
+      "description": "These are the scorecards that have been evaluated based on the structured outputs extracted during the call.\nTo enable, set `assistant.artifactPlan.scorecardIds` or `assistant.artifactPlan.scorecards` with the IDs or objects of the scorecards you want to evaluate."
+    },
+    "transfers": {
+      "description": "These are the transfer records from warm transfers, including destinations, transcripts, and status.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structuredOutputsLastUpdatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is when the structured outputs were last updated"
+    }
+  }
+}

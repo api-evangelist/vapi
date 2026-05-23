@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackTranscriberPlan",
+  "title": "FallbackTranscriberPlan",
+  "type": "object",
+  "properties": {
+    "transcribers": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FallbackAssemblyAITranscriber",
+            "title": "AssemblyAI"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackAzureSpeechTranscriber",
+            "title": "Azure"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackCustomTranscriber",
+            "title": "Custom"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackDeepgramTranscriber",
+            "title": "Deepgram"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackElevenLabsTranscriber",
+            "title": "ElevenLabs"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackGladiaTranscriber",
+            "title": "Gladia"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackGoogleTranscriber",
+            "title": "Google"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackTalkscriberTranscriber",
+            "title": "Talkscriber"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackSpeechmaticsTranscriber",
+            "title": "Speechmatics"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackOpenAITranscriber",
+            "title": "OpenAI"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackCartesiaTranscriber",
+            "title": "Cartesia"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackSonioxTranscriber",
+            "title": "Soniox"
+          }
+        ]
+      }
+    }
+  }
+}

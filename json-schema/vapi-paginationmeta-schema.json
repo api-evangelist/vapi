@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaginationMeta",
+  "title": "PaginationMeta",
+  "type": "object",
+  "properties": {
+    "itemsPerPage": {
+      "type": "number"
+    },
+    "totalItems": {
+      "type": "number"
+    },
+    "currentPage": {
+      "type": "number"
+    },
+    "totalPages": {
+      "type": "number"
+    },
+    "hasNextPage": {
+      "type": "boolean"
+    },
+    "sortOrder": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "itemsBeyondRetention": {
+      "type": "boolean"
+    },
+    "createdAtLe": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "createdAtGe": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "itemsPerPage",
+    "totalItems",
+    "currentPage"
+  ]
+}

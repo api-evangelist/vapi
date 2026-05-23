@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloneVoiceDTO",
+  "title": "CloneVoiceDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the cloned voice in the provider account."
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of your cloned voice."
+    },
+    "labels": {
+      "type": "string",
+      "description": "Serialized labels dictionary for the voice."
+    },
+    "files": {
+      "description": "These are the files you want to use to clone your voice. Only Audio files are supported.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "binary"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "files"
+  ]
+}

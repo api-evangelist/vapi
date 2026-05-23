@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRun",
+  "title": "TestSuiteRun",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "This is the current status of the test suite run.",
+      "enum": [
+        "queued",
+        "in-progress",
+        "completed",
+        "failed"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the test suite run."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization this run belongs to."
+    },
+    "testSuiteId": {
+      "type": "string",
+      "description": "This is the unique identifier for the test suite this run belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test suite run was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test suite run was last updated."
+    },
+    "testResults": {
+      "description": "These are the results of the tests in this test suite run.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TestSuiteRunTestResult"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the test suite run.",
+      "maxLength": 80
+    }
+  },
+  "required": [
+    "status",
+    "id",
+    "orgId",
+    "testSuiteId",
+    "createdAt",
+    "updatedAt",
+    "testResults"
+  ]
+}

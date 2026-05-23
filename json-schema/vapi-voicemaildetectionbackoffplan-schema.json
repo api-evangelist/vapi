@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VoicemailDetectionBackoffPlan",
+  "title": "VoicemailDetectionBackoffPlan",
+  "type": "object",
+  "properties": {
+    "startAtSeconds": {
+      "type": "number",
+      "description": "This is the number of seconds to wait before starting the first retry attempt.",
+      "minimum": 0,
+      "default": 5
+    },
+    "frequencySeconds": {
+      "type": "number",
+      "description": "This is the interval in seconds between retry attempts.",
+      "minimum": 2.5,
+      "default": 5
+    },
+    "maxRetries": {
+      "type": "number",
+      "description": "This is the maximum number of retry attempts before giving up.",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 6
+    }
+  }
+}

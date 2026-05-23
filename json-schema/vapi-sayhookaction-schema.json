@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SayHookAction",
+  "title": "SayHookAction",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of action - must be \"say\"",
+      "enum": [
+        "say"
+      ]
+    },
+    "prompt": {
+      "description": "This is the prompt for the assistant to generate a response based on existing conversation.\nCan be a string or an array of chat messages.",
+      "oneOf": [
+        {
+          "type": "string",
+          "title": "String"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SystemMessage",
+                "title": "SystemMessage"
+              },
+              {
+                "$ref": "#/components/schemas/UserMessage",
+                "title": "UserMessage"
+              },
+              {
+                "$ref": "#/components/schemas/AssistantMessage",
+                "title": "AssistantMessage"
+              },
+              {
+                "$ref": "#/components/schemas/ToolMessage",
+                "title": "ToolMessage"
+              },
+              {
+                "$ref": "#/components/schemas/DeveloperMessage",
+                "title": "DeveloperMessage"
+              }
+            ]
+          },
+          "title": "MessageArray"
+        }
+      ],
+      "examples": [
+        "Ask the user if they're still in the call",
+        [
+          {
+            "role": "system",
+            "content": "You are a helpful assistant, and would like to know if the user is still in the call based on the conversation history in {{transcript}}"
+          }
+        ]
+      ]
+    },
+    "exact": {
+      "type": "object",
+      "description": "This is the message to say"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

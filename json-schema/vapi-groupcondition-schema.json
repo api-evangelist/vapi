@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupCondition",
+  "title": "GroupCondition",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type discriminator for group condition",
+      "example": "group",
+      "enum": [
+        "group"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the logical operator for combining conditions in this group",
+      "examples": [
+        "AND",
+        "OR"
+      ],
+      "enum": [
+        "AND",
+        "OR"
+      ]
+    },
+    "conditions": {
+      "type": "array",
+      "description": "This is the list of nested conditions to evaluate.\nSupports recursive nesting of groups for complex logic.",
+      "examples": [
+        "[{ type: \"regex\", regex: \"(?i)stop\", target: { role: \"user\" } }]",
+        "[{ type: \"group\", operator: \"AND\", conditions: [...] }]"
+      ],
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RegexCondition",
+            "title": "RegexCondition"
+          },
+          {
+            "$ref": "#/components/schemas/LiquidCondition",
+            "title": "LiquidCondition"
+          },
+          {
+            "$ref": "#/components/schemas/GroupCondition",
+            "title": "GroupCondition",
+            "description": "This is the GroupCondition object but Swagger does not display nested schemas correctly."
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "operator",
+    "conditions"
+  ]
+}

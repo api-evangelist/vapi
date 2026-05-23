@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/File",
+  "title": "File",
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "string",
+      "enum": [
+        "file"
+      ]
+    },
+    "status": {
+      "enum": [
+        "processing",
+        "done",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the file. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "originalName": {
+      "type": "string"
+    },
+    "bytes": {
+      "type": "number"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "mimetype": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "parsedTextUrl": {
+      "type": "string"
+    },
+    "parsedTextBytes": {
+      "type": "number"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the file."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this file belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the file was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the file was last updated."
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalRunTargetAssistant",
+  "title": "EvalRunTargetAssistant",
+  "type": "object",
+  "properties": {
+    "assistant": {
+      "description": "This is the transient assistant that will be run against the eval",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO",
+          "title": "CreateAssistantDTO"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "This is the overrides that will be applied to the assistant.",
+      "example": "{",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides",
+          "title": "AssistantOverrides"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the target.\nCurrently it is fixed to `assistant`.",
+      "example": "assistant",
+      "enum": [
+        "assistant"
+      ]
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the id of the assistant that will be run against the eval",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

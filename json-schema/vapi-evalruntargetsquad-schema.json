@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalRunTargetSquad",
+  "title": "EvalRunTargetSquad",
+  "type": "object",
+  "properties": {
+    "squad": {
+      "description": "This is the transient squad that will be run against the eval",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO",
+          "title": "CreateSquadDTO"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "This is the overrides that will be applied to the assistants.",
+      "example": "{",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides",
+          "title": "AssistantOverrides"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the target.\nCurrently it is fixed to `squad`.",
+      "example": "squad",
+      "enum": [
+        "squad"
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the id of the squad that will be run against the eval",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

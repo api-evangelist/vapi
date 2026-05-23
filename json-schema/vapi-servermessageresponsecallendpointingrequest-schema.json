@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseCallEndpointingRequest",
+  "title": "ServerMessageResponseCallEndpointingRequest",
+  "type": "object",
+  "properties": {
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is the timeout in seconds to wait before considering the user's speech as finished.",
+      "minimum": 0,
+      "maximum": 15
+    }
+  },
+  "required": [
+    "timeoutSeconds"
+  ]
+}

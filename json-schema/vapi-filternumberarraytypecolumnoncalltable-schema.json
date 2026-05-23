@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FilterNumberArrayTypeColumnOnCallTable",
+  "title": "FilterNumberArrayTypeColumnOnCallTable",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "This is the column in the call table that will be filtered on.\nNumber Array Type columns are the same as Number Type columns, but provides the ability to filter on multiple values provided as an array.\nMust be a valid column for the selected table.",
+      "example": "duration",
+      "enum": [
+        "duration",
+        "cost",
+        "averageModelLatency",
+        "averageVoiceLatency",
+        "averageTranscriberLatency",
+        "averageTurnLatency",
+        "averageEndpointingLatency"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the operator to use for the filter.\nThe operator must be `in` or `not_in`.",
+      "example": "\"in\" or \"not_in\"",
+      "enum": [
+        "in",
+        "not_in",
+        "is_empty",
+        "is_not_empty"
+      ]
+    },
+    "value": {
+      "description": "This is the value to filter on.",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

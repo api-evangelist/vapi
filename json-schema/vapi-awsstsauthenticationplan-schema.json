@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AWSStsAuthenticationPlan",
+  "title": "AWSStsAuthenticationPlan",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of authentication plan",
+      "enum": [
+        "aws-sts"
+      ]
+    },
+    "roleArn": {
+      "type": "string",
+      "description": "This is the role ARN for the AWS credential"
+    },
+    "externalId": {
+      "type": "string",
+      "description": "Optional external ID for additional security in the role trust policy.",
+      "maxLength": 256
+    }
+  },
+  "required": [
+    "type",
+    "roleArn"
+  ]
+}

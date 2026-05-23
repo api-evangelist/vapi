@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SpkiPemPublicKeyConfig",
+  "title": "SpkiPemPublicKeyConfig",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Optional name of the key for identification purposes.",
+      "maxLength": 100
+    },
+    "format": {
+      "type": "string",
+      "description": "The format of the public key.",
+      "enum": [
+        "spki-pem"
+      ]
+    },
+    "pem": {
+      "type": "string",
+      "description": "The PEM-encoded public key."
+    }
+  },
+  "required": [
+    "format",
+    "pem"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Eval",
+  "title": "Eval",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "description": "This is the mock conversation that will be used to evaluate the flow of the conversation.\n\nMock Messages are used to simulate the flow of the conversation\n\nEvaluation Messages are used as checkpoints in the flow where the model's response to previous conversation needs to be evaluated to check the content and tool calls",
+      "example": "[{ role: \"user\", content: \"Hello, how are you?\" }, { role: \"assistant\", judgePlan: { type: \"exact\", content: \"I am good, thank you!\" } }]",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ChatEvalAssistantMessageMock",
+            "title": "ChatEvalAssistantMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalSystemMessageMock",
+            "title": "ChatEvalSystemMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalToolResponseMessageMock",
+            "title": "ChatEvalToolResponseMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalToolResponseMessageEvaluation",
+            "title": "ChatEvalToolResponseMessageEvaluation"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalUserMessageMock",
+            "title": "ChatEvalUserMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalAssistantMessageEvaluation",
+            "title": "ChatEvalAssistantMessageEvaluation"
+          }
+        ]
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "orgId": {
+      "type": "string"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the eval.\nIt helps identify what the eval is checking for.",
+      "example": "Verified User Flow Eval",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the eval.\nThis helps describe the eval and its purpose in detail. It will not be used to evaluate the flow of the conversation.",
+      "example": "This eval checks if the user flow is verified.",
+      "maxLength": 500
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the eval.\nCurrently it is fixed to `chat.mockConversation`.",
+      "example": "chat.mockConversation",
+      "enum": [
+        "chat.mockConversation"
+      ]
+    }
+  },
+  "required": [
+    "messages",
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "type"
+  ]
+}

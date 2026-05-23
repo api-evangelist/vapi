@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessageControl",
+  "title": "ClientInboundMessageControl",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. Send \"control\" message to control the assistant. `control` options are:\n- \"mute-assistant\" - mute the assistant\n- \"unmute-assistant\" - unmute the assistant\n- \"mute-customer\" - mute the user\n- \"unmute-customer\" - unmute the user\n- \"say-first-message\" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)",
+      "enum": [
+        "control"
+      ]
+    },
+    "control": {
+      "type": "string",
+      "description": "This is the control action",
+      "enum": [
+        "mute-assistant",
+        "unmute-assistant",
+        "mute-customer",
+        "unmute-customer",
+        "say-first-message"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "control"
+  ]
+}

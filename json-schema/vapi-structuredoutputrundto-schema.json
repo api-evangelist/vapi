@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StructuredOutputRunDTO",
+  "title": "StructuredOutputRunDTO",
+  "type": "object",
+  "properties": {
+    "previewEnabled": {
+      "type": "boolean",
+      "description": "This is the preview flag for the re-run. If true, the re-run will be executed and the response will be returned immediately and the call artifact will NOT be updated.\nIf false (default), the re-run will be executed and the response will be updated in the call artifact.",
+      "default": false
+    },
+    "structuredOutputId": {
+      "type": "string",
+      "description": "This is the ID of the structured output that will be run. This must be provided unless a transient structured output is provided.\nWhen the re-run is executed, only the value of this structured output will be replaced with the new value, or added if not present."
+    },
+    "structuredOutput": {
+      "description": "This is the transient structured output that will be run. This must be provided if a structured output ID is not provided.\nWhen the re-run is executed, the structured output value will be added to the existing artifact.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateStructuredOutputDTO"
+        }
+      ]
+    },
+    "callIds": {
+      "description": "This is the array of callIds that will be updated with the new structured output value. If preview is true, this array must be provided and contain exactly 1 callId.\nIf preview is false, up to 100 callIds may be provided.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "callIds"
+  ]
+}

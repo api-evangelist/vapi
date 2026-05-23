@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateCampaignDTO",
+  "title": "UpdateCampaignDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the campaign. This is just for your own reference."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant ID that will be used for the campaign calls.\nCan only be updated if campaign is not in progress or has ended."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow ID that will be used for the campaign calls.\nCan only be updated if campaign is not in progress or has ended."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad ID that will be used for the campaign calls.\nCan only be updated if campaign is not in progress or has ended."
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number ID that will be used for the campaign calls.\nCan only be updated if campaign is not in progress or has ended.\nNote: `phoneNumberId` and `dialPlan` are mutually exclusive."
+    },
+    "dialPlan": {
+      "description": "This is a list of dial entries, each specifying a phone number and the customers to call using that number. Can only be updated if campaign is not in progress or has ended. Note: phoneNumberId and dialPlan are mutually exclusive.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DialPlanEntry"
+      }
+    },
+    "schedulePlan": {
+      "description": "This is the schedule plan for the campaign.\nCan only be updated if campaign is not in progress or has ended.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SchedulePlan"
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the status of the campaign.\nCan only be updated to 'ended' if you want to end the campaign.\nWhen set to 'ended', it will delete all scheduled calls. Calls in progress will be allowed to complete.",
+      "enum": [
+        "ended"
+      ]
+    }
+  }
+}

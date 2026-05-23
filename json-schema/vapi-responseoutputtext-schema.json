@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseOutputText",
+  "title": "ResponseOutputText",
+  "type": "object",
+  "properties": {
+    "annotations": {
+      "default": [],
+      "description": "Annotations in the text output",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "text": {
+      "type": "string",
+      "description": "The text output from the model"
+    },
+    "type": {
+      "type": "string",
+      "default": "output_text",
+      "description": "The type of the output text",
+      "enum": [
+        "output_text"
+      ]
+    }
+  },
+  "required": [
+    "annotations",
+    "text",
+    "type"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TwilioTransportMessage",
+  "title": "TwilioTransportMessage",
+  "type": "object",
+  "properties": {
+    "transport": {
+      "type": "string",
+      "description": "This is the transport type.",
+      "enum": [
+        "twilio"
+      ]
+    },
+    "twiml": {
+      "type": "string",
+      "description": "This is the TwiML to send to the Twilio call."
+    }
+  },
+  "required": [
+    "transport",
+    "twiml"
+  ]
+}

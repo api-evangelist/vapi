@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VapiPhoneNumber",
+  "title": "VapiPhoneNumber",
+  "type": "object",
+  "properties": {
+    "fallbackDestination": {
+      "description": "This is the fallback destination an inbound call will be transferred to if:\n1. `assistantId` is not set\n2. `squadId` is not set\n3. and, `assistant-request` message to the `serverUrl` fails\n\nIf this is not set and above conditions are met, the inbound call is hung up with an error message.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "array",
+      "description": "This is the hooks that will be used for incoming calls to this phone number.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallRinging",
+            "title": "PhoneNumberHookCallRinging"
+          },
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallEnding",
+            "title": "PhoneNumberHookCallEnding"
+          }
+        ]
+      }
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is to create free SIP phone numbers on Vapi.",
+      "enum": [
+        "vapi"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the phone number."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this phone number belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was last updated."
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the status of the phone number.",
+      "enum": [
+        "active",
+        "activating",
+        "blocked"
+      ]
+    },
+    "number": {
+      "type": "string",
+      "description": "These are the digits of the phone number you purchased from Vapi."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the phone number. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "server": {
+      "description": "This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.\n\nThe order of precedence is:\n\n1. assistant.server\n2. phoneNumber.server\n3. org.server",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "numberDesiredAreaCode": {
+      "type": "string",
+      "description": "This is the area code of the phone number to purchase.",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "sipUri": {
+      "type": "string",
+      "description": "This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.\n\nThis is case-insensitive."
+    },
+    "authentication": {
+      "description": "This enables authentication for incoming SIP INVITE requests to the `sipUri`.\n\nIf not set, any username/password to the 401 challenge of the SIP INVITE will be accepted.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SipAuthentication"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt"
+  ]
+}

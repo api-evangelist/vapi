@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AzureBlobStorageBucketPlan",
+  "title": "AzureBlobStorageBucketPlan",
+  "type": "object",
+  "properties": {
+    "connectionString": {
+      "type": "string",
+      "description": "This is the blob storage connection string for the Azure resource."
+    },
+    "containerName": {
+      "type": "string",
+      "description": "This is the container name for the Azure blob storage."
+    },
+    "path": {
+      "type": "string",
+      "description": "This is the path where call artifacts will be stored.\n\nUsage:\n- To store call artifacts in a specific folder, set this to the full path. Eg. \"/folder-name1/folder-name2\".\n- To store call artifacts in the root of the bucket, leave this blank.\n\n@default \"/\""
+    }
+  },
+  "required": [
+    "connectionString",
+    "containerName"
+  ]
+}

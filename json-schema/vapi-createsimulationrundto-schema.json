@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSimulationRunDTO",
+  "title": "CreateSimulationRunDTO",
+  "type": "object",
+  "properties": {
+    "simulations": {
+      "type": "array",
+      "description": "Array of simulations and/or suites to run",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimulationRunSimulationEntry",
+            "title": "Simulation"
+          },
+          {
+            "$ref": "#/components/schemas/SimulationRunSuiteEntry",
+            "title": "Suite"
+          }
+        ]
+      }
+    },
+    "target": {
+      "description": "Target to test against",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunTargetAssistant",
+          "title": "Assistant"
+        },
+        {
+          "$ref": "#/components/schemas/SimulationRunTargetSquad",
+          "title": "Squad"
+        }
+      ]
+    },
+    "iterations": {
+      "type": "number",
+      "minimum": 1,
+      "description": "Number of times to run each simulation (default: 1)",
+      "default": 1
+    },
+    "transport": {
+      "description": "Transport configuration for the simulation runs",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunTransportConfiguration"
+        }
+      ]
+    }
+  },
+  "required": [
+    "simulations",
+    "target"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseObject",
+  "title": "ResponseObject",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this Response"
+    },
+    "object": {
+      "type": "string",
+      "default": "response",
+      "description": "The object type",
+      "enum": [
+        "response"
+      ]
+    },
+    "created_at": {
+      "type": "number",
+      "description": "Unix timestamp (in seconds) of when this Response was created"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the response",
+      "enum": [
+        "completed",
+        "failed",
+        "in_progress",
+        "incomplete"
+      ]
+    },
+    "error": {
+      "type": "string",
+      "nullable": true,
+      "default": null,
+      "description": "Error message if the response failed"
+    },
+    "output": {
+      "description": "Output messages from the model",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResponseOutputMessage"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "object",
+    "created_at",
+    "status",
+    "output"
+  ]
+}

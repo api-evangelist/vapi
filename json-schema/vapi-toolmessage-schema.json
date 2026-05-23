@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolMessage",
+  "title": "ToolMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "This is the role of the message author",
+      "default": "tool",
+      "enum": [
+        "tool"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the tool message",
+      "maxLength": 10000
+    },
+    "tool_call_id": {
+      "type": "string",
+      "description": "This is the ID of the tool call this message is responding to"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is an optional name for the participant",
+      "maxLength": 40
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is an optional metadata for the message"
+    }
+  },
+  "required": [
+    "role",
+    "content",
+    "tool_call_id"
+  ]
+}

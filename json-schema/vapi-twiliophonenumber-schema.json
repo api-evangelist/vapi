@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TwilioPhoneNumber",
+  "title": "TwilioPhoneNumber",
+  "type": "object",
+  "properties": {
+    "fallbackDestination": {
+      "description": "This is the fallback destination an inbound call will be transferred to if:\n1. `assistantId` is not set\n2. `squadId` is not set\n3. and, `assistant-request` message to the `serverUrl` fails\n\nIf this is not set and above conditions are met, the inbound call is hung up with an error message.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "array",
+      "description": "This is the hooks that will be used for incoming calls to this phone number.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallRinging",
+            "title": "PhoneNumberHookCallRinging"
+          },
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallEnding",
+            "title": "PhoneNumberHookCallEnding"
+          }
+        ]
+      }
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is to use numbers bought on Twilio.",
+      "enum": [
+        "twilio"
+      ]
+    },
+    "smsEnabled": {
+      "type": "boolean",
+      "description": "Controls whether Vapi sets the messaging webhook URL on the Twilio number during import.\n\nIf set to `false`, Vapi will not update the Twilio messaging URL, leaving it as is.\nIf `true` or omitted (default), Vapi will configure both the voice and messaging URLs.\n\n@default true",
+      "default": true
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the phone number."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this phone number belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the phone number was last updated."
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the status of the phone number.",
+      "enum": [
+        "active",
+        "activating",
+        "blocked"
+      ]
+    },
+    "twilioAuthToken": {
+      "type": "string",
+      "description": "This is the Twilio Auth Token for the phone number."
+    },
+    "twilioApiKey": {
+      "type": "string",
+      "description": "This is the Twilio API Key for the phone number."
+    },
+    "twilioApiSecret": {
+      "type": "string",
+      "description": "This is the Twilio API Secret for the phone number."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the phone number. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "server": {
+      "description": "This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.\n\nThe order of precedence is:\n\n1. assistant.server\n2. phoneNumber.server\n3. org.server",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "number": {
+      "type": "string",
+      "description": "These are the digits of the phone number you own on your Twilio."
+    },
+    "twilioAccountSid": {
+      "type": "string",
+      "description": "This is the Twilio Account SID for the phone number."
+    }
+  },
+  "required": [
+    "provider",
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "number",
+    "twilioAccountSid"
+  ]
+}

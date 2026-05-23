@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemMetadata",
+  "title": "SimulationRunItemMetadata",
+  "type": "object",
+  "properties": {
+    "assistant": {
+      "type": "object",
+      "description": "This is a snapshot of the assistant at run creation time.",
+      "additionalProperties": true
+    },
+    "squad": {
+      "type": "object",
+      "description": "This is a snapshot of the squad at run creation time.",
+      "additionalProperties": true
+    },
+    "scenario": {
+      "type": "object",
+      "description": "This is a snapshot of the scenario at run creation time.",
+      "additionalProperties": true
+    },
+    "personality": {
+      "type": "object",
+      "description": "This is a snapshot of the personality at run creation time.",
+      "additionalProperties": true
+    },
+    "simulation": {
+      "type": "object",
+      "description": "This is a snapshot of the simulation at run creation time.",
+      "additionalProperties": true
+    },
+    "call": {
+      "description": "This is the call-related data (transcript, messages, recording).",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunItemCallMetadata"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "object",
+      "description": "Hook execution state for this run item (used for idempotency + debugging).",
+      "additionalProperties": true
+    }
+  }
+}

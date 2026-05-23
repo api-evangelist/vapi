@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalAssistantMessageMock",
+  "title": "ChatEvalAssistantMessageMock",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "assistant"
+      ],
+      "description": "This is the role of the message author.\nFor a mock assistant message, the role is always 'assistant'\n@default 'assistant'",
+      "default": "assistant"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the assistant message.\nThis is the message that the assistant would have sent.",
+      "example": "The weather in San Francisco is sunny.",
+      "maxLength": 1000
+    },
+    "toolCalls": {
+      "description": "This is the tool calls that will be made by the assistant.",
+      "example": "[{ name: \"get_weather\", arguments: { city: \"San Francisco\" } }]",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ChatEvalAssistantMessageMockToolCall"
+      }
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateSessionDTO",
+  "title": "UpdateSessionDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the new name for the session. Maximum length is 40 characters.",
+      "maxLength": 40
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the new status for the session.",
+      "enum": [
+        "active",
+        "completed"
+      ]
+    },
+    "expirationSeconds": {
+      "type": "number",
+      "description": "Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.",
+      "minimum": 60,
+      "maximum": 2592000,
+      "example": 86400
+    },
+    "messages": {
+      "type": "array",
+      "description": "This is the updated array of chat messages.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemMessage",
+            "title": "SystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/UserMessage",
+            "title": "UserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/AssistantMessage",
+            "title": "AssistantMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolMessage",
+            "title": "ToolMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DeveloperMessage",
+            "title": "DeveloperMessage"
+          }
+        ]
+      }
+    }
+  }
+}

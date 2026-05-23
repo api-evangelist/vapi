@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemCallMetadata",
+  "title": "SimulationRunItemCallMetadata",
+  "type": "object",
+  "properties": {
+    "transcript": {
+      "type": "string",
+      "description": "This is the transcript of the conversation."
+    },
+    "messages": {
+      "type": "array",
+      "description": "This is the list of conversation messages in OpenAI format.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "recordingUrl": {
+      "type": "string",
+      "description": "This is the URL to the call recording."
+    },
+    "monitor": {
+      "description": "This is the call monitoring data (live listen URL).",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunItemCallMonitor"
+        }
+      ]
+    }
+  }
+}

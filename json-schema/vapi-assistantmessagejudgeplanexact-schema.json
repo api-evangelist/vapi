@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantMessageJudgePlanExact",
+  "title": "AssistantMessageJudgePlanExact",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "exact"
+      ],
+      "description": "This is the type of the judge plan.\nUse 'exact' for an exact match on the content and tool calls - without using LLM-as-a-judge.\n@default 'exact'"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is what that will be used to evaluate the model's message content.\nIf you provide a string, the assistant message content will be evaluated against it as an exact match, case-insensitive.",
+      "example": "The weather in San Francisco is sunny.",
+      "maxLength": 1000
+    },
+    "toolCalls": {
+      "description": "This is the tool calls that will be used to evaluate the model's message content.\nThe tool name must be a valid tool that the assistant is allowed to call.\n\nFor the Query tool, the arguments for the tool call are in the format - {knowledgeBaseNames: ['kb_name', 'kb_name_2']}\n\nFor the DTMF tool, the arguments for the tool call are in the format - {dtmf: \"1234*\"}\n\nFor the Handoff tool, the arguments for the tool call are in the format - {destination: \"assistant_id\"}\n\nFor the Transfer Call tool, the arguments for the tool call are in the format - {destination: \"phone_number_or_assistant_id\"}\n\nFor all other tools, they are called without arguments or with user-defined arguments",
+      "example": "[{ name: \"get_weather\", arguments: { city: \"San Francisco\" } }]",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ChatEvalAssistantMessageMockToolCall"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "content"
+  ]
+}

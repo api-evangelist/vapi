@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateLineInsightFromCallTableDTO",
+  "title": "UpdateLineInsightFromCallTableDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the Insight.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the Insight.\nIt is required to be `line` to create a line insight.",
+      "enum": [
+        "line"
+      ]
+    },
+    "formulas": {
+      "type": "array",
+      "description": "Formulas are mathematical expressions applied on the data returned by the queries to transform them before being used to create the insight.\nThe formulas needs to be a valid mathematical expression, supported by MathJS - https://mathjs.org/docs/expressions/syntax.html\nA formula is created by using the query names as the variable.\nThe formulas must contain at least one query name in the LiquidJS format {{query_name}} or {{['query name']}} which will be substituted with the query result.\nFor example, if you have 2 queries, 'Was Booking Made' and 'Average Call Duration', you can create a formula like this:\n```\n{{['Query 1']}} / {{['Query 2']}} * 100\n```\n\n```\n({{[Query 1]}} * 10) + {{[Query 2]}}\n```\nThis will take the\n\nYou can also use the query names as the variable in the formula.",
+      "items": {
+        "$ref": "#/components/schemas/InsightFormula"
+      }
+    },
+    "metadata": {
+      "description": "This is the metadata for the insight.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LineInsightMetadata"
+        }
+      ]
+    },
+    "timeRange": {
+      "$ref": "#/components/schemas/InsightTimeRangeWithStep"
+    },
+    "groupBy": {
+      "type": "string",
+      "description": "This is the group by column for the insight when table is `call`.\nThese are the columns to group the results by.\nAll results are grouped by the time range step by default.",
+      "example": [
+        "assistant_id"
+      ],
+      "enum": [
+        "assistantId",
+        "workflowId",
+        "squadId",
+        "phoneNumberId",
+        "type",
+        "endedReason",
+        "customerNumber",
+        "campaignId",
+        "artifact.structuredOutputs[OutputID]"
+      ]
+    },
+    "queries": {
+      "type": "array",
+      "description": "These are the queries to run to generate the insight.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/JSONQueryOnCallTableWithStringTypeColumn",
+            "title": "JSONQueryOnCallTableWithStringTypeColumn"
+          },
+          {
+            "$ref": "#/components/schemas/JSONQueryOnCallTableWithNumberTypeColumn",
+            "title": "JSONQueryOnCallTableWithNumberTypeColumn"
+          },
+          {
+            "$ref": "#/components/schemas/JSONQueryOnCallTableWithStructuredOutputColumn",
+            "title": "JSONQueryOnCallTableWithStructuredOutputColumn"
+          }
+        ]
+      }
+    }
+  }
+}

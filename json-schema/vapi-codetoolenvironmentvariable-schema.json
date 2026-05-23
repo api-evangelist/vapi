@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CodeToolEnvironmentVariable",
+  "title": "CodeToolEnvironmentVariable",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the environment variable",
+      "maxLength": 64,
+      "pattern": "/^[A-Z][A-Z0-9_]*$/",
+      "example": "API_KEY"
+    },
+    "value": {
+      "type": "string",
+      "description": "Value of the environment variable. Supports Liquid templates.",
+      "maxLength": 10000,
+      "example": "{{apiKey}}"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateUserRoleDTO",
+  "title": "UpdateUserRoleDTO",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "admin",
+        "editor",
+        "viewer"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "role"
+  ]
+}

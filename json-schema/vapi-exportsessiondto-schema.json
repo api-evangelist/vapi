@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExportSessionDTO",
+  "title": "ExportSessionDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the session to filter by."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the session to filter by."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the ID of the assistant to filter sessions by."
+    },
+    "assistantIdAny": {
+      "type": "string",
+      "description": "Filter by multiple assistant IDs. Provide as comma-separated values.",
+      "example": "assistant-1,assistant-2,assistant-3"
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the ID of the squad to filter sessions by."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the ID of the workflow to filter sessions by."
+    },
+    "customer": {
+      "description": "This is the customer information to filter by.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "customerNumberAny": {
+      "type": "string",
+      "description": "Filter by any of the specified customer phone numbers (comma-separated).",
+      "example": "+1234567890,+0987654321"
+    },
+    "columns": {
+      "type": "string",
+      "description": "Columns to include in the CSV export",
+      "enum": [
+        "id",
+        "name",
+        "status",
+        "assistantId",
+        "squadId",
+        "customerName",
+        "customerNumber",
+        "phoneNumberId",
+        "cost",
+        "messages",
+        "createdAt",
+        "updatedAt"
+      ],
+      "default": [
+        "id",
+        "name",
+        "status",
+        "assistantId",
+        "squadId",
+        "customerName",
+        "customerNumber",
+        "phoneNumberId",
+        "cost",
+        "messages",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "description": "This is the email address to send the export to.\nRequired if userId is not available in the request context."
+    },
+    "format": {
+      "type": "string",
+      "description": "This is the format of the export.\n\n@default csv",
+      "enum": [
+        "csv",
+        "json"
+      ],
+      "default": "csv"
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This will return sessions with the specified phoneNumberId."
+    },
+    "phoneNumberIdAny": {
+      "description": "This will return sessions with any of the specified phoneNumberIds.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "page": {
+      "type": "number",
+      "description": "This is the page number to return. Defaults to 1.",
+      "minimum": 1
+    },
+    "sortOrder": {
+      "type": "string",
+      "description": "This is the sort order for pagination. Defaults to 'DESC'.",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "sortBy": {
+      "type": "string",
+      "description": "This is the column to sort by. Defaults to 'createdAt'.",
+      "enum": [
+        "createdAt",
+        "duration",
+        "cost"
+      ]
+    },
+    "limit": {
+      "type": "number",
+      "description": "This is the maximum number of items to return. Defaults to 100.",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "createdAtGt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is greater than the specified value."
+    },
+    "createdAtLt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is less than the specified value."
+    },
+    "createdAtGe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is greater than or equal to the specified value."
+    },
+    "createdAtLe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is less than or equal to the specified value."
+    },
+    "updatedAtGt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is greater than the specified value."
+    },
+    "updatedAtLt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is less than the specified value."
+    },
+    "updatedAtGe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+    },
+    "updatedAtLe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is less than or equal to the specified value."
+    }
+  }
+}

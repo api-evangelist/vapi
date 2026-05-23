@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationConcurrencyResponse",
+  "title": "SimulationConcurrencyResponse",
+  "type": "object",
+  "properties": {
+    "orgId": {
+      "type": "string"
+    },
+    "concurrencyLimit": {
+      "type": "number",
+      "description": "Max call slots for simulations (each voice simulation uses 2 call slots: tester + target)"
+    },
+    "activeSimulations": {
+      "type": "number",
+      "description": "Number of call slots currently in use by running simulations"
+    },
+    "availableToStart": {
+      "type": "number",
+      "description": "Number of voice simulations that can start now (available call slots / 2)"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "isDefault": {
+      "type": "boolean",
+      "description": "True if org is using platform default concurrency limit"
+    }
+  },
+  "required": [
+    "orgId",
+    "concurrencyLimit",
+    "activeSimulations",
+    "availableToStart",
+    "createdAt",
+    "updatedAt",
+    "isDefault"
+  ]
+}

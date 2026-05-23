@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HandoffDestinationDynamic",
+  "title": "HandoffDestinationDynamic",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "dynamic"
+      ]
+    },
+    "server": {
+      "description": "This is where Vapi will send the handoff-destination-request webhook in a dynamic handoff.\n\nThe order of precedence is:\n\n1. tool.server.url\n2. assistant.server.url\n3. phoneNumber.server.url\n4. org.server.url",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

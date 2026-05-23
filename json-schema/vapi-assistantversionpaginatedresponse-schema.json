@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantVersionPaginatedResponse",
+  "title": "AssistantVersionPaginatedResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/PaginationMeta"
+    },
+    "nextPageState": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "results",
+    "metadata"
+  ]
+}

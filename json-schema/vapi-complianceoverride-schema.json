@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ComplianceOverride",
+  "title": "ComplianceOverride",
+  "type": "object",
+  "properties": {
+    "forceStoreOnHipaaEnabled": {
+      "type": "boolean",
+      "description": "Force storage for this output under HIPAA. Only enable if output contains no sensitive data.",
+      "example": false
+    }
+  }
+}

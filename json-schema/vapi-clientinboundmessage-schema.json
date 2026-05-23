@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessage",
+  "title": "ClientInboundMessage",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "These are the messages that can be sent from client-side SDKs to control the call.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageAddMessage",
+          "title": "AddMessage"
+        },
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageControl",
+          "title": "Control"
+        },
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageSay",
+          "title": "Say"
+        },
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageEndCall",
+          "title": "EndCall"
+        },
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageTransfer",
+          "title": "Transfer"
+        },
+        {
+          "$ref": "#/components/schemas/ClientInboundMessageSendTransportMessage",
+          "title": "SendTransportMessage"
+        }
+      ]
+    }
+  },
+  "required": [
+    "message"
+  ]
+}

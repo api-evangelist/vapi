@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunTransportConfiguration",
+  "title": "SimulationRunTransportConfiguration",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "Transport provider for the simulation run",
+      "enum": [
+        "vapi.websocket",
+        "vapi.webchat"
+      ]
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

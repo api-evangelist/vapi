@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AWSStsAuthenticationArtifact",
+  "title": "AWSStsAuthenticationArtifact",
+  "type": "object",
+  "properties": {
+    "externalId": {
+      "type": "string",
+      "description": "This is the optional external ID for the AWS credential"
+    }
+  },
+  "required": [
+    "externalId"
+  ]
+}

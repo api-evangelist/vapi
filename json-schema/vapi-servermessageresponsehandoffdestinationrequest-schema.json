@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseHandoffDestinationRequest",
+  "title": "ServerMessageResponseHandoffDestinationRequest",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string",
+      "description": "This is the local tool result message returned for the handoff tool call."
+    },
+    "destination": {
+      "type": "object",
+      "description": "This is the destination you'd like the call to be transferred to."
+    },
+    "error": {
+      "type": "string",
+      "description": "This is the error message if the handoff should not be made."
+    }
+  },
+  "required": [
+    "destination"
+  ]
+}

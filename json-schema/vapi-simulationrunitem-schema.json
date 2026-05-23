@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItem",
+  "title": "SimulationRunItem",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the simulation run item.",
+      "format": "uuid"
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization.",
+      "format": "uuid"
+    },
+    "simulationId": {
+      "type": "string",
+      "description": "This is the ID of the simulation this run belongs to.",
+      "format": "uuid"
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the current status of the run.",
+      "enum": [
+        "queued",
+        "running",
+        "evaluating",
+        "passed",
+        "failed",
+        "canceled"
+      ]
+    },
+    "queuedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run was queued."
+    },
+    "startedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run started."
+    },
+    "completedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run completed."
+    },
+    "failedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run failed."
+    },
+    "canceledAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run was canceled."
+    },
+    "failureReason": {
+      "type": "string",
+      "description": "This is the reason for failure.",
+      "maxLength": 2000
+    },
+    "callId": {
+      "type": "string",
+      "description": "This is the ID of the target Vapi call (the assistant being tested).",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run item was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the run item was last updated."
+    },
+    "runId": {
+      "type": "string",
+      "description": "This is the ID of the parent run (batch/group).",
+      "format": "uuid"
+    },
+    "hooks": {
+      "type": "array",
+      "description": "Hooks configured for this simulation run item",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimulationHookCallStarted",
+            "title": "SimulationHookCallStarted"
+          },
+          {
+            "$ref": "#/components/schemas/SimulationHookCallEnded",
+            "title": "SimulationHookCallEnded"
+          }
+        ]
+      }
+    },
+    "iterationNumber": {
+      "type": "number",
+      "description": "This is the iteration number (1-indexed) when run with iterations > 1.",
+      "default": 1
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "This is the session ID for chat-based simulations (webchat transport).",
+      "format": "uuid"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "This is the scenario ID at run creation time.",
+      "format": "uuid"
+    },
+    "personalityId": {
+      "type": "string",
+      "description": "This is the personality ID at run creation time.",
+      "format": "uuid"
+    },
+    "metadata": {
+      "description": "This is the metadata containing snapshots and call data.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunItemMetadata"
+        }
+      ]
+    },
+    "results": {
+      "description": "This is the results of the simulation run.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunItemResults"
+        }
+      ]
+    },
+    "improvementSuggestions": {
+      "description": "This is the AI-generated improvement suggestions for failed runs.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunItemImprovements"
+        }
+      ]
+    },
+    "configurations": {
+      "description": "This is the configuration for how this simulation run executes.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunConfiguration"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "simulationId",
+    "status",
+    "queuedAt",
+    "createdAt",
+    "updatedAt"
+  ]
+}

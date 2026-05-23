@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LangfuseObservabilityPlan",
+  "title": "LangfuseObservabilityPlan",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "enum": [
+        "langfuse"
+      ]
+    },
+    "promptName": {
+      "type": "string",
+      "description": "The name of a Langfuse prompt to link generations to. This enables tracking which prompt version was used for each generation. https://langfuse.com/docs/prompt-management/features/link-to-traces"
+    },
+    "promptVersion": {
+      "type": "number",
+      "description": "The version number of the Langfuse prompt to link generations to. Used together with promptName to identify the exact prompt version. https://langfuse.com/docs/prompt-management/features/link-to-traces",
+      "minimum": 1
+    },
+    "traceName": {
+      "type": "string",
+      "description": "Custom name for the Langfuse trace. Supports Liquid templates.\n\nAvailable variables:\n- {{ call.id }} - Call UUID\n- {{ call.type }} - 'inboundPhoneCall', 'outboundPhoneCall', 'webCall'\n- {{ assistant.name }} - Assistant name\n- {{ assistant.id }} - Assistant ID\n\nExample: \"{{ assistant.name }} - {{ call.type }}\"\n\nDefaults to call ID if not provided."
+    },
+    "tags": {
+      "description": "This is an array of tags to be added to the Langfuse trace. Tags allow you to categorize and filter traces. https://langfuse.com/docs/tracing-features/tags",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is a JSON object that will be added to the Langfuse trace. Traces can be enriched with metadata to better understand your users, application, and experiments. https://langfuse.com/docs/tracing-features/metadata\nBy default it includes the call metadata, assistant metadata, and assistant overrides."
+    }
+  },
+  "required": [
+    "provider",
+    "tags"
+  ]
+}

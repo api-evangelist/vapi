@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CartesiaPronunciationDictItem",
+  "title": "CartesiaPronunciationDictItem",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "The text to be replaced in pronunciation",
+      "example": "Vapi"
+    },
+    "alias": {
+      "type": "string",
+      "description": "The pronunciation alias or IPA representation\nCan be a \"sounds-like\" guidance (e.g., \"VAH-pee\") or IPA notation (e.g., \"<<\u02c8|v|\u0251|\u02c8|p|i>>\")",
+      "example": "VAH-pee"
+    }
+  },
+  "required": [
+    "text",
+    "alias"
+  ]
+}

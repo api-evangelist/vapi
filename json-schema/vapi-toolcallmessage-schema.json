@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolCallMessage",
+  "title": "ToolCallMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the tool call in the conversation."
+    },
+    "toolCalls": {
+      "description": "The list of tool calls made during the conversation.",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content for the tool call."
+    },
+    "time": {
+      "type": "number",
+      "description": "The timestamp when the message was sent."
+    },
+    "secondsFromStart": {
+      "type": "number",
+      "description": "The number of seconds from the start of the conversation."
+    }
+  },
+  "required": [
+    "role",
+    "toolCalls",
+    "message",
+    "time",
+    "secondsFromStart"
+  ]
+}

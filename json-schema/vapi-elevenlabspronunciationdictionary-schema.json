@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ElevenLabsPronunciationDictionary",
+  "title": "ElevenLabsPronunciationDictionary",
+  "type": "object",
+  "properties": {
+    "pronunciationDictionaryId": {
+      "type": "string",
+      "description": "The ID of the pronunciation dictionary",
+      "example": "5xM3yVvZQKV0EfqQpLrJ"
+    },
+    "dictionaryName": {
+      "type": "string",
+      "description": "The name of the pronunciation dictionary",
+      "example": "My Dictionary"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "The user ID of the creator",
+      "example": "ar6633Es2kUjFXBdR1iVc9ztsXl1"
+    },
+    "creationTimeUnix": {
+      "type": "number",
+      "description": "The creation time in Unix timestamp",
+      "example": 1714156800
+    },
+    "versionId": {
+      "type": "string",
+      "description": "The version ID of the pronunciation dictionary",
+      "example": "5xM3yVvZQKV0EfqQpLrJ"
+    },
+    "versionRulesNum": {
+      "type": "number",
+      "description": "The number of rules in this version",
+      "example": 5
+    },
+    "permissionOnResource": {
+      "type": "string",
+      "description": "The permission level on this resource",
+      "enum": [
+        "admin",
+        "editor",
+        "viewer"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the pronunciation dictionary",
+      "example": "This is a test dictionary"
+    }
+  },
+  "required": [
+    "pronunciationDictionaryId",
+    "dictionaryName",
+    "createdBy",
+    "creationTimeUnix",
+    "versionId",
+    "versionRulesNum"
+  ]
+}

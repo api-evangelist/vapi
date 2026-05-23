@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GoogleRealtimeConfig",
+  "title": "GoogleRealtimeConfig",
+  "type": "object",
+  "properties": {
+    "topP": {
+      "type": "number",
+      "description": "This is the nucleus sampling parameter that controls the cumulative probability of tokens considered during text generation.\nOnly applicable with the Gemini Flash 2.0 Multimodal Live API."
+    },
+    "topK": {
+      "type": "number",
+      "description": "This is the top-k sampling parameter that limits the number of highest probability tokens considered during text generation.\nOnly applicable with the Gemini Flash 2.0 Multimodal Live API."
+    },
+    "presencePenalty": {
+      "type": "number",
+      "description": "This is the presence penalty parameter that influences the model's likelihood to repeat information by penalizing tokens based on their presence in the text.\nOnly applicable with the Gemini Flash 2.0 Multimodal Live API."
+    },
+    "frequencyPenalty": {
+      "type": "number",
+      "description": "This is the frequency penalty parameter that influences the model's likelihood to repeat tokens by penalizing them based on their frequency in the text.\nOnly applicable with the Gemini Flash 2.0 Multimodal Live API."
+    },
+    "speechConfig": {
+      "description": "This is the speech configuration object that defines the voice settings to be used for the model's speech output.\nOnly applicable with the Gemini Flash 2.0 Multimodal Live API.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GeminiMultimodalLiveSpeechConfig"
+        }
+      ]
+    }
+  }
+}

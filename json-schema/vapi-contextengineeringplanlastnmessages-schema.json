@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ContextEngineeringPlanLastNMessages",
+  "title": "ContextEngineeringPlanLastNMessages",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "lastNMessages"
+      ]
+    },
+    "maxMessages": {
+      "type": "number",
+      "description": "This is the maximum number of messages to include in the context engineering plan.",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "type",
+    "maxMessages"
+  ]
+}

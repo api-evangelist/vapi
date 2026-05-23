@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientMessage",
+  "title": "ClientMessage",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "These are all the messages that can be sent to the client-side SDKs during the call. Configure the messages you'd like to receive in `assistant.clientMessages`.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ClientMessageWorkflowNodeStarted",
+          "title": "WorkflowNodeStarted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageAssistantStarted",
+          "title": "AssistantStarted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageConversationUpdate",
+          "title": "ConversationUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageHang",
+          "title": "Hang"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageMetadata",
+          "title": "Metadata"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageModelOutput",
+          "title": "ModelOutput"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageSpeechUpdate",
+          "title": "SpeechUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageTranscript",
+          "title": "Transcript"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageToolCalls",
+          "title": "ToolCalls"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageToolCallsResult",
+          "title": "ToolCallsResult"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageTransferUpdate",
+          "title": "TransferUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageUserInterrupted",
+          "title": "UserInterrupted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageLanguageChangeDetected",
+          "title": "LanguageChangeDetected"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageVoiceInput",
+          "title": "VoiceInput"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageAssistantSpeech",
+          "title": "AssistantSpeech"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageChatCreated",
+          "title": "ChatCreated"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageChatDeleted",
+          "title": "ChatDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageSessionCreated",
+          "title": "SessionCreated"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageSessionUpdated",
+          "title": "SessionUpdated"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageSessionDeleted",
+          "title": "SessionDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageCallDeleted",
+          "title": "CallDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ClientMessageCallDeleteFailed",
+          "title": "CallDeleteFailed"
+        }
+      ]
+    }
+  },
+  "required": [
+    "message"
+  ]
+}

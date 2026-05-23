@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunTargetSquad",
+  "title": "SimulationRunTargetSquad",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "squad"
+      ],
+      "description": "Type of target"
+    },
+    "squadId": {
+      "type": "string",
+      "description": "ID of an existing squad to test against. Cannot be combined with inline squad.",
+      "format": "uuid"
+    },
+    "squad": {
+      "description": "Inline squad configuration to test against. Cannot be combined with squadId.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

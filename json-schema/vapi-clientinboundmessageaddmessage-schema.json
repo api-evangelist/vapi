@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessageAddMessage",
+  "title": "ClientInboundMessageAddMessage",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. Send \"add-message\" message to add a message to the conversation history.",
+      "enum": [
+        "add-message"
+      ]
+    },
+    "message": {
+      "description": "This is the message to add to the conversation.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenAIMessage"
+        }
+      ]
+    },
+    "triggerResponseEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to trigger a response, or to insert the message into the conversation history silently. Defaults to `true`.\n\nUsage:\n- Use `true` to trigger a response.\n- Use `false` to insert the message into the conversation history silently.\n\n@default true",
+      "default": true
+    }
+  },
+  "required": [
+    "type",
+    "message"
+  ]
+}

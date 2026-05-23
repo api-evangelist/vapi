@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalModelListOptions",
+  "title": "EvalModelListOptions",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider of the model.",
+      "enum": [
+        "openai",
+        "anthropic",
+        "google",
+        "groq",
+        "custom-llm"
+      ]
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

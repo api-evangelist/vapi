@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunConfiguration",
+  "title": "SimulationRunConfiguration",
+  "type": "object",
+  "properties": {
+    "transport": {
+      "description": "Transport configuration for the simulation run",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationRunTransportConfiguration"
+        }
+      ]
+    }
+  }
+}

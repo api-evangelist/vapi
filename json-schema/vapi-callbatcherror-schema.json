@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CallBatchError",
+  "title": "CallBatchError",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "#/components/schemas/CreateCustomerDTO"
+    },
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "customer",
+    "error"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantActivation",
+  "title": "AssistantActivation",
+  "type": "object",
+  "properties": {
+    "assistantName": {
+      "type": "string",
+      "description": "This is the name of the assistant that was active during the call."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the ID of the assistant that was active during the call."
+    }
+  },
+  "required": [
+    "assistantName"
+  ]
+}

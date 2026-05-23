@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChunkPlan",
+  "title": "ChunkPlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "This determines whether the model output is chunked before being sent to the voice provider. Default `true`.\n\nUsage:\n- To rely on the voice provider's audio generation logic, set this to `false`.\n- If seeing issues with quality, set this to `true`.\n\nIf disabled, Vapi-provided audio control tokens like <flush /> will not work.\n\n@default true",
+      "example": true
+    },
+    "minCharacters": {
+      "type": "number",
+      "description": "This is the minimum number of characters in a chunk.\n\nUsage:\n- To increase quality, set this to a higher value.\n- To decrease latency, set this to a lower value.\n\n@default 30",
+      "minimum": 1,
+      "maximum": 80,
+      "example": 30
+    },
+    "punctuationBoundaries": {
+      "type": "array",
+      "description": "These are the punctuations that are considered valid boundaries for a chunk to be created.\n\nUsage:\n- To increase quality, constrain to fewer boundaries.\n- To decrease latency, enable all.\n\nDefault is automatically set to balance the trade-off between quality and latency based on the provider.",
+      "enum": [
+        "\u3002",
+        "\uff0c",
+        ".",
+        "!",
+        "?",
+        ";",
+        ")",
+        "\u060c",
+        "\u06d4",
+        "\u0964",
+        "\u0965",
+        "|",
+        "||",
+        ",",
+        ":"
+      ],
+      "example": [
+        "\u3002",
+        "\uff0c",
+        ".",
+        "!",
+        "?",
+        ";",
+        "\u060c",
+        "\u06d4",
+        "\u0964",
+        "\u0965",
+        "|",
+        "||",
+        ",",
+        ":"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "\u3002",
+          "\uff0c",
+          ".",
+          "!",
+          "?",
+          ";",
+          ")",
+          "\u060c",
+          "\u06d4",
+          "\u0964",
+          "\u0965",
+          "|",
+          "||",
+          ",",
+          ":"
+        ]
+      }
+    },
+    "formatPlan": {
+      "description": "This is the plan for formatting the chunk before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FormatPlan"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Edge",
+  "title": "Edge",
+  "type": "object",
+  "properties": {
+    "condition": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AIEdgeCondition",
+          "title": "AIEdgeCondition"
+        }
+      ]
+    },
+    "from": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "to": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is for metadata you want to store on the edge."
+    }
+  },
+  "required": [
+    "from",
+    "to"
+  ]
+}

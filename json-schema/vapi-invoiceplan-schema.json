@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InvoicePlan",
+  "title": "InvoicePlan",
+  "type": "object",
+  "properties": {
+    "companyName": {
+      "type": "string",
+      "description": "This is the name of the company."
+    },
+    "companyAddress": {
+      "type": "string",
+      "description": "This is the address of the company."
+    },
+    "companyTaxId": {
+      "type": "string",
+      "description": "This is the tax ID of the company."
+    },
+    "companyEmail": {
+      "type": "string",
+      "description": "This is the preferred invoicing email of the company. If not specified, defaults to the subscription's email."
+    }
+  }
+}

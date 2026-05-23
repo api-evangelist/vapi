@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageCallEndpointingRequest",
+  "title": "ServerMessageCallEndpointingRequest",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"call.endpointing.request\" is sent when using `assistant.startSpeakingPlan.smartEndpointingPlan={ \"provider\": \"custom-endpointing-model\" }`.\n\nHere is what the request will look like:\n\nPOST https://{assistant.startSpeakingPlan.smartEndpointingPlan.server.url}\nContent-Type: application/json\n\n{\n  \"message\": {\n    \"type\": \"call.endpointing.request\",\n    \"messages\": [\n      {\n        \"role\": \"user\",\n        \"message\": \"Hello, how are you?\",\n        \"time\": 1234567890,\n        \"secondsFromStart\": 0\n      }\n    ],\n    ...other metadata about the call...\n  }\n}\n\nThe expected response:\n{\n  \"timeoutSeconds\": 0.5\n}",
+      "enum": [
+        "call.endpointing.request"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "description": "This is the conversation history at the time of the endpointing request.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserMessage",
+            "title": "UserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/SystemMessage",
+            "title": "SystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/BotMessage",
+            "title": "BotMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallMessage",
+            "title": "ToolCallMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallResultMessage",
+            "title": "ToolCallResultMessage"
+          }
+        ]
+      }
+    },
+    "messagesOpenAIFormatted": {
+      "description": "This is just `messages` formatted for OpenAI.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/OpenAIMessage"
+      }
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "artifact": {
+      "description": "This is a live version of the `call.artifact`.\n\nThis matches what is stored on `call.artifact` after the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Artifact"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "chat": {
+      "description": "This is the chat object.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Chat"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "messagesOpenAIFormatted"
+  ]
+}

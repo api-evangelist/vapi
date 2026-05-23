@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdatePersonalityDTO",
+  "title": "UpdatePersonalityDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the personality.",
+      "maxLength": 80
+    },
+    "assistant": {
+      "description": "This is the full assistant configuration for this personality.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing personalities.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nSet to null to remove from folder.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  }
+}

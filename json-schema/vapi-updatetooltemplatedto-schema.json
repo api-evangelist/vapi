@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateToolTemplateDTO",
+  "title": "UpdateToolTemplateDTO",
+  "type": "object",
+  "properties": {
+    "details": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateApiRequestToolDTO",
+          "title": "ApiRequestTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateBashToolDTO",
+          "title": "BashTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateCodeToolDTO",
+          "title": "CodeTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateComputerToolDTO",
+          "title": "ComputerTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateDtmfToolDTO",
+          "title": "DtmfTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateEndCallToolDTO",
+          "title": "EndCallTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateFunctionToolDTO",
+          "title": "FunctionTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelCalendarAvailabilityToolDTO",
+          "title": "GoHighLevelCalendarAvailabilityTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelCalendarEventCreateToolDTO",
+          "title": "GoHighLevelCalendarEventCreateTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelContactCreateToolDTO",
+          "title": "GoHighLevelContactCreateTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelContactGetToolDTO",
+          "title": "GoHighLevelContactGetTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleCalendarCheckAvailabilityToolDTO",
+          "title": "GoogleCalendarCheckAvailabilityTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleCalendarCreateEventToolDTO",
+          "title": "GoogleCalendarCreateEventTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleSheetsRowAppendToolDTO",
+          "title": "GoogleSheetsRowAppendTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateHandoffToolDTO",
+          "title": "HandoffTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateMcpToolDTO",
+          "title": "McpTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateQueryToolDTO",
+          "title": "QueryTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSlackSendMessageToolDTO",
+          "title": "SlackSendMessageTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSmsToolDTO",
+          "title": "SmsTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTextEditorToolDTO",
+          "title": "TextEditorTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTransferCallToolDTO",
+          "title": "TransferCallTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSipRequestToolDTO",
+          "title": "SipRequestTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVoicemailToolDTO",
+          "title": "VoicemailTool"
+        }
+      ]
+    },
+    "providerDetails": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/MakeToolProviderDetails",
+          "title": "MakeToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GhlToolProviderDetails",
+          "title": "GhlToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/FunctionToolProviderDetails",
+          "title": "FunctionToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoogleCalendarCreateEventToolProviderDetails",
+          "title": "GoogleCalendarCreateEventToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoogleSheetsRowAppendToolProviderDetails",
+          "title": "GoogleSheetsRowAppendToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoHighLevelCalendarAvailabilityToolProviderDetails",
+          "title": "GoHighLevelCalendarAvailabilityToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoHighLevelCalendarEventCreateToolProviderDetails",
+          "title": "GoHighLevelCalendarEventCreateToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoHighLevelContactCreateToolProviderDetails",
+          "title": "GoHighLevelContactCreateToolProviderDetails"
+        },
+        {
+          "$ref": "#/components/schemas/GoHighLevelContactGetToolProviderDetails",
+          "title": "GoHighLevelContactGetToolProviderDetails"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/ToolTemplateMetadata"
+    },
+    "visibility": {
+      "type": "string",
+      "default": "private",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "default": "tool",
+      "enum": [
+        "tool"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the template. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "make",
+        "gohighlevel",
+        "function"
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

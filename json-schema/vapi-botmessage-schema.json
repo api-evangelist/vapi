@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BotMessage",
+  "title": "BotMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the bot in the conversation."
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content from the bot."
+    },
+    "time": {
+      "type": "number",
+      "description": "The timestamp when the message was sent."
+    },
+    "endTime": {
+      "type": "number",
+      "description": "The timestamp when the message ended."
+    },
+    "secondsFromStart": {
+      "type": "number",
+      "description": "The number of seconds from the start of the conversation."
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the message."
+    },
+    "duration": {
+      "type": "number",
+      "description": "The duration of the message in seconds."
+    }
+  },
+  "required": [
+    "role",
+    "message",
+    "time",
+    "endTime",
+    "secondsFromStart"
+  ]
+}

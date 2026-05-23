@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalPaginatedResponse",
+  "title": "EvalPaginatedResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Eval"
+      }
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/PaginationMeta"
+    }
+  },
+  "required": [
+    "results",
+    "metadata"
+  ]
+}

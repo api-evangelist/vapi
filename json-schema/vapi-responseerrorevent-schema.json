@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseErrorEvent",
+  "title": "ResponseErrorEvent",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "default": "error",
+      "description": "Event type",
+      "enum": [
+        "error"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "description": "Error code",
+      "example": "ERR_SOMETHING"
+    },
+    "message": {
+      "type": "string",
+      "description": "Error message",
+      "example": "Something went wrong"
+    },
+    "param": {
+      "type": "string",
+      "nullable": true,
+      "description": "Parameter that caused the error"
+    },
+    "sequence_number": {
+      "type": "number",
+      "description": "Sequence number of the event",
+      "example": 1
+    }
+  },
+  "required": [
+    "type",
+    "code",
+    "message",
+    "sequence_number"
+  ]
+}

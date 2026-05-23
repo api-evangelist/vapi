@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Server",
+  "title": "Server",
+  "type": "object",
+  "properties": {
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is the timeout in seconds for the request. Defaults to 20 seconds.\n\n@default 20",
+      "minimum": 1,
+      "maximum": 300,
+      "example": 20
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "The credential ID for server authentication",
+      "example": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "staticIpAddressesEnabled": {
+      "type": "boolean",
+      "description": "If enabled, requests will originate from a static set of IPs owned and managed by Vapi.\n\n@default false",
+      "example": false
+    },
+    "encryptedPaths": {
+      "type": "array",
+      "description": "This is the paths to encrypt in the request body if credentialId and encryptionPlan are defined.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "type": "string",
+      "description": "This is where the request will be sent."
+    },
+    "headers": {
+      "type": "object",
+      "description": "These are the headers to include in the request.\n\nEach key-value pair represents a header name and its value.\n\nNote: Specifying an Authorization header here will override the authorization provided by the `credentialId` (if provided). This is an anti-pattern and should be avoided outside of edge case scenarios."
+    },
+    "backoffPlan": {
+      "description": "This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).\n\n@default undefined (the request will not be retried)",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BackoffPlan"
+        }
+      ]
+    }
+  }
+}

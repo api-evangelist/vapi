@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InsightRunDTO",
+  "title": "InsightRunDTO",
+  "type": "object",
+  "properties": {
+    "formatPlan": {
+      "$ref": "#/components/schemas/InsightRunFormatPlan"
+    },
+    "timeRangeOverride": {
+      "description": "This is the optional time range override for the insight.\nIf provided, overrides every field in the insight's timeRange.\nIf this is provided with missing fields, defaults will be used, not the insight's timeRange.\nstart default - \"-7d\"\nend default - \"now\"\nstep default - \"day\"\nFor Pie and Text Insights, step will be ignored even if provided.",
+      "example": "{ start: \"2025-01-01\", end: \"2025-01-07\", step: \"day\" }",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InsightTimeRangeWithStep"
+        }
+      ]
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "Optional runtime assistant scope for dashboards.\nThis is applied to call-table queries without mutating the saved insight."
+    }
+  }
+}

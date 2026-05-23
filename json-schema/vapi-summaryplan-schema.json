@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SummaryPlan",
+  "title": "SummaryPlan",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "description": "These are the messages used to generate the summary.\n\n@default: ```\n[\n  {\n    \"role\": \"system\",\n    \"content\": \"You are an expert note-taker. You will be given a transcript of a call. Summarize the call in 2-3 sentences. DO NOT return anything except the summary.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Here is the transcript:\\n\\n{{transcript}}\\n\\n. Here is the ended reason of the call:\\n\\n{{endedReason}}\\n\\n\"\n  }\n]```\n\nYou can customize by providing any messages you want.\n\nHere are the template variables available:\n- {{transcript}}: The transcript of the call from `call.artifact.transcript` \n- {{systemPrompt}}: The system prompt of the call from `assistant.model.messages[type=system].content` \n- {{messages}}: The messages of the call from `assistant.model.messages` \n- {{endedReason}}: The ended reason of the call from `call.endedReason`",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "This determines whether a summary is generated and stored in `call.analysis.summary`. Defaults to true.\n\nUsage:\n- If you want to disable the summary, set this to false.\n\n@default true"
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is how long the request is tried before giving up. When request times out, `call.analysis.summary` will be empty.\n\nUsage:\n- To guarantee the summary is generated, set this value high. Note, this will delay the end of call report in cases where model is slow to respond.\n\n@default 5 seconds",
+      "minimum": 1,
+      "maximum": 60
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateEvalRunDTO",
+  "title": "CreateEvalRunDTO",
+  "type": "object",
+  "properties": {
+    "eval": {
+      "description": "This is the transient eval that will be run",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateEvalDTO",
+          "title": "CreateEvalDTO"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateEvalDTO"
+        }
+      ]
+    },
+    "target": {
+      "description": "This is the target that will be run against the eval",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/EvalRunTargetAssistant",
+          "title": "EvalRunTargetAssistant"
+        },
+        {
+          "$ref": "#/components/schemas/EvalRunTargetSquad",
+          "title": "EvalRunTargetSquad"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the run.\nCurrently it is fixed to `eval`.",
+      "example": "eval",
+      "enum": [
+        "eval"
+      ]
+    },
+    "evalId": {
+      "type": "string",
+      "description": "This is the id of the eval that will be run.",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "target",
+    "type"
+  ]
+}

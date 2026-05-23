@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MonitorResult",
+  "title": "MonitorResult",
+  "type": "object",
+  "properties": {
+    "monitorId": {
+      "type": "string"
+    },
+    "filterPassed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "monitorId",
+    "filterPassed"
+  ]
+}

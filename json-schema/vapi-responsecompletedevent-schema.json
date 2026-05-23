@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseCompletedEvent",
+  "title": "ResponseCompletedEvent",
+  "type": "object",
+  "properties": {
+    "response": {
+      "description": "The completed response",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResponseObject"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "default": "response.completed",
+      "description": "Event type",
+      "enum": [
+        "response.completed"
+      ]
+    }
+  },
+  "required": [
+    "response",
+    "type"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DialPlanEntry",
+  "title": "DialPlanEntry",
+  "type": "object",
+  "properties": {
+    "phoneNumberId": {
+      "type": "string",
+      "description": "The phone number ID to use for calling the customers in this entry."
+    },
+    "customers": {
+      "description": "The list of customers to call using this phone number.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CreateCustomerDTO"
+      }
+    }
+  },
+  "required": [
+    "phoneNumberId",
+    "customers"
+  ]
+}

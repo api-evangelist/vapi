@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolTemplateSetup",
+  "title": "ToolTemplateSetup",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "docsUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

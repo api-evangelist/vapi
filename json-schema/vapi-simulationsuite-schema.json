@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationSuite",
+  "title": "SimulationSuite",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the simulation suite.",
+      "format": "uuid"
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization this suite belongs to.",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the suite was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the suite was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the simulation suite.",
+      "maxLength": 80,
+      "example": "Checkout Flow Tests"
+    },
+    "slackWebhookUrl": {
+      "type": "string",
+      "description": "This is the Slack webhook URL for notifications."
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing simulation suites.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    },
+    "simulationIds": {
+      "description": "This is the list of simulation IDs in this suite.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "name",
+    "simulationIds"
+  ]
+}

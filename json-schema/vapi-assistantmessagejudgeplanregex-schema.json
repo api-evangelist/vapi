@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantMessageJudgePlanRegex",
+  "title": "AssistantMessageJudgePlanRegex",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "regex"
+      ],
+      "description": "This is the type of the judge plan.\nUse 'regex' for a regex match on the content and tool calls - without using LLM-as-a-judge.\n@default 'regex'"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is what that will be used to evaluate the model's message content.\nThe content will be evaluated against the regex pattern provided in the Judge Plan content field.\nEvaluation is considered successful if the regex pattern matches any part of the assistant message content.",
+      "example": "/sunny/i",
+      "maxLength": 1000
+    },
+    "toolCalls": {
+      "description": "This is the tool calls that will be used to evaluate the model's message content.\nThe tool name must be a valid tool that the assistant is allowed to call.\nThe values to the arguments for the tool call should be a Regular Expression.\nEvaluation is considered successful if the regex pattern matches any part of each tool call argument.\n\nFor the Query tool, the arguments for the tool call are in the format - {knowledgeBaseNames: ['kb_name', 'kb_name_2']}\n\nFor the DTMF tool, the arguments for the tool call are in the format - {dtmf: \"1234*\"}\n\nFor the Handoff tool, the arguments for the tool call are in the format - {destination: \"assistant_id\"}\n\nFor the Transfer Call tool, the arguments for the tool call are in the format - {destination: \"phone_number_or_assistant_id\"}\n\nFor all other tools, they are called without arguments or with user-defined arguments",
+      "example": "[{ name: \"get_weather\", arguments: { city: \"/San Francisco/i\" } }]",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ChatEvalAssistantMessageMockToolCall"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "content"
+  ]
+}

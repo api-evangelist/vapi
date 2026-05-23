@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NodeArtifact",
+  "title": "NodeArtifact",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "description": "These are the messages that were spoken during the node.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserMessage",
+            "title": "UserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/SystemMessage",
+            "title": "SystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/BotMessage",
+            "title": "BotMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallMessage",
+            "title": "ToolCallMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallResultMessage",
+            "title": "ToolCallResultMessage"
+          }
+        ]
+      }
+    },
+    "nodeName": {
+      "type": "string",
+      "description": "This is the node name."
+    },
+    "variableValues": {
+      "type": "object",
+      "description": "These are the variable values that were extracted from the node."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BackgroundSpeechDenoisingPlan",
+  "title": "BackgroundSpeechDenoisingPlan",
+  "type": "object",
+  "properties": {
+    "smartDenoisingPlan": {
+      "description": "Whether smart denoising using Krisp is enabled.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SmartDenoisingPlan"
+        }
+      ]
+    },
+    "fourierDenoisingPlan": {
+      "description": "Whether Fourier denoising is enabled. Note that this is experimental and may not work as expected.\n\nThis can be combined with smart denoising, and will be run afterwards.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FourierDenoisingPlan"
+        }
+      ]
+    }
+  }
+}

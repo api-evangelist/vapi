@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Campaign",
+  "title": "Campaign",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "This is the status of the campaign.",
+      "enum": [
+        "scheduled",
+        "in-progress",
+        "ended"
+      ]
+    },
+    "endedReason": {
+      "type": "string",
+      "description": "This is the explanation for how the campaign ended.",
+      "enum": [
+        "campaign.scheduled.ended-by-user",
+        "campaign.in-progress.ended-by-user",
+        "campaign.ended.success"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the campaign. This is just for your own reference.",
+      "example": "Q2 Sales Campaign"
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used."
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive."
+    },
+    "dialPlan": {
+      "description": "This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DialPlanEntry"
+      }
+    },
+    "schedulePlan": {
+      "description": "This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization\u2019s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn\u2019t be placed won\u2019t be retried.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SchedulePlan"
+        }
+      ]
+    },
+    "customers": {
+      "description": "These are the customers that will be called in the campaign. Required if dialPlan is not provided.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CreateCustomerDTO"
+      }
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the campaign."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this campaign belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the campaign was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the campaign was last updated."
+    },
+    "calls": {
+      "type": "object",
+      "description": "This is a map of call IDs to campaign call details."
+    },
+    "callsCounterScheduled": {
+      "type": "number",
+      "description": "This is the number of calls that have been scheduled."
+    },
+    "callsCounterQueued": {
+      "type": "number",
+      "description": "This is the number of calls that have been queued."
+    },
+    "callsCounterInProgress": {
+      "type": "number",
+      "description": "This is the number of calls that have been in progress."
+    },
+    "callsCounterEndedVoicemail": {
+      "type": "number",
+      "description": "This is the number of calls whose ended reason is 'voicemail'."
+    },
+    "callsCounterEnded": {
+      "type": "number",
+      "description": "This is the number of calls that have ended."
+    }
+  },
+  "required": [
+    "status",
+    "name",
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "calls",
+    "callsCounterScheduled",
+    "callsCounterQueued",
+    "callsCounterInProgress",
+    "callsCounterEndedVoicemail",
+    "callsCounterEnded"
+  ]
+}

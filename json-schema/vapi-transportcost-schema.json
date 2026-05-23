@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TransportCost",
+  "title": "TransportCost",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of cost, always 'transport' for this class.",
+      "enum": [
+        "transport"
+      ]
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "vapi.websocket",
+        "twilio",
+        "vonage",
+        "telnyx",
+        "vapi.sip"
+      ]
+    },
+    "minutes": {
+      "type": "number",
+      "description": "This is the minutes of `transport` usage. This should match `call.endedAt` - `call.startedAt`."
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the component in USD."
+    }
+  },
+  "required": [
+    "type",
+    "minutes",
+    "cost"
+  ]
+}

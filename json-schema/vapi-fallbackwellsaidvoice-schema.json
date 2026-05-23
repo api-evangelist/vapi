@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackWellSaidVoice",
+  "title": "FallbackWellSaidVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "wellsaid"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "The WellSaid speaker ID to synthesize."
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used.",
+      "enum": [
+        "caruso",
+        "legacy"
+      ]
+    },
+    "enableSsml": {
+      "type": "boolean",
+      "description": "Enables limited SSML translation for input text."
+    },
+    "libraryIds": {
+      "description": "Array of library IDs to use for voice synthesis.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

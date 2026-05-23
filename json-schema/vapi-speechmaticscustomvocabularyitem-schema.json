@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SpeechmaticsCustomVocabularyItem",
+  "title": "SpeechmaticsCustomVocabularyItem",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "The word or phrase to add to the custom vocabulary.",
+      "minLength": 1,
+      "example": "Speechmatics"
+    },
+    "soundsLike": {
+      "description": "Alternative phonetic representations of how the word might sound. This helps recognition when the word might be pronounced differently.",
+      "example": [
+        "speech mattix"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "content"
+  ]
+}

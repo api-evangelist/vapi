@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SmallestAIVoice",
+  "title": "SmallestAIVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "smallest-ai"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "emily",
+            "jasmine",
+            "arman",
+            "james",
+            "mithali",
+            "aravind",
+            "raj",
+            "diya",
+            "raman",
+            "ananya",
+            "isha",
+            "william",
+            "aarav",
+            "monika",
+            "niharika",
+            "deepika",
+            "raghav",
+            "kajal",
+            "radhika",
+            "mansi",
+            "nisha",
+            "saurabh",
+            "pooja",
+            "saina",
+            "sanya"
+          ],
+          "title": "Preset Voice Options"
+        },
+        {
+          "type": "string",
+          "title": "Smallest AI Voice ID"
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "Smallest AI voice model to use. Defaults to 'lightning' when not specified.",
+      "enum": [
+        "lightning"
+      ]
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.",
+      "example": null
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

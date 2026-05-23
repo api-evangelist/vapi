@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackCustomVoice",
+  "title": "FallbackCustomVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported.",
+      "enum": [
+        "custom-voice"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "This is the provider-specific ID that will be used. This is passed in the voice request payload to identify the voice to use."
+    },
+    "server": {
+      "description": "This is where the voice request will be sent.\n\nRequest Example:\n\nPOST https://{server.url}\nContent-Type: application/json\n\n{\n  \"message\": {\n    \"type\": \"voice-request\",\n    \"text\": \"Hello, world!\",\n    \"sampleRate\": 24000,\n    ...other metadata about the call...\n  }\n}\n\nResponse Expected: 1-channel 16-bit raw PCM audio at the sample rate specified in the request. Here is how the response will be piped to the transport:\n```\nresponse.on('data', (chunk: Buffer) => {\n  outputStream.write(chunk);\n});\n```",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "server"
+  ]
+}

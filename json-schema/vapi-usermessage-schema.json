@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserMessage",
+  "title": "UserMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the conversation."
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content from the user."
+    },
+    "time": {
+      "type": "number",
+      "description": "The timestamp when the message was sent."
+    },
+    "endTime": {
+      "type": "number",
+      "description": "The timestamp when the message ended."
+    },
+    "secondsFromStart": {
+      "type": "number",
+      "description": "The number of seconds from the start of the conversation."
+    },
+    "duration": {
+      "type": "number",
+      "description": "The duration of the message in seconds."
+    },
+    "isFiltered": {
+      "type": "boolean",
+      "description": "Indicates if the message was filtered for security reasons."
+    },
+    "detectedThreats": {
+      "description": "List of detected security threats if the message was filtered.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "originalMessage": {
+      "type": "string",
+      "description": "The original message before filtering (only included if content was filtered)."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "The metadata associated with the message. Currently used to store the transcriber's word level confidence."
+    },
+    "speakerLabel": {
+      "type": "string",
+      "description": "Stable speaker label for diarized user speakers (e.g., \"Speaker 1\")."
+    }
+  },
+  "required": [
+    "role",
+    "message",
+    "time",
+    "endTime",
+    "secondsFromStart"
+  ]
+}

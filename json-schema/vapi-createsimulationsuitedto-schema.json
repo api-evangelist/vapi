@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSimulationSuiteDTO",
+  "title": "CreateSimulationSuiteDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the simulation suite.",
+      "maxLength": 80,
+      "example": "Checkout Flow Tests"
+    },
+    "slackWebhookUrl": {
+      "type": "string",
+      "description": "This is the Slack webhook URL for notifications."
+    },
+    "simulationIds": {
+      "description": "This is the list of simulation IDs to include in the suite.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing simulation suites.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  },
+  "required": [
+    "name",
+    "simulationIds"
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RimeAIVoice",
+  "title": "RimeAIVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "rime-ai"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "cove",
+            "moon",
+            "wildflower",
+            "eva",
+            "amber",
+            "maya",
+            "lagoon",
+            "breeze",
+            "helen",
+            "joy",
+            "marsh",
+            "creek",
+            "cedar",
+            "alpine",
+            "summit",
+            "nicholas",
+            "tyler",
+            "colin",
+            "hank",
+            "thunder",
+            "astra",
+            "eucalyptus",
+            "moraine",
+            "peak",
+            "tundra",
+            "mesa_extra",
+            "talon",
+            "marlu",
+            "glacier",
+            "falcon",
+            "luna",
+            "celeste",
+            "estelle",
+            "andromeda",
+            "esther",
+            "lyra",
+            "lintel",
+            "oculus",
+            "vespera",
+            "transom",
+            "bond",
+            "arcade",
+            "atrium",
+            "cupola",
+            "fern",
+            "sirius",
+            "orion",
+            "masonry",
+            "albion",
+            "parapet"
+          ],
+          "title": "Suggested Voice Options",
+          "description": "Popular Rime AI voices across mist, mistv2, and arcana models. Any valid Rime AI voice ID is accepted, not just these suggestions."
+        },
+        {
+          "type": "string",
+          "title": "Any Rime AI Voice ID",
+          "description": "Any valid Rime AI voice ID. See https://docs.rime.ai/docs/voices for the full catalog."
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used. Defaults to 'arcana' when not specified.",
+      "enum": [
+        "arcana",
+        "mistv2",
+        "mist"
+      ],
+      "example": "arcana"
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.",
+      "minimum": 0.1,
+      "example": null
+    },
+    "pauseBetweenBrackets": {
+      "type": "boolean",
+      "description": "This is a flag that controls whether to add slight pauses using angle brackets. Example: \"Hi. <200> I'd love to have a conversation with you.\" adds a 200ms pause between the first and second sentences.",
+      "example": false
+    },
+    "phonemizeBetweenBrackets": {
+      "type": "boolean",
+      "description": "This is a flag that controls whether text inside brackets should be phonemized (converted to phonetic pronunciation) - Example: \"{h'El.o} World\" will pronounce \"Hello\" as expected.",
+      "example": false
+    },
+    "reduceLatency": {
+      "type": "boolean",
+      "description": "This is a flag that controls whether to optimize for reduced latency in streaming. https://docs.rime.ai/api-reference/endpoint/websockets#param-reduce-latency",
+      "example": false
+    },
+    "inlineSpeedAlpha": {
+      "type": "string",
+      "description": "This is a string that allows inline speed control using alpha notation. https://docs.rime.ai/api-reference/endpoint/websockets#param-inline-speed-alpha",
+      "example": null
+    },
+    "language": {
+      "type": "string",
+      "description": "Language for speech synthesis. Uses ISO 639 codes. Supported: en, es, de, fr, ar, hi, ja, he, pt, ta, si.",
+      "enum": [
+        "en",
+        "es",
+        "de",
+        "fr",
+        "ar",
+        "hi",
+        "ja",
+        "he",
+        "pt",
+        "ta",
+        "si"
+      ],
+      "example": "en"
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

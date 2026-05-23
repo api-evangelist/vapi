@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KnowledgeBase",
+  "title": "KnowledgeBase",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the knowledge base",
+      "example": "My Knowledge Base"
+    },
+    "provider": {
+      "type": "string",
+      "description": "The provider of the knowledge base",
+      "enum": [
+        "google"
+      ],
+      "example": "google"
+    },
+    "model": {
+      "type": "string",
+      "description": "The model to use for the knowledge base",
+      "enum": [
+        "gemini-3-flash-preview",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-2.0-flash-thinking-exp",
+        "gemini-2.0-pro-exp-02-05",
+        "gemini-2.0-flash",
+        "gemini-2.0-flash-lite",
+        "gemini-2.0-flash-exp",
+        "gemini-2.0-flash-realtime-exp",
+        "gemini-1.5-flash",
+        "gemini-1.5-flash-002",
+        "gemini-1.5-pro",
+        "gemini-1.5-pro-002",
+        "gemini-1.0-pro"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the knowledge base"
+    },
+    "fileIds": {
+      "description": "The file IDs associated with this knowledge base",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "provider",
+    "description",
+    "fileIds"
+  ]
+}

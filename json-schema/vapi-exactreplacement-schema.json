@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExactReplacement",
+  "title": "ExactReplacement",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.\n\nUsage:\n- Replace \"hello\" with \"hi\": { type: 'exact', key: 'hello', value: 'hi' }\n- Replace \"good morning\" with \"good day\": { type: 'exact', key: 'good morning', value: 'good day' }\n- Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' }\n- Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' }\n- Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }",
+      "enum": [
+        "exact"
+      ]
+    },
+    "replaceAllEnabled": {
+      "type": "boolean",
+      "description": "This option let's you control whether to replace all instances of the key or only the first one. By default, it only replaces the first instance.\nExamples:\n- For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: false }. Before: \"hello world, hello universe\" | After: \"hi world, hello universe\"\n- For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: true }. Before: \"hello world, hello universe\" | After: \"hi world, hi universe\"\n@default false",
+      "default": false
+    },
+    "key": {
+      "type": "string",
+      "description": "This is the key to replace."
+    },
+    "value": {
+      "type": "string",
+      "description": "This is the value that will replace the match.",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "type",
+    "key",
+    "value"
+  ]
+}

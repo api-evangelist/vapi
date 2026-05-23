@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantMessageJudgePlanAI",
+  "title": "AssistantMessageJudgePlanAI",
+  "type": "object",
+  "properties": {
+    "model": {
+      "description": "This is the model to use for the LLM-as-a-judge.\nIf not provided, will default to the assistant's model.\n\nThe instructions on how to evaluate the model output with this LLM-Judge must be passed as a system message in the messages array of the model.\n\nThe Mock conversation can be passed to the LLM-Judge to evaluate using the prompt {{messages}} and will be evaluated as a LiquidJS Variable. To access and judge only the last message, use {{messages[-1]}}\n\nThe LLM-Judge must respond with \"pass\" or \"fail\" and only those two responses are allowed.",
+      "example": "{",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/EvalOpenAIModel",
+          "title": "EvalOpenAIModel"
+        },
+        {
+          "$ref": "#/components/schemas/EvalAnthropicModel",
+          "title": "EvalAnthropicModel"
+        },
+        {
+          "$ref": "#/components/schemas/EvalGoogleModel",
+          "title": "EvalGoogleModel"
+        },
+        {
+          "$ref": "#/components/schemas/EvalCustomModel",
+          "title": "EvalCustomModel"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ai"
+      ],
+      "description": "This is the type of the judge plan.\nUse 'ai' to evaluate the assistant message content using LLM-as-a-judge.\n@default 'ai'"
+    },
+    "autoIncludeMessageHistory": {
+      "type": "boolean",
+      "description": "This is the flag to enable automatically adding the liquid variable {{messages}} to the model's messages array\nThis is only applicable if the user has not provided any messages in the model's messages array\n@default true"
+    }
+  },
+  "required": [
+    "model",
+    "type"
+  ]
+}

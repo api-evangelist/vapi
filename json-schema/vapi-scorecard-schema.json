@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Scorecard",
+  "title": "Scorecard",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the scorecard."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this scorecard belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the scorecard was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the scorecard was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the scorecard. It is only for user reference and will not be used for any evaluation.",
+      "maxLength": 80
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the scorecard. It is only for user reference and will not be used for any evaluation.",
+      "maxLength": 500
+    },
+    "metrics": {
+      "description": "These are the metrics that will be used to evaluate the scorecard.\nEach metric will have a set of conditions and points that will be used to generate the score.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScorecardMetric"
+      }
+    },
+    "assistantIds": {
+      "description": "These are the assistant IDs that this scorecard is linked to.\nWhen linked to assistants, this scorecard will be available for evaluation during those assistants' calls.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "metrics"
+  ]
+}

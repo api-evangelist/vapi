@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TimeRange",
+  "title": "TimeRange",
+  "type": "object",
+  "properties": {
+    "step": {
+      "type": "string",
+      "description": "This is the time step for aggregations.\n\nIf not provided, defaults to returning for the entire time range.",
+      "enum": [
+        "second",
+        "minute",
+        "hour",
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year",
+        "decade",
+        "century",
+        "millennium"
+      ]
+    },
+    "start": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the start date for the time range.\n\nIf not provided, defaults to the 7 days ago."
+    },
+    "end": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the end date for the time range.\n\nIf not provided, defaults to now."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "This is the timezone you want to set for the query.\n\nIf not provided, defaults to UTC."
+    }
+  }
+}

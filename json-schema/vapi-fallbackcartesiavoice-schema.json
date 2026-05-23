@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackCartesiaVoice",
+  "title": "FallbackCartesiaVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "cartesia"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "The ID of the particular voice you want to use."
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used. This is optional and will default to the correct model for the voiceId.",
+      "enum": [
+        "sonic-3",
+        "sonic-3-2026-01-12",
+        "sonic-3-2025-10-27",
+        "sonic-2",
+        "sonic-2-2025-06-11",
+        "sonic-english",
+        "sonic-multilingual",
+        "sonic-preview",
+        "sonic"
+      ],
+      "example": "sonic-english"
+    },
+    "language": {
+      "type": "string",
+      "description": "This is the language that will be used. This is optional and will default to the correct language for the voiceId.",
+      "enum": [
+        "ar",
+        "bg",
+        "bn",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "fi",
+        "fr",
+        "gu",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ka",
+        "kn",
+        "ko",
+        "ml",
+        "mr",
+        "ms",
+        "nl",
+        "no",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sk",
+        "sv",
+        "ta",
+        "te",
+        "th",
+        "tl",
+        "tr",
+        "uk",
+        "vi",
+        "zh"
+      ],
+      "example": "en"
+    },
+    "experimentalControls": {
+      "description": "Experimental controls for Cartesia voice generation",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CartesiaExperimentalControls"
+        }
+      ]
+    },
+    "generationConfig": {
+      "description": "Generation config for fine-grained control of sonic-3 voice output (speed, volume, and experimental controls). Only available for sonic-3 model.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CartesiaGenerationConfig"
+        }
+      ]
+    },
+    "pronunciationDictId": {
+      "type": "string",
+      "description": "Pronunciation dictionary ID for sonic-3. Allows custom pronunciations for specific words. Only available for sonic-3 model.",
+      "example": "dict_abc123"
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

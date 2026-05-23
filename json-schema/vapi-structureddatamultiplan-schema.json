@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StructuredDataMultiPlan",
+  "title": "StructuredDataMultiPlan",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "This is the key of the structured data plan in the catalog."
+    },
+    "plan": {
+      "description": "This is an individual structured data plan in the catalog.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StructuredDataPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "key",
+    "plan"
+  ]
+}

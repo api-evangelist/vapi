@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelayRequest",
+  "title": "RelayRequest",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source identifier of the relay request"
+    },
+    "target": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/RelayTargetAssistant"
+        },
+        {
+          "$ref": "#/components/schemas/RelayTargetSquad"
+        }
+      ],
+      "description": "The target assistant or squad to relay the commands to"
+    },
+    "customerId": {
+      "type": "string",
+      "description": "The unique identifier of the customer"
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RelayCommandSay"
+          },
+          {
+            "$ref": "#/components/schemas/RelayCommandNote"
+          }
+        ]
+      },
+      "description": "The list of commands to relay to the target"
+    }
+  },
+  "required": [
+    "source",
+    "target",
+    "customerId",
+    "commands"
+  ]
+}

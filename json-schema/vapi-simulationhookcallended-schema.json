@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationHookCallEnded",
+  "title": "SimulationHookCallEnded",
+  "type": "object",
+  "properties": {
+    "on": {
+      "type": "string",
+      "enum": [
+        "simulation.run.ended"
+      ],
+      "maxLength": 1000
+    },
+    "do": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimulationHookWebhookAction",
+            "title": "SimulationHookWebhookAction"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "on",
+    "do"
+  ]
+}

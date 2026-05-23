@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CartesiaGenerationConfig",
+  "title": "CartesiaGenerationConfig",
+  "type": "object",
+  "properties": {
+    "speed": {
+      "type": "number",
+      "description": "Fine-grained speed control for sonic-3. Only available for sonic-3 model.",
+      "example": 1,
+      "minimum": 0.6,
+      "maximum": 1.5,
+      "default": 1
+    },
+    "volume": {
+      "type": "number",
+      "description": "Fine-grained volume control for sonic-3. Only available for sonic-3 model.",
+      "example": 1,
+      "minimum": 0.5,
+      "maximum": 2,
+      "default": 1
+    },
+    "experimental": {
+      "description": "Experimental model controls for sonic-3. These are subject to breaking changes.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CartesiaGenerationConfigExperimental"
+        }
+      ]
+    }
+  }
+}

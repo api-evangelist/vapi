@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientMessageAssistantSpeech",
+  "title": "ClientMessageAssistantSpeech",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"assistant-speech\" is sent as assistant audio is being played.",
+      "enum": [
+        "assistant.speechStarted"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "description": "The full assistant text for the current turn. This is the complete text,\nnot an incremental delta \u2014 consumers should use `timing` metadata (e.g.\n`wordsSpoken`) to determine which portion has been spoken so far."
+    },
+    "turn": {
+      "type": "number",
+      "description": "This is the turn number of the assistant speech event (0-indexed)."
+    },
+    "source": {
+      "type": "string",
+      "description": "Indicates how the text was sourced.",
+      "enum": [
+        "model",
+        "force-say",
+        "custom-voice"
+      ]
+    },
+    "timing": {
+      "description": "Optional timing metadata. Shape depends on `timing.type`:\n\n- `word-alignment` (ElevenLabs): per-character timing at playback\n  cadence. words[] includes space entries. Best consumed by tracking\n  a running character count: join timing.words, add to a char cursor,\n  and highlight text up to that position. No interpolation needed.\n\n- `word-progress` (Minimax with voice.subtitleType: 'word'): cursor-\n  based word count per TTS segment. Use wordsSpoken as the anchor,\n  interpolate forward using segmentDurationMs or timing.words until\n  the next event arrives.\n\nWhen absent, the event is a text-only fallback for providers without\nword-level timing (e.g. Cartesia, Deepgram, Azure). Text emits once\nper TTS chunk when audio is playing. Optionally interpolate a word\ncursor at ~3.5 words/sec between events for approximate tracking.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssistantSpeechWordAlignmentTiming",
+          "title": "WordAlignmentTiming"
+        },
+        {
+          "$ref": "#/components/schemas/AssistantSpeechWordProgressTiming",
+          "title": "WordProgressTiming"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type"
+      }
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "text"
+  ]
+}

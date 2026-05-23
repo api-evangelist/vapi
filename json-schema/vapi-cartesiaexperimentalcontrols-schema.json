@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CartesiaExperimentalControls",
+  "title": "CartesiaExperimentalControls",
+  "type": "object",
+  "properties": {
+    "speed": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "slowest",
+            "slow",
+            "normal",
+            "fast",
+            "fastest"
+          ],
+          "example": "normal"
+        },
+        {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "example": 0.5
+        }
+      ]
+    },
+    "emotion": {
+      "type": "string",
+      "enum": [
+        "anger:lowest",
+        "anger:low",
+        "anger:high",
+        "anger:highest",
+        "positivity:lowest",
+        "positivity:low",
+        "positivity:high",
+        "positivity:highest",
+        "surprise:lowest",
+        "surprise:low",
+        "surprise:high",
+        "surprise:highest",
+        "sadness:lowest",
+        "sadness:low",
+        "sadness:high",
+        "sadness:highest",
+        "curiosity:lowest",
+        "curiosity:low",
+        "curiosity:high",
+        "curiosity:highest"
+      ],
+      "example": [
+        "happiness:high"
+      ]
+    }
+  }
+}

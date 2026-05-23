@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteTestChat",
+  "title": "TestSuiteTestChat",
+  "type": "object",
+  "properties": {
+    "scorers": {
+      "type": "array",
+      "description": "These are the scorers used to evaluate the test.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TestSuiteTestScorerAI",
+            "title": "AI"
+          }
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the test, which must be chat.",
+      "enum": [
+        "chat"
+      ],
+      "maxLength": 100
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the test."
+    },
+    "testSuiteId": {
+      "type": "string",
+      "description": "This is the unique identifier for the test suite this test belongs to."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization this test belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the test.",
+      "maxLength": 80
+    },
+    "script": {
+      "type": "string",
+      "description": "This is the script to be used for the chat test.",
+      "maxLength": 10000
+    },
+    "numAttempts": {
+      "type": "number",
+      "description": "This is the number of attempts allowed for the test.",
+      "minimum": 1,
+      "maximum": 10
+    }
+  },
+  "required": [
+    "scorers",
+    "type",
+    "id",
+    "testSuiteId",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "script"
+  ]
+}

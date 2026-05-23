@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Token",
+  "title": "Token",
+  "type": "object",
+  "properties": {
+    "tag": {
+      "type": "string",
+      "description": "This is the tag for the token. It represents its scope.",
+      "enum": [
+        "private",
+        "public"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the token."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is unique identifier for the org that this token belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the token was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the token was last updated."
+    },
+    "value": {
+      "type": "string",
+      "description": "This is the token key."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the token. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "restrictions": {
+      "description": "This are the restrictions for the token.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TokenRestrictions"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt"
+  ]
+}

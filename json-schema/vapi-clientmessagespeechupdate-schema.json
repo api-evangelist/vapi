@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientMessageSpeechUpdate",
+  "title": "ClientMessageSpeechUpdate",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"speech-update\" is sent whenever assistant or user start or stop speaking.",
+      "enum": [
+        "speech-update"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the status of the speech update.",
+      "enum": [
+        "started",
+        "stopped"
+      ]
+    },
+    "role": {
+      "type": "string",
+      "description": "This is the role which the speech update is for.",
+      "enum": [
+        "assistant",
+        "user"
+      ]
+    },
+    "turn": {
+      "type": "number",
+      "description": "This is the turn number of the speech update (0-indexed)."
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "status",
+    "role"
+  ]
+}

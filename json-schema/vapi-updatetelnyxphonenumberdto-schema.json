@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateTelnyxPhoneNumberDTO",
+  "title": "UpdateTelnyxPhoneNumberDTO",
+  "type": "object",
+  "properties": {
+    "fallbackDestination": {
+      "description": "This is the fallback destination an inbound call will be transferred to if:\n1. `assistantId` is not set\n2. `squadId` is not set\n3. and, `assistant-request` message to the `serverUrl` fails\n\nIf this is not set and above conditions are met, the inbound call is hung up with an error message.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "array",
+      "description": "This is the hooks that will be used for incoming calls to this phone number.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallRinging",
+            "title": "PhoneNumberHookCallRinging"
+          },
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallEnding",
+            "title": "PhoneNumberHookCallEnding"
+          }
+        ]
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the phone number. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "server": {
+      "description": "This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.\n\nThe order of precedence is:\n\n1. assistant.server\n2. phoneNumber.server\n3. org.server",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "number": {
+      "type": "string",
+      "description": "These are the digits of the phone number you own on your Telnyx."
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "This is the credential you added in dashboard.vapi.ai/keys. This is used to configure the number to send inbound calls to Vapi, make outbound calls and do live call updates like transfers and hangups."
+    }
+  }
+}

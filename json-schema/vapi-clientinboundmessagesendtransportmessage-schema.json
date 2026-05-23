@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessageSendTransportMessage",
+  "title": "ClientInboundMessageSendTransportMessage",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. Send \"send-transport-message\" to send a transport-specific message during the call.",
+      "enum": [
+        "send-transport-message"
+      ]
+    },
+    "message": {
+      "description": "This is the transport-specific message to send.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/VapiSipTransportMessage",
+          "title": "VapiSipTransportMessage"
+        },
+        {
+          "$ref": "#/components/schemas/TwilioTransportMessage",
+          "title": "TwilioTransportMessage"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "message"
+  ]
+}

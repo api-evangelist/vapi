@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackSpeechmaticsTranscriber",
+  "title": "FallbackSpeechmaticsTranscriber",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the transcription provider that will be used.",
+      "enum": [
+        "speechmatics"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used for the transcription.",
+      "enum": [
+        "default"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "ar",
+        "ar_en",
+        "ba",
+        "eu",
+        "be",
+        "bn",
+        "bg",
+        "yue",
+        "ca",
+        "hr",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "eo",
+        "et",
+        "fi",
+        "fr",
+        "gl",
+        "de",
+        "el",
+        "he",
+        "hi",
+        "hu",
+        "id",
+        "ia",
+        "ga",
+        "it",
+        "ja",
+        "ko",
+        "lv",
+        "lt",
+        "ms",
+        "en_ms",
+        "mt",
+        "cmn",
+        "cmn_en",
+        "mr",
+        "mn",
+        "no",
+        "fa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "es",
+        "en_es",
+        "sw",
+        "sv",
+        "tl",
+        "ta",
+        "en_ta",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "ug",
+        "vi",
+        "cy"
+      ]
+    },
+    "operatingPoint": {
+      "type": "string",
+      "description": "This is the operating point for the transcription. Choose between `standard` for faster turnaround with strong accuracy or `enhanced` for highest accuracy when precision is critical.\n\n@default 'enhanced'",
+      "example": "enhanced",
+      "enum": [
+        "standard",
+        "enhanced"
+      ],
+      "default": "enhanced"
+    },
+    "region": {
+      "type": "string",
+      "description": "This is the region for the Speechmatics API. Choose between EU (Europe) and US (United States) regions for lower latency and data sovereignty compliance.\n\n@default 'eu'",
+      "example": "us",
+      "enum": [
+        "eu",
+        "us"
+      ],
+      "default": "eu"
+    },
+    "enableDiarization": {
+      "type": "boolean",
+      "description": "This enables speaker diarization, which identifies and separates speakers in the transcription. Essential for multi-speaker conversations and conference calls.\n\n@default false",
+      "example": true,
+      "default": false
+    },
+    "maxDelay": {
+      "type": "number",
+      "description": "This sets the maximum delay in milliseconds for partial transcripts. Balances latency and accuracy.\n\n@default 3000",
+      "example": 1500,
+      "minimum": 500,
+      "maximum": 10000,
+      "default": 3000
+    },
+    "customVocabulary": {
+      "example": [
+        {
+          "content": "Speechmatics",
+          "soundsLike": [
+            "speech mattix"
+          ]
+        }
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SpeechmaticsCustomVocabularyItem"
+      }
+    },
+    "numeralStyle": {
+      "type": "string",
+      "description": "This controls how numbers, dates, currencies, and other entities are formatted in the transcription output.\n\n@default 'written'",
+      "example": "spoken",
+      "enum": [
+        "written",
+        "spoken"
+      ],
+      "default": "written"
+    },
+    "endOfTurnSensitivity": {
+      "type": "number",
+      "description": "This is the sensitivity level for end-of-turn detection, which determines when a speaker has finished talking. Higher values are more sensitive.\n\n@default 0.5",
+      "example": 0.8,
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0.5
+    },
+    "removeDisfluencies": {
+      "type": "boolean",
+      "description": "This enables removal of disfluencies (um, uh) from the transcript to create cleaner, more professional output.\n\nThis is only supported for the English language transcriber.\n\n@default false",
+      "example": true,
+      "default": false
+    },
+    "minimumSpeechDuration": {
+      "type": "number",
+      "description": "This is the minimum duration in seconds for speech segments. Shorter segments will be filtered out. Helps remove noise and improve accuracy.\n\n@default 0.0",
+      "example": 0.2,
+      "minimum": 0,
+      "maximum": 5,
+      "default": 0
+    }
+  },
+  "required": [
+    "provider",
+    "customVocabulary"
+  ]
+}

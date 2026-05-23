@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantSpeechWordTimestamp",
+  "title": "AssistantSpeechWordTimestamp",
+  "type": "object",
+  "properties": {
+    "word": {
+      "type": "string",
+      "description": "The full word text (syllables aggregated into complete words)."
+    },
+    "startMs": {
+      "type": "number",
+      "description": "Start time in milliseconds relative to the segment start."
+    },
+    "endMs": {
+      "type": "number",
+      "description": "End time in milliseconds relative to the segment start."
+    }
+  },
+  "required": [
+    "word",
+    "startMs",
+    "endMs"
+  ]
+}

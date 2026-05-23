@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Scenario",
+  "title": "Scenario",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the scenario.",
+      "format": "uuid"
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization this scenario belongs to.",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the scenario was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the scenario was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the scenario.",
+      "maxLength": 80,
+      "example": "Health Enrollment - Eligible Path"
+    },
+    "instructions": {
+      "type": "string",
+      "description": "This is the script/instructions for the tester to follow during the simulation.",
+      "maxLength": 10000,
+      "example": "You are calling to enroll in the Twin Health program. Confirm your identity when asked."
+    },
+    "evaluations": {
+      "description": "This is the structured output-based evaluation plan for the simulation.\nEach item defines a structured output to extract and evaluate against an expected value.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EvaluationPlanItem"
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "description": "Hooks to run on simulation lifecycle events",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimulationHookCallStarted",
+            "title": "SimulationHookCallStarted"
+          },
+          {
+            "$ref": "#/components/schemas/SimulationHookCallEnded",
+            "title": "SimulationHookCallEnded"
+          }
+        ]
+      }
+    },
+    "targetOverrides": {
+      "description": "Overrides to inject into the simulated target assistant or squad",
+      "example": {
+        "variableValues": {
+          "customerName": "Alice",
+          "orderId": "12345"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "toolMocks": {
+      "description": "Scenario-level tool call mocks to use during simulations.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScenarioToolMock"
+      }
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing scenarios.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "name",
+    "instructions",
+    "evaluations"
+  ]
+}

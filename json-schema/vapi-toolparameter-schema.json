@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolParameter",
+  "title": "ToolParameter",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "This is the key of the parameter."
+    },
+    "value": {
+      "description": "The value of the parameter. Any JSON type. String values support Liquid templates.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FilterNumberTypeColumnOnCallTable",
+  "title": "FilterNumberTypeColumnOnCallTable",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "This is the column in the call table that will be filtered on.\nNumber Type columns are columns where the rows store data as a number.\nMust be a valid column for the selected table.",
+      "example": "duration",
+      "enum": [
+        "duration",
+        "cost",
+        "averageModelLatency",
+        "averageVoiceLatency",
+        "averageTranscriberLatency",
+        "averageTurnLatency",
+        "averageEndpointingLatency"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the operator to use for the filter.\nFor number type columns, the operator must be \"=\", \">\", \"<\", \">=\", \"<=\"",
+      "example": "\"=\" or \">\" or \"<\" or \">=\" or \"<=\"",
+      "enum": [
+        "=",
+        "!=",
+        ">",
+        "<",
+        ">=",
+        "<="
+      ]
+    },
+    "value": {
+      "type": "number",
+      "description": "This is the value to filter on."
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

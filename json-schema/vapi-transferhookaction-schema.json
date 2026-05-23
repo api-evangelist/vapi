@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TransferHookAction",
+  "title": "TransferHookAction",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of action - must be \"transfer\"",
+      "enum": [
+        "transfer"
+      ]
+    },
+    "destination": {
+      "description": "This is the destination details for the transfer - can be a phone number or SIP URI",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

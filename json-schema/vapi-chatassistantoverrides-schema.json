@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatAssistantOverrides",
+  "title": "ChatAssistantOverrides",
+  "type": "object",
+  "properties": {
+    "variableValues": {
+      "type": "object",
+      "description": "Variable values for template substitution",
+      "example": {
+        "name": "John",
+        "company": "ACME Corp"
+      }
+    }
+  }
+}

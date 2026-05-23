@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalAssistantMessageMockToolCall",
+  "title": "ChatEvalAssistantMessageMockToolCall",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the tool that will be called.\nIt should be one of the tools created in the organization.",
+      "example": "get_weather",
+      "maxLength": 100
+    },
+    "arguments": {
+      "type": "object",
+      "description": "This is the arguments that will be passed to the tool call.",
+      "example": "\"{\"city\": \"San Francisco\"}\""
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

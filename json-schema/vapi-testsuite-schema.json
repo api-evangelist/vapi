@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuite",
+  "title": "TestSuite",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the test suite."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this test suite belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test suite was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the test suite was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the test suite.",
+      "maxLength": 80
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number ID associated with this test suite.",
+      "deprecated": true
+    },
+    "testerPlan": {
+      "description": "Override the default tester plan by providing custom assistant configuration for the test agent.\n\nWe recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TesterPlan"
+        }
+      ]
+    },
+    "targetPlan": {
+      "description": "These are the configuration for the assistant / phone number that is being tested.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt"
+  ]
+}

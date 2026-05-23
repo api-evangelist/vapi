@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CallHookTranscriberEndpointedSpeechLowConfidence",
+  "title": "CallHookTranscriberEndpointedSpeechLowConfidence",
+  "type": "object",
+  "properties": {
+    "do": {
+      "type": "array",
+      "description": "This is the set of actions to perform when the hook triggers",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SayHookAction",
+            "title": "SayHookAction"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallHookAction",
+            "title": "ToolCallHookAction"
+          },
+          {
+            "$ref": "#/components/schemas/MessageAddHookAction",
+            "title": "MessageAddHookAction"
+          }
+        ]
+      }
+    },
+    "on": {
+      "type": "string",
+      "description": "This is the event that triggers this hook",
+      "maxLength": 1000
+    },
+    "options": {
+      "description": "This is the options for the hook including confidence thresholds",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EndpointedSpeechLowConfidenceOptions"
+        }
+      ]
+    }
+  },
+  "required": [
+    "do",
+    "on"
+  ]
+}

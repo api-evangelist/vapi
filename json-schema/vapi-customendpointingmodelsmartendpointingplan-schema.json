@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomEndpointingModelSmartEndpointingPlan",
+  "title": "CustomEndpointingModelSmartEndpointingPlan",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider for the smart endpointing plan. Use `custom-endpointing-model` for custom endpointing providers that are not natively supported.",
+      "enum": [
+        "vapi",
+        "livekit",
+        "custom-endpointing-model"
+      ],
+      "example": "custom-endpointing-model"
+    },
+    "server": {
+      "description": "This is where the endpointing request will be sent. If not provided, will be sent to `assistant.server`. If that does not exist either, will be sent to `org.server`.\n\nRequest Example:\n\nPOST https://{server.url}\nContent-Type: application/json\n\n{\n  \"message\": {\n    \"type\": \"call.endpointing.request\",\n    \"messages\": [\n      {\n        \"role\": \"user\",\n        \"message\": \"Hello, how are you?\",\n        \"time\": 1234567890,\n        \"secondsFromStart\": 0\n      }\n    ],\n    ...other metadata about the call...\n  }\n}\n\nResponse Expected:\n{\n  \"timeoutSeconds\": 0.5\n}\n\nThe timeout is the number of seconds to wait before considering the user's speech as finished. The endpointing timeout is automatically reset each time a new transcript is received (and another `call.endpointing.request` is sent).",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

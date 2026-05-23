@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalRun",
+  "title": "EvalRun",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "This is the status of the eval run. When an eval run is created, the status is 'running'.\nWhen the eval run is completed, the status is 'ended'.",
+      "example": "running",
+      "enum": [
+        "running",
+        "ended",
+        "queued"
+      ]
+    },
+    "endedReason": {
+      "type": "string",
+      "description": "This is the reason for the eval run to end.\nWhen the eval run is completed normally i.e end of mock conversation, the status is 'mockConversation.done'.\nWhen the eval fails due to an error like Chat error or incorrect configuration, the status is 'error'.\nWhen the eval runs for too long, due to model issues or tool call issues, the status is 'timeout'.\nWhen the eval run is cancelled by the user, the status is 'cancelled'.\nWhen the eval run is cancelled by Vapi for any reason, the status is 'aborted'.",
+      "example": "mockConversation.done",
+      "enum": [
+        "mockConversation.done",
+        "error",
+        "timeout",
+        "cancelled",
+        "aborted"
+      ]
+    },
+    "eval": {
+      "description": "This is the transient eval that will be run",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateEvalDTO",
+          "title": "CreateEvalDTO"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateEvalDTO"
+        }
+      ]
+    },
+    "target": {
+      "description": "This is the target that will be run against the eval",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/EvalRunTargetAssistant",
+          "title": "EvalRunTargetAssistant"
+        },
+        {
+          "$ref": "#/components/schemas/EvalRunTargetSquad",
+          "title": "EvalRunTargetSquad"
+        }
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "orgId": {
+      "type": "string"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "startedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "endedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "endedMessage": {
+      "type": "string",
+      "description": "This is the ended message when the eval run ended for any reason apart from mockConversation.done",
+      "example": "The Assistant returned an error"
+    },
+    "results": {
+      "description": "This is the results of the eval or suite run.\nThe array will have a single item for an eval run, and multiple items each corresponding to the an eval in a suite run in the same order as the evals in the suite.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EvalRunResult"
+      }
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the eval or suite run in USD.",
+      "example": 0.01
+    },
+    "costs": {
+      "description": "This is the break up of costs of the eval or suite run.",
+      "example": "[{ type: \"model\", model: \"gpt-4o\", cost: 0.01 }]",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the run.\nCurrently it is fixed to `eval`.",
+      "example": "eval",
+      "enum": [
+        "eval"
+      ]
+    },
+    "evalId": {
+      "type": "string",
+      "description": "This is the id of the eval that will be run.",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "status",
+    "endedReason",
+    "target",
+    "id",
+    "orgId",
+    "createdAt",
+    "startedAt",
+    "endedAt",
+    "results",
+    "cost",
+    "costs",
+    "type"
+  ]
+}

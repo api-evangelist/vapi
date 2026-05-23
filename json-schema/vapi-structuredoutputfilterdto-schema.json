@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StructuredOutputFilterDTO",
+  "title": "StructuredOutputFilterDTO",
+  "type": "object",
+  "properties": {
+    "eq": {
+      "type": "string",
+      "description": "Equal to"
+    },
+    "neq": {
+      "type": "string",
+      "description": "Not equal to"
+    },
+    "gt": {
+      "type": "string",
+      "description": "Greater than"
+    },
+    "gte": {
+      "type": "string",
+      "description": "Greater than or equal to"
+    },
+    "lt": {
+      "type": "string",
+      "description": "Less than"
+    },
+    "lte": {
+      "type": "string",
+      "description": "Less than or equal to"
+    },
+    "contains": {
+      "type": "string",
+      "description": "Contains"
+    },
+    "notContains": {
+      "type": "string",
+      "description": "Not contains"
+    }
+  }
+}

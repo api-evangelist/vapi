@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JSONQueryOnCallTableWithStructuredOutputColumn",
+  "title": "JSONQueryOnCallTableWithStructuredOutputColumn",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of query. Only allowed type is \"vapiql-json\".",
+      "example": "vapiql-json",
+      "enum": [
+        "vapiql-json"
+      ]
+    },
+    "table": {
+      "type": "string",
+      "description": "This is the table that will be queried.",
+      "enum": [
+        "call"
+      ]
+    },
+    "filters": {
+      "type": "array",
+      "description": "This is the filters to apply to the insight.\nThe discriminator automatically selects the correct filter type based on column and operator.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FilterStringTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterStringArrayTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterNumberTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterNumberArrayTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterDateTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterStructuredOutputColumnOnCallTable"
+          }
+        ]
+      }
+    },
+    "column": {
+      "type": "string",
+      "enum": [
+        "artifact.structuredOutputs[OutputID]"
+      ],
+      "description": "This is the column that will be queried in the call table.\nStructured Output Type columns are only to query on artifact.structuredOutputs[OutputID] column.",
+      "example": "artifact.structuredOutputs[OutputID]"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "average",
+        "count",
+        "sum",
+        "min",
+        "max"
+      ],
+      "description": "This is the aggregation operation to perform on the column.\nWhen the column is a structured output type, the operation depends on the value of the structured output.\nIf the structured output is a string or boolean, the operation must be \"count\".\nIf the structured output is a number, the operation can be \"average\", \"sum\", \"min\", or \"max\".",
+      "example": "count"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the query.\nIt will be used to label the query in the insight board on the UI.",
+      "example": "Total Calls"
+    }
+  },
+  "required": [
+    "type",
+    "table",
+    "column",
+    "operation"
+  ]
+}

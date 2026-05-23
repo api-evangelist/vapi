@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JSONQueryOnCallTableWithNumberTypeColumn",
+  "title": "JSONQueryOnCallTableWithNumberTypeColumn",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of query. Only allowed type is \"vapiql-json\".",
+      "example": "vapiql-json",
+      "enum": [
+        "vapiql-json"
+      ]
+    },
+    "table": {
+      "type": "string",
+      "description": "This is the table that will be queried.",
+      "enum": [
+        "call"
+      ]
+    },
+    "filters": {
+      "type": "array",
+      "description": "This is the filters to apply to the insight.\nThe discriminator automatically selects the correct filter type based on column and operator.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FilterStringTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterStringArrayTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterNumberTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterNumberArrayTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterDateTypeColumnOnCallTable"
+          },
+          {
+            "$ref": "#/components/schemas/FilterStructuredOutputColumnOnCallTable"
+          }
+        ]
+      }
+    },
+    "column": {
+      "type": "string",
+      "enum": [
+        "cost",
+        "duration",
+        "averageModelLatency",
+        "averageVoiceLatency",
+        "averageTranscriberLatency",
+        "averageTurnLatency",
+        "averageEndpointingLatency",
+        "artifact.structuredOutputs[OutputID]"
+      ],
+      "description": "This is the column that will be queried in the selected table.\nAvailable columns depend on the selected table.\nNumber Type columns are columns where the rows store Number data",
+      "example": "duration"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "average",
+        "sum",
+        "min",
+        "max"
+      ],
+      "description": "This is the aggregation operation to perform on the column.\nWhen the column is a number type, the operation must be one of the following:\n- average\n- sum\n- min\n- max",
+      "example": "sum"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the query.\nIt will be used to label the query in the insight board on the UI.",
+      "example": "Total Calls"
+    }
+  },
+  "required": [
+    "type",
+    "table",
+    "column",
+    "operation"
+  ]
+}

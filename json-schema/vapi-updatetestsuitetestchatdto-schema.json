@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateTestSuiteTestChatDto",
+  "title": "UpdateTestSuiteTestChatDto",
+  "type": "object",
+  "properties": {
+    "scorers": {
+      "type": "array",
+      "description": "These are the scorers used to evaluate the test.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TestSuiteTestScorerAI",
+            "title": "AI"
+          }
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the test, which must be chat.",
+      "enum": [
+        "chat"
+      ],
+      "maxLength": 100
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the test.",
+      "maxLength": 80
+    },
+    "script": {
+      "type": "string",
+      "description": "This is the script to be used for the chat test.",
+      "maxLength": 10000
+    },
+    "numAttempts": {
+      "type": "number",
+      "description": "This is the number of attempts allowed for the test.",
+      "minimum": 1,
+      "maximum": 10
+    }
+  }
+}

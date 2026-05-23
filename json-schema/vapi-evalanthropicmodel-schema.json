@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalAnthropicModel",
+  "title": "EvalAnthropicModel",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider of the model (`anthropic`).",
+      "enum": [
+        "anthropic"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the specific model that will be used.",
+      "maxLength": 100,
+      "enum": [
+        "claude-3-opus-20240229",
+        "claude-3-sonnet-20240229",
+        "claude-3-haiku-20240307",
+        "claude-3-5-sonnet-20240620",
+        "claude-3-5-sonnet-20241022",
+        "claude-3-5-haiku-20241022",
+        "claude-3-7-sonnet-20250219",
+        "claude-opus-4-20250514",
+        "claude-opus-4-5-20251101",
+        "claude-opus-4-6",
+        "claude-sonnet-4-20250514",
+        "claude-sonnet-4-5-20250929",
+        "claude-sonnet-4-6",
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "thinking": {
+      "description": "This is the optional configuration for Anthropic's thinking feature.\n\n- If provided, `maxTokens` must be greater than `thinking.budgetTokens`.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnthropicThinkingConfig"
+        }
+      ]
+    },
+    "temperature": {
+      "type": "number",
+      "description": "This is the temperature of the model. For LLM-as-a-judge, it's recommended to set it between 0 - 0.3 to avoid hallucinations and ensure the model judges the output correctly based on the instructions.",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "maxTokens": {
+      "type": "number",
+      "description": "This is the max tokens of the model.\nIf your Judge instructions return `true` or `false` takes only 1 token (as per the OpenAI Tokenizer), and therefore is recommended to set it to a low number to force the model to return a short response.",
+      "minimum": 50,
+      "maximum": 10000
+    },
+    "messages": {
+      "description": "These are the messages which will instruct the AI Judge on how to evaluate the assistant message.\nThe LLM-Judge must respond with \"pass\" or \"fail\" to indicate if the assistant message passes the eval.\n\nTo access the messages in the mock conversation, use the LiquidJS variable `{{messages}}`.\nThe assistant message to be evaluated will be passed as the last message in the `messages` array and can be accessed using `{{messages[-1]}}`.\n\nIt is recommended to use the system message to instruct the LLM how to evaluate the assistant message, and then use the first user message to pass the assistant message to be evaluated.",
+      "example": "{",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "provider",
+    "model",
+    "messages"
+  ]
+}

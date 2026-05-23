@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackVapiVoice",
+  "title": "FallbackVapiVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "vapi"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "The voices provided by Vapi",
+      "enum": [
+        "Clara",
+        "Godfrey",
+        "Layla",
+        "Sid",
+        "Gustavo",
+        "Elliot",
+        "Kylie",
+        "Rohan",
+        "Lily",
+        "Savannah",
+        "Hana",
+        "Neha",
+        "Cole",
+        "Harry",
+        "Paige",
+        "Spencer",
+        "Nico",
+        "Kai",
+        "Emma",
+        "Sagar",
+        "Neil",
+        "Naina",
+        "Leah",
+        "Tara",
+        "Jess",
+        "Leo",
+        "Dan",
+        "Mia",
+        "Zac",
+        "Zoe"
+      ]
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.\n\n@default 1",
+      "minimum": 0.25,
+      "maximum": 2,
+      "default": 1
+    },
+    "pronunciationDictionary": {
+      "description": "List of pronunciation dictionary locators for custom word pronunciations.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/VapiPronunciationDictionaryLocator"
+      }
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

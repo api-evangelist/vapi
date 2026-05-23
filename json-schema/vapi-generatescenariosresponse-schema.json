@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GenerateScenariosResponse",
+  "title": "GenerateScenariosResponse",
+  "type": "object",
+  "properties": {
+    "scenarios": {
+      "description": "Generated scenarios",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GeneratedScenario"
+      }
+    },
+    "coverageNotes": {
+      "type": "string",
+      "description": "Summary of test coverage"
+    }
+  },
+  "required": [
+    "scenarios",
+    "coverageNotes"
+  ]
+}

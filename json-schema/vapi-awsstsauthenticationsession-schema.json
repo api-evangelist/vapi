@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AWSStsAuthenticationSession",
+  "title": "AWSStsAuthenticationSession",
+  "type": "object",
+  "properties": {
+    "assumedRoleUser": {
+      "description": "This is the assumed role user",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AWSStsAssumeRoleUser"
+        }
+      ]
+    },
+    "credentials": {
+      "description": "This is the credentials for the AWS STS assume role",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AWSStsCredentials"
+        }
+      ]
+    },
+    "packedPolicySize": {
+      "type": "number",
+      "description": "This is the size of the policy"
+    },
+    "sourcedIDEntity": {
+      "type": "string",
+      "description": "This is the sourced ID entity"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NeuphonicVoice",
+  "title": "NeuphonicVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "neuphonic"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [],
+          "title": "Preset Voice Options"
+        },
+        {
+          "type": "string",
+          "title": "Neuphonic Voice ID"
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used. Defaults to 'neu_fast' if not specified.",
+      "enum": [
+        "neu_hq",
+        "neu_fast"
+      ],
+      "example": "neu_fast"
+    },
+    "language": {
+      "type": "object",
+      "description": "This is the language (ISO 639-1) that is enforced for the model.",
+      "example": "en"
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.",
+      "minimum": 0.25,
+      "maximum": 2,
+      "example": null
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId",
+    "language"
+  ]
+}

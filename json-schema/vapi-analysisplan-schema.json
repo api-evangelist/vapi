@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AnalysisPlan",
+  "title": "AnalysisPlan",
+  "type": "object",
+  "properties": {
+    "minMessagesThreshold": {
+      "type": "number",
+      "description": "The minimum number of messages required to run the analysis plan.\nIf the number of messages is less than this, analysis will be skipped.\n\n@default 2",
+      "deprecated": true,
+      "minimum": 0
+    },
+    "summaryPlan": {
+      "description": "This is the plan for generating the summary of the call. This outputs to `call.analysis.summary`.",
+      "deprecated": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SummaryPlan"
+        }
+      ]
+    },
+    "structuredDataPlan": {
+      "description": "This is the plan for generating the structured data from the call. This outputs to `call.analysis.structuredData`.",
+      "deprecated": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StructuredDataPlan"
+        }
+      ]
+    },
+    "structuredDataMultiPlan": {
+      "description": "This is an array of structured data plan catalogs. Each entry includes a `key` and a `plan` for generating the structured data from the call. This outputs to `call.analysis.structuredDataMulti`.",
+      "deprecated": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StructuredDataMultiPlan"
+      }
+    },
+    "successEvaluationPlan": {
+      "description": "This is the plan for generating the success evaluation of the call. This outputs to `call.analysis.successEvaluation`.",
+      "deprecated": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SuccessEvaluationPlan"
+        }
+      ]
+    },
+    "outcomeIds": {
+      "description": "This is an array of outcome UUIDs to be calculated during analysis.\nThe outcomes will be calculated and stored in `call.analysis.outcomes`.",
+      "deprecated": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

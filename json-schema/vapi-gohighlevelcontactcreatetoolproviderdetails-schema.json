@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GoHighLevelContactCreateToolProviderDetails",
+  "title": "GoHighLevelContactCreateToolProviderDetails",
+  "type": "object",
+  "properties": {
+    "templateUrl": {
+      "type": "string",
+      "description": "This is the Template URL or the Snapshot URL corresponding to the Template."
+    },
+    "setupInstructions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ToolTemplateSetup"
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "gohighlevel.contact.create"
+      ],
+      "description": "The type of tool. \"gohighlevel.contact.create\" for GoHighLevel contact create tool."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

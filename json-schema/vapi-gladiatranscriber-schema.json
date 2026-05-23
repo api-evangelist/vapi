@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GladiaTranscriber",
+  "title": "GladiaTranscriber",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the transcription provider that will be used.",
+      "enum": [
+        "gladia"
+      ]
+    },
+    "model": {
+      "description": "This is the Gladia model that will be used. Default is 'fast'",
+      "oneOf": [
+        {
+          "enum": [
+            "fast",
+            "accurate",
+            "solaria-1"
+          ]
+        }
+      ]
+    },
+    "languageBehaviour": {
+      "description": "Defines how the transcription model detects the audio language. Default value is 'automatic single language'.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "manual",
+            "automatic single language",
+            "automatic multiple languages"
+          ]
+        }
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "Defines the language to use for the transcription. Required when languageBehaviour is 'manual'.",
+      "enum": [
+        "af",
+        "sq",
+        "am",
+        "ar",
+        "hy",
+        "as",
+        "az",
+        "ba",
+        "eu",
+        "be",
+        "bn",
+        "bs",
+        "br",
+        "bg",
+        "ca",
+        "zh",
+        "hr",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "et",
+        "fo",
+        "fi",
+        "fr",
+        "gl",
+        "ka",
+        "de",
+        "el",
+        "gu",
+        "ht",
+        "ha",
+        "haw",
+        "he",
+        "hi",
+        "hu",
+        "is",
+        "id",
+        "it",
+        "ja",
+        "jv",
+        "kn",
+        "kk",
+        "km",
+        "ko",
+        "lo",
+        "la",
+        "lv",
+        "ln",
+        "lt",
+        "lb",
+        "mk",
+        "mg",
+        "ms",
+        "ml",
+        "mt",
+        "mi",
+        "mr",
+        "mn",
+        "my",
+        "ne",
+        "no",
+        "nn",
+        "oc",
+        "ps",
+        "fa",
+        "pl",
+        "pt",
+        "pa",
+        "ro",
+        "ru",
+        "sa",
+        "sr",
+        "sn",
+        "sd",
+        "si",
+        "sk",
+        "sl",
+        "so",
+        "es",
+        "su",
+        "sw",
+        "sv",
+        "tl",
+        "tg",
+        "ta",
+        "tt",
+        "te",
+        "th",
+        "bo",
+        "tr",
+        "tk",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "cy",
+        "yi",
+        "yo"
+      ]
+    },
+    "languages": {
+      "type": "string",
+      "description": "Defines the languages to use for the transcription. Required when languageBehaviour is 'manual'.",
+      "enum": [
+        "af",
+        "sq",
+        "am",
+        "ar",
+        "hy",
+        "as",
+        "az",
+        "ba",
+        "eu",
+        "be",
+        "bn",
+        "bs",
+        "br",
+        "bg",
+        "ca",
+        "zh",
+        "hr",
+        "cs",
+        "da",
+        "nl",
+        "en",
+        "et",
+        "fo",
+        "fi",
+        "fr",
+        "gl",
+        "ka",
+        "de",
+        "el",
+        "gu",
+        "ht",
+        "ha",
+        "haw",
+        "he",
+        "hi",
+        "hu",
+        "is",
+        "id",
+        "it",
+        "ja",
+        "jv",
+        "kn",
+        "kk",
+        "km",
+        "ko",
+        "lo",
+        "la",
+        "lv",
+        "ln",
+        "lt",
+        "lb",
+        "mk",
+        "mg",
+        "ms",
+        "ml",
+        "mt",
+        "mi",
+        "mr",
+        "mn",
+        "my",
+        "ne",
+        "no",
+        "nn",
+        "oc",
+        "ps",
+        "fa",
+        "pl",
+        "pt",
+        "pa",
+        "ro",
+        "ru",
+        "sa",
+        "sr",
+        "sn",
+        "sd",
+        "si",
+        "sk",
+        "sl",
+        "so",
+        "es",
+        "su",
+        "sw",
+        "sv",
+        "tl",
+        "tg",
+        "ta",
+        "tt",
+        "te",
+        "th",
+        "bo",
+        "tr",
+        "tk",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "cy",
+        "yi",
+        "yo"
+      ]
+    },
+    "transcriptionHint": {
+      "type": "string",
+      "description": "Provides a custom vocabulary to the model to improve accuracy of transcribing context specific words, technical terms, names, etc. If empty, this argument is ignored.\n\u26a0\ufe0f Warning \u26a0\ufe0f: Please be aware that the transcription_hint field has a character limit of 600. If you provide a transcription_hint longer than 600 characters, it will be automatically truncated to meet this limit.",
+      "maxLength": 600,
+      "example": "custom vocabulary"
+    },
+    "prosody": {
+      "type": "boolean",
+      "description": "If prosody is true, you will get a transcription that can contain prosodies i.e. (laugh) (giggles) (malefic laugh) (toss) (music)\u2026 Default value is false.",
+      "example": false
+    },
+    "audioEnhancer": {
+      "type": "boolean",
+      "description": "If true, audio will be pre-processed to improve accuracy but latency will increase. Default value is false.",
+      "example": false
+    },
+    "confidenceThreshold": {
+      "type": "number",
+      "description": "Transcripts below this confidence threshold will be discarded.\n\n@default 0.4",
+      "minimum": 0,
+      "maximum": 1,
+      "example": 0.4
+    },
+    "endpointing": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 10,
+      "example": 0.05,
+      "description": "Endpointing time in seconds - time to wait before considering speech ended"
+    },
+    "speechThreshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "example": 0.6,
+      "description": "Speech threshold - sensitivity configuration for speech detection (0.0 to 1.0)"
+    },
+    "customVocabularyEnabled": {
+      "type": "boolean",
+      "example": false,
+      "description": "Enable custom vocabulary for improved accuracy"
+    },
+    "customVocabularyConfig": {
+      "description": "Custom vocabulary configuration",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GladiaCustomVocabularyConfigDTO"
+        }
+      ]
+    },
+    "region": {
+      "type": "string",
+      "enum": [
+        "us-west",
+        "eu-west"
+      ],
+      "description": "Region for processing audio (us-west or eu-west)",
+      "example": "us-west"
+    },
+    "receivePartialTranscripts": {
+      "type": "boolean",
+      "example": false,
+      "description": "Enable partial transcripts for low-latency streaming transcription"
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for transcriber provider fallbacks in the event that the primary transcriber provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackTranscriberPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

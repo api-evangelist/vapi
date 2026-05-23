@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSquadDTO",
+  "title": "CreateSquadDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the squad."
+    },
+    "members": {
+      "description": "This is the list of assistants that make up the squad.\n\nThe call will start with the first assistant in the list.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SquadMemberDTO"
+      }
+    },
+    "membersOverrides": {
+      "description": "This can be used to override all the assistants' settings and provide values for their template variables.\n\nBoth `membersOverrides` and `members[n].assistantOverrides` can be used together. First, `members[n].assistantOverrides` is applied. Then, `membersOverrides` is applied as a global override.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    }
+  },
+  "required": [
+    "members"
+  ]
+}

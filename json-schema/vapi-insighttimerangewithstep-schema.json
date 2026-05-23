@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InsightTimeRangeWithStep",
+  "title": "InsightTimeRangeWithStep",
+  "type": "object",
+  "properties": {
+    "step": {
+      "type": "string",
+      "description": "This is the group by step for aggregation.\n\nIf not provided, defaults to group by day.",
+      "enum": [
+        "minute",
+        "hour",
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ]
+    },
+    "start": {
+      "type": "object",
+      "description": "This is the start date for the time range.\n\nShould be a valid ISO 8601 date-time string or relative time string.\nIf not provided, defaults to the 7 days ago.\n\nRelative time strings of the format \"-{number}{unit}\" are allowed.\n\nValid units are:\n- d: days\n- h: hours\n- w: weeks\n- m: months\n- y: years",
+      "example": "\"2025-01-01\" or \"-7d\" or \"now\""
+    },
+    "end": {
+      "type": "object",
+      "description": "This is the end date for the time range.\n\nShould be a valid ISO 8601 date-time string or relative time string.\nIf not provided, defaults to now.\n\nRelative time strings of the format \"-{number}{unit}\" are allowed.\n\nValid units are:\n- d: days\n- h: hours\n- w: weeks\n- m: months\n- y: years",
+      "example": "\"2025-01-01\" or \"now\""
+    },
+    "timezone": {
+      "type": "string",
+      "description": "This is the timezone you want to set for the query.\n\nIf not provided, defaults to UTC."
+    }
+  }
+}

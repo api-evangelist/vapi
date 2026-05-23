@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VariableValueGroupBy",
+  "title": "VariableValueGroupBy",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "This is the key of the variable value to group by.",
+      "maxLength": 100
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

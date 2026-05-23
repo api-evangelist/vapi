@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FourierDenoisingPlan",
+  "title": "FourierDenoisingPlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether Fourier denoising is enabled. Note that this is experimental and may not work as expected.",
+      "default": false
+    },
+    "mediaDetectionEnabled": {
+      "type": "boolean",
+      "description": "Whether automatic media detection is enabled. When enabled, the filter will automatically\ndetect consistent background TV/music/radio and switch to more aggressive filtering settings.\nOnly applies when enabled is true.",
+      "example": true,
+      "default": true
+    },
+    "staticThreshold": {
+      "type": "number",
+      "description": "Static threshold in dB used as fallback when no baseline is established.",
+      "example": -35,
+      "minimum": -80,
+      "maximum": 0,
+      "default": -35
+    },
+    "baselineOffsetDb": {
+      "type": "number",
+      "description": "How far below the rolling baseline to filter audio, in dB.\nLower values (e.g., -10) are more aggressive, higher values (e.g., -20) are more conservative.",
+      "example": -15,
+      "minimum": -30,
+      "maximum": -5,
+      "default": -15
+    },
+    "windowSizeMs": {
+      "type": "number",
+      "description": "Rolling window size in milliseconds for calculating the audio baseline.\nLarger windows adapt more slowly but are more stable.",
+      "example": 3000,
+      "minimum": 1000,
+      "maximum": 30000,
+      "default": 3000
+    },
+    "baselinePercentile": {
+      "type": "number",
+      "description": "Percentile to use for baseline calculation (1-99).\nHigher percentiles (e.g., 85) focus on louder speech, lower percentiles (e.g., 50) include quieter speech.",
+      "example": 85,
+      "minimum": 1,
+      "maximum": 99,
+      "default": 85
+    }
+  }
+}

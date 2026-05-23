@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BarInsightMetadata",
+  "title": "BarInsightMetadata",
+  "type": "object",
+  "properties": {
+    "xAxisLabel": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "yAxisLabel": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "yAxisMin": {
+      "type": "number"
+    },
+    "yAxisMax": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    }
+  }
+}

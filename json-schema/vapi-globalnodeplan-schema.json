@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GlobalNodePlan",
+  "title": "GlobalNodePlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "This is the flag to determine if this node is a global node\n\n@default false",
+      "default": false
+    },
+    "enterCondition": {
+      "type": "string",
+      "description": "This is the condition that will be checked to determine if the global node should be executed.\n\n@default ''",
+      "maxLength": 1000,
+      "default": ""
+    }
+  }
+}

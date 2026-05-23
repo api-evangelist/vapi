@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelayResponse",
+  "title": "RelayResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "deliveredLive",
+        "deliveredHeadless",
+        "failed"
+      ],
+      "description": "The status of the relay request"
+    },
+    "callId": {
+      "type": "string",
+      "description": "The unique identifier of the call, if delivered to a live call"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "The unique identifier of the session, if delivered to a headless session"
+    },
+    "chatId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

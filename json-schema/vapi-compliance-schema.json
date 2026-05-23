@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Compliance",
+  "title": "Compliance",
+  "type": "object",
+  "properties": {
+    "recordingConsent": {
+      "description": "This is the recording consent of the call. Configure in `assistant.compliancePlan.recordingConsentPlan`.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordingConsent"
+        }
+      ]
+    }
+  }
+}

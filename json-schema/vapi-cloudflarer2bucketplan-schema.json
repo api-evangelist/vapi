@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloudflareR2BucketPlan",
+  "title": "CloudflareR2BucketPlan",
+  "type": "object",
+  "properties": {
+    "accessKeyId": {
+      "type": "string",
+      "description": "Cloudflare R2 Access key ID."
+    },
+    "secretAccessKey": {
+      "type": "string",
+      "description": "Cloudflare R2 access key secret. This is not returned in the API."
+    },
+    "url": {
+      "type": "string",
+      "description": "Cloudflare R2 base url."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the bucket."
+    },
+    "path": {
+      "type": "string",
+      "description": "This is the path where call artifacts will be stored.\n\nUsage:\n- To store call artifacts in a specific folder, set this to the full path. Eg. \"/folder-name1/folder-name2\".\n- To store call artifacts in the root of the bucket, leave this blank.\n\n@default \"/\""
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

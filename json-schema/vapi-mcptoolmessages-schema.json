@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/McpToolMessages",
+  "title": "McpToolMessages",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the tool from the MCP server."
+    },
+    "messages": {
+      "type": "array",
+      "description": "Custom messages for this specific tool. Set to an empty array to suppress all messages for this tool. If not provided, the tool will use the default messages from the parent MCP tool configuration.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ToolMessageStart",
+            "title": "ToolMessageStart"
+          },
+          {
+            "$ref": "#/components/schemas/ToolMessageComplete",
+            "title": "ToolMessageComplete"
+          },
+          {
+            "$ref": "#/components/schemas/ToolMessageFailed",
+            "title": "ToolMessageFailed"
+          },
+          {
+            "$ref": "#/components/schemas/ToolMessageDelayed",
+            "title": "ToolMessageDelayed"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConversationNode",
+  "title": "ConversationNode",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the Conversation node. This can be used to start a conversation with the customer.\n\nThe flow is:\n- Workflow starts the conversation node\n- Model is active with the `prompt` and global context.\n- Model will call a tool to exit this node.\n- Workflow will extract variables from the conversation.\n- Workflow continues.",
+      "enum": [
+        "conversation"
+      ]
+    },
+    "model": {
+      "description": "This is the model for the node.\n\nThis overrides `workflow.model`.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowOpenAIModel",
+          "title": "WorkflowOpenAIModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowAnthropicModel",
+          "title": "WorkflowAnthropicModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowAnthropicBedrockModel",
+          "title": "WorkflowAnthropicBedrockModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowGoogleModel",
+          "title": "WorkflowGoogleModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowCustomModel",
+          "title": "WorkflowCustomModel"
+        }
+      ]
+    },
+    "transcriber": {
+      "description": "This is the transcriber for the node.\n\nThis overrides `workflow.transcriber`.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssemblyAITranscriber",
+          "title": "AssemblyAITranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/AzureSpeechTranscriber",
+          "title": "AzureSpeechTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/CustomTranscriber",
+          "title": "CustomTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/DeepgramTranscriber",
+          "title": "DeepgramTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/ElevenLabsTranscriber",
+          "title": "ElevenLabsTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/GladiaTranscriber",
+          "title": "GladiaTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/GoogleTranscriber",
+          "title": "GoogleTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/SpeechmaticsTranscriber",
+          "title": "SpeechmaticsTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/TalkscriberTranscriber",
+          "title": "TalkscriberTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/OpenAITranscriber",
+          "title": "OpenAITranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/CartesiaTranscriber",
+          "title": "CartesiaTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/SonioxTranscriber",
+          "title": "SonioxTranscriber"
+        }
+      ]
+    },
+    "voice": {
+      "description": "This is the voice for the node.\n\nThis overrides `workflow.voice`.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AzureVoice",
+          "title": "AzureVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CartesiaVoice",
+          "title": "CartesiaVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CustomVoice",
+          "title": "CustomVoice"
+        },
+        {
+          "$ref": "#/components/schemas/DeepgramVoice",
+          "title": "DeepgramVoice"
+        },
+        {
+          "$ref": "#/components/schemas/ElevenLabsVoice",
+          "title": "ElevenLabsVoice"
+        },
+        {
+          "$ref": "#/components/schemas/HumeVoice",
+          "title": "HumeVoice"
+        },
+        {
+          "$ref": "#/components/schemas/LMNTVoice",
+          "title": "LMNTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/NeuphonicVoice",
+          "title": "NeuphonicVoice"
+        },
+        {
+          "$ref": "#/components/schemas/OpenAIVoice",
+          "title": "OpenAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/PlayHTVoice",
+          "title": "PlayHTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/WellSaidVoice",
+          "title": "WellSaidVoice"
+        },
+        {
+          "$ref": "#/components/schemas/RimeAIVoice",
+          "title": "RimeAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SmallestAIVoice",
+          "title": "SmallestAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/TavusVoice",
+          "title": "TavusVoice"
+        },
+        {
+          "$ref": "#/components/schemas/VapiVoice",
+          "title": "VapiVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SesameVoice",
+          "title": "SesameVoice"
+        },
+        {
+          "$ref": "#/components/schemas/InworldVoice",
+          "title": "InworldVoice"
+        },
+        {
+          "$ref": "#/components/schemas/MinimaxVoice",
+          "title": "MinimaxVoice"
+        }
+      ]
+    },
+    "tools": {
+      "type": "array",
+      "description": "These are the tools that the conversation node can use during the call. To use existing tools, use `toolIds`.\n\nBoth `tools` and `toolIds` can be used together.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateApiRequestToolDTO",
+            "title": "ApiRequestTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBashToolDTO",
+            "title": "BashTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateCodeToolDTO",
+            "title": "CodeTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateComputerToolDTO",
+            "title": "ComputerTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateDtmfToolDTO",
+            "title": "DtmfTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateEndCallToolDTO",
+            "title": "EndCallTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateFunctionToolDTO",
+            "title": "FunctionTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelCalendarAvailabilityToolDTO",
+            "title": "GoHighLevelCalendarAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelCalendarEventCreateToolDTO",
+            "title": "GoHighLevelCalendarEventCreateTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelContactCreateToolDTO",
+            "title": "GoHighLevelContactCreateTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelContactGetToolDTO",
+            "title": "GoHighLevelContactGetTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleCalendarCheckAvailabilityToolDTO",
+            "title": "GoogleCalendarCheckAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleCalendarCreateEventToolDTO",
+            "title": "GoogleCalendarCreateEventTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleSheetsRowAppendToolDTO",
+            "title": "GoogleSheetsRowAppendTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateHandoffToolDTO",
+            "title": "HandoffTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateMcpToolDTO",
+            "title": "McpTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateQueryToolDTO",
+            "title": "QueryTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSlackSendMessageToolDTO",
+            "title": "SlackSendMessageTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSmsToolDTO",
+            "title": "SmsTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateTextEditorToolDTO",
+            "title": "TextEditorTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateTransferCallToolDTO",
+            "title": "TransferCallTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSipRequestToolDTO",
+            "title": "SipRequestTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateVoicemailToolDTO",
+            "title": "VoicemailTool"
+          }
+        ]
+      }
+    },
+    "toolIds": {
+      "description": "These are the tools that the conversation node can use during the call. To use transient tools, use `tools`.\n\nBoth `tools` and `toolIds` can be used together.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prompt": {
+      "type": "string",
+      "maxLength": 5000
+    },
+    "globalNodePlan": {
+      "description": "This is the plan for the global node.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GlobalNodePlan"
+        }
+      ]
+    },
+    "variableExtractionPlan": {
+      "description": "This is the plan that controls the variable extraction from the user's responses.\n\nUsage:\nUse `schema` to specify what you want to extract from the user's responses.\n```json\n{\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"user\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"age\": {\n            \"type\": \"number\"\n          }\n        }\n      }\n    }\n  }\n}\n```\n\nThis will be extracted as `{{ user.name }}` and `{{ user.age }}` respectively.\n\n(Optional) Use `aliases` to create new variables.\n\n```json\n{\n  \"aliases\": [\n    {\n      \"key\": \"userAge\",\n      \"value\": \"{{user.age}}\"\n    },\n    {\n      \"key\": \"userName\",\n      \"value\": \"{{user.name}}\"\n    }\n  ]\n}\n```\n\nThis will be extracted as `{{ userAge }}` and `{{ userName }}` respectively.\n\nNote: The `schema` field is required for Conversation nodes if you want to extract variables from the user's responses. `aliases` is just a convenience.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VariableExtractionPlan"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "isStart": {
+      "type": "boolean",
+      "description": "This is whether or not the node is the start of the workflow."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is for metadata you want to store on the task."
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ]
+}

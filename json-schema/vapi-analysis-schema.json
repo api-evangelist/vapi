@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Analysis",
+  "title": "Analysis",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "This is the summary of the call. Customize by setting `assistant.analysisPlan.summaryPrompt`."
+    },
+    "structuredData": {
+      "type": "object",
+      "description": "This is the structured data extracted from the call. Customize by setting `assistant.analysisPlan.structuredDataPrompt` and/or `assistant.analysisPlan.structuredDataSchema`."
+    },
+    "structuredDataMulti": {
+      "description": "This is the structured data catalog of the call. Customize by setting `assistant.analysisPlan.structuredDataMultiPlan`.",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "successEvaluation": {
+      "type": "string",
+      "description": "This is the evaluation of the call. Customize by setting `assistant.analysisPlan.successEvaluationPrompt` and/or `assistant.analysisPlan.successEvaluationRubric`."
+    }
+  }
+}

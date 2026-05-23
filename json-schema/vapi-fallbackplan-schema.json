@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackPlan",
+  "title": "FallbackPlan",
+  "type": "object",
+  "properties": {
+    "voices": {
+      "type": "array",
+      "description": "This is the list of voices to fallback to in the event that the primary voice provider fails.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/FallbackAzureVoice",
+            "title": "Azure"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackCartesiaVoice",
+            "title": "Cartesia"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackHumeVoice",
+            "title": "Hume"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackCustomVoice",
+            "title": "CustomVoice"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackDeepgramVoice",
+            "title": "Deepgram"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackElevenLabsVoice",
+            "title": "ElevenLabs"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackVapiVoice",
+            "title": "Vapi"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackLMNTVoice",
+            "title": "LMNT"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackOpenAIVoice",
+            "title": "OpenAI"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackPlayHTVoice",
+            "title": "PlayHT"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackWellSaidVoice",
+            "title": "WellSaid"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackRimeAIVoice",
+            "title": "RimeAI"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackSmallestAIVoice",
+            "title": "Smallest AI"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackTavusVoice",
+            "title": "TavusVoice"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackNeuphonicVoice",
+            "title": "Neuphonic"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackSesameVoice",
+            "title": "Sesame"
+          },
+          {
+            "$ref": "#/components/schemas/FallbackInworldVoice",
+            "title": "Inworld"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "voices"
+  ]
+}

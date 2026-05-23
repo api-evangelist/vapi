@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetChatPaginatedDTO",
+  "title": "GetChatPaginatedDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the chat to filter by."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the unique identifier for the assistant that will be used for the chat."
+    },
+    "assistantIdAny": {
+      "type": "string",
+      "description": "Filter by multiple assistant IDs. Provide as comma-separated values.",
+      "example": "assistant-1,assistant-2,assistant-3"
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the unique identifier for the squad that will be used for the chat."
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "This is the unique identifier for the session that will be used for the chat."
+    },
+    "previousChatId": {
+      "type": "string",
+      "description": "This is the unique identifier for the previous chat to filter by."
+    },
+    "page": {
+      "type": "number",
+      "description": "This is the page number to return. Defaults to 1.",
+      "minimum": 1
+    },
+    "sortOrder": {
+      "type": "string",
+      "description": "This is the sort order for pagination. Defaults to 'DESC'.",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "sortBy": {
+      "type": "string",
+      "description": "This is the column to sort by. Defaults to 'createdAt'.",
+      "enum": [
+        "createdAt",
+        "duration",
+        "cost"
+      ]
+    },
+    "limit": {
+      "type": "number",
+      "description": "This is the maximum number of items to return. Defaults to 100.",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "createdAtGt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is greater than the specified value."
+    },
+    "createdAtLt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is less than the specified value."
+    },
+    "createdAtGe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is greater than or equal to the specified value."
+    },
+    "createdAtLe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the createdAt is less than or equal to the specified value."
+    },
+    "updatedAtGt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is greater than the specified value."
+    },
+    "updatedAtLt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is less than the specified value."
+    },
+    "updatedAtGe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+    },
+    "updatedAtLe": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This will return items where the updatedAt is less than or equal to the specified value."
+    }
+  }
+}

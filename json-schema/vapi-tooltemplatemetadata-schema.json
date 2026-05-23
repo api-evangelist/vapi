@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolTemplateMetadata",
+  "title": "ToolTemplateMetadata",
+  "type": "object",
+  "properties": {
+    "collectionType": {
+      "type": "string"
+    },
+    "collectionId": {
+      "type": "string"
+    },
+    "collectionName": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomKnowledgeBase",
+  "title": "CustomKnowledgeBase",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This knowledge base is bring your own knowledge base implementation.",
+      "enum": [
+        "custom-knowledge-base"
+      ]
+    },
+    "server": {
+      "description": "This is where the knowledge base request will be sent.\n\nRequest Example:\n\nPOST https://{server.url}\nContent-Type: application/json\n\n{\n  \"messsage\": {\n    \"type\": \"knowledge-base-request\",\n    \"messages\": [\n      {\n        \"role\": \"user\",\n        \"content\": \"Why is ocean blue?\"\n      }\n    ],\n    ...other metadata about the call...\n  }\n}\n\nResponse Expected:\n```\n{\n  \"message\": {\n     \"role\": \"assistant\",\n     \"content\": \"The ocean is blue because water absorbs everything but blue.\",\n  }, // YOU CAN RETURN THE EXACT RESPONSE TO SPEAK\n  \"documents\": [\n    {\n      \"content\": \"The ocean is blue primarily because water absorbs colors in the red part of the light spectrum and scatters the blue light, making it more visible to our eyes.\",\n      \"similarity\": 1\n    },\n    {\n      \"content\": \"Blue light is scattered more by the water molecules than other colors, enhancing the blue appearance of the ocean.\",\n      \"similarity\": .5\n    }\n  ] // OR, YOU CAN RETURN AN ARRAY OF DOCUMENTS THAT WILL BE SENT TO THE MODEL\n}\n```",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "id": {
+      "type": "string",
+      "description": "This is the id of the knowledge base."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the org id of the knowledge base."
+    }
+  },
+  "required": [
+    "provider",
+    "server",
+    "id",
+    "orgId"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageUserInterrupted",
+  "title": "ServerMessageUserInterrupted",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"user-interrupted\" is sent when the user interrupts the assistant.",
+      "enum": [
+        "user-interrupted"
+      ]
+    },
+    "turnId": {
+      "type": "string",
+      "description": "This is the turnId of the LLM response that was interrupted. Matches the turnId\non model-output messages so clients can discard the interrupted turn's tokens."
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "artifact": {
+      "description": "This is a live version of the `call.artifact`.\n\nThis matches what is stored on `call.artifact` after the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Artifact"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "chat": {
+      "description": "This is the chat object.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Chat"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

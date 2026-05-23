@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolCall",
+  "title": "ToolCall",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the ID of the tool call"
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of tool"
+    },
+    "function": {
+      "description": "This is the function that was called",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ToolCallFunction"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "function"
+  ]
+}

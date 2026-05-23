@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KnowledgeBaseResponseDocument",
+  "title": "KnowledgeBaseResponseDocument",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "This is the content of the document."
+    },
+    "similarity": {
+      "type": "number",
+      "description": "This is the similarity score of the document."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "This is the uuid of the document."
+    }
+  },
+  "required": [
+    "content",
+    "similarity"
+  ]
+}

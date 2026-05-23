@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSessionDTO",
+  "title": "CreateSessionDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is a user-defined name for the session. Maximum length is 40 characters.",
+      "maxLength": 40
+    },
+    "status": {
+      "type": "string",
+      "description": "This is the current status of the session. Can be either 'active' or 'completed'.",
+      "enum": [
+        "active",
+        "completed"
+      ]
+    },
+    "expirationSeconds": {
+      "type": "number",
+      "description": "Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.",
+      "minimum": 60,
+      "maximum": 2592000,
+      "example": 86400
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the ID of the assistant associated with this session. Use this when referencing an existing assistant."
+    },
+    "assistant": {
+      "description": "This is the assistant configuration for this session. Use this when creating a new assistant configuration.\nIf assistantId is provided, this will be ignored.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "These are the overrides for the assistant configuration.\nUse this to provide variable values and other overrides when using assistantId.\nVariable substitution will be applied to the assistant's messages and other text-based fields.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad ID associated with this session. Use this when referencing an existing squad."
+    },
+    "squad": {
+      "description": "This is the squad configuration for this session. Use this when creating a new squad configuration.\nIf squadId is provided, this will be ignored.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "description": "This is an array of chat messages in the session.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SystemMessage",
+            "title": "SystemMessage"
+          },
+          {
+            "$ref": "#/components/schemas/UserMessage",
+            "title": "UserMessage"
+          },
+          {
+            "$ref": "#/components/schemas/AssistantMessage",
+            "title": "AssistantMessage"
+          },
+          {
+            "$ref": "#/components/schemas/ToolMessage",
+            "title": "ToolMessage"
+          },
+          {
+            "$ref": "#/components/schemas/DeveloperMessage",
+            "title": "DeveloperMessage"
+          }
+        ]
+      }
+    },
+    "customer": {
+      "description": "This is the customer information associated with this session.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "customerId": {
+      "type": "string",
+      "description": "This is the customerId of the customer associated with this session."
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the ID of the phone number associated with this session."
+    },
+    "phoneNumber": {
+      "description": "This is the phone number configuration for this session.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO"
+        }
+      ]
+    }
+  }
+}

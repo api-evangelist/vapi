@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FilterStringArrayTypeColumnOnCallTable",
+  "title": "FilterStringArrayTypeColumnOnCallTable",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "This is the column in the call table that will be filtered on.\nString Array Type columns are the same as String Type columns, but provides the ability to filter on multiple values provided as an array.\nMust be a valid column for the selected table.",
+      "example": "assistant_id",
+      "enum": [
+        "assistantId",
+        "workflowId",
+        "squadId",
+        "phoneNumberId",
+        "type",
+        "customerNumber",
+        "status",
+        "endedReason",
+        "forwardedPhoneNumber",
+        "campaignId"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the operator to use for the filter.\nThe operator must be `in` or `not_in`.",
+      "example": "\"in\" or \"not_in\"",
+      "enum": [
+        "in",
+        "not_in",
+        "is_empty",
+        "is_not_empty"
+      ]
+    },
+    "value": {
+      "description": "These are the values to filter on.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

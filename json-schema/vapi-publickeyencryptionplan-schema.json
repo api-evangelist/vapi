@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PublicKeyEncryptionPlan",
+  "title": "PublicKeyEncryptionPlan",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of encryption plan.",
+      "enum": [
+        "public-key"
+      ]
+    },
+    "algorithm": {
+      "type": "string",
+      "description": "The encryption algorithm to use.",
+      "enum": [
+        "RSA-OAEP-256"
+      ]
+    },
+    "publicKey": {
+      "description": "The public key configuration.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SpkiPemPublicKeyConfig"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "format",
+        "mapping": {
+          "spki-pem": "#/components/schemas/SpkiPemPublicKeyConfig"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SpkiPemPublicKeyConfig"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "algorithm",
+    "publicKey"
+  ]
+}

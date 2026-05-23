@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseOutputMessage",
+  "title": "ResponseOutputMessage",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique ID of the output message"
+    },
+    "content": {
+      "description": "Content of the output message",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResponseOutputText"
+      }
+    },
+    "role": {
+      "type": "string",
+      "default": "assistant",
+      "description": "The role of the output message",
+      "enum": [
+        "assistant"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the message",
+      "enum": [
+        "in_progress",
+        "completed",
+        "incomplete"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "default": "message",
+      "description": "The type of the output message",
+      "enum": [
+        "message"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "content",
+    "role",
+    "status",
+    "type"
+  ]
+}

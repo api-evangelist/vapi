@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TranscriberCost",
+  "title": "TranscriberCost",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of cost, always 'transcriber' for this class.",
+      "enum": [
+        "transcriber"
+      ]
+    },
+    "transcriber": {
+      "type": "object",
+      "description": "This is the transcriber that was used during the call.\n\nThis matches one of the below:\n- `call.assistant.transcriber`,\n- `call.assistantId->transcriber`,\n- `call.squad[n].assistant.transcriber`,\n- `call.squad[n].assistantId->transcriber`,\n- `call.squadId->[n].assistant.transcriber`,\n- `call.squadId->[n].assistantId->transcriber`."
+    },
+    "minutes": {
+      "type": "number",
+      "description": "This is the minutes of `transcriber` usage. This should match `call.endedAt` - `call.startedAt` for single assistant calls, while squad calls will have multiple transcriber costs one for each assistant that was used."
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the component in USD."
+    }
+  },
+  "required": [
+    "type",
+    "transcriber",
+    "minutes",
+    "cost"
+  ]
+}

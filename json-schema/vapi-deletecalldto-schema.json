@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteCallDTO",
+  "title": "DeleteCallDTO",
+  "type": "object",
+  "properties": {
+    "ids": {
+      "description": "These are the Call IDs to be bulk deleted.\nIf provided, the call ID if any in the request query will be ignored\nWhen requesting a bulk delete, updates when a call is deleted will be sent as a webhook to the server URL configured in the Org settings.\nIt may take up to a few hours to complete the bulk delete, and will be asynchronous.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

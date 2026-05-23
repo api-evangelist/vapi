@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalToolResponseMessageMock",
+  "title": "ChatEvalToolResponseMessageMock",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "tool"
+      ],
+      "description": "This is the role of the message author.\nFor a mock tool response message, the role is always 'tool'\n@default 'tool'",
+      "default": "tool"
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content of the tool response message. JSON Objects should be stringified.",
+      "examples": [
+        "The weather in San Francisco is sunny.",
+        "{weather: sunny}"
+      ]
+    }
+  },
+  "required": [
+    "role",
+    "content"
+  ]
+}

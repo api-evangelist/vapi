@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessageTransfer",
+  "title": "ClientInboundMessageTransfer",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. Send \"transfer\" message to transfer the call to a destination.",
+      "enum": [
+        "transfer"
+      ]
+    },
+    "destination": {
+      "description": "This is the destination to transfer the call to.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content to say."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

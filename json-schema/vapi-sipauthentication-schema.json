@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SipAuthentication",
+  "title": "SipAuthentication",
+  "type": "object",
+  "properties": {
+    "realm": {
+      "type": "string",
+      "description": "This will be expected in the `realm` field of the `authorization` header of the SIP INVITE. Defaults to sip.vapi.ai."
+    },
+    "username": {
+      "type": "string",
+      "description": "This will be expected in the `username` field of the `authorization` header of the SIP INVITE.",
+      "minLength": 20,
+      "maxLength": 40
+    },
+    "password": {
+      "type": "string",
+      "description": "This will be expected to generate the `response` field of the `authorization` header of the SIP INVITE, through digest authentication.",
+      "minLength": 20,
+      "maxLength": 40
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ]
+}

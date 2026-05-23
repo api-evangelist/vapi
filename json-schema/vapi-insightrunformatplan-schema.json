@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InsightRunFormatPlan",
+  "title": "InsightRunFormatPlan",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "description": "This is the format of the data to return.\nIf not provided, defaults to \"raw\".\nRaw provides the data as fetched from the database, with formulas evaluated.\nRecharts provides the data in a format that can is ready to be used by recharts.js to render charts.",
+      "example": "raw",
+      "enum": [
+        "raw",
+        "recharts"
+      ]
+    }
+  }
+}

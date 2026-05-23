@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResponseTextDoneEvent",
+  "title": "ResponseTextDoneEvent",
+  "type": "object",
+  "properties": {
+    "content_index": {
+      "type": "number",
+      "description": "Index of the content part"
+    },
+    "item_id": {
+      "type": "string",
+      "description": "ID of the output item"
+    },
+    "output_index": {
+      "type": "number",
+      "description": "Index of the output item"
+    },
+    "text": {
+      "type": "string",
+      "description": "Complete text content"
+    },
+    "type": {
+      "type": "string",
+      "default": "response.output_text.done",
+      "description": "Event type",
+      "enum": [
+        "response.output_text.done"
+      ]
+    }
+  },
+  "required": [
+    "content_index",
+    "item_id",
+    "output_index",
+    "text",
+    "type"
+  ]
+}

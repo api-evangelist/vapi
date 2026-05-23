@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VoicemailDetectionCost",
+  "title": "VoicemailDetectionCost",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of cost, always 'voicemail-detection' for this class.",
+      "enum": [
+        "voicemail-detection"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "description": "This is the model that was used to perform the analysis."
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the provider that was used to detect the voicemail.",
+      "enum": [
+        "twilio",
+        "google",
+        "openai",
+        "vapi"
+      ]
+    },
+    "promptTextTokens": {
+      "type": "number",
+      "description": "This is the number of prompt text tokens used in the voicemail detection."
+    },
+    "promptAudioTokens": {
+      "type": "number",
+      "description": "This is the number of prompt audio tokens used in the voicemail detection."
+    },
+    "completionTextTokens": {
+      "type": "number",
+      "description": "This is the number of completion text tokens used in the voicemail detection."
+    },
+    "completionAudioTokens": {
+      "type": "number",
+      "description": "This is the number of completion audio tokens used in the voicemail detection."
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the component in USD."
+    }
+  },
+  "required": [
+    "type",
+    "model",
+    "provider",
+    "promptTextTokens",
+    "promptAudioTokens",
+    "completionTextTokens",
+    "completionAudioTokens",
+    "cost"
+  ]
+}

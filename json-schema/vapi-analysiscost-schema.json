@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AnalysisCost",
+  "title": "AnalysisCost",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of cost, always 'analysis' for this class.",
+      "enum": [
+        "analysis"
+      ]
+    },
+    "analysisType": {
+      "type": "string",
+      "description": "This is the type of analysis performed.",
+      "enum": [
+        "summary",
+        "structuredData",
+        "successEvaluation",
+        "structuredOutput"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "description": "This is the model that was used to perform the analysis."
+    },
+    "promptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used in the analysis."
+    },
+    "completionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens generated in the analysis."
+    },
+    "cachedPromptTokens": {
+      "type": "number",
+      "description": "This is the number of cached prompt tokens used in the analysis. This is only applicable to certain providers (e.g., OpenAI, Azure OpenAI) that support prompt caching. Cached tokens are billed at a discounted rate."
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the component in USD."
+    }
+  },
+  "required": [
+    "type",
+    "analysisType",
+    "model",
+    "promptTokens",
+    "completionTokens",
+    "cost"
+  ]
+}

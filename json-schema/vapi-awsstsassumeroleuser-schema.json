@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AWSStsAssumeRoleUser",
+  "title": "AWSStsAssumeRoleUser",
+  "type": "object",
+  "properties": {
+    "AssumedRoleId": {
+      "type": "string",
+      "description": "This is the assumed role ID"
+    },
+    "Arn": {
+      "type": "string",
+      "description": "This is the assumed role ARN"
+    }
+  }
+}

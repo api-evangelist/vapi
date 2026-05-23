@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseAssistantRequest",
+  "title": "ServerMessageResponseAssistantRequest",
+  "type": "object",
+  "properties": {
+    "destination": {
+      "description": "This is the destination to transfer the inbound call to. This will immediately transfer without using any assistants.\n\nIf this is sent, `assistantId`, `assistant`, `squadId`, and `squad` are ignored.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.\n\nTo start a call with:\n- Assistant, use `assistantId` or `assistant`\n- Squad, use `squadId` or `squad`\n- Workflow, use `workflowId` or `workflow`"
+    },
+    "assistant": {
+      "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.\n\nTo start a call with:\n- Assistant, use `assistant`\n- Squad, use `squad`\n- Workflow, use `workflow`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "These are the overrides for the `assistant` or `assistantId`'s settings and template variables.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for the call. To use a transient squad, use `squad` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`"
+    },
+    "squad": {
+      "description": "This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "squadOverrides": {
+      "description": "These are the overrides for the `squad` or `squadId`'s member settings and template variables.\nThis will apply to all members of the squad.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`"
+    },
+    "workflow": {
+      "description": "This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateWorkflowDTO"
+        }
+      ]
+    },
+    "workflowOverrides": {
+      "description": "These are the overrides for the `workflow` or `workflowId`'s settings and template variables.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowOverrides"
+        }
+      ]
+    },
+    "error": {
+      "type": "string",
+      "description": "This is the error if the call shouldn't be accepted. This is spoken to the customer.\n\nIf this is sent, `assistantId`, `assistant`, `squadId`, `squad`, and `destination` are ignored."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TesterPlan",
+  "title": "TesterPlan",
+  "type": "object",
+  "properties": {
+    "assistant": {
+      "description": "Pass a transient assistant to use for the test assistant.\n\nMake sure to write a detailed system prompt for a test assistant, and use the {{test.script}} variable to access the test script.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "Pass an assistant id that can be access\n\nMake sure to write a detailed system prompt for the test assistant, and use the {{test.script}} variable to access the test script."
+    },
+    "assistantOverrides": {
+      "description": "Add any assistant overrides to the test assistant.\n\nOne use case is if you want to pass custom variables into the test using variableValues, that you can then access in the script\nand rubric using {{varName}}.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    }
+  }
+}

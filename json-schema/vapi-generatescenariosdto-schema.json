@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GenerateScenariosDTO",
+  "title": "GenerateScenariosDTO",
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "type": "string",
+      "description": "ID of the assistant to generate scenarios for"
+    },
+    "squadId": {
+      "type": "string",
+      "description": "ID of the squad to generate scenarios for"
+    }
+  }
+}

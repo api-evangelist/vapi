@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HangupNode",
+  "title": "HangupNode",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "hangup"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "isStart": {
+      "type": "boolean",
+      "description": "This is whether or not the node is the start of the workflow."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is for metadata you want to store on the task."
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ]
+}

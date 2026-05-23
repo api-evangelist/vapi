@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScenarioToolMock",
+  "title": "ScenarioToolMock",
+  "type": "object",
+  "properties": {
+    "toolName": {
+      "type": "string",
+      "description": "This is the tool call function name to mock (must match `toolCall.function.name`)."
+    },
+    "result": {
+      "type": "string",
+      "description": "This is the result content to return for this tool call."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "This is whether this mock is enabled. Defaults to true when omitted.",
+      "default": true
+    }
+  },
+  "required": [
+    "toolName"
+  ]
+}

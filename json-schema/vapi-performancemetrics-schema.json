@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PerformanceMetrics",
+  "title": "PerformanceMetrics",
+  "type": "object",
+  "properties": {
+    "turnLatencies": {
+      "description": "These are the individual latencies for each turn.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TurnLatency"
+      }
+    },
+    "modelLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for the model to output the first token."
+    },
+    "voiceLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for the text to speech."
+    },
+    "transcriberLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for the transcriber."
+    },
+    "endpointingLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for the endpointing."
+    },
+    "turnLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for complete turns."
+    },
+    "fromTransportLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for packets received from the transport provider in milliseconds."
+    },
+    "toTransportLatencyAverage": {
+      "type": "number",
+      "description": "This is the average latency for packets sent to the transport provider in milliseconds."
+    },
+    "numUserInterrupted": {
+      "type": "number",
+      "description": "This is the number of times the user was interrupted by the assistant during the call."
+    },
+    "numAssistantInterrupted": {
+      "type": "number",
+      "description": "This is the number of times the assistant was interrupted by the user during the call."
+    }
+  }
+}

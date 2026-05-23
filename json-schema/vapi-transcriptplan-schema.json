@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TranscriptPlan",
+  "title": "TranscriptPlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "This determines whether the transcript is stored in `call.artifact.transcript`. Defaults to true.\n\n@default true",
+      "example": true
+    },
+    "assistantName": {
+      "type": "string",
+      "description": "This is the name of the assistant in the transcript. Defaults to 'AI'.\n\nUsage:\n- If you want to change the name of the assistant in the transcript, set this. Example, here is what the transcript would look like with `assistantName` set to 'Buyer':\n```\nUser: Hello, how are you?\nBuyer: I'm fine.\nUser: Do you want to buy a car?\nBuyer: No.\n```\n\n@default 'AI'"
+    },
+    "userName": {
+      "type": "string",
+      "description": "This is the name of the user in the transcript. Defaults to 'User'.\n\nUsage:\n- If you want to change the name of the user in the transcript, set this. Example, here is what the transcript would look like with `userName` set to 'Seller':\n```\nSeller: Hello, how are you?\nAI: I'm fine.\nSeller: Do you want to buy a car?\nAI: No.\n```\n\n@default 'User'"
+    }
+  }
+}

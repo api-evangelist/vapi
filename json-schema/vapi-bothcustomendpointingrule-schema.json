@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BothCustomEndpointingRule",
+  "title": "BothCustomEndpointingRule",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This endpointing rule is based on both the last assistant message and the current customer message as they are speaking.\n\nFlow:\n- Assistant speaks\n- Customer starts speaking\n- Customer transcription comes in\n- This rule is evaluated on the last assistant message and the current customer transcription\n- If assistant message matches `assistantRegex` AND customer message matches `customerRegex`, the endpointing timeout is set to `timeoutSeconds`\n\nUsage:\n- If you want to wait longer while customer is speaking numbers, you can set a longer timeout.",
+      "enum": [
+        "both"
+      ]
+    },
+    "assistantRegex": {
+      "type": "string",
+      "description": "This is the regex pattern to match the assistant's message.\n\nNote:\n- This works by using the `RegExp.test` method in Node.JS. Eg. `/hello/.test(\"hello there\")` will return `true`.\n\nHot tip:\n- In JavaScript, escape `\\` when sending the regex pattern. Eg. `\"hello\\sthere\"` will be sent over the wire as `\"hellosthere\"`. Send `\"hello\\\\sthere\"` instead.\n- `RegExp.test` does substring matching, so `/cat/.test(\"I love cats\")` will return `true`. To do full string matching, send \"^cat$\"."
+    },
+    "assistantRegexOptions": {
+      "description": "These are the options for the assistant's message regex match. Defaults to all disabled.\n\n@default []",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RegexOption"
+      }
+    },
+    "customerRegex": {
+      "type": "string"
+    },
+    "customerRegexOptions": {
+      "description": "These are the options for the customer's message regex match. Defaults to all disabled.\n\n@default []",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RegexOption"
+      }
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is the endpointing timeout in seconds, if the rule is matched.",
+      "minimum": 0,
+      "maximum": 15
+    }
+  },
+  "required": [
+    "type",
+    "assistantRegex",
+    "customerRegex",
+    "timeoutSeconds"
+  ]
+}

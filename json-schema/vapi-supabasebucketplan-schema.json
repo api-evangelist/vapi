@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SupabaseBucketPlan",
+  "title": "SupabaseBucketPlan",
+  "type": "object",
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "This is the S3 Region. It should look like us-east-1\nIt should be one of the supabase regions defined in the SUPABASE_REGION enum\nCheck https://supabase.com/docs/guides/platform/regions for up to date regions",
+      "enum": [
+        "us-west-1",
+        "us-east-1",
+        "us-east-2",
+        "ca-central-1",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-southeast-2",
+        "sa-east-1"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "description": "This is the S3 compatible URL for Supabase S3\nThis should look like https://<project-ID>.supabase.co/storage/v1/s3"
+    },
+    "accessKeyId": {
+      "type": "string",
+      "description": "This is the Supabase S3 Access Key ID.\nThe user creates this in the Supabase project Storage settings"
+    },
+    "secretAccessKey": {
+      "type": "string",
+      "description": "This is the Supabase S3 Secret Access Key.\nThe user creates this in the Supabase project Storage settings along with the access key id"
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the Supabase S3 Bucket Name.\nThe user must create this in Supabase under Storage > Buckets\nA bucket that does not exist will not be checked now, but file uploads will fail"
+    },
+    "path": {
+      "type": "string",
+      "description": "This is the Supabase S3 Bucket Folder Path.\nThe user can create this in Supabase under Storage > Buckets\nA path that does not exist will not be checked now, but file uploads will fail\nA Path is like a folder in the bucket\nEg. If the bucket is called \"my-bucket\" and the path is \"my-folder\", the full path is \"my-bucket/my-folder\""
+    }
+  },
+  "required": [
+    "region",
+    "url",
+    "accessKeyId",
+    "secretAccessKey",
+    "name"
+  ]
+}

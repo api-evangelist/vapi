@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TransferDestinationSip",
+  "title": "TransferDestinationSip",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "This is spoken to the customer before connecting them to the destination.\n\nUsage:\n- If this is not provided and transfer tool messages is not provided, default is \"Transferring the call now\".\n- If set to \"\", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.\n\nThis accepts a string or a ToolMessageStart class. Latter is useful if you want to specify multiple messages for different languages through the `contents` field.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/components/schemas/CustomMessage"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "sip"
+      ]
+    },
+    "sipUri": {
+      "type": "string",
+      "description": "This is the SIP URI to transfer the call to."
+    },
+    "callerId": {
+      "type": "string",
+      "description": "This is the caller ID to use when transferring the call to the `sipUri`.\n\nUsage:\n- If not provided, the caller ID will be determined by the SIP infrastructure.\n- Set to '{{customer.number}}' to always use the customer's number as the caller ID.\n- Set to '{{phoneNumber.number}}' to always use the phone number of the assistant as the caller ID.\n- Set to any E164 number to always use that number as the caller ID.\n\nOnly applicable when `transferPlan.sipVerb='dial'`. Not applicable for SIP REFER.",
+      "maxLength": 40
+    },
+    "transferPlan": {
+      "description": "This configures how transfer is executed and the experience of the destination party receiving the call. Defaults to `blind-transfer`.\n\n@default `transferPlan.mode='blind-transfer'`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TransferPlan"
+        }
+      ]
+    },
+    "sipHeaders": {
+      "type": "object",
+      "description": "These are custom headers to be added to SIP refer during transfer call."
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+    }
+  },
+  "required": [
+    "type",
+    "sipUri"
+  ]
+}

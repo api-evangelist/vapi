@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FilterDateTypeColumnOnCallTable",
+  "title": "FilterDateTypeColumnOnCallTable",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "This is the column in the call table that will be filtered on.\nDate Type columns are columns where the rows store data as a date.\nMust be a valid column for the selected table.",
+      "example": "created_at",
+      "enum": [
+        "startedAt",
+        "endedAt"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the operator to use for the filter.\nFor date type columns, the operator must be \"=\", \">\", \"<\", \">=\", \"<=\"",
+      "example": "\"=\" or \">\" or \"<\" or \">=\" or \"<=\"",
+      "enum": [
+        "=",
+        "!=",
+        ">",
+        "<",
+        ">=",
+        "<="
+      ]
+    },
+    "value": {
+      "type": "string",
+      "description": "This is the value to filter on.\nMust be a valid ISO 8601 date-time string.",
+      "example": "2025-01-01T00:00:00Z"
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

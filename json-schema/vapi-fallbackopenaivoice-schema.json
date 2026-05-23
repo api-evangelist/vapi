@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackOpenAIVoice",
+  "title": "FallbackOpenAIVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "openai"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.\nPlease note that ash, ballad, coral, sage, and verse may only be used with realtime models.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "alloy",
+            "echo",
+            "fable",
+            "onyx",
+            "nova",
+            "shimmer",
+            "marin",
+            "cedar"
+          ],
+          "title": "Preset Voice Options"
+        },
+        {
+          "type": "string",
+          "title": "OpenAI Voice ID"
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used for text-to-speech.",
+      "enum": [
+        "tts-1",
+        "tts-1-hd",
+        "gpt-4o-mini-tts"
+      ]
+    },
+    "instructions": {
+      "type": "string",
+      "description": "This is a prompt that allows you to control the voice of your generated audio.\nDoes not work with 'tts-1' or 'tts-1-hd' models.",
+      "maxLength": 10000
+    },
+    "speed": {
+      "type": "number",
+      "description": "This is the speed multiplier that will be used.",
+      "minimum": 0.25,
+      "maximum": 4,
+      "example": null
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhoneNumberHookCallEnding",
+  "title": "PhoneNumberHookCallEnding",
+  "type": "object",
+  "properties": {
+    "on": {
+      "type": "string",
+      "description": "This is the event to trigger the hook on",
+      "enum": [
+        "call.ending"
+      ],
+      "maxLength": 1000
+    },
+    "filters": {
+      "type": "array",
+      "description": "Optional filters to decide when to trigger - restricted to assistant-request related ended reasons",
+      "items": {
+        "$ref": "#/components/schemas/PhoneNumberCallEndingHookFilter"
+      }
+    },
+    "do": {
+      "description": "This is the action to perform when the hook triggers",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferPhoneNumberHookAction",
+          "title": "TransferPhoneNumberHookAction"
+        },
+        {
+          "$ref": "#/components/schemas/SayPhoneNumberHookAction",
+          "title": "SayPhoneNumberHookAction"
+        }
+      ]
+    }
+  },
+  "required": [
+    "on"
+  ]
+}

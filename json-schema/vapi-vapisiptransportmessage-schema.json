@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VapiSipTransportMessage",
+  "title": "VapiSipTransportMessage",
+  "type": "object",
+  "properties": {
+    "transport": {
+      "type": "string",
+      "description": "This is the transport type.",
+      "enum": [
+        "vapi.sip"
+      ]
+    },
+    "sipVerb": {
+      "type": "string",
+      "description": "This is the SIP verb to use. Must be one of INFO, MESSAGE, or NOTIFY.",
+      "enum": [
+        "INFO",
+        "MESSAGE",
+        "NOTIFY"
+      ]
+    },
+    "headers": {
+      "type": "object",
+      "description": "These are the headers to include with the SIP request."
+    },
+    "body": {
+      "type": "string",
+      "description": "This is the body of the SIP request, if any."
+    }
+  },
+  "required": [
+    "transport",
+    "sipVerb"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Mono",
+  "title": "Mono",
+  "type": "object",
+  "properties": {
+    "combinedUrl": {
+      "type": "string",
+      "description": "This is the combined recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`."
+    },
+    "assistantUrl": {
+      "type": "string",
+      "description": "This is the mono recording url for the assistant. To enable, set `assistant.artifactPlan.recordingEnabled`."
+    },
+    "customerUrl": {
+      "type": "string",
+      "description": "This is the mono recording url for the customer. To enable, set `assistant.artifactPlan.recordingEnabled`."
+    }
+  }
+}

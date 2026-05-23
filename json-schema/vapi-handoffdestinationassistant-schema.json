@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HandoffDestinationAssistant",
+  "title": "HandoffDestinationAssistant",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "assistant"
+      ]
+    },
+    "contextEngineeringPlan": {
+      "description": "This is the plan for manipulating the message context before handing off the call to the next assistant.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanLastNMessages",
+          "title": "Last N Messages"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanNone",
+          "title": "None"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanAll",
+          "title": "All"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanUserAndAssistantMessages",
+          "title": "User And Assistant Messages"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanPreviousAssistantMessages",
+          "title": "Previous Assistant Messages"
+        }
+      ]
+    },
+    "assistantName": {
+      "type": "string",
+      "description": "This is the assistant to transfer the call to. You must provide either assistantName or assistantId."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant id to transfer the call to. You must provide either assistantName or assistantId."
+    },
+    "assistant": {
+      "description": "This is a transient assistant to transfer the call to. You may provide a transient assistant in the response  `handoff-destination-request` in a dynamic handoff.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "variableExtractionPlan": {
+      "description": "This is the variable extraction plan for the handoff tool.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VariableExtractionPlan"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "These are the assistant overrides to apply to the destination assistant.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

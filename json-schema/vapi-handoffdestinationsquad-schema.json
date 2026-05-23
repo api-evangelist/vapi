@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HandoffDestinationSquad",
+  "title": "HandoffDestinationSquad",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "squad"
+      ]
+    },
+    "contextEngineeringPlan": {
+      "description": "This is the plan for manipulating the message context before handing off the call to the squad.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanLastNMessages",
+          "title": "Last N Messages"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanNone",
+          "title": "None"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanAll",
+          "title": "All"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanUserAndAssistantMessages",
+          "title": "User And Assistant Messages"
+        },
+        {
+          "$ref": "#/components/schemas/ContextEngineeringPlanPreviousAssistantMessages",
+          "title": "Previous Assistant Messages"
+        }
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad id to transfer the call to."
+    },
+    "squad": {
+      "description": "This is a transient squad to transfer the call to.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "entryAssistantName": {
+      "type": "string",
+      "description": "This is the name of the entry assistant to start with when handing off to the squad.\nIf not provided, the first member of the squad will be used."
+    },
+    "variableExtractionPlan": {
+      "description": "This is the variable extraction plan for the handoff tool.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VariableExtractionPlan"
+        }
+      ]
+    },
+    "squadOverrides": {
+      "description": "These are the overrides to apply to the squad configuration.\nMaps to squad-level membersOverrides.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

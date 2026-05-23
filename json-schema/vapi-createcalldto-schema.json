@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateCallDTO",
+  "title": "CreateCallDTO",
+  "type": "object",
+  "properties": {
+    "customers": {
+      "description": "This is used to issue batch calls to multiple customers.\n\nOnly relevant for `outboundPhoneCall`. To call a single customer, use `customer` instead.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CreateCustomerDTO"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the call. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "schedulePlan": {
+      "description": "This is the schedule plan of the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SchedulePlan"
+        }
+      ]
+    },
+    "transport": {
+      "type": "object",
+      "description": "This is the transport of the call."
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.\n\nTo start a call with:\n- Assistant, use `assistantId` or `assistant`\n- Squad, use `squadId` or `squad`\n- Workflow, use `workflowId` or `workflow`"
+    },
+    "assistant": {
+      "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.\n\nTo start a call with:\n- Assistant, use `assistant`\n- Squad, use `squad`\n- Workflow, use `workflow`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "These are the overrides for the `assistant` or `assistantId`'s settings and template variables.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for the call. To use a transient squad, use `squad` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`"
+    },
+    "squad": {
+      "description": "This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "squadOverrides": {
+      "description": "These are the overrides for the `squad` or `squadId`'s member settings and template variables.\nThis will apply to all members of the squad.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`"
+    },
+    "workflow": {
+      "description": "This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.\n\nTo start a call with:\n- Assistant, use `assistant` or `assistantId`\n- Squad, use `squad` or `squadId`\n- Workflow, use `workflow` or `workflowId`",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateWorkflowDTO"
+        }
+      ]
+    },
+    "workflowOverrides": {
+      "description": "These are the overrides for the `workflow` or `workflowId`'s settings and template variables.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowOverrides"
+        }
+      ]
+    },
+    "phoneNumberId": {
+      "type": "string",
+      "description": "This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
+    },
+    "phoneNumber": {
+      "description": "This is the phone number that will be used for the call. To use an existing number, use `phoneNumberId` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO"
+        }
+      ]
+    },
+    "customerId": {
+      "type": "string",
+      "description": "This is the customer that will be called. To call a transient customer , use `customer` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
+    },
+    "customer": {
+      "description": "This is the customer that will be called. To call an existing customer, use `customerId` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AIEdgeCondition",
+  "title": "AIEdgeCondition",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "ai"
+      ]
+    },
+    "prompt": {
+      "type": "string",
+      "description": "This is the prompt for the AI edge condition. It should evaluate to a boolean.",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "type",
+    "prompt"
+  ]
+}

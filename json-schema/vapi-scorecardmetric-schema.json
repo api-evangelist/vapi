@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScorecardMetric",
+  "title": "ScorecardMetric",
+  "type": "object",
+  "properties": {
+    "structuredOutputId": {
+      "type": "string",
+      "description": "This is the unique identifier for the structured output that will be used to evaluate the scorecard.\nThe structured output must be of type number or boolean only for now."
+    },
+    "conditions": {
+      "description": "These are the conditions that will be used to evaluate the scorecard.\nEach condition will have a comparator, value, and points that will be used to calculate the final score.\nThe points will be added to the overall score if the condition is met.\nThe overall score will be normalized to a 100 point scale to ensure uniformity across different scorecards.",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "structuredOutputId",
+    "conditions"
+  ]
+}

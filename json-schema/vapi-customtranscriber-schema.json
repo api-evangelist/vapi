@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomTranscriber",
+  "title": "CustomTranscriber",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the transcription provider that will be used. Use `custom-transcriber` for providers that are not natively supported.",
+      "enum": [
+        "custom-transcriber"
+      ]
+    },
+    "server": {
+      "description": "This is where the transcription request will be sent.\n\nUsage:\n1. Vapi will initiate a websocket connection with `server.url`.\n\n2. Vapi will send an initial text frame with the sample rate. Format:\n```\n    {\n      \"type\": \"start\",\n      \"encoding\": \"linear16\", // 16-bit raw PCM format\n      \"container\": \"raw\",\n      \"sampleRate\": {{sampleRate}},\n      \"channels\": 2 // customer is channel 0, assistant is channel 1\n    }\n```\n\n3. Vapi will send the audio data in 16-bit raw PCM format as binary frames.\n\n4. You can read the messages something like this:\n```\nws.on('message', (data, isBinary) => {\n  if (isBinary) {\n    pcmBuffer = Buffer.concat([pcmBuffer, data]);\n    console.log(`Received PCM data, buffer size: ${pcmBuffer.length}`);\n  } else {\n    console.log('Received message:', JSON.parse(data.toString()));\n  }\n});\n```\n\n5. You will respond with transcriptions as you have them. Format:\n```\n {\n    \"type\": \"transcriber-response\",\n    \"transcription\": \"Hello, world!\",\n    \"channel\": \"customer\" | \"assistant\"\n }\n```",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for transcriber provider fallbacks in the event that the primary transcriber provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackTranscriberPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "server"
+  ]
+}

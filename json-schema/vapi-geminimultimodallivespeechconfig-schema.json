@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeminiMultimodalLiveSpeechConfig",
+  "title": "GeminiMultimodalLiveSpeechConfig",
+  "type": "object",
+  "properties": {
+    "voiceConfig": {
+      "$ref": "#/components/schemas/GeminiMultimodalLiveVoiceConfig"
+    }
+  },
+  "required": [
+    "voiceConfig"
+  ]
+}

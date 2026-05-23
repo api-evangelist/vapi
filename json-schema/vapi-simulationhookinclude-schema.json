@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationHookInclude",
+  "title": "SimulationHookInclude",
+  "type": "object",
+  "properties": {
+    "transcript": {
+      "type": "boolean",
+      "description": "Include transcript in the hook payload",
+      "default": false
+    },
+    "messages": {
+      "type": "boolean",
+      "description": "Include messages in the hook payload",
+      "default": false
+    },
+    "recordingUrl": {
+      "type": "boolean",
+      "description": "Include recordingUrl in the hook payload",
+      "default": false
+    }
+  }
+}

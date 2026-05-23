@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhoneNumberPaginatedResponse",
+  "title": "PhoneNumberPaginatedResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "description": "A list of phone numbers, which can be of any provider type.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ByoPhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/TwilioPhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/VonagePhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/VapiPhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxPhoneNumber"
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "description": "Metadata about the pagination.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationMeta"
+        }
+      ]
+    }
+  },
+  "required": [
+    "results",
+    "metadata"
+  ]
+}

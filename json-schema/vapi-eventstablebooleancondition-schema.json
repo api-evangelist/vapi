@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EventsTableBooleanCondition",
+  "title": "EventsTableBooleanCondition",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "The boolean field name from the event data",
+      "example": "success"
+    },
+    "operator": {
+      "type": "string",
+      "description": "Boolean comparison operator",
+      "example": "=",
+      "enum": [
+        "="
+      ]
+    },
+    "value": {
+      "type": "boolean",
+      "description": "The boolean value to compare",
+      "example": true
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

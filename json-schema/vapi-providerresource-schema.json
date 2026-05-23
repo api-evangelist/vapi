@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProviderResource",
+  "title": "ProviderResource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the provider resource."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the org that this provider resource belongs to."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the provider resource was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the provider resource was last updated."
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the provider that manages this resource.",
+      "enum": [
+        "cartesia",
+        "11labs"
+      ]
+    },
+    "resourceName": {
+      "type": "string",
+      "description": "This is the name/type of the resource.",
+      "enum": [
+        "pronunciation-dictionary"
+      ]
+    },
+    "resourceId": {
+      "type": "string",
+      "description": "This is the provider-specific identifier for the resource."
+    },
+    "resource": {
+      "type": "object",
+      "description": "This is the full resource data from the provider's API."
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "provider",
+    "resourceName",
+    "resourceId",
+    "resource"
+  ]
+}

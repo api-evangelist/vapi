@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KnowledgeBaseCost",
+  "title": "KnowledgeBaseCost",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of cost, always 'knowledge-base' for this class.",
+      "enum": [
+        "knowledge-base"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "description": "This is the model that was used for processing the knowledge base."
+    },
+    "promptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used in the knowledge base query."
+    },
+    "completionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens generated in the knowledge base query."
+    },
+    "cost": {
+      "type": "number",
+      "description": "This is the cost of the component in USD."
+    }
+  },
+  "required": [
+    "type",
+    "model",
+    "promptTokens",
+    "completionTokens",
+    "cost"
+  ]
+}

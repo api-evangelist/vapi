@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SesameVoice",
+  "title": "SesameVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "sesame"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "This is the provider-specific ID that will be used.",
+      "title": "Sesame Voice ID. This should be either a name (a built-in voice) or a UUID (a custom voice)."
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used.",
+      "enum": [
+        "csm-1b"
+      ]
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId",
+    "model"
+  ]
+}

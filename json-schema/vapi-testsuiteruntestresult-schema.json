@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRunTestResult",
+  "title": "TestSuiteRunTestResult",
+  "type": "object",
+  "properties": {
+    "test": {
+      "description": "This is the test that was run.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TestSuiteTestVoice",
+          "title": "TestSuiteTestVoice"
+        }
+      ]
+    },
+    "attempts": {
+      "description": "These are the attempts made for this test.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TestSuiteRunTestAttempt"
+      }
+    }
+  },
+  "required": [
+    "test",
+    "attempts"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssistantSpeechWordAlignmentTiming",
+  "title": "AssistantSpeechWordAlignmentTiming",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Discriminator for exact per-word timing (e.g. ElevenLabs alignment).",
+      "enum": [
+        "word-alignment"
+      ]
+    },
+    "words": {
+      "description": "The individual words in this audio segment.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "wordsStartTimesMs": {
+      "description": "Start time in milliseconds for each word (parallel to `words`).",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "wordsEndTimesMs": {
+      "description": "End time in milliseconds for each word (parallel to `words`).",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "words",
+    "wordsStartTimesMs",
+    "wordsEndTimesMs"
+  ]
+}

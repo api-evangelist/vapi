@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OpenAIResponsesRequest",
+  "title": "OpenAIResponsesRequest",
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for the chat. To use an existing assistant, use `assistantId` instead."
+    },
+    "assistant": {
+      "description": "This is the assistant that will be used for the chat. To use an existing assistant, use `assistantId` instead.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "assistantOverrides": {
+      "description": "These are the variable values that will be used to replace template variables in the assistant messages.\nOnly variable substitution is supported in chat contexts - other assistant properties cannot be overridden.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantOverrides"
+        }
+      ]
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for the chat. To use a transient squad, use `squad` instead."
+    },
+    "squad": {
+      "description": "This is the squad that will be used for the chat. To use an existing squad, use `squadId` instead.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateSquadDTO"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the chat. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "This is the ID of the session that will be used for the chat.\nMutually exclusive with previousChatId."
+    },
+    "input": {
+      "description": "This is the input text for the chat.\nCan be a string or an array of chat messages.\nThis field is REQUIRED for chat creation.",
+      "oneOf": [
+        {
+          "type": "string",
+          "title": "String"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SystemMessage",
+                "title": "SystemMessage"
+              },
+              {
+                "$ref": "#/components/schemas/UserMessage",
+                "title": "UserMessage"
+              },
+              {
+                "$ref": "#/components/schemas/AssistantMessage",
+                "title": "AssistantMessage"
+              },
+              {
+                "$ref": "#/components/schemas/ToolMessage",
+                "title": "ToolMessage"
+              },
+              {
+                "$ref": "#/components/schemas/DeveloperMessage",
+                "title": "DeveloperMessage"
+              }
+            ]
+          },
+          "title": "MessageArray"
+        }
+      ],
+      "examples": [
+        "Hello, how can you help me?",
+        [
+          {
+            "role": "user",
+            "content": "Hello, how can you help me?"
+          }
+        ]
+      ]
+    },
+    "stream": {
+      "type": "boolean",
+      "description": "Whether to stream the response or not.",
+      "default": true
+    },
+    "previousChatId": {
+      "type": "string",
+      "description": "This is the ID of the chat that will be used as context for the new chat.\nThe messages from the previous chat will be used as context.\nMutually exclusive with sessionId."
+    },
+    "transport": {
+      "description": "This is used to send the chat through a transport like SMS.\nIf transport.phoneNumberId and transport.customer are provided, creates a new session.\nIf sessionId is provided without transport fields, uses existing session data.\nCannot specify both sessionId and transport fields (phoneNumberId/customer) together.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwilioSMSChatTransport"
+        }
+      ]
+    }
+  },
+  "required": [
+    "input"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelayCommandNote",
+  "title": "RelayCommandNote",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "message.add"
+      ],
+      "description": "The type of relay command"
+    },
+    "content": {
+      "type": "string",
+      "description": "The note content to add to the conversation"
+    }
+  },
+  "required": [
+    "type",
+    "content"
+  ]
+}

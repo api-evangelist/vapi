@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhoneNumberHookCallRinging",
+  "title": "PhoneNumberHookCallRinging",
+  "type": "object",
+  "properties": {
+    "on": {
+      "type": "string",
+      "description": "This is the event to trigger the hook on",
+      "enum": [
+        "call.ringing"
+      ],
+      "maxLength": 1000
+    },
+    "filters": {
+      "type": "array",
+      "description": "Optional filters to decide when to trigger the hook. Currently supports filtering by caller country code.",
+      "items": {
+        "$ref": "#/components/schemas/PhoneNumberCallRingingHookFilter"
+      }
+    },
+    "do": {
+      "type": "array",
+      "description": "Only the first action will be executed. Additional actions will be ignored.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TransferPhoneNumberHookAction",
+            "title": "TransferPhoneNumberHookAction"
+          },
+          {
+            "$ref": "#/components/schemas/SayPhoneNumberHookAction",
+            "title": "SayPhoneNumberHookAction"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "on",
+    "do"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AnalyticsQuery",
+  "title": "AnalyticsQuery",
+  "type": "object",
+  "properties": {
+    "table": {
+      "type": "string",
+      "description": "This is the table you want to query.",
+      "enum": [
+        "call",
+        "subscription"
+      ]
+    },
+    "groupBy": {
+      "type": "array",
+      "description": "This is the list of columns you want to group by.",
+      "enum": [
+        "type",
+        "assistantId",
+        "endedReason",
+        "analysis.successEvaluation",
+        "status"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "type",
+          "assistantId",
+          "endedReason",
+          "analysis.successEvaluation",
+          "status"
+        ]
+      }
+    },
+    "groupByVariableValue": {
+      "description": "This is the list of variable value keys you want to group by.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/VariableValueGroupBy"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the query. This will be used to identify the query in the response.",
+      "maxLength": 40
+    },
+    "timeRange": {
+      "description": "This is the time range for the query.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeRange"
+        }
+      ]
+    },
+    "operations": {
+      "description": "This is the list of operations you want to perform.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AnalyticsOperation"
+      }
+    }
+  },
+  "required": [
+    "table",
+    "name",
+    "operations"
+  ]
+}

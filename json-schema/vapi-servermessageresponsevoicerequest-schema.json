@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseVoiceRequest",
+  "title": "ServerMessageResponseVoiceRequest",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "DO NOT respond to a `voice-request` webhook with this schema of { data }. This schema just exists to document what the response should look like. Follow these instructions:\n\nHere is what the request will look like:\n\nPOST https://{assistant.voice.server.url}\nContent-Type: application/json\n\n{\n  \"messsage\": {\n    \"type\": \"voice-request\",\n    \"text\": \"Hello, world!\",\n    \"sampleRate\": 24000,\n    ...other metadata about the call...\n  }\n}\n\nThe expected response is 1-channel 16-bit raw PCM audio at the sample rate specified in the request. Here is how the response will be piped to the transport:\n```\nresponse.on('data', (chunk: Buffer) => {\n  outputStream.write(chunk);\n});\n```"
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

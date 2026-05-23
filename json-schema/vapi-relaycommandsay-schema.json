@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelayCommandSay",
+  "title": "RelayCommandSay",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "say"
+      ],
+      "description": "The type of relay command"
+    },
+    "content": {
+      "type": "string",
+      "description": "The content for the assistant to speak"
+    }
+  },
+  "required": [
+    "type",
+    "content"
+  ]
+}

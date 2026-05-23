@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VapiPronunciationDictionaryLocator",
+  "title": "VapiPronunciationDictionaryLocator",
+  "type": "object",
+  "properties": {
+    "pronunciationDictId": {
+      "type": "string",
+      "description": "The pronunciation dictionary ID",
+      "example": "pdict_abc123"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "Version ID (only required for ElevenLabs, ignored for Cartesia)",
+      "example": "ver_abc123"
+    }
+  },
+  "required": [
+    "pronunciationDictId"
+  ]
+}

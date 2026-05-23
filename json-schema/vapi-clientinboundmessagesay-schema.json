@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientInboundMessageSay",
+  "title": "ClientInboundMessageSay",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. Send \"say\" message to make the assistant say something.",
+      "enum": [
+        "say"
+      ]
+    },
+    "interruptAssistantEnabled": {
+      "type": "boolean",
+      "description": "This is the flag for whether the message should replace existing assistant speech.\n\n@default false",
+      "default": false
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content to say."
+    },
+    "endCallAfterSpoken": {
+      "type": "boolean",
+      "description": "This is the flag to end call after content is spoken."
+    },
+    "interruptionsEnabled": {
+      "type": "boolean",
+      "description": "This is the flag for whether the message is interruptible by the user."
+    }
+  }
+}

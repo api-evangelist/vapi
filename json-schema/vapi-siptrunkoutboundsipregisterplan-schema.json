@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SipTrunkOutboundSipRegisterPlan",
+  "title": "SipTrunkOutboundSipRegisterPlan",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "realm": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TransferAssistant",
+  "title": "TransferAssistant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Optional name for the transfer assistant",
+      "maxLength": 100,
+      "default": "transfer-assistant",
+      "example": "Sales Transfer Assistant"
+    },
+    "model": {
+      "description": "Model configuration for the transfer assistant",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TransferAssistantModel"
+        }
+      ]
+    },
+    "voice": {
+      "description": "These are the options for the transfer assistant's voice.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AzureVoice",
+          "title": "AzureVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CartesiaVoice",
+          "title": "CartesiaVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CustomVoice",
+          "title": "CustomVoice"
+        },
+        {
+          "$ref": "#/components/schemas/DeepgramVoice",
+          "title": "DeepgramVoice"
+        },
+        {
+          "$ref": "#/components/schemas/ElevenLabsVoice",
+          "title": "ElevenLabsVoice"
+        },
+        {
+          "$ref": "#/components/schemas/HumeVoice",
+          "title": "HumeVoice"
+        },
+        {
+          "$ref": "#/components/schemas/LMNTVoice",
+          "title": "LMNTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/NeuphonicVoice",
+          "title": "NeuphonicVoice"
+        },
+        {
+          "$ref": "#/components/schemas/OpenAIVoice",
+          "title": "OpenAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/PlayHTVoice",
+          "title": "PlayHTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/WellSaidVoice",
+          "title": "WellSaidVoice"
+        },
+        {
+          "$ref": "#/components/schemas/RimeAIVoice",
+          "title": "RimeAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SmallestAIVoice",
+          "title": "SmallestAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/TavusVoice",
+          "title": "TavusVoice"
+        },
+        {
+          "$ref": "#/components/schemas/VapiVoice",
+          "title": "VapiVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SesameVoice",
+          "title": "SesameVoice"
+        },
+        {
+          "$ref": "#/components/schemas/InworldVoice",
+          "title": "InworldVoice"
+        },
+        {
+          "$ref": "#/components/schemas/MinimaxVoice",
+          "title": "MinimaxVoice"
+        }
+      ]
+    },
+    "transcriber": {
+      "description": "These are the options for the transfer assistant's transcriber.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssemblyAITranscriber",
+          "title": "AssemblyAITranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/AzureSpeechTranscriber",
+          "title": "AzureSpeechTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/CustomTranscriber",
+          "title": "CustomTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/DeepgramTranscriber",
+          "title": "DeepgramTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/ElevenLabsTranscriber",
+          "title": "ElevenLabsTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/GladiaTranscriber",
+          "title": "GladiaTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/GoogleTranscriber",
+          "title": "GoogleTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/SpeechmaticsTranscriber",
+          "title": "SpeechmaticsTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/TalkscriberTranscriber",
+          "title": "TalkscriberTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/OpenAITranscriber",
+          "title": "OpenAITranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/CartesiaTranscriber",
+          "title": "CartesiaTranscriber"
+        },
+        {
+          "$ref": "#/components/schemas/SonioxTranscriber",
+          "title": "SonioxTranscriber"
+        }
+      ]
+    },
+    "firstMessage": {
+      "type": "string",
+      "description": "This is the first message that the transfer assistant will say.\nThis can also be a URL to a custom audio file.\n\nIf unspecified, assistant will wait for user to speak and use the model to respond once they speak.",
+      "example": "Hello! I understand you need to be transferred. Let me connect you."
+    },
+    "backgroundSound": {
+      "description": "This is the background sound in the transfer assistant call. Default for phone calls is 'office' and default for web calls is 'off'.\nYou can also provide a custom sound by providing a URL to an audio file.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "off",
+            "office"
+          ],
+          "example": "office"
+        },
+        {
+          "type": "string",
+          "format": "uri",
+          "example": "https://www.soundjay.com/ambient/sounds/people-in-lounge-1.mp3"
+        }
+      ]
+    },
+    "startSpeakingPlan": {
+      "description": "This is the plan for when the transfer assistant should start talking.\n\nYou should configure this if the transfer assistant needs different endpointing behavior than the base assistant.\n\nIf this is not set, the transfer assistant will inherit the start speaking plan from the base assistant.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StartSpeakingPlan"
+        }
+      ]
+    },
+    "firstMessageMode": {
+      "type": "string",
+      "description": "This is the mode for the first message. Default is 'assistant-speaks-first'.\n\nUse:\n- 'assistant-speaks-first' to have the assistant speak first.\n- 'assistant-waits-for-user' to have the assistant wait for the user to speak first.\n- 'assistant-speaks-first-with-model-generated-message' to have the assistant speak first with a message generated by the model based on the conversation state.\n\n@default 'assistant-speaks-first'",
+      "enum": [
+        "assistant-speaks-first",
+        "assistant-speaks-first-with-model-generated-message",
+        "assistant-waits-for-user"
+      ],
+      "example": "assistant-speaks-first"
+    },
+    "maxDurationSeconds": {
+      "type": "number",
+      "description": "This is the maximum duration in seconds for the transfer assistant conversation.\nAfter this time, the transfer will be cancelled automatically.\n@default 120",
+      "minimum": 10,
+      "maximum": 43200,
+      "example": 120
+    },
+    "backgroundSpeechDenoisingPlan": {
+      "description": "This enables filtering of noise and background speech while the user is talking.\n\nFeatures:\n- Smart denoising using Krisp\n- Fourier denoising\n\nSmart denoising can be combined with or used independently of Fourier denoising.\n\nOrder of precedence:\n- Smart denoising\n- Fourier denoising",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BackgroundSpeechDenoisingPlan"
+        }
+      ]
+    },
+    "silenceTimeoutSeconds": {
+      "type": "number",
+      "description": "This is the number of seconds of silence to wait before ending the call. Defaults to 30.\n\n@default 30",
+      "minimum": 10,
+      "maximum": 3600
+    }
+  },
+  "required": [
+    "model"
+  ]
+}

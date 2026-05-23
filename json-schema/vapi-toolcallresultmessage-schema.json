@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolCallResultMessage",
+  "title": "ToolCallResultMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the tool call result in the conversation."
+    },
+    "toolCallId": {
+      "type": "string",
+      "description": "The ID of the tool call."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the tool that returned the result."
+    },
+    "result": {
+      "type": "string",
+      "description": "The result of the tool call in JSON format."
+    },
+    "time": {
+      "type": "number",
+      "description": "The timestamp when the message was sent."
+    },
+    "secondsFromStart": {
+      "type": "number",
+      "description": "The number of seconds from the start of the conversation."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "The metadata for the tool call result."
+    },
+    "warnings": {
+      "description": "Warnings raised for this tool call result, e.g. when the response is\nlarger than recommended for voice AI context windows.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ToolCallResultMessageWarning"
+      }
+    }
+  },
+  "required": [
+    "role",
+    "toolCallId",
+    "name",
+    "result",
+    "time",
+    "secondsFromStart"
+  ]
+}

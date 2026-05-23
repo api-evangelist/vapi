@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StructuredOutputEvaluationResult",
+  "title": "StructuredOutputEvaluationResult",
+  "type": "object",
+  "properties": {
+    "structuredOutputId": {
+      "type": "string",
+      "description": "This is the ID of the structured output that was evaluated.\nWill be 'inline' for inline structured output definitions."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the structured output."
+    },
+    "extractedValue": {
+      "description": "This is the value extracted from the call by the structured output.",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expectedValue": {
+      "description": "This is the expected value that was defined in the evaluation plan.",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "comparator": {
+      "type": "string",
+      "description": "This is the comparison operator used for evaluation.",
+      "enum": [
+        "=",
+        "!=",
+        ">",
+        "<",
+        ">=",
+        "<="
+      ]
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "This indicates whether the evaluation passed (extracted value matched expected value using comparator)."
+    },
+    "required": {
+      "type": "boolean",
+      "description": "This indicates whether this evaluation was required for the simulation to pass."
+    },
+    "error": {
+      "type": "string",
+      "description": "This contains any error that occurred during extraction."
+    },
+    "isSkipped": {
+      "type": "boolean",
+      "description": "This indicates whether this evaluation was skipped (e.g., multimodal in chat mode)."
+    },
+    "skipReason": {
+      "type": "string",
+      "description": "This contains the reason for skipping the evaluation."
+    }
+  },
+  "required": [
+    "structuredOutputId",
+    "name",
+    "extractedValue",
+    "expectedValue",
+    "comparator",
+    "passed",
+    "required"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FallbackTavusVoice",
+  "title": "FallbackTavusVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "tavus"
+      ]
+    },
+    "voiceId": {
+      "description": "This is the provider-specific ID that will be used.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "r52da2535a"
+          ],
+          "title": "Preset Voice Options"
+        },
+        {
+          "type": "string",
+          "title": "Tavus Voice ID"
+        }
+      ]
+    },
+    "personaId": {
+      "type": "string",
+      "description": "This is the unique identifier for the persona that the replica will use in the conversation."
+    },
+    "callbackUrl": {
+      "type": "string",
+      "description": "This is the url that will receive webhooks with updates regarding the conversation state."
+    },
+    "conversationName": {
+      "type": "string",
+      "description": "This is the name for the conversation."
+    },
+    "conversationalContext": {
+      "type": "string",
+      "description": "This is the context that will be appended to any context provided in the persona, if one is provided."
+    },
+    "customGreeting": {
+      "type": "string",
+      "description": "This is the custom greeting that the replica will give once a participant joines the conversation."
+    },
+    "properties": {
+      "description": "These are optional properties used to customize the conversation.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TavusConversationProperties"
+        }
+      ]
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeToolProviderDetails",
+  "title": "MakeToolProviderDetails",
+  "type": "object",
+  "properties": {
+    "templateUrl": {
+      "type": "string",
+      "description": "This is the Template URL or the Snapshot URL corresponding to the Template."
+    },
+    "setupInstructions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ToolTemplateSetup"
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "make"
+      ],
+      "description": "The type of tool. \"make\" for Make tool."
+    },
+    "scenarioId": {
+      "type": "number"
+    },
+    "scenarioName": {
+      "type": "string"
+    },
+    "triggerHookId": {
+      "type": "number"
+    },
+    "triggerHookName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

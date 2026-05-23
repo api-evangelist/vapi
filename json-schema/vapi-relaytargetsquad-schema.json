@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelayTargetSquad",
+  "title": "RelayTargetSquad",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "squad"
+      ],
+      "description": "The type of relay target"
+    },
+    "squadId": {
+      "type": "string",
+      "description": "The unique identifier of the squad"
+    },
+    "squadName": {
+      "type": "string",
+      "description": "The name of the squad"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

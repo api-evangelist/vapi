@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VoiceLibrary",
+  "title": "VoiceLibrary",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "object",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "vapi",
+        "11labs",
+        "azure",
+        "cartesia",
+        "custom-voice",
+        "deepgram",
+        "hume",
+        "lmnt",
+        "neuphonic",
+        "openai",
+        "playht",
+        "rime-ai",
+        "smallest-ai",
+        "tavus",
+        "sesame",
+        "inworld",
+        "minimax",
+        "wellsaid",
+        "orpheus"
+      ]
+    },
+    "providerId": {
+      "type": "string",
+      "description": "The ID of the voice provided by the provider."
+    },
+    "slug": {
+      "type": "string",
+      "description": "The unique slug of the voice."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the voice."
+    },
+    "language": {
+      "type": "string",
+      "description": "The language of the voice."
+    },
+    "languageCode": {
+      "type": "string",
+      "description": "The language code of the voice."
+    },
+    "model": {
+      "type": "string",
+      "description": "The model of the voice."
+    },
+    "supportedModels": {
+      "type": "string",
+      "description": "The supported models of the voice."
+    },
+    "gender": {
+      "type": "string",
+      "description": "The gender of the voice.",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "accent": {
+      "type": "string",
+      "description": "The accent of the voice."
+    },
+    "previewUrl": {
+      "type": "string",
+      "description": "The preview URL of the voice."
+    },
+    "sortOrder": {
+      "type": "number",
+      "description": "The sort order of the voice for display purposes. Lower values appear first."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the voice."
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "The credential ID of the voice."
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the voice library."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "The unique identifier for the organization that this voice library belongs to."
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "The Public voice is shared accross all the organizations."
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "description": "The deletion status of the voice."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "The ISO 8601 date-time string of when the voice library was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "The ISO 8601 date-time string of when the voice library was last updated."
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "isPublic",
+    "isDeleted",
+    "createdAt",
+    "updatedAt"
+  ]
+}

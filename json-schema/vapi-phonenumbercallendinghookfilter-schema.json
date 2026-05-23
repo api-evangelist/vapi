@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhoneNumberCallEndingHookFilter",
+  "title": "PhoneNumberCallEndingHookFilter",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of filter - currently only \"oneOf\" is supported",
+      "enum": [
+        "oneOf"
+      ],
+      "maxLength": 1000
+    },
+    "key": {
+      "type": "string",
+      "description": "This is the key to filter on - only \"call.endedReason\" is allowed for phone number call ending hooks",
+      "enum": [
+        "call.endedReason"
+      ],
+      "maxLength": 1000
+    },
+    "oneOf": {
+      "type": "array",
+      "description": "This is the array of assistant-request related ended reasons to match against",
+      "enum": [
+        "assistant-request-failed",
+        "assistant-request-returned-error",
+        "assistant-request-returned-unspeakable-error",
+        "assistant-request-returned-invalid-assistant",
+        "assistant-request-returned-no-assistant",
+        "assistant-request-returned-forwarding-phone-number"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "assistant-request-failed",
+          "assistant-request-returned-error",
+          "assistant-request-returned-unspeakable-error",
+          "assistant-request-returned-invalid-assistant",
+          "assistant-request-returned-no-assistant",
+          "assistant-request-returned-forwarding-phone-number"
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "key",
+    "oneOf"
+  ]
+}

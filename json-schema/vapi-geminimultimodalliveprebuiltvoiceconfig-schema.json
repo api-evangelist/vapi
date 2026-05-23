@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeminiMultimodalLivePrebuiltVoiceConfig",
+  "title": "GeminiMultimodalLivePrebuiltVoiceConfig",
+  "type": "object",
+  "properties": {
+    "voiceName": {
+      "type": "string",
+      "enum": [
+        "Puck",
+        "Charon",
+        "Kore",
+        "Fenrir",
+        "Aoede"
+      ]
+    }
+  },
+  "required": [
+    "voiceName"
+  ]
+}

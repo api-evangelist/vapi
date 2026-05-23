@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AnalyticsQueryDTO",
+  "title": "AnalyticsQueryDTO",
+  "type": "object",
+  "properties": {
+    "queries": {
+      "description": "This is the list of metric queries you want to perform.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AnalyticsQuery"
+      }
+    }
+  },
+  "required": [
+    "queries"
+  ]
+}

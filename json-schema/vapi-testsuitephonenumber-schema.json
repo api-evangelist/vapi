@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuitePhoneNumber",
+  "title": "TestSuitePhoneNumber",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider of the phone number.",
+      "enum": [
+        "test-suite"
+      ]
+    },
+    "number": {
+      "type": "string",
+      "description": "This is the phone number that is being tested.",
+      "maxLength": 50
+    }
+  },
+  "required": [
+    "provider",
+    "number"
+  ]
+}

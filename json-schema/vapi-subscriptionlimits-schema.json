@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SubscriptionLimits",
+  "title": "SubscriptionLimits",
+  "type": "object",
+  "properties": {
+    "concurrencyBlocked": {
+      "type": "boolean",
+      "description": "True if this call was blocked by the Call Concurrency limit",
+      "default": false
+    },
+    "concurrencyLimit": {
+      "type": "number",
+      "description": "Account Call Concurrency limit"
+    },
+    "remainingConcurrentCalls": {
+      "type": "number",
+      "description": "Incremental number of concurrent calls that will be allowed, including this call"
+    }
+  }
+}

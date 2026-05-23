@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationHookWebhookAction",
+  "title": "SimulationHookWebhookAction",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "webhook"
+      ]
+    },
+    "server": {
+      "description": "Optional server override for this hook action.\nIf omitted, runtime defaults may apply (e.g. org server).",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    },
+    "include": {
+      "description": "Optional payload include controls.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SimulationHookInclude"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

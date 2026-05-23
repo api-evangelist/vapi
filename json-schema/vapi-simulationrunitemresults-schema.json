@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemResults",
+  "title": "SimulationRunItemResults",
+  "type": "object",
+  "properties": {
+    "evaluations": {
+      "description": "This is the list of results from structured output evaluations.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StructuredOutputEvaluationResult"
+      }
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "This indicates whether all required evaluations passed."
+    },
+    "latencyMetrics": {
+      "description": "This contains the latency metrics collected from the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LatencyMetrics"
+        }
+      ]
+    }
+  },
+  "required": [
+    "evaluations",
+    "passed"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/User",
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the profile or user."
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the profile was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the profile was last updated."
+    },
+    "email": {
+      "type": "string",
+      "description": "This is the email of the user that is associated with the profile."
+    },
+    "fullName": {
+      "type": "string",
+      "description": "This is the full name of the user that is associated with the profile."
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "email"
+  ]
+}

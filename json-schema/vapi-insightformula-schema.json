@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InsightFormula",
+  "title": "InsightFormula",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the formula.\nIt will be used to label the formula in the insight board on the UI.",
+      "example": "Booking Rate",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "formula": {
+      "type": "string",
+      "description": "This is the formula to calculate the insight from the queries.\nThe formula needs to be a valid mathematical expression.\nThe formula must contain at least one query name in the LiquidJS format {{query_name}} or {{['query name']}} which will be substituted with the query result.\nAny MathJS formula is allowed - https://mathjs.org/docs/expressions/syntax.html\n\nCommon valid math operations are +, -, *, /, %",
+      "minLength": 1,
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "formula"
+  ]
+}

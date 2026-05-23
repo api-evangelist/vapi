@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ElevenLabsPronunciationDictionaryLocator",
+  "title": "ElevenLabsPronunciationDictionaryLocator",
+  "type": "object",
+  "properties": {
+    "pronunciationDictionaryId": {
+      "type": "string",
+      "description": "This is the ID of the pronunciation dictionary to use.",
+      "title": "This is the ElevenLabs Pronunciation Dictionary ID"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "This is the version ID of the pronunciation dictionary to use.",
+      "title": "This is the ElevenLabs Pronunciation Dictionary Version ID"
+    }
+  },
+  "required": [
+    "pronunciationDictionaryId",
+    "versionId"
+  ]
+}

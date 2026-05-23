@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SecurityFilterPlan",
+  "title": "SecurityFilterPlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the security filter is enabled.\n@default false",
+      "default": false
+    },
+    "filters": {
+      "description": "Array of security filter types to apply.\nIf array is not empty, only those security filters are run.",
+      "example": "[{ type: \"sql-injection\" }, { type: \"xss\" }]",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SecurityFilterBase"
+      }
+    },
+    "mode": {
+      "type": "string",
+      "description": "Mode of operation when a security threat is detected.\n- 'sanitize': Remove or replace the threatening content\n- 'reject': Replace the entire transcript with replacement text\n- 'replace': Replace threatening patterns with replacement text\n@default 'sanitize'",
+      "enum": [
+        "sanitize",
+        "reject",
+        "replace"
+      ],
+      "default": "sanitize"
+    },
+    "replacementText": {
+      "type": "string",
+      "description": "Text to use when replacing filtered content.\n@default '[FILTERED]'",
+      "default": "[FILTERED]"
+    }
+  }
+}

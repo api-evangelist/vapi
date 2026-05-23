@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateTokenDTO",
+  "title": "UpdateTokenDTO",
+  "type": "object",
+  "properties": {
+    "tag": {
+      "type": "string",
+      "description": "This is the tag for the token. It represents its scope.",
+      "enum": [
+        "private",
+        "public"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the token. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "restrictions": {
+      "description": "This are the restrictions for the token.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TokenRestrictions"
+        }
+      ]
+    }
+  }
+}

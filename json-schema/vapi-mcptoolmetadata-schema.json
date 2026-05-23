@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/McpToolMetadata",
+  "title": "McpToolMetadata",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "enum": [
+        "sse",
+        "shttp"
+      ],
+      "description": "This is the protocol used for MCP communication. Defaults to Streamable HTTP."
+    }
+  }
+}

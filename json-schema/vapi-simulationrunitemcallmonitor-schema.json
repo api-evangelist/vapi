@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemCallMonitor",
+  "title": "SimulationRunItemCallMonitor",
+  "type": "object",
+  "properties": {
+    "listenUrl": {
+      "type": "string",
+      "description": "This is the WebSocket URL to listen to the live call audio (combined both parties)."
+    }
+  }
+}

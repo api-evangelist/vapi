@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomMessage",
+  "title": "CustomMessage",
+  "type": "object",
+  "properties": {
+    "contents": {
+      "type": "array",
+      "description": "This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.\n\nUsage:\n- If your assistants are multilingual, you can provide content for each language.\n- If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.\n\nThis will override the `content` property.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TextContent",
+            "title": "Text"
+          }
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "This is a custom message.",
+      "enum": [
+        "custom-message"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "This is the content that the assistant will say when this message is triggered.",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

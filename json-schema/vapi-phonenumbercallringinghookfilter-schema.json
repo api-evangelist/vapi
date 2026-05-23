@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhoneNumberCallRingingHookFilter",
+  "title": "PhoneNumberCallRingingHookFilter",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of filter - matches when the specified field starts with any of the given prefixes",
+      "enum": [
+        "startsWith"
+      ],
+      "maxLength": 1000
+    },
+    "key": {
+      "type": "string",
+      "description": "The field to check. Currently only \"number\" (the caller's phone number) is supported.",
+      "enum": [
+        "number"
+      ],
+      "maxLength": 1000
+    },
+    "startsWith": {
+      "type": "array",
+      "description": "Array of prefixes to match. Do not include the + prefix. Inbound calls from numbers starting with any of these prefixes will trigger the hook actions.",
+      "maxLength": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 20
+      },
+      "example": [
+        "91",
+        "86",
+        "7"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "key",
+    "startsWith"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Simulation",
+  "title": "Simulation",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the simulation.",
+      "format": "uuid"
+    },
+    "orgId": {
+      "type": "string",
+      "description": "This is the unique identifier for the organization this simulation belongs to.",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the simulation was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the simulation was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is an optional friendly name for the simulation.",
+      "maxLength": 80,
+      "example": "Eligible Path with Confused User"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "This is the ID of the scenario to use for this simulation.",
+      "format": "uuid"
+    },
+    "personalityId": {
+      "type": "string",
+      "description": "This is the ID of the personality to use for this simulation.",
+      "format": "uuid"
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing simulations.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "scenarioId",
+    "personalityId"
+  ]
+}

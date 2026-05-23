@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CostBreakdown",
+  "title": "CostBreakdown",
+  "type": "object",
+  "properties": {
+    "transport": {
+      "type": "number",
+      "description": "This is the cost of the transport provider, like Twilio or Vonage."
+    },
+    "stt": {
+      "type": "number",
+      "description": "This is the cost of the speech-to-text service."
+    },
+    "llm": {
+      "type": "number",
+      "description": "This is the cost of the language model."
+    },
+    "tts": {
+      "type": "number",
+      "description": "This is the cost of the text-to-speech service."
+    },
+    "vapi": {
+      "type": "number",
+      "description": "This is the cost of Vapi."
+    },
+    "chat": {
+      "type": "number",
+      "description": "This is the cost of chat interactions."
+    },
+    "total": {
+      "type": "number",
+      "description": "This is the total cost of the call."
+    },
+    "llmPromptTokens": {
+      "type": "number",
+      "description": "This is the LLM prompt tokens used for the call."
+    },
+    "llmCompletionTokens": {
+      "type": "number",
+      "description": "This is the LLM completion tokens used for the call."
+    },
+    "llmCachedPromptTokens": {
+      "type": "number",
+      "description": "This is the LLM cached prompt tokens used for the call."
+    },
+    "ttsCharacters": {
+      "type": "number",
+      "description": "This is the TTS characters used for the call."
+    },
+    "analysisCostBreakdown": {
+      "description": "This is the cost of the analysis.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AnalysisCostBreakdown"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateCallDTO",
+  "title": "UpdateCallDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the call. This is just for your own reference.",
+      "maxLength": 40
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GhlToolMetadata",
+  "title": "GhlToolMetadata",
+  "type": "object",
+  "properties": {
+    "workflowId": {
+      "type": "string"
+    },
+    "locationId": {
+      "type": "string"
+    }
+  }
+}

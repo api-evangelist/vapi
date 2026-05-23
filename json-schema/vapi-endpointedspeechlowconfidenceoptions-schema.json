@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EndpointedSpeechLowConfidenceOptions",
+  "title": "EndpointedSpeechLowConfidenceOptions",
+  "type": "object",
+  "properties": {
+    "confidenceMin": {
+      "type": "number",
+      "description": "This is the minimum confidence threshold.\nTranscripts with confidence below this value will be discarded.\n\n@default confidenceMax - 0.2",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "confidenceMax": {
+      "type": "number",
+      "description": "This is the maximum confidence threshold.\nTranscripts with confidence at or above this value will be processed normally.\n\n@default transcriber's confidenceThreshold",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

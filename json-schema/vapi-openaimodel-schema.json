@@ -1,0 +1,439 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OpenAIModel",
+  "title": "OpenAIModel",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "description": "This is the starting state for the conversation.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/OpenAIMessage"
+      }
+    },
+    "tools": {
+      "type": "array",
+      "description": "These are the tools that the assistant can use during the call. To use existing tools, use `toolIds`.\n\nBoth `tools` and `toolIds` can be used together.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateApiRequestToolDTO",
+            "title": "ApiRequestTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBashToolDTO",
+            "title": "BashTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateCodeToolDTO",
+            "title": "CodeTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateComputerToolDTO",
+            "title": "ComputerTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateDtmfToolDTO",
+            "title": "DtmfTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateEndCallToolDTO",
+            "title": "EndCallTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateFunctionToolDTO",
+            "title": "FunctionTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelCalendarAvailabilityToolDTO",
+            "title": "GoHighLevelCalendarAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelCalendarEventCreateToolDTO",
+            "title": "GoHighLevelCalendarEventCreateTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelContactCreateToolDTO",
+            "title": "GoHighLevelContactCreateTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoHighLevelContactGetToolDTO",
+            "title": "GoHighLevelContactGetTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleCalendarCheckAvailabilityToolDTO",
+            "title": "GoogleCalendarCheckAvailabilityTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleCalendarCreateEventToolDTO",
+            "title": "GoogleCalendarCreateEventTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateGoogleSheetsRowAppendToolDTO",
+            "title": "GoogleSheetsRowAppendTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateHandoffToolDTO",
+            "title": "HandoffTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateMcpToolDTO",
+            "title": "McpTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateQueryToolDTO",
+            "title": "QueryTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSlackSendMessageToolDTO",
+            "title": "SlackSendMessageTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSmsToolDTO",
+            "title": "SmsTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateTextEditorToolDTO",
+            "title": "TextEditorTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateTransferCallToolDTO",
+            "title": "TransferCallTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateSipRequestToolDTO",
+            "title": "SipRequestTool"
+          },
+          {
+            "$ref": "#/components/schemas/CreateVoicemailToolDTO",
+            "title": "VoicemailTool"
+          }
+        ]
+      }
+    },
+    "toolIds": {
+      "description": "These are the tools that the assistant can use during the call. To use transient tools, use `tools`.\n\nBoth `tools` and `toolIds` can be used together.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "knowledgeBase": {
+      "description": "These are the options for the knowledge base.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomKnowledgeBaseDTO",
+          "title": "Custom"
+        }
+      ]
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the provider that will be used for the model.",
+      "enum": [
+        "openai"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the OpenAI model that will be used.\n\nWhen using Vapi OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest region that make sense.\nThis is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.\n\n@default undefined",
+      "enum": [
+        "gpt-5.4",
+        "gpt-5.4-mini",
+        "gpt-5.4-nano",
+        "gpt-5.2",
+        "gpt-5.2-chat-latest",
+        "gpt-5.1",
+        "gpt-5.1-chat-latest",
+        "gpt-5",
+        "gpt-5-chat-latest",
+        "gpt-5-mini",
+        "gpt-5-nano",
+        "gpt-4.1-2025-04-14",
+        "gpt-4.1-mini-2025-04-14",
+        "gpt-4.1-nano-2025-04-14",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano",
+        "chatgpt-4o-latest",
+        "o3",
+        "o3-mini",
+        "o4-mini",
+        "o1-mini",
+        "o1-mini-2024-09-12",
+        "gpt-4o-realtime-preview-2024-10-01",
+        "gpt-4o-realtime-preview-2024-12-17",
+        "gpt-4o-mini-realtime-preview-2024-12-17",
+        "gpt-realtime-2025-08-28",
+        "gpt-realtime-mini-2025-12-15",
+        "gpt-4o-mini-2024-07-18",
+        "gpt-4o-mini",
+        "gpt-4o",
+        "gpt-4o-2024-05-13",
+        "gpt-4o-2024-08-06",
+        "gpt-4o-2024-11-20",
+        "gpt-4-turbo",
+        "gpt-4-turbo-2024-04-09",
+        "gpt-4-turbo-preview",
+        "gpt-4-0125-preview",
+        "gpt-4-1106-preview",
+        "gpt-4",
+        "gpt-4-0613",
+        "gpt-3.5-turbo",
+        "gpt-3.5-turbo-0125",
+        "gpt-3.5-turbo-1106",
+        "gpt-3.5-turbo-16k",
+        "gpt-3.5-turbo-0613",
+        "gpt-4.1-2025-04-14:westus",
+        "gpt-4.1-2025-04-14:eastus2",
+        "gpt-4.1-2025-04-14:eastus",
+        "gpt-4.1-2025-04-14:westus3",
+        "gpt-4.1-2025-04-14:northcentralus",
+        "gpt-4.1-2025-04-14:southcentralus",
+        "gpt-4.1-2025-04-14:westeurope",
+        "gpt-4.1-2025-04-14:germanywestcentral",
+        "gpt-4.1-2025-04-14:polandcentral",
+        "gpt-4.1-2025-04-14:spaincentral",
+        "gpt-4.1-mini-2025-04-14:westus",
+        "gpt-4.1-mini-2025-04-14:eastus2",
+        "gpt-4.1-mini-2025-04-14:eastus",
+        "gpt-4.1-mini-2025-04-14:westus3",
+        "gpt-4.1-mini-2025-04-14:northcentralus",
+        "gpt-4.1-mini-2025-04-14:southcentralus",
+        "gpt-4.1-mini-2025-04-14:westeurope",
+        "gpt-4.1-mini-2025-04-14:germanywestcentral",
+        "gpt-4.1-mini-2025-04-14:polandcentral",
+        "gpt-4.1-mini-2025-04-14:spaincentral",
+        "gpt-4.1-nano-2025-04-14:westus",
+        "gpt-4.1-nano-2025-04-14:eastus2",
+        "gpt-4.1-nano-2025-04-14:westus3",
+        "gpt-4.1-nano-2025-04-14:northcentralus",
+        "gpt-4.1-nano-2025-04-14:southcentralus",
+        "gpt-4o-2024-11-20:swedencentral",
+        "gpt-4o-2024-11-20:westus",
+        "gpt-4o-2024-11-20:eastus2",
+        "gpt-4o-2024-11-20:eastus",
+        "gpt-4o-2024-11-20:westus3",
+        "gpt-4o-2024-11-20:southcentralus",
+        "gpt-4o-2024-11-20:westeurope",
+        "gpt-4o-2024-11-20:germanywestcentral",
+        "gpt-4o-2024-11-20:polandcentral",
+        "gpt-4o-2024-11-20:spaincentral",
+        "gpt-4o-2024-08-06:westus",
+        "gpt-4o-2024-08-06:westus3",
+        "gpt-4o-2024-08-06:eastus",
+        "gpt-4o-2024-08-06:eastus2",
+        "gpt-4o-2024-08-06:northcentralus",
+        "gpt-4o-2024-08-06:southcentralus",
+        "gpt-4o-mini-2024-07-18:westus",
+        "gpt-4o-mini-2024-07-18:westus3",
+        "gpt-4o-mini-2024-07-18:eastus",
+        "gpt-4o-mini-2024-07-18:eastus2",
+        "gpt-4o-mini-2024-07-18:northcentralus",
+        "gpt-4o-mini-2024-07-18:southcentralus",
+        "gpt-4o-2024-05-13:eastus2",
+        "gpt-4o-2024-05-13:eastus",
+        "gpt-4o-2024-05-13:northcentralus",
+        "gpt-4o-2024-05-13:southcentralus",
+        "gpt-4o-2024-05-13:westus3",
+        "gpt-4o-2024-05-13:westus",
+        "gpt-4-turbo-2024-04-09:eastus2",
+        "gpt-4-0125-preview:eastus",
+        "gpt-4-0125-preview:northcentralus",
+        "gpt-4-0125-preview:southcentralus",
+        "gpt-4-1106-preview:australiaeast",
+        "gpt-4-1106-preview:canadaeast",
+        "gpt-4-1106-preview:france",
+        "gpt-4-1106-preview:india",
+        "gpt-4-1106-preview:norway",
+        "gpt-4-1106-preview:swedencentral",
+        "gpt-4-1106-preview:uk",
+        "gpt-4-1106-preview:westus",
+        "gpt-4-1106-preview:westus3",
+        "gpt-4-0613:canadaeast",
+        "gpt-3.5-turbo-0125:canadaeast",
+        "gpt-3.5-turbo-0125:northcentralus",
+        "gpt-3.5-turbo-0125:southcentralus",
+        "gpt-3.5-turbo-1106:canadaeast",
+        "gpt-3.5-turbo-1106:westus"
+      ]
+    },
+    "fallbackModels": {
+      "type": "array",
+      "description": "These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense.",
+      "example": [
+        "gpt-4-0125-preview",
+        "gpt-4-0613"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "gpt-5.4",
+          "gpt-5.4-mini",
+          "gpt-5.4-nano",
+          "gpt-5.2",
+          "gpt-5.2-chat-latest",
+          "gpt-5.1",
+          "gpt-5.1-chat-latest",
+          "gpt-5",
+          "gpt-5-chat-latest",
+          "gpt-5-mini",
+          "gpt-5-nano",
+          "gpt-4.1-2025-04-14",
+          "gpt-4.1-mini-2025-04-14",
+          "gpt-4.1-nano-2025-04-14",
+          "gpt-4.1",
+          "gpt-4.1-mini",
+          "gpt-4.1-nano",
+          "chatgpt-4o-latest",
+          "o3",
+          "o3-mini",
+          "o4-mini",
+          "o1-mini",
+          "o1-mini-2024-09-12",
+          "gpt-4o-realtime-preview-2024-10-01",
+          "gpt-4o-realtime-preview-2024-12-17",
+          "gpt-4o-mini-realtime-preview-2024-12-17",
+          "gpt-realtime-2025-08-28",
+          "gpt-realtime-mini-2025-12-15",
+          "gpt-4o-mini-2024-07-18",
+          "gpt-4o-mini",
+          "gpt-4o",
+          "gpt-4o-2024-05-13",
+          "gpt-4o-2024-08-06",
+          "gpt-4o-2024-11-20",
+          "gpt-4-turbo",
+          "gpt-4-turbo-2024-04-09",
+          "gpt-4-turbo-preview",
+          "gpt-4-0125-preview",
+          "gpt-4-1106-preview",
+          "gpt-4",
+          "gpt-4-0613",
+          "gpt-3.5-turbo",
+          "gpt-3.5-turbo-0125",
+          "gpt-3.5-turbo-1106",
+          "gpt-3.5-turbo-16k",
+          "gpt-3.5-turbo-0613",
+          "gpt-4.1-2025-04-14:westus",
+          "gpt-4.1-2025-04-14:eastus2",
+          "gpt-4.1-2025-04-14:eastus",
+          "gpt-4.1-2025-04-14:westus3",
+          "gpt-4.1-2025-04-14:northcentralus",
+          "gpt-4.1-2025-04-14:southcentralus",
+          "gpt-4.1-2025-04-14:westeurope",
+          "gpt-4.1-2025-04-14:germanywestcentral",
+          "gpt-4.1-2025-04-14:polandcentral",
+          "gpt-4.1-2025-04-14:spaincentral",
+          "gpt-4.1-mini-2025-04-14:westus",
+          "gpt-4.1-mini-2025-04-14:eastus2",
+          "gpt-4.1-mini-2025-04-14:eastus",
+          "gpt-4.1-mini-2025-04-14:westus3",
+          "gpt-4.1-mini-2025-04-14:northcentralus",
+          "gpt-4.1-mini-2025-04-14:southcentralus",
+          "gpt-4.1-mini-2025-04-14:westeurope",
+          "gpt-4.1-mini-2025-04-14:germanywestcentral",
+          "gpt-4.1-mini-2025-04-14:polandcentral",
+          "gpt-4.1-mini-2025-04-14:spaincentral",
+          "gpt-4.1-nano-2025-04-14:westus",
+          "gpt-4.1-nano-2025-04-14:eastus2",
+          "gpt-4.1-nano-2025-04-14:westus3",
+          "gpt-4.1-nano-2025-04-14:northcentralus",
+          "gpt-4.1-nano-2025-04-14:southcentralus",
+          "gpt-4o-2024-11-20:swedencentral",
+          "gpt-4o-2024-11-20:westus",
+          "gpt-4o-2024-11-20:eastus2",
+          "gpt-4o-2024-11-20:eastus",
+          "gpt-4o-2024-11-20:westus3",
+          "gpt-4o-2024-11-20:southcentralus",
+          "gpt-4o-2024-11-20:westeurope",
+          "gpt-4o-2024-11-20:germanywestcentral",
+          "gpt-4o-2024-11-20:polandcentral",
+          "gpt-4o-2024-11-20:spaincentral",
+          "gpt-4o-2024-08-06:westus",
+          "gpt-4o-2024-08-06:westus3",
+          "gpt-4o-2024-08-06:eastus",
+          "gpt-4o-2024-08-06:eastus2",
+          "gpt-4o-2024-08-06:northcentralus",
+          "gpt-4o-2024-08-06:southcentralus",
+          "gpt-4o-mini-2024-07-18:westus",
+          "gpt-4o-mini-2024-07-18:westus3",
+          "gpt-4o-mini-2024-07-18:eastus",
+          "gpt-4o-mini-2024-07-18:eastus2",
+          "gpt-4o-mini-2024-07-18:northcentralus",
+          "gpt-4o-mini-2024-07-18:southcentralus",
+          "gpt-4o-2024-05-13:eastus2",
+          "gpt-4o-2024-05-13:eastus",
+          "gpt-4o-2024-05-13:northcentralus",
+          "gpt-4o-2024-05-13:southcentralus",
+          "gpt-4o-2024-05-13:westus3",
+          "gpt-4o-2024-05-13:westus",
+          "gpt-4-turbo-2024-04-09:eastus2",
+          "gpt-4-0125-preview:eastus",
+          "gpt-4-0125-preview:northcentralus",
+          "gpt-4-0125-preview:southcentralus",
+          "gpt-4-1106-preview:australiaeast",
+          "gpt-4-1106-preview:canadaeast",
+          "gpt-4-1106-preview:france",
+          "gpt-4-1106-preview:india",
+          "gpt-4-1106-preview:norway",
+          "gpt-4-1106-preview:swedencentral",
+          "gpt-4-1106-preview:uk",
+          "gpt-4-1106-preview:westus",
+          "gpt-4-1106-preview:westus3",
+          "gpt-4-0613:canadaeast",
+          "gpt-3.5-turbo-0125:canadaeast",
+          "gpt-3.5-turbo-0125:northcentralus",
+          "gpt-3.5-turbo-0125:southcentralus",
+          "gpt-3.5-turbo-1106:canadaeast",
+          "gpt-3.5-turbo-1106:westus"
+        ]
+      }
+    },
+    "toolStrictCompatibilityMode": {
+      "type": "string",
+      "description": "Azure OpenAI doesn't support `maxLength` right now https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure%2Cdotnet-entra-id&pivots=programming-language-csharp#unsupported-type-specific-keywords. Need to strip.\n\n- `strip-parameters-with-unsupported-validation` will strip parameters with unsupported validation.\n- `strip-unsupported-validation` will keep the parameters but strip unsupported validation.\n\n@default `strip-unsupported-validation`",
+      "enum": [
+        "strip-parameters-with-unsupported-validation",
+        "strip-unsupported-validation"
+      ]
+    },
+    "promptCacheRetention": {
+      "type": "string",
+      "description": "This controls the prompt cache retention policy for models that support extended caching (GPT-4.1, GPT-5 series).\n\n- `in_memory`: Default behavior, cache retained in GPU memory only\n- `24h`: Extended caching, keeps cached prefixes active for up to 24 hours by offloading to GPU-local storage\n\nOnly applies to models: gpt-5.4, gpt-5.4-mini, gpt-5.4-nano, gpt-5.2, gpt-5.1, gpt-5.1-codex, gpt-5.1-codex-mini, gpt-5.1-chat-latest, gpt-5, gpt-5-codex, gpt-4.1\n\n@default undefined (uses API default which is 'in_memory')",
+      "enum": [
+        "in_memory",
+        "24h"
+      ]
+    },
+    "promptCacheKey": {
+      "type": "string",
+      "description": "This is the prompt cache key for models that support extended caching (GPT-4.1, GPT-5 series).\n\nProviding a cache key allows you to share cached prefixes across requests.\n\n@default undefined",
+      "maxLength": 64
+    },
+    "temperature": {
+      "type": "number",
+      "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "maxTokens": {
+      "type": "number",
+      "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+      "minimum": 50,
+      "maximum": 10000
+    },
+    "emotionRecognitionEnabled": {
+      "type": "boolean",
+      "description": "This determines whether we detect user's emotion while they speak and send it as an additional info to model.\n\nDefault `false` because the model is usually are good at understanding the user's emotion from text.\n\n@default false"
+    },
+    "numFastTurns": {
+      "type": "number",
+      "description": "This sets how many turns at the start of the conversation to use a smaller, faster model from the same provider before switching to the primary model. Example, gpt-3.5-turbo if provider is openai.\n\nDefault is 0.\n\n@default 0",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "provider",
+    "model"
+  ]
+}

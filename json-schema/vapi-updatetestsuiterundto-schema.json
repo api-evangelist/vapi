@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateTestSuiteRunDto",
+  "title": "UpdateTestSuiteRunDto",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the test suite run.",
+      "maxLength": 80
+    }
+  }
+}

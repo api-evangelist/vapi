@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MessageTarget",
+  "title": "MessageTarget",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "This is the role of the message to target.\n\nIf not specified, will find the position in the message history ignoring role (effectively `any`).",
+      "example": "user",
+      "enum": [
+        "user",
+        "assistant"
+      ]
+    },
+    "position": {
+      "type": "number",
+      "description": "This is the position of the message to target.\n- Negative numbers: Count from end (-1 = most recent, -2 = second most recent)\n- 0: First/oldest message in history\n- Positive numbers: Specific position (0-indexed from start)\n\n@default -1 (most recent message)",
+      "example": -1
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GoHighLevelCalendarAvailabilityToolProviderDetails",
+  "title": "GoHighLevelCalendarAvailabilityToolProviderDetails",
+  "type": "object",
+  "properties": {
+    "templateUrl": {
+      "type": "string",
+      "description": "This is the Template URL or the Snapshot URL corresponding to the Template."
+    },
+    "setupInstructions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ToolTemplateSetup"
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "gohighlevel.calendar.availability.check"
+      ],
+      "description": "The type of tool. \"gohighlevel.calendar.availability.check\" for GoHighLevel Calendar availability check tool."
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

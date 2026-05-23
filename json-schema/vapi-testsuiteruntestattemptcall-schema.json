@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRunTestAttemptCall",
+  "title": "TestSuiteRunTestAttemptCall",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "description": "This is the artifact of the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Artifact"
+        }
+      ]
+    }
+  },
+  "required": [
+    "artifact"
+  ]
+}

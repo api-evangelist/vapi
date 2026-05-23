@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateChatStreamResponse",
+  "title": "CreateChatStreamResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the streaming response."
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "This is the ID of the session that will be used for the chat.\nHelps track conversation context across multiple messages."
+    },
+    "path": {
+      "type": "string",
+      "description": "This is the path to the content being updated.\nFormat: `chat.output[{contentIndex}].content` where contentIndex identifies the specific content item.",
+      "example": "chat.output[0].content"
+    },
+    "delta": {
+      "type": "string",
+      "description": "This is the incremental content chunk being streamed."
+    }
+  },
+  "required": [
+    "id",
+    "path",
+    "delta"
+  ]
+}

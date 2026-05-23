@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateFileDTO",
+  "title": "UpdateFileDTO",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "This is the name of the file. This is just for your own reference.",
+      "minLength": 1,
+      "maxLength": 40
+    }
+  }
+}

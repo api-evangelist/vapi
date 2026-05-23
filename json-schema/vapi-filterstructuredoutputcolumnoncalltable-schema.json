@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FilterStructuredOutputColumnOnCallTable",
+  "title": "FilterStructuredOutputColumnOnCallTable",
+  "type": "object",
+  "properties": {
+    "column": {
+      "type": "string",
+      "description": "This is the column in the call table that will be filtered on.\nStructured Output Type columns are only to filter on artifact.structuredOutputs[OutputID] column.",
+      "example": "artifact.structuredOutputs[OutputID]",
+      "enum": [
+        "artifact.structuredOutputs[OutputID]"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "description": "This is the operator to use for the filter.\nThe operator depends on the value type of the structured output.\nIf the structured output is a string or boolean, the operator must be \"=\", \"!=\"\nIf the structured output is a number, the operator must be \"=\", \">\", \"<\", \">=\", \"<=\"\nIf the structured output is an array, the operator must be \"in\" or \"not_in\"",
+      "example": "\"=\" or \">\" or \"<\" or \"in\" or \"not_in\"",
+      "enum": [
+        "=",
+        "!=",
+        ">",
+        "<",
+        ">=",
+        "<=",
+        "in",
+        "not_in",
+        "contains",
+        "not_contains",
+        "is_empty",
+        "is_not_empty"
+      ]
+    },
+    "value": {
+      "type": "object",
+      "description": "This is the value to filter on.\nThe value type depends on the structured output type being filtered."
+    }
+  },
+  "required": [
+    "column",
+    "operator",
+    "value"
+  ]
+}

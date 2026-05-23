@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChatEvalToolResponseMessageEvaluation",
+  "title": "ChatEvalToolResponseMessageEvaluation",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "tool"
+      ],
+      "description": "This is the role of the message author.\nFor a tool response message evaluation, the role is always 'tool'\n@default 'tool'",
+      "default": "tool"
+    },
+    "judgePlan": {
+      "description": "This is the judge plan that instructs how to evaluate the tool response message.\nThe tool response message can be evaluated with an LLM-as-judge by defining the evaluation criteria in a prompt.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AssistantMessageJudgePlanAI",
+          "title": "AssistantMessageJudgePlanAI"
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssistantMessageJudgePlanAI"
+        }
+      ]
+    }
+  },
+  "required": [
+    "role",
+    "judgePlan"
+  ]
+}

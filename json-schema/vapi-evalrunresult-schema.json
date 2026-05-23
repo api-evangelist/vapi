@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalRunResult",
+  "title": "EvalRunResult",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "This is the status of the eval run result.\nThe status is only 'pass' or 'fail' for an eval run result.\nCurrently, An eval is considered `pass` only if all the Assistant Judge messages are evaluated to pass.",
+      "example": "pass",
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "description": "This is the messages of the eval run result.\nIt contains the user/system messages",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ChatEvalUserMessageMock",
+            "title": "ChatEvalUserMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalSystemMessageMock",
+            "title": "ChatEvalSystemMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalToolResponseMessageMock",
+            "title": "ChatEvalToolResponseMessageMock"
+          },
+          {
+            "$ref": "#/components/schemas/ChatEvalAssistantMessageMock",
+            "title": "ChatEvalAssistantMessageMock"
+          }
+        ]
+      }
+    },
+    "startedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the start time of the eval run result.",
+      "example": "2021-01-01T00:00:00.000Z"
+    },
+    "endedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the end time of the eval run result.",
+      "example": "2021-01-01T00:00:00.000Z"
+    }
+  },
+  "required": [
+    "status",
+    "messages",
+    "startedAt",
+    "endedAt"
+  ]
+}

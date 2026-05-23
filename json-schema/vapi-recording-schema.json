@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Recording",
+  "title": "Recording",
+  "type": "object",
+  "properties": {
+    "stereoUrl": {
+      "type": "string",
+      "description": "This is the stereo recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`."
+    },
+    "videoUrl": {
+      "type": "string",
+      "description": "This is the video recording url for the call. To enable, set `assistant.artifactPlan.videoRecordingEnabled`."
+    },
+    "videoRecordingStartDelaySeconds": {
+      "type": "number",
+      "description": "This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps."
+    },
+    "mono": {
+      "description": "This is the mono recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Mono"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemImprovementSuggestion",
+  "title": "SimulationRunItemImprovementSuggestion",
+  "type": "object",
+  "properties": {
+    "issue": {
+      "type": "string",
+      "description": "This is the issue identified."
+    },
+    "suggestion": {
+      "type": "string",
+      "description": "This is the suggested improvement."
+    }
+  },
+  "required": [
+    "issue",
+    "suggestion"
+  ]
+}

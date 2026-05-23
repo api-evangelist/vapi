@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponseKnowledgeBaseRequest",
+  "title": "ServerMessageResponseKnowledgeBaseRequest",
+  "type": "object",
+  "properties": {
+    "documents": {
+      "description": "This is the list of documents that will be sent to the model alongside the `messages` to generate a response.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/KnowledgeBaseResponseDocument"
+      }
+    },
+    "message": {
+      "description": "This can be used to skip the model output generation and speak a custom message.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomMessage"
+        }
+      ]
+    }
+  }
+}

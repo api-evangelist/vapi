@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateStructuredOutputDTO",
+  "title": "UpdateStructuredOutputDTO",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of structured output.\n\n- 'ai': Uses an LLM to extract structured data from the conversation (default).\n- 'regex': Uses a regex pattern to extract data from the transcript without an LLM.",
+      "enum": [
+        "ai",
+        "regex"
+      ]
+    },
+    "regex": {
+      "type": "string",
+      "description": "This is the regex pattern to match against the transcript.\n\nOnly used when type is 'regex'. Supports both raw patterns (e.g. '\\d+') and\nregex literal format (e.g. '/\\d+/gi'). Uses RE2 syntax for safety.\n\nThe result depends on the schema type:\n- boolean: true if the pattern matches, false otherwise\n- string: the first match or first capture group\n- number/integer: the first match parsed as a number\n- array: all matches",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "model": {
+      "description": "This is the model that will be used to extract the structured output.\n\nTo provide your own custom system and user prompts for structured output extraction, populate the messages array with your system and user messages. You can specify liquid templating in your system and user messages.\nBetween the system or user messages, you must reference either 'transcript' or 'messages' with the `{{}}` syntax to access the conversation history.\nBetween the system or user messages, you must reference a variation of the structured output with the `{{}}` syntax to access the structured output definition.\ni.e.:\n`{{structuredOutput}}`\n`{{structuredOutput.name}}`\n`{{structuredOutput.description}}`\n`{{structuredOutput.schema}}`\n\nIf model is not specified, GPT-4.1 will be used by default for extraction, utilizing default system and user prompts.\nIf messages or required fields are not specified, the default system and user prompts will be used.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowOpenAIModel",
+          "title": "WorkflowOpenAIModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowAnthropicModel",
+          "title": "WorkflowAnthropicModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowAnthropicBedrockModel",
+          "title": "WorkflowAnthropicBedrockModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowGoogleModel",
+          "title": "WorkflowGoogleModel"
+        },
+        {
+          "$ref": "#/components/schemas/WorkflowCustomModel",
+          "title": "WorkflowCustomModel"
+        }
+      ]
+    },
+    "compliancePlan": {
+      "description": "Compliance configuration for this output. Only enable overrides if no sensitive data will be stored.",
+      "example": {
+        "forceStoreOnHipaaEnabled": false
+      },
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComplianceOverride"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the structured output.",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "description": {
+      "type": "string",
+      "description": "This is the description of what the structured output extracts.\n\nUse this to provide context about what data will be extracted and how it will be used."
+    },
+    "assistantIds": {
+      "description": "These are the assistant IDs that this structured output is linked to.\n\nWhen linked to assistants, this structured output will be available for extraction during those assistant's calls.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "workflowIds": {
+      "description": "These are the workflow IDs that this structured output is linked to.\n\nWhen linked to workflows, this structured output will be available for extraction during those workflow's execution.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema": {
+      "description": "This is the JSON Schema definition for the structured output.\n\nDefines the structure and validation rules for the data that will be extracted. Supports all JSON Schema features including:\n- Objects and nested properties\n- Arrays and array validation\n- String, number, boolean, and null types\n- Enums and const values\n- Validation constraints (min/max, patterns, etc.)\n- Composition with allOf, anyOf, oneOf",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JsonSchema"
+        }
+      ]
+    }
+  }
+}

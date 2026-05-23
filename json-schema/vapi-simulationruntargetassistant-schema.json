@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunTargetAssistant",
+  "title": "SimulationRunTargetAssistant",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "assistant"
+      ],
+      "description": "Type of target"
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "ID of an existing assistant to test against. Cannot be combined with inline assistant.",
+      "format": "uuid"
+    },
+    "assistant": {
+      "description": "Inline assistant configuration to test against. Cannot be combined with assistantId.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

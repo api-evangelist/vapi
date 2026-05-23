@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CallHookCustomerSpeechInterrupted",
+  "title": "CallHookCustomerSpeechInterrupted",
+  "type": "object",
+  "properties": {
+    "on": {
+      "type": "string",
+      "description": "This is the event that triggers this hook",
+      "enum": [
+        "customer.speech.interrupted"
+      ],
+      "maxLength": 1000
+    },
+    "do": {
+      "type": "array",
+      "description": "This is the set of actions to perform when the hook triggers",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SayHookAction",
+            "title": "SayHookAction"
+          },
+          {
+            "$ref": "#/components/schemas/ToolCallHookAction",
+            "title": "ToolCallHookAction"
+          },
+          {
+            "$ref": "#/components/schemas/MessageAddHookAction",
+            "title": "MessageAddHookAction"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "on",
+    "do"
+  ]
+}

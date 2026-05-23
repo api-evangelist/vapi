@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VapiSmartEndpointingPlan",
+  "title": "VapiSmartEndpointingPlan",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider for the smart endpointing plan.",
+      "enum": [
+        "vapi",
+        "livekit",
+        "custom-endpointing-model"
+      ],
+      "example": "vapi"
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

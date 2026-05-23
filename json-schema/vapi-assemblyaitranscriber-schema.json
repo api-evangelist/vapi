@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssemblyAITranscriber",
+  "title": "AssemblyAITranscriber",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the transcription provider that will be used.",
+      "enum": [
+        "assembly-ai"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "This is the language that will be set for the transcription.",
+      "enum": [
+        "multi",
+        "en"
+      ]
+    },
+    "confidenceThreshold": {
+      "type": "number",
+      "description": "Transcripts below this confidence threshold will be discarded.\n\n@default 0.4",
+      "minimum": 0,
+      "maximum": 1,
+      "example": 0.4
+    },
+    "formatTurns": {
+      "type": "boolean",
+      "description": "This enables formatting of transcripts.\n\n@default true",
+      "example": true
+    },
+    "endOfTurnConfidenceThreshold": {
+      "type": "number",
+      "description": "This is the end of turn confidence threshold. The minimum confidence that the end of turn is detected.\nNote: Only used if startSpeakingPlan.smartEndpointingPlan is not set.\n@min 0\n@max 1\n@default 0.7",
+      "minimum": 0,
+      "maximum": 1,
+      "example": 0.7
+    },
+    "minEndOfTurnSilenceWhenConfident": {
+      "type": "number",
+      "description": "This is the minimum end of turn silence when confident in milliseconds.\nNote: Only used if startSpeakingPlan.smartEndpointingPlan is not set.\n@default 160",
+      "minimum": 0,
+      "example": 160
+    },
+    "wordFinalizationMaxWaitTime": {
+      "type": "number",
+      "deprecated": true,
+      "minimum": 0,
+      "example": 160
+    },
+    "maxTurnSilence": {
+      "type": "number",
+      "description": "This is the maximum turn silence time in milliseconds.\nNote: Only used if startSpeakingPlan.smartEndpointingPlan is not set.\n@default 400",
+      "minimum": 0,
+      "example": 400
+    },
+    "vadAssistedEndpointingEnabled": {
+      "type": "boolean",
+      "description": "Use VAD to assist with endpointing decisions from the transcriber.\nWhen enabled, transcriber endpointing will be buffered if VAD detects the user is still speaking, preventing premature turn-taking.\nWhen disabled, transcriber endpointing will be used immediately regardless of VAD state, allowing for quicker but more aggressive turn-taking.\nNote: Only used if startSpeakingPlan.smartEndpointingPlan is not set.\n\n@default true",
+      "example": true
+    },
+    "speechModel": {
+      "type": "string",
+      "description": "This is the speech model used for the streaming session.\nNote: Keyterms prompting is not supported with multilingual streaming.\n@default 'universal-streaming-english'",
+      "enum": [
+        "universal-streaming-english",
+        "universal-streaming-multilingual"
+      ]
+    },
+    "realtimeUrl": {
+      "type": "string",
+      "description": "The WebSocket URL that the transcriber connects to."
+    },
+    "wordBoost": {
+      "description": "Add up to 2500 characters of custom vocabulary.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 2500
+      }
+    },
+    "keytermsPrompt": {
+      "description": "Keyterms prompting improves recognition accuracy for specific words and phrases.\nCan include up to 100 keyterms, each up to 50 characters.\nCosts an additional $0.04/hour when enabled.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 50
+      }
+    },
+    "endUtteranceSilenceThreshold": {
+      "type": "number",
+      "description": "The duration of the end utterance silence threshold in milliseconds."
+    },
+    "disablePartialTranscripts": {
+      "type": "boolean",
+      "description": "Disable partial transcripts.\nSet to `true` to not receive partial transcripts. Defaults to `false`."
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for transcriber provider fallbacks in the event that the primary transcriber provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackTranscriberPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider"
+  ]
+}

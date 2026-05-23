@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KeypadInputPlan",
+  "title": "KeypadInputPlan",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "This keeps track of whether the user has enabled keypad input.\nBy default, it is off.\n\n@default false"
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "description": "This is the time in seconds to wait before processing the input.\nIf the input is not received within this time, the input will be ignored.\nIf set to \"off\", the input will be processed when the user enters a delimiter or immediately if no delimiter is used.\n\n@default 2",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "delimiters": {
+      "type": "string",
+      "description": "This is the delimiter(s) that will be used to process the input.\nCan be '#', '*', or an empty array.",
+      "enum": [
+        "#",
+        "*",
+        ""
+      ]
+    }
+  }
+}

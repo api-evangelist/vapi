@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolNode",
+  "title": "ToolNode",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the Tool node. This can be used to call a tool in your workflow.\n\nThe flow is:\n- Workflow starts the tool node\n- Model is called to extract parameters needed by the tool from the conversation history\n- Tool is called with the parameters\n- Server returns a response\n- Workflow continues with the response",
+      "enum": [
+        "tool"
+      ]
+    },
+    "tool": {
+      "description": "This is the tool to call. To use an existing tool, send `toolId` instead.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateApiRequestToolDTO",
+          "title": "ApiRequestTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateBashToolDTO",
+          "title": "BashTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateCodeToolDTO",
+          "title": "CodeTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateComputerToolDTO",
+          "title": "ComputerTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateDtmfToolDTO",
+          "title": "DtmfTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateEndCallToolDTO",
+          "title": "EndCallTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateFunctionToolDTO",
+          "title": "FunctionTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelCalendarAvailabilityToolDTO",
+          "title": "GoHighLevelCalendarAvailabilityTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelCalendarEventCreateToolDTO",
+          "title": "GoHighLevelCalendarEventCreateTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelContactCreateToolDTO",
+          "title": "GoHighLevelContactCreateTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoHighLevelContactGetToolDTO",
+          "title": "GoHighLevelContactGetTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleCalendarCheckAvailabilityToolDTO",
+          "title": "GoogleCalendarCheckAvailabilityTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleCalendarCreateEventToolDTO",
+          "title": "GoogleCalendarCreateEventTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateGoogleSheetsRowAppendToolDTO",
+          "title": "GoogleSheetsRowAppendTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateHandoffToolDTO",
+          "title": "HandoffTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateMcpToolDTO",
+          "title": "McpTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateQueryToolDTO",
+          "title": "QueryTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSlackSendMessageToolDTO",
+          "title": "SlackSendMessageTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSmsToolDTO",
+          "title": "SmsTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTextEditorToolDTO",
+          "title": "TextEditorTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTransferCallToolDTO",
+          "title": "TransferCallTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateSipRequestToolDTO",
+          "title": "SipRequestTool"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVoicemailToolDTO",
+          "title": "VoicemailTool"
+        }
+      ]
+    },
+    "toolId": {
+      "type": "string",
+      "description": "This is the tool to call. To use a transient tool, send `tool` instead."
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "isStart": {
+      "type": "boolean",
+      "description": "This is whether or not the node is the start of the workflow."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "This is for metadata you want to store on the task."
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ]
+}

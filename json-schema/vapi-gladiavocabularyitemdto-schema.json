@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GladiaVocabularyItemDTO",
+  "title": "GladiaVocabularyItemDTO",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "The vocabulary word or phrase"
+    },
+    "pronunciations": {
+      "description": "Alternative pronunciations for the vocabulary item",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "intensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Intensity for this specific vocabulary item (0.0 to 1.0)"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code for this vocabulary item (ISO 639-1)"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}

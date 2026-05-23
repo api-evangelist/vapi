@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OpenAIWebChatRequest",
+  "title": "OpenAIWebChatRequest",
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant ID to use for this chat. To use a transient assistant, use `assistant` instead."
+    },
+    "assistant": {
+      "description": "This is the transient assistant configuration for this chat. To use an existing assistant, use `assistantId` instead.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "This is the ID of the session that will be used for the chat.\nIf provided, the conversation will continue from the previous state.\nIf not provided or expired, a new session will be created."
+    },
+    "sessionExpirationSeconds": {
+      "type": "number",
+      "description": "This is the expiration time for the session. This can ONLY be set if starting a new chat and therefore a new session is created.\nIf session already exists, this will be ignored and NOT be updated for the existing session. Use PATCH /session/:id to update the session expiration time.",
+      "minimum": 60,
+      "maximum": 2592000
+    },
+    "assistantOverrides": {
+      "description": "These are the variable values that will be used to replace template variables in the assistant messages.\nOnly variable substitution is supported in web chat - other assistant properties cannot be overridden.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChatAssistantOverrides"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer information for the chat.\nUsed to automatically manage sessions for repeat customers.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateWebCustomerDTO"
+        }
+      ]
+    },
+    "input": {
+      "description": "This is the input text for the chat.\nCan be a string or an array of chat messages.",
+      "oneOf": [
+        {
+          "type": "string",
+          "title": "String"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SystemMessage",
+                "title": "SystemMessage"
+              },
+              {
+                "$ref": "#/components/schemas/UserMessage",
+                "title": "UserMessage"
+              },
+              {
+                "$ref": "#/components/schemas/AssistantMessage",
+                "title": "AssistantMessage"
+              },
+              {
+                "$ref": "#/components/schemas/ToolMessage",
+                "title": "ToolMessage"
+              },
+              {
+                "$ref": "#/components/schemas/DeveloperMessage",
+                "title": "DeveloperMessage"
+              }
+            ]
+          },
+          "title": "MessageArray"
+        }
+      ],
+      "examples": [
+        "Hello, how can you help me?",
+        [
+          {
+            "role": "user",
+            "content": "Hello, how can you help me?"
+          }
+        ]
+      ]
+    },
+    "stream": {
+      "type": "boolean",
+      "description": "Whether to stream the response or not.",
+      "default": true
+    },
+    "sessionEnd": {
+      "type": "boolean",
+      "description": "This is a flag to indicate end of session. When true, the session will be marked as completed and the chat will be ended.\nUsed to end session to send End-of-session report to the customer.\nWhen flag is set to true, any messages sent will not be processed and session will directly be marked as completed.",
+      "default": false
+    }
+  },
+  "required": [
+    "input"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClientMessageSessionCreated",
+  "title": "ClientMessageSessionCreated",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"session.created\" is sent when a new session is created.",
+      "enum": [
+        "session.created"
+      ]
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "session": {
+      "description": "This is the session that was created.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Session"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "session"
+  ]
+}

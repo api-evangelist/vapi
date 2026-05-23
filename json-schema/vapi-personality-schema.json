@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Personality",
+  "title": "Personality",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "This is the unique identifier for the personality.",
+      "format": "uuid"
+    },
+    "orgId": {
+      "type": "string",
+      "nullable": true,
+      "description": "This is the unique identifier for the organization this personality belongs to.\nIf null, this is a Vapi-provided default personality available to all organizations.",
+      "format": "uuid"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the personality was created."
+    },
+    "updatedAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the ISO 8601 date-time string of when the personality was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the personality (e.g., \"Confused Carl\", \"Rude Rob\").",
+      "maxLength": 80
+    },
+    "assistant": {
+      "description": "This is the full assistant configuration for this personality.\nIt defines the tester's voice, model, behavior via system prompt, and other settings.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional folder path for organizing personalities.\nSupports up to 3 levels (e.g., \"dept/feature/variant\").\nMaps to GitOps resource folder structure.",
+      "maxLength": 255,
+      "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9._-]*(?:\\/[a-zA-Z0-9][a-zA-Z0-9._-]*){0,2}$/"
+    }
+  },
+  "required": [
+    "id",
+    "orgId",
+    "createdAt",
+    "updatedAt",
+    "name",
+    "assistant"
+  ]
+}

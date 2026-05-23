@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunSimulationEntry",
+  "title": "SimulationRunSimulationEntry",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "simulation"
+      ],
+      "description": "Type discriminator"
+    },
+    "simulationId": {
+      "type": "string",
+      "description": "ID of an existing simulation to run. When provided, scenarioId/personalityId/inline fields are ignored.",
+      "format": "uuid"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "ID of an existing scenario. Cannot be combined with inline scenario.",
+      "format": "uuid"
+    },
+    "scenario": {
+      "description": "Inline scenario configuration. Cannot be combined with scenarioId.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateScenarioDTO"
+        }
+      ]
+    },
+    "personalityId": {
+      "type": "string",
+      "description": "ID of an existing personality. Cannot be combined with inline personality.",
+      "format": "uuid"
+    },
+    "personality": {
+      "description": "Inline personality configuration. Cannot be combined with personalityId.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatePersonalityDTO"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "Optional name for this simulation entry"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

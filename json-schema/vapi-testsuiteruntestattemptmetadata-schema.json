@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRunTestAttemptMetadata",
+  "title": "TestSuiteRunTestAttemptMetadata",
+  "type": "object",
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "This is the session ID for the test attempt."
+    }
+  },
+  "required": [
+    "sessionId"
+  ]
+}

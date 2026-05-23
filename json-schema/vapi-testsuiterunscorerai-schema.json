@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TestSuiteRunScorerAI",
+  "title": "TestSuiteRunScorerAI",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the scorer, which must be AI.",
+      "enum": [
+        "ai"
+      ],
+      "maxLength": 100
+    },
+    "result": {
+      "type": "string",
+      "description": "This is the result of the test suite.",
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "maxLength": 100
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "This is the reasoning provided by the AI scorer.",
+      "maxLength": 10000
+    },
+    "rubric": {
+      "type": "string",
+      "description": "This is the rubric used by the AI scorer.",
+      "maxLength": 10000
+    }
+  },
+  "required": [
+    "type",
+    "result",
+    "reasoning",
+    "rubric"
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MinimaxVoice",
+  "title": "MinimaxVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "minimax"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "This is the provider-specific ID that will be used. Use a voice from MINIMAX_PREDEFINED_VOICES or a custom cloned voice ID.",
+      "title": "This is the Minimax Voice ID"
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used. Options are 'speech-02-hd' and 'speech-02-turbo'.\nspeech-02-hd is optimized for high-fidelity applications like voiceovers and audiobooks.\nspeech-02-turbo is designed for real-time applications with low latency.\n\n@default \"speech-02-turbo\"",
+      "enum": [
+        "speech-02-hd",
+        "speech-02-turbo",
+        "speech-2.5-turbo-preview"
+      ],
+      "example": "speech-02-turbo",
+      "default": "speech-02-turbo"
+    },
+    "emotion": {
+      "type": "string",
+      "description": "The emotion to use for the voice. If not provided, will use auto-detect mode.\nOptions include: 'happy', 'sad', 'angry', 'fearful', 'surprised', 'disgusted', 'neutral'",
+      "example": "happy"
+    },
+    "subtitleType": {
+      "type": "string",
+      "description": "Controls the granularity of subtitle/timing data returned by Minimax\nduring synthesis. Set to 'word' to receive per-word timestamps in\nassistant.speechStarted events for karaoke-style caption rendering.\n\n@default \"sentence\"",
+      "enum": [
+        "word",
+        "sentence"
+      ],
+      "default": "sentence"
+    },
+    "pitch": {
+      "type": "number",
+      "description": "Voice pitch adjustment. Range from -12 to 12 semitones.\n@default 0",
+      "minimum": -12,
+      "maximum": 12,
+      "example": 0,
+      "default": 0
+    },
+    "speed": {
+      "type": "number",
+      "description": "Voice speed adjustment. Range from 0.5 to 2.0.\n@default 1.0",
+      "minimum": 0.5,
+      "maximum": 2,
+      "example": 1,
+      "default": 1
+    },
+    "volume": {
+      "type": "number",
+      "description": "Voice volume adjustment. Range from 0.5 to 2.0.\n@default 1.0",
+      "minimum": 0.5,
+      "maximum": 2,
+      "example": 1,
+      "default": 1
+    },
+    "region": {
+      "type": "string",
+      "description": "The region for Minimax API. Defaults to \"worldwide\".",
+      "enum": [
+        "worldwide",
+        "china"
+      ],
+      "default": "worldwide"
+    },
+    "languageBoost": {
+      "type": "string",
+      "description": "Language hint for MiniMax T2A. Example: yue (Cantonese), zh (Chinese), en (English).",
+      "enum": [
+        "Chinese",
+        "Chinese,Yue",
+        "English",
+        "Arabic",
+        "Russian",
+        "Spanish",
+        "French",
+        "Portuguese",
+        "German",
+        "Turkish",
+        "Dutch",
+        "Ukrainian",
+        "Vietnamese",
+        "Indonesian",
+        "Japanese",
+        "Italian",
+        "Korean",
+        "Thai",
+        "Polish",
+        "Romanian",
+        "Greek",
+        "Czech",
+        "Finnish",
+        "Hindi",
+        "Bulgarian",
+        "Danish",
+        "Hebrew",
+        "Malay",
+        "Persian",
+        "Slovak",
+        "Swedish",
+        "Croatian",
+        "Filipino",
+        "Hungarian",
+        "Norwegian",
+        "Slovenian",
+        "Catalan",
+        "Nynorsk",
+        "Tamil",
+        "Afrikaans",
+        "auto"
+      ]
+    },
+    "textNormalizationEnabled": {
+      "type": "boolean",
+      "description": "Enable MiniMax text normalization to improve number reading and formatting.",
+      "default": true
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

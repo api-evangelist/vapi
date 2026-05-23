@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessage",
+  "title": "ServerMessage",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "These are all the messages that can be sent to your server before, after and during the call. Configure the messages you'd like to receive in `assistant.serverMessages`.\n\nThe server where the message is sent is determined by the following precedence order:\n\n1. `tool.server.url` (if configured, and only for \"tool-calls\" message)\n2. `assistant.serverUrl` (if configure)\n3. `phoneNumber.serverUrl` (if configured)\n4. `org.serverUrl` (if configured)",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ServerMessageAssistantRequest",
+          "title": "AssistantRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageConversationUpdate",
+          "title": "ConversationUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageEndOfCallReport",
+          "title": "EndOfCallReport"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageHandoffDestinationRequest",
+          "title": "HandoffDestinationRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageHang",
+          "title": "Hang"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageKnowledgeBaseRequest",
+          "title": "KnowledgeBaseRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageModelOutput",
+          "title": "ModelOutput"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessagePhoneCallControl",
+          "title": "PhoneCallControl"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageSpeechUpdate",
+          "title": "SpeechUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageStatusUpdate",
+          "title": "StatusUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageToolCalls",
+          "title": "ToolCalls"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageTransferDestinationRequest",
+          "title": "TransferDestinationRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageTransferUpdate",
+          "title": "TransferUpdate"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageTranscript",
+          "title": "Transcript"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageUserInterrupted",
+          "title": "UserInterrupted"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageLanguageChangeDetected",
+          "title": "LanguageChangeDetected"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageVoiceInput",
+          "title": "VoiceInput"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageAssistantSpeech",
+          "title": "AssistantSpeech"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageVoiceRequest",
+          "title": "VoiceRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageCallEndpointingRequest",
+          "title": "CallEndpointingRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageChatCreated",
+          "title": "ChatCreated"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageChatDeleted",
+          "title": "ChatDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageSessionCreated",
+          "title": "SessionCreated"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageSessionUpdated",
+          "title": "SessionUpdated"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageSessionDeleted",
+          "title": "SessionDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageCallDeleted",
+          "title": "CallDeleted"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageCallDeleteFailed",
+          "title": "CallDeleteFailed"
+        }
+      ]
+    }
+  },
+  "required": [
+    "message"
+  ]
+}

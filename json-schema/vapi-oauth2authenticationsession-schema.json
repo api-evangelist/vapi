@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Oauth2AuthenticationSession",
+  "title": "Oauth2AuthenticationSession",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "type": "string",
+      "description": "This is the OAuth2 access token."
+    },
+    "expiresAt": {
+      "format": "date-time",
+      "type": "string",
+      "description": "This is the OAuth2 access token expiration."
+    },
+    "refreshToken": {
+      "type": "string",
+      "description": "This is the OAuth2 refresh token."
+    }
+  }
+}

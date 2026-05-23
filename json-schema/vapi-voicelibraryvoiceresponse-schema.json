@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VoiceLibraryVoiceResponse",
+  "title": "VoiceLibraryVoiceResponse",
+  "type": "object",
+  "properties": {
+    "voiceId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "publicOwnerId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "age": {
+      "type": "object"
+    },
+    "accent": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "voiceId",
+    "name"
+  ]
+}

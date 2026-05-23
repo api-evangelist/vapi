@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InworldVoice",
+  "title": "InworldVoice",
+  "type": "object",
+  "properties": {
+    "cachingEnabled": {
+      "type": "boolean",
+      "description": "This is the flag to toggle voice caching for the assistant.",
+      "example": true,
+      "default": true
+    },
+    "provider": {
+      "type": "string",
+      "description": "This is the voice provider that will be used.",
+      "enum": [
+        "inworld"
+      ]
+    },
+    "voiceId": {
+      "type": "string",
+      "description": "Available voices by language:\n\u2022 en: Alex, Ashley, Craig, Deborah, Dennis, Edward, Elizabeth, Hades, Julia, Pixie, Mark, Olivia, Priya, Ronald, Sarah, Shaun, Theodore, Timothy, Wendy, Dominus, Hana, Clive, Carter, Blake, Luna\n\u2022 zh: Yichen, Xiaoyin, Xinyi, Jing\n\u2022 nl: Erik, Katrien, Lennart, Lore\n\u2022 fr: Alain, H\u00e9l\u00e8ne, Mathieu, \u00c9tienne\n\u2022 de: Johanna, Josef\n\u2022 it: Gianni, Orietta\n\u2022 ja: Asuka, Satoshi\n\u2022 ko: Hyunwoo, Minji, Seojun, Yoona\n\u2022 pl: Szymon, Wojciech\n\u2022 pt: Heitor, Mait\u00ea\n\u2022 es: Diego, Lupita, Miguel, Rafael\n\u2022 ru: Svetlana, Elena, Dmitry, Nikolai\n\u2022 hi: Riya, Manoj\n\u2022 he: Yael, Oren\n\u2022 ar: Nour, Omar",
+      "maxLength": 120,
+      "title": "Inworld Voice ID",
+      "enum": [
+        "Alex",
+        "Ashley",
+        "Craig",
+        "Deborah",
+        "Dennis",
+        "Edward",
+        "Elizabeth",
+        "Hades",
+        "Julia",
+        "Pixie",
+        "Mark",
+        "Olivia",
+        "Priya",
+        "Ronald",
+        "Sarah",
+        "Shaun",
+        "Theodore",
+        "Timothy",
+        "Wendy",
+        "Dominus",
+        "Hana",
+        "Clive",
+        "Carter",
+        "Blake",
+        "Luna",
+        "Yichen",
+        "Xiaoyin",
+        "Xinyi",
+        "Jing",
+        "Erik",
+        "Katrien",
+        "Lennart",
+        "Lore",
+        "Alain",
+        "H\u00e9l\u00e8ne",
+        "Mathieu",
+        "\u00c9tienne",
+        "Johanna",
+        "Josef",
+        "Gianni",
+        "Orietta",
+        "Asuka",
+        "Satoshi",
+        "Hyunwoo",
+        "Minji",
+        "Seojun",
+        "Yoona",
+        "Szymon",
+        "Wojciech",
+        "Heitor",
+        "Mait\u00ea",
+        "Diego",
+        "Lupita",
+        "Miguel",
+        "Rafael",
+        "Svetlana",
+        "Elena",
+        "Dmitry",
+        "Nikolai",
+        "Riya",
+        "Manoj",
+        "Yael",
+        "Oren",
+        "Nour",
+        "Omar"
+      ],
+      "example": "Alex"
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the model that will be used.",
+      "enum": [
+        "inworld-tts-1"
+      ],
+      "default": "inworld-tts-1"
+    },
+    "languageCode": {
+      "type": "string",
+      "description": "Language code for Inworld TTS synthesis",
+      "default": "en",
+      "enum": [
+        "en",
+        "zh",
+        "ko",
+        "nl",
+        "fr",
+        "es",
+        "ja",
+        "de",
+        "it",
+        "pl",
+        "pt",
+        "ru",
+        "hi",
+        "he",
+        "ar"
+      ]
+    },
+    "temperature": {
+      "type": "number",
+      "description": "A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature of 1.1 will be used. The temperature parameter controls variance.\nHigher values will make the output more random and can lead to more expressive results. Lower values will make it more deterministic.\nSee https://docs.inworld.ai/docs/tts/capabilities/generating-audio#additional-configurations for more details.",
+      "minimum": 0.1,
+      "maximum": 2,
+      "default": 1.1,
+      "example": null
+    },
+    "speakingRate": {
+      "type": "number",
+      "description": "A floating point number between 0.5, inclusive, and 1.5, inclusive. If equal to null or not provided, the model's default speaking speed of 1.0 will be used.\nValues above 0.8 are recommended for higher quality.\nSee https://docs.inworld.ai/docs/tts/capabilities/generating-audio#additional-configurations for more details.",
+      "minimum": 0.5,
+      "maximum": 1.5,
+      "default": 1,
+      "example": null
+    },
+    "chunkPlan": {
+      "description": "This is the plan for chunking the model output before it is sent to the voice provider.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChunkPlan"
+        }
+      ]
+    },
+    "fallbackPlan": {
+      "description": "This is the plan for voice provider fallbacks in the event that the primary voice provider fails.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FallbackPlan"
+        }
+      ]
+    }
+  },
+  "required": [
+    "provider",
+    "voiceId"
+  ]
+}

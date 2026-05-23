@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SimulationRunItemImprovements",
+  "title": "SimulationRunItemImprovements",
+  "type": "object",
+  "properties": {
+    "analysis": {
+      "type": "string",
+      "description": "This is a summary analysis of why evaluations failed."
+    },
+    "systemPromptSuggestions": {
+      "description": "This is the list of suggestions for improving the system prompt.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SimulationRunItemImprovementSuggestion"
+      }
+    },
+    "toolSuggestions": {
+      "description": "This is the list of suggestions for improving tools.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SimulationRunItemImprovementSuggestion"
+      }
+    },
+    "scenarioSuggestions": {
+      "description": "This is the list of suggestions for improving the scenario/evaluation plan.",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SimulationRunItemImprovementSuggestion"
+      }
+    },
+    "suggestedSystemPrompt": {
+      "type": "string",
+      "description": "This is a complete revised system prompt if major changes are needed."
+    }
+  },
+  "required": [
+    "analysis",
+    "systemPromptSuggestions",
+    "toolSuggestions",
+    "scenarioSuggestions"
+  ]
+}

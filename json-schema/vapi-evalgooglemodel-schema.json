@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EvalGoogleModel",
+  "title": "EvalGoogleModel",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "description": "This is the provider of the model (`google`).",
+      "enum": [
+        "google"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "This is the name of the model. Ex. gpt-4o",
+      "maxLength": 100,
+      "enum": [
+        "gemini-3-flash-preview",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-2.0-flash-thinking-exp",
+        "gemini-2.0-pro-exp-02-05",
+        "gemini-2.0-flash",
+        "gemini-2.0-flash-lite",
+        "gemini-2.0-flash-exp",
+        "gemini-2.0-flash-realtime-exp",
+        "gemini-1.5-flash",
+        "gemini-1.5-flash-002",
+        "gemini-1.5-pro",
+        "gemini-1.5-pro-002",
+        "gemini-1.0-pro"
+      ]
+    },
+    "temperature": {
+      "type": "number",
+      "description": "This is the temperature of the model. For LLM-as-a-judge, it's recommended to set it between 0 - 0.3 to avoid hallucinations and ensure the model judges the output correctly based on the instructions.",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "maxTokens": {
+      "type": "number",
+      "description": "This is the max tokens of the model.\nIf your Judge instructions return `true` or `false` takes only 1 token (as per the OpenAI Tokenizer), and therefore is recommended to set it to a low number to force the model to return a short response.",
+      "minimum": 50,
+      "maximum": 10000
+    },
+    "messages": {
+      "description": "These are the messages which will instruct the AI Judge on how to evaluate the assistant message.\nThe LLM-Judge must respond with \"pass\" or \"fail\" to indicate if the assistant message passes the eval.\n\nTo access the messages in the mock conversation, use the LiquidJS variable `{{messages}}`.\nThe assistant message to be evaluated will be passed as the last message in the `messages` array and can be accessed using `{{messages[-1]}}`.\n\nIt is recommended to use the system message to instruct the LLM how to evaluate the assistant message, and then use the first user message to pass the assistant message to be evaluated.",
+      "example": "{",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "provider",
+    "model",
+    "messages"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AnalysisCostBreakdown",
+  "title": "AnalysisCostBreakdown",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "number",
+      "description": "This is the cost to summarize the call."
+    },
+    "summaryPromptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used to summarize the call."
+    },
+    "summaryCompletionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens used to summarize the call."
+    },
+    "summaryCachedPromptTokens": {
+      "type": "number",
+      "description": "This is the number of cached prompt tokens used to summarize the call."
+    },
+    "structuredData": {
+      "type": "number",
+      "description": "This is the cost to extract structured data from the call."
+    },
+    "structuredDataPromptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used to extract structured data from the call."
+    },
+    "structuredDataCompletionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens used to extract structured data from the call."
+    },
+    "structuredDataCachedPromptTokens": {
+      "type": "number",
+      "description": "This is the number of cached prompt tokens used to extract structured data from the call."
+    },
+    "successEvaluation": {
+      "type": "number",
+      "description": "This is the cost to evaluate if the call was successful."
+    },
+    "successEvaluationPromptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used to evaluate if the call was successful."
+    },
+    "successEvaluationCompletionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens used to evaluate if the call was successful."
+    },
+    "successEvaluationCachedPromptTokens": {
+      "type": "number",
+      "description": "This is the number of cached prompt tokens used to evaluate if the call was successful."
+    },
+    "structuredOutput": {
+      "type": "number",
+      "description": "This is the cost to evaluate structuredOutputs from the call."
+    },
+    "structuredOutputPromptTokens": {
+      "type": "number",
+      "description": "This is the number of prompt tokens used to evaluate structuredOutputs from the call."
+    },
+    "structuredOutputCompletionTokens": {
+      "type": "number",
+      "description": "This is the number of completion tokens used to evaluate structuredOutputs from the call."
+    },
+    "structuredOutputCachedPromptTokens": {
+      "type": "number",
+      "description": "This is the number of cached prompt tokens used to evaluate structuredOutputs from the call."
+    }
+  }
+}

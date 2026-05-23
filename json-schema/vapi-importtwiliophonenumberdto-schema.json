@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImportTwilioPhoneNumberDTO",
+  "title": "ImportTwilioPhoneNumberDTO",
+  "type": "object",
+  "properties": {
+    "fallbackDestination": {
+      "description": "This is the fallback destination an inbound call will be transferred to if:\n1. `assistantId` is not set\n2. `squadId` is not set\n3. and, `assistant-request` message to the `serverUrl` fails\n\nIf this is not set and above conditions are met, the inbound call is hung up with an error message.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "NumberTransferDestination"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "SipTransferDestination"
+        }
+      ]
+    },
+    "hooks": {
+      "type": "array",
+      "description": "This is the hooks that will be used for incoming calls to this phone number.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallRinging",
+            "title": "PhoneNumberHookCallRinging"
+          },
+          {
+            "$ref": "#/components/schemas/PhoneNumberHookCallEnding",
+            "title": "PhoneNumberHookCallEnding"
+          }
+        ]
+      }
+    },
+    "smsEnabled": {
+      "type": "boolean",
+      "description": "Controls whether Vapi sets the messaging webhook URL on the Twilio number during import.\n\nIf set to `false`, Vapi will not update the Twilio messaging URL, leaving it as is.\nIf `true` or omitted (default), Vapi will configure both the voice and messaging URLs.\n\n@default true",
+      "default": true
+    },
+    "twilioPhoneNumber": {
+      "type": "string",
+      "description": "These are the digits of the phone number you own on your Twilio.",
+      "deprecated": true
+    },
+    "twilioAccountSid": {
+      "type": "string",
+      "description": "This is your Twilio Account SID that will be used to handle this phone number."
+    },
+    "twilioAuthToken": {
+      "type": "string",
+      "description": "This is the Twilio Auth Token that will be used to handle this phone number."
+    },
+    "twilioApiKey": {
+      "type": "string",
+      "description": "This is the Twilio API Key that will be used to handle this phone number. If AuthToken is provided, this will be ignored."
+    },
+    "twilioApiSecret": {
+      "type": "string",
+      "description": "This is the Twilio API Secret that will be used to handle this phone number. If AuthToken is provided, this will be ignored."
+    },
+    "name": {
+      "type": "string",
+      "description": "This is the name of the phone number. This is just for your own reference.",
+      "maxLength": 40
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "This is the workflow that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "squadId": {
+      "type": "string",
+      "description": "This is the squad that will be used for incoming calls to this phone number.\n\nIf neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected."
+    },
+    "server": {
+      "description": "This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.\n\nThe order of precedence is:\n\n1. assistant.server\n2. phoneNumber.server\n3. org.server",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Server"
+        }
+      ]
+    }
+  },
+  "required": [
+    "twilioPhoneNumber",
+    "twilioAccountSid"
+  ]
+}

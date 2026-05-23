@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ToolRejectionPlan",
+  "title": "ToolRejectionPlan",
+  "type": "object",
+  "properties": {
+    "conditions": {
+      "type": "array",
+      "description": "This is the list of conditions that must be evaluated.\n\nUsage:\n- If all conditions match (AND logic), the tool call is rejected.\n- For OR logic at the top level, use a single 'group' condition with operator: 'OR'.\n\n@default [] - Empty array means tool always executes",
+      "examples": [
+        "[{ type: \"regex\", regex: \"(?i)\\\\b(cancel|stop)\\\\b\", target: { role: \"user\" } }]",
+        "[{ type: \"group\", operator: \"OR\", conditions: [...] }]"
+      ],
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RegexCondition",
+            "title": "RegexCondition"
+          },
+          {
+            "$ref": "#/components/schemas/LiquidCondition",
+            "title": "LiquidCondition"
+          },
+          {
+            "$ref": "#/components/schemas/GroupCondition",
+            "title": "GroupCondition",
+            "description": "This is the GroupCondition object but Swagger does not display nested schemas correctly."
+          }
+        ]
+      }
+    }
+  }
+}

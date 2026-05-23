@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageTransferUpdate",
+  "title": "ServerMessageTransferUpdate",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
+      "description": "This is the phone number that the message is associated with.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CreateByoPhoneNumberDTO",
+          "title": "ByoPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTwilioPhoneNumberDTO",
+          "title": "TwilioPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVonagePhoneNumberDTO",
+          "title": "VonagePhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateVapiPhoneNumberDTO",
+          "title": "VapiPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/CreateTelnyxPhoneNumberDTO",
+          "title": "TelnyxPhoneNumber"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of the message. \"transfer-update\" is sent whenever a transfer happens.",
+      "enum": [
+        "transfer-update"
+      ]
+    },
+    "destination": {
+      "description": "This is the destination of the transfer.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/TransferDestinationAssistant",
+          "title": "Assistant"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationNumber",
+          "title": "Number"
+        },
+        {
+          "$ref": "#/components/schemas/TransferDestinationSip",
+          "title": "Sip"
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "This is the timestamp of the message."
+    },
+    "artifact": {
+      "description": "This is a live version of the `call.artifact`.\n\nThis matches what is stored on `call.artifact` after the call.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Artifact"
+        }
+      ]
+    },
+    "assistant": {
+      "description": "This is the assistant that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "customer": {
+      "description": "This is the customer that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateCustomerDTO"
+        }
+      ]
+    },
+    "call": {
+      "description": "This is the call that the message is associated with.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Call"
+        }
+      ]
+    },
+    "chat": {
+      "description": "This is the chat object.",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Chat"
+        }
+      ]
+    },
+    "toAssistant": {
+      "description": "This is the assistant that the call is being transferred to. This is only sent if `destination.type` is \"assistant\".",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "fromAssistant": {
+      "description": "This is the assistant that the call is being transferred from. This is only sent if `destination.type` is \"assistant\".",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreateAssistantDTO"
+        }
+      ]
+    },
+    "toStepRecord": {
+      "type": "object",
+      "description": "This is the step that the conversation moved to."
+    },
+    "fromStepRecord": {
+      "type": "object",
+      "description": "This is the step that the conversation moved from. ="
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

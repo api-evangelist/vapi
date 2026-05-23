@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerMessageResponse",
+  "title": "ServerMessageResponse",
+  "type": "object",
+  "properties": {
+    "messageResponse": {
+      "description": "This is the response that is expected from the server to the message.\n\nNote: Most messages don't expect a response. Only \"assistant-request\", \"tool-calls\" and \"transfer-destination-request\" do.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseAssistantRequest",
+          "title": "AssistantRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseHandoffDestinationRequest",
+          "title": "HandoffDestinationRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseKnowledgeBaseRequest",
+          "title": "KnowledgeBaseRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseToolCalls",
+          "title": "ToolCalls"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseTransferDestinationRequest",
+          "title": "TransferDestinationRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseVoiceRequest",
+          "title": "VoiceRequest"
+        },
+        {
+          "$ref": "#/components/schemas/ServerMessageResponseCallEndpointingRequest",
+          "title": "CallEndpointingRequest"
+        }
+      ]
+    }
+  },
+  "required": [
+    "messageResponse"
+  ]
+}

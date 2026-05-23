@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RegexOption",
+  "title": "RegexOption",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "This is the type of the regex option. Options are:\n- `ignore-case`: Ignores the case of the text being matched. Add\n- `whole-word`: Matches whole words only.\n- `multi-line`: Matches across multiple lines.",
+      "enum": [
+        "ignore-case",
+        "whole-word",
+        "multi-line"
+      ]
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "This is whether to enable the option.\n\n@default false"
+    }
+  },
+  "required": [
+    "type",
+    "enabled"
+  ]
+}

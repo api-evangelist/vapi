@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SonioxContextGeneralItem",
+  "title": "SonioxContextGeneralItem",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The key describing the type of context (e.g., \"domain\", \"topic\", \"doctor\", \"organization\").",
+      "minLength": 1,
+      "example": "domain"
+    },
+    "value": {
+      "type": "string",
+      "description": "The value for the context key (e.g., \"Healthcare\", \"Diabetes management consultation\").",
+      "minLength": 1,
+      "example": "Healthcare"
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

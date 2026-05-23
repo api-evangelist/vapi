@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RecordingConsentPlanVerbal",
+  "title": "RecordingConsentPlanVerbal",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "This is the message asking for consent to record the call.\nIf the type is `stay-on-line`, the message should ask the user to hang up if they do not consent.\nIf the type is `verbal`, the message should ask the user to verbally consent or decline.",
+      "maxLength": 1000,
+      "examples": [
+        "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+        "This call may be recorded for quality and training purposes. Say \"I agree\" if you consent to being recorded, or \"I disagree\" if you do not consent."
+      ]
+    },
+    "voice": {
+      "description": "This is the voice to use for the consent message. If not specified, inherits from the assistant's voice.\nUse a different voice for the consent message for a better user experience.",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AzureVoice",
+          "title": "AzureVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CartesiaVoice",
+          "title": "CartesiaVoice"
+        },
+        {
+          "$ref": "#/components/schemas/CustomVoice",
+          "title": "CustomVoice"
+        },
+        {
+          "$ref": "#/components/schemas/DeepgramVoice",
+          "title": "DeepgramVoice"
+        },
+        {
+          "$ref": "#/components/schemas/ElevenLabsVoice",
+          "title": "ElevenLabsVoice"
+        },
+        {
+          "$ref": "#/components/schemas/HumeVoice",
+          "title": "HumeVoice"
+        },
+        {
+          "$ref": "#/components/schemas/LMNTVoice",
+          "title": "LMNTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/NeuphonicVoice",
+          "title": "NeuphonicVoice"
+        },
+        {
+          "$ref": "#/components/schemas/OpenAIVoice",
+          "title": "OpenAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/PlayHTVoice",
+          "title": "PlayHTVoice"
+        },
+        {
+          "$ref": "#/components/schemas/WellSaidVoice",
+          "title": "WellSaidVoice"
+        },
+        {
+          "$ref": "#/components/schemas/RimeAIVoice",
+          "title": "RimeAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SmallestAIVoice",
+          "title": "SmallestAIVoice"
+        },
+        {
+          "$ref": "#/components/schemas/TavusVoice",
+          "title": "TavusVoice"
+        },
+        {
+          "$ref": "#/components/schemas/VapiVoice",
+          "title": "VapiVoice"
+        },
+        {
+          "$ref": "#/components/schemas/SesameVoice",
+          "title": "SesameVoice"
+        },
+        {
+          "$ref": "#/components/schemas/InworldVoice",
+          "title": "InworldVoice"
+        },
+        {
+          "$ref": "#/components/schemas/MinimaxVoice",
+          "title": "MinimaxVoice"
+        }
+      ]
+    },
+    "firstMessageMode": {
+      "type": "string",
+      "description": "This controls whether the consent assistant speaks first or waits for the caller to speak first.\n\nUse:\n- `assistant-speaks-first` (default) to have the consent assistant play the consent message as soon as the call is answered.\n- `assistant-waits-for-user` to have the consent assistant wait for the caller to speak before playing the consent message.\n\nWe strongly recommend `assistant-waits-for-user` for outbound calls. Some telephony providers signal \"answered\" while the line is still ringing, which can cause the consent message to play into a ringing line and be missed by the caller. Waiting for the caller to speak first guarantees they hear the full consent message.\n\nNote: when combined with `type: 'stay-on-line'`, silence only counts toward consent after the caller has spoken at least once.\n\n@default 'assistant-speaks-first'",
+      "enum": [
+        "assistant-speaks-first",
+        "assistant-waits-for-user"
+      ],
+      "default": "assistant-speaks-first",
+      "example": "assistant-speaks-first"
+    },
+    "type": {
+      "type": "string",
+      "description": "This is the type of recording consent plan. This type assumes consent is granted if the user verbally consents or declines.",
+      "enum": [
+        "verbal"
+      ],
+      "example": "verbal"
+    },
+    "declineTool": {
+      "type": "object",
+      "description": "Tool to execute if user verbally declines recording consent"
+    },
+    "declineToolId": {
+      "type": "string",
+      "description": "ID of existing tool to execute if user verbally declines recording consent"
+    }
+  },
+  "required": [
+    "message",
+    "type"
+  ]
+}

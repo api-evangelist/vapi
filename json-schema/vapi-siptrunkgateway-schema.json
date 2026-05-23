@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SipTrunkGateway",
+  "title": "SipTrunkGateway",
+  "type": "object",
+  "properties": {
+    "ip": {
+      "type": "string",
+      "description": "This is the address of the gateway. It can be an IPv4 address like 1.1.1.1 or a fully qualified domain name like my-sip-trunk.pstn.twilio.com."
+    },
+    "port": {
+      "type": "number",
+      "description": "This is the port number of the gateway. Default is 5060.\n\n@default 5060",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "netmask": {
+      "type": "number",
+      "description": "This is the netmask of the gateway. Defaults to 32.\n\n@default 32",
+      "minimum": 24,
+      "maximum": 32
+    },
+    "inboundEnabled": {
+      "type": "boolean",
+      "description": "This is whether inbound calls are allowed from this gateway. Default is true.\n\n@default true"
+    },
+    "outboundEnabled": {
+      "type": "boolean",
+      "description": "This is whether outbound calls should be sent to this gateway. Default is true.\n\nNote, if netmask is less than 32, it doesn't affect the outbound IPs that are tried. 1 attempt is made to `ip:port`.\n\n@default true"
+    },
+    "outboundProtocol": {
+      "type": "string",
+      "description": "This is the protocol to use for SIP signaling outbound calls. Default is udp.\n\n@default udp",
+      "enum": [
+        "tls/srtp",
+        "tcp",
+        "tls",
+        "udp"
+      ]
+    },
+    "optionsPingEnabled": {
+      "type": "boolean",
+      "description": "This is whether to send options ping to the gateway. This can be used to check if the gateway is reachable. Default is false.\n\nThis is useful for high availability setups where you want to check if the gateway is reachable before routing calls to it. Note, if no gateway for a trunk is reachable, outbound calls will be rejected.\n\n@default false"
+    }
+  },
+  "required": [
+    "ip"
+  ]
+}
