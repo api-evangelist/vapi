@@ -7,7 +7,7 @@ description: >-
   SIP. The Vapi REST API exposes assistants, calls, chats, campaigns, phone numbers, tools, files, squads, sessions,
   structured outputs, and analytics, plus server/client webhook events. A published OpenAPI spec is available at
   https://api.vapi.ai/api-json.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Voice
@@ -24,7 +24,7 @@ apis:
       REST API for managing Vapi voice AI agents. Supports CRUD on Assistants, Squads, Calls, Chats, Campaigns,
       Sessions, Phone Numbers, Tools, Files, Structured Outputs, Insight, Eval, Observability, and Analytics. Auth is
       bearer token; base URL is https://api.vapi.ai.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.vapi.ai/api-reference
     baseURL: https://api.vapi.ai
     tags:
@@ -47,7 +47,7 @@ apis:
     description: >-
       Server- and client-side webhook events emitted by Vapi during voice sessions, including end-of-call reports,
       transcripts, function calls, status updates, and tool invocations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.vapi.ai/server-url
     baseURL: https://docs.vapi.ai
     tags:
