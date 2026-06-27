@@ -38,7 +38,7 @@ apis:
         url: https://docs.vapi.ai/api-reference
       - type: OpenAPI
         url: openapi/vapi-openapi.yml
-      - type: SignUp
+      - type: Signup
         url: https://dashboard.vapi.ai/
       - type: Pricing
         url: https://vapi.ai/pricing
@@ -74,7 +74,7 @@ common:
     url: rate-limits/vapi-rate-limits.yml
   - type: FinOps
     url: finops/vapi-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://vapi.ai/llms.txt
 maintainers:
   - FN: Kin Lane
