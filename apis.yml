@@ -58,6 +58,12 @@ apis:
       - type: Documentation
         url: https://docs.vapi.ai/server-url
 common:
+  - type: TrustCenter
+    url: security/vapi-trust-center.yml
+  - type: DomainSecurity
+    url: security/vapi-domain-security.yml
+  - type: Authentication
+    url: authentication/vapi-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/VapiAI
   - type: LinkedIn
