@@ -58,6 +58,8 @@ apis:
       - type: Documentation
         url: https://docs.vapi.ai/server-url
 common:
+  - type: AgenticAccess
+    url: agentic-access/vapi-agentic-access.yml
   - type: TrustCenter
     url: security/vapi-trust-center.yml
   - type: DomainSecurity
