@@ -7,7 +7,20 @@ description: >-
   SIP. The Vapi REST API exposes assistants, calls, chats, campaigns, phone numbers, tools, files, squads, sessions,
   structured outputs, and analytics, plus server/client webhook events. A published OpenAPI spec is available at
   https://api.vapi.ai/api-json.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/vapi.png
 tags:
   - AI
   - Voice
@@ -18,45 +31,261 @@ created: '2026-05-08'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: vapi:platform
-    name: Vapi Platform API
-    description: >-
-      REST API for managing Vapi voice AI agents. Supports CRUD on Assistants, Squads, Calls, Chats, Campaigns,
-      Sessions, Phone Numbers, Tools, Files, Structured Outputs, Insight, Eval, Observability, and Analytics. Auth is
-      bearer token; base URL is https://api.vapi.ai.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.vapi.ai/api-reference
-    baseURL: https://api.vapi.ai
-    tags:
-      - Voice
-      - Agents
-      - Calls
-      - Phone Numbers
-      - Realtime
-    properties:
-      - type: Documentation
-        url: https://docs.vapi.ai/api-reference
-      - type: OpenAPI
-        url: openapi/vapi-openapi.yml
-      - type: Signup
-        url: https://dashboard.vapi.ai/
-      - type: Pricing
-        url: https://vapi.ai/pricing
-  - aid: vapi:webhooks
-    name: Vapi Webhooks API
-    description: >-
-      Server- and client-side webhook events emitted by Vapi during voice sessions, including end-of-call reports,
-      transcripts, function calls, status updates, and tool invocations.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.vapi.ai/server-url
-    baseURL: https://docs.vapi.ai
-    tags:
-      - Webhooks
-      - Events
-      - Voice
-    properties:
-      - type: Documentation
-        url: https://docs.vapi.ai/server-url
+- aid: vapi:webhooks
+  name: Vapi Webhooks API
+  description: >-
+    Server- and client-side webhook events emitted by Vapi during voice sessions, including end-of-call
+    reports, transcripts, function calls, status updates, and tool invocations.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.vapi.ai/server-url
+  baseURL: https://docs.vapi.ai
+  tags:
+  - Webhooks
+  - Events
+  - Voice
+  properties:
+  - type: Documentation
+    url: https://docs.vapi.ai/server-url
+- aid: vapi:vapi-analytics-api
+  name: Vapi Analytics API
+  description: The Analytics API from Vapi — 1 operation(s) for analytics.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-assistants-api
+  name: Vapi Assistants API
+  description: The Assistants API from Vapi — 2 operation(s) for assistants.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Assistants
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-assistants-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-calls-api
+  name: Vapi Calls API
+  description: The Calls API from Vapi — 2 operation(s) for calls.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-calls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-campaigns-api
+  name: Vapi Campaigns API
+  description: The Campaigns API from Vapi — 2 operation(s) for campaigns.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-campaigns-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-chats-api
+  name: Vapi Chats API
+  description: The Chats API from Vapi — 3 operation(s) for chats.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Chats
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-chats-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-eval-api
+  name: Vapi Eval API
+  description: The Eval API from Vapi — 4 operation(s) for eval.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Eval
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-eval-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-files-api
+  name: Vapi Files API
+  description: The Files API from Vapi — 2 operation(s) for files.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-files-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-insight-api
+  name: Vapi Insight API
+  description: The Insight API from Vapi — 4 operation(s) for insight.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Insight
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-insight-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-observability-scorecard-api
+  name: Vapi Observability/Scorecard API
+  description: The Observability/Scorecard API from Vapi — 2 operation(s) for observability/scorecard.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Observability/Scorecard
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-observability-scorecard-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-phone-numbers-api
+  name: Vapi Phone Numbers API
+  description: The Phone Numbers API from Vapi — 3 operation(s) for phone numbers.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Phone Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-phone-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-provider-resources-api
+  name: Vapi Provider Resources API
+  description: The Provider Resources API from Vapi — 2 operation(s) for provider resources.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Provider Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-provider-resources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-sessions-api
+  name: Vapi Sessions API
+  description: The Sessions API from Vapi — 2 operation(s) for sessions.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-squads-api
+  name: Vapi Squads API
+  description: The Squads API from Vapi — 2 operation(s) for squads.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Squads
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-squads-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-structured-outputs-api
+  name: Vapi Structured Outputs API
+  description: The Structured Outputs API from Vapi — 3 operation(s) for structured outputs.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Structured Outputs
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-structured-outputs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
+- aid: vapi:vapi-tools-api
+  name: Vapi Tools API
+  description: The Tools API from Vapi — 2 operation(s) for tools.
+  humanURL: https://docs.vapi.ai/api-reference
+  baseURL: https://api.vapi.ai
+  tags:
+  - Tools
+  properties:
+  - type: OpenAPI
+    url: openapi/vapi-tools-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vapi.ai/api-reference
+  - type: Signup
+    url: https://dashboard.vapi.ai/
+  - type: Pricing
+    url: https://vapi.ai/pricing
 common:
   - type: AgenticAccess
     url: agentic-access/vapi-agentic-access.yml
