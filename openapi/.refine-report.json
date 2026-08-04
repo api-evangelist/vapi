@@ -1,0 +1,42 @@
+{
+  "provider": "vapi",
+  "sources": [
+    "vapi-analytics-api-openapi.yml",
+    "vapi-assistants-api-openapi.yml",
+    "vapi-calls-api-openapi.yml",
+    "vapi-campaigns-api-openapi.yml",
+    "vapi-chats-api-openapi.yml",
+    "vapi-eval-api-openapi.yml",
+    "vapi-files-api-openapi.yml",
+    "vapi-insight-api-openapi.yml",
+    "vapi-observability-scorecard-api-openapi.yml",
+    "vapi-phone-numbers-api-openapi.yml",
+    "vapi-provider-resources-api-openapi.yml",
+    "vapi-sessions-api-openapi.yml",
+    "vapi-squads-api-openapi.yml",
+    "vapi-structured-outputs-api-openapi.yml",
+    "vapi-tools-api-openapi.yml"
+  ],
+  "outputs": [
+    "vapi-analytics-api-openapi.yml",
+    "vapi-assistants-api-openapi.yml",
+    "vapi-calls-api-openapi.yml",
+    "vapi-campaigns-api-openapi.yml",
+    "vapi-chats-api-openapi.yml",
+    "vapi-eval-api-openapi.yml",
+    "vapi-files-api-openapi.yml",
+    "vapi-insight-api-openapi.yml",
+    "vapi-observability-scorecard-api-openapi.yml",
+    "vapi-phone-numbers-api-openapi.yml",
+    "vapi-provider-resources-api-openapi.yml",
+    "vapi-sessions-api-openapi.yml",
+    "vapi-squads-api-openapi.yml",
+    "vapi-structured-outputs-api-openapi.yml",
+    "vapi-tools-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
