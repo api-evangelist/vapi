@@ -304,7 +304,7 @@ common:
   - type: Documentation
     url: https://docs.vapi.ai/
   - type: OpenAPI
-    url: openapi/vapi-openapi.yml
+    url: openapi/_original/vapi-openapi.yml
   - type: Plans
     url: plans/vapi-plans-pricing.yml
   - type: RateLimits
