@@ -1,0 +1,679 @@
+{
+  "item": [
+    {
+      "id": "b8533c51-d075-4606-942a-f74d26060671",
+      "name": "Observability/Scorecard",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6bf58a8-720c-43b7-b6ca-7036a21dc44e",
+          "name": "Get Scorecard",
+          "request": {
+            "name": "Get Scorecard",
+            "description": {},
+            "url": {
+              "path": [
+                "observability",
+                "scorecard",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2f764407-7ae9-44a8-b80e-06710af05896",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observability",
+                    "scorecard",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1978-04-10T17:57:22.548Z\",\n  \"updatedAt\": \"2002-06-09T20:23:41.857Z\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"string\"\n    },\n    {\n      \"structuredOutputId\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"assistantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fd5bce4-7d1b-454e-b3b2-9a5920ba6798",
+          "name": "Update Scorecard",
+          "request": {
+            "name": "Update Scorecard",
+            "description": {},
+            "url": {
+              "path": [
+                "observability",
+                "scorecard",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"assistantIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4df5048-807f-4d99-b7dc-9e2ba4278b6c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observability",
+                    "scorecard",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"assistantIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1952-08-20T05:40:59.767Z\",\n  \"updatedAt\": \"2017-02-22T13:46:55.099Z\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"assistantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9632502-acc5-4470-931a-abc9e3729eef",
+          "name": "Delete Scorecard",
+          "request": {
+            "name": "Delete Scorecard",
+            "description": {},
+            "url": {
+              "path": [
+                "observability",
+                "scorecard",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb3702e4-7f2c-4c3d-9721-ae50791d6410",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observability",
+                    "scorecard",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1952-08-20T05:40:59.767Z\",\n  \"updatedAt\": \"2017-02-22T13:46:55.099Z\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"assistantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d19773fb-62f9-4364-83e9-009964c673d8",
+          "name": "List Scorecards",
+          "request": {
+            "name": "List Scorecards",
+            "description": {},
+            "url": {
+              "path": [
+                "observability",
+                "scorecard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "This is the page number to return. Defaults to 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "This is the sort order for pagination. Defaults to 'DESC'."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "This is the column to sort by. Defaults to 'createdAt'."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "This is the maximum number of items to return. Defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than or equal to the specified value."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fdd95d4b-900a-4b30-8ece-c4ac763977c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observability",
+                    "scorecard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "createdAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLe",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1964-12-10T17:28:30.808Z\",\n      \"updatedAt\": \"1963-01-05T23:28:59.755Z\",\n      \"metrics\": [\n        {\n          \"structuredOutputId\": \"<string>\",\n          \"conditions\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        },\n        {\n          \"structuredOutputId\": \"<string>\",\n          \"conditions\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"assistantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1950-01-13T06:06:49.272Z\",\n      \"updatedAt\": \"2017-11-23T15:38:34.665Z\",\n      \"metrics\": [\n        {\n          \"structuredOutputId\": \"<string>\",\n          \"conditions\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        },\n        {\n          \"structuredOutputId\": \"<string>\",\n          \"conditions\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"assistantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"metadata\": {\n    \"itemsPerPage\": 9283.56027138997,\n    \"totalItems\": 6936.660673997503,\n    \"currentPage\": 5466.529290321013,\n    \"totalPages\": 739.3236860073293,\n    \"hasNextPage\": true,\n    \"sortOrder\": \"ASC\",\n    \"itemsBeyondRetention\": true,\n    \"createdAtLe\": \"1999-01-14T02:15:48.085Z\",\n    \"createdAtGe\": \"1963-05-08T01:45:56.695Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cecd7d7d-7007-425f-a430-45cb3be0637e",
+          "name": "Create Scorecard",
+          "request": {
+            "name": "Create Scorecard",
+            "description": {},
+            "url": {
+              "path": [
+                "observability",
+                "scorecard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assistantIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d9c1024-ea66-4d0d-9621-f1515bd643fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observability",
+                    "scorecard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assistantIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1952-08-20T05:40:59.767Z\",\n  \"updatedAt\": \"2017-02-22T13:46:55.099Z\",\n  \"metrics\": [\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"structuredOutputId\": \"<string>\",\n      \"conditions\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"assistantIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vapi.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3029406-7067-44ed-a512-afe95134f878",
+    "name": "Vapi Analytics Observability/Scorecard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Voice AI for developers.",
+      "type": "text/plain"
+    }
+  }
+}

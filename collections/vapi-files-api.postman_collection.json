@@ -1,0 +1,597 @@
+{
+  "item": [
+    {
+      "id": "62febf38-eda0-4e3d-b5d0-7a8dafa00d93",
+      "name": "Files",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2909e19f-9453-4b64-8707-7e2831c31cd2",
+          "name": "Upload File",
+          "request": {
+            "name": "Upload File",
+            "description": {},
+            "url": {
+              "path": [
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) This is the File you want to upload for use with the Knowledge Base."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2858fbce-e0af-4548-ade9-52b66e22c80b",
+              "name": "File uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) This is the File you want to upload for use with the Knowledge Base.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1995-10-28T01:55:43.537Z\",\n  \"updatedAt\": \"1981-04-30T15:16:41.068Z\",\n  \"object\": \"file\",\n  \"status\": \"processing\",\n  \"name\": \"string\",\n  \"originalName\": \"string\",\n  \"bytes\": 2483.142555637479,\n  \"purpose\": \"string\",\n  \"mimetype\": \"string\",\n  \"key\": \"string\",\n  \"path\": \"string\",\n  \"bucket\": \"string\",\n  \"url\": \"string\",\n  \"parsedTextUrl\": \"string\",\n  \"parsedTextBytes\": 4876.853986766058,\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67edc196-bc4c-4839-92fe-e4a21413d72d",
+              "name": "Invalid file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) This is the File you want to upload for use with the Knowledge Base.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d8e504c-556e-467c-8c62-d88c0b898159",
+          "name": "List Files",
+          "request": {
+            "name": "List Files",
+            "description": {},
+            "url": {
+              "path": [
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ecb552b3-0a5c-4b63-8a42-ec8c98d56722",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"orgId\": \"string\",\n    \"createdAt\": \"1978-12-08T04:12:49.537Z\",\n    \"updatedAt\": \"2005-02-01T02:02:37.100Z\",\n    \"object\": \"file\",\n    \"status\": \"failed\",\n    \"name\": \"string\",\n    \"originalName\": \"string\",\n    \"bytes\": 6296.369245064559,\n    \"purpose\": \"string\",\n    \"mimetype\": \"string\",\n    \"key\": \"string\",\n    \"path\": \"string\",\n    \"bucket\": \"string\",\n    \"url\": \"string\",\n    \"parsedTextUrl\": \"string\",\n    \"parsedTextBytes\": 1274.2942632761412,\n    \"metadata\": {}\n  },\n  {\n    \"id\": \"string\",\n    \"orgId\": \"string\",\n    \"createdAt\": \"2022-03-14T19:24:43.643Z\",\n    \"updatedAt\": \"2001-09-27T04:11:01.664Z\",\n    \"object\": \"file\",\n    \"status\": \"failed\",\n    \"name\": \"string\",\n    \"originalName\": \"string\",\n    \"bytes\": 1243.6221629006816,\n    \"purpose\": \"string\",\n    \"mimetype\": \"string\",\n    \"key\": \"string\",\n    \"path\": \"string\",\n    \"bucket\": \"string\",\n    \"url\": \"string\",\n    \"parsedTextUrl\": \"string\",\n    \"parsedTextBytes\": 55.85857244394643,\n    \"metadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a986eac2-62e1-4b94-af29-d8dcfbf8a539",
+          "name": "Get File",
+          "request": {
+            "name": "Get File",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "34111502-1c50-4062-8d62-8e20ae4813e0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1995-10-28T01:55:43.537Z\",\n  \"updatedAt\": \"1981-04-30T15:16:41.068Z\",\n  \"object\": \"file\",\n  \"status\": \"processing\",\n  \"name\": \"string\",\n  \"originalName\": \"string\",\n  \"bytes\": 2483.142555637479,\n  \"purpose\": \"string\",\n  \"mimetype\": \"string\",\n  \"key\": \"string\",\n  \"path\": \"string\",\n  \"bucket\": \"string\",\n  \"url\": \"string\",\n  \"parsedTextUrl\": \"string\",\n  \"parsedTextBytes\": 4876.853986766058,\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70c02f6f-a3c9-4f22-8073-d7489ec002f7",
+          "name": "Update File",
+          "request": {
+            "name": "Update File",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a1df80f-9f1a-4cc5-94f8-32afad953eb4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1995-10-28T01:55:43.537Z\",\n  \"updatedAt\": \"1981-04-30T15:16:41.068Z\",\n  \"object\": \"file\",\n  \"status\": \"processing\",\n  \"name\": \"string\",\n  \"originalName\": \"string\",\n  \"bytes\": 2483.142555637479,\n  \"purpose\": \"string\",\n  \"mimetype\": \"string\",\n  \"key\": \"string\",\n  \"path\": \"string\",\n  \"bucket\": \"string\",\n  \"url\": \"string\",\n  \"parsedTextUrl\": \"string\",\n  \"parsedTextBytes\": 4876.853986766058,\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d203c381-2ea3-4f75-9490-eb493fc400da",
+          "name": "Delete File",
+          "request": {
+            "name": "Delete File",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "23b285bc-bba4-4bcd-aa20-a0206eb74aab",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1995-10-28T01:55:43.537Z\",\n  \"updatedAt\": \"1981-04-30T15:16:41.068Z\",\n  \"object\": \"file\",\n  \"status\": \"processing\",\n  \"name\": \"string\",\n  \"originalName\": \"string\",\n  \"bytes\": 2483.142555637479,\n  \"purpose\": \"string\",\n  \"mimetype\": \"string\",\n  \"key\": \"string\",\n  \"path\": \"string\",\n  \"bucket\": \"string\",\n  \"url\": \"string\",\n  \"parsedTextUrl\": \"string\",\n  \"parsedTextBytes\": 4876.853986766058,\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vapi.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b03d6260-7c6a-4607-8746-e47f38c6a8b4",
+    "name": "Vapi Analytics Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Voice AI for developers.",
+      "type": "text/plain"
+    }
+  }
+}

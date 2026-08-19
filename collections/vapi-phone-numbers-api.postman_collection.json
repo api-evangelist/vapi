@@ -1,0 +1,846 @@
+{
+  "item": [
+    {
+      "id": "d288b243-72fe-4f97-810c-7b79ea639901",
+      "name": "Phone Numbers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2521ac8-8402-4993-9206-63431827b086",
+          "name": "Create Phone Number",
+          "request": {
+            "name": "Create Phone Number",
+            "description": {},
+            "url": {
+              "path": [
+                "phone-number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"number\": \"<string>\",\n  \"name\": \"<string>\",\n  \"assistantId\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"squadId\": \"<string>\",\n  \"server\": {\n    \"timeoutSeconds\": \"<number>\",\n    \"credentialId\": \"<string>\",\n    \"staticIpAddressesEnabled\": \"<boolean>\",\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": \"<number>\",\n      \"baseDelaySeconds\": \"<number>\",\n      \"excludedStatusCodes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98c57b7a-34ea-4a81-81de-24d13cf497c3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone-number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"number\": \"<string>\",\n  \"name\": \"<string>\",\n  \"assistantId\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"squadId\": \"<string>\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"provider\": \"byo-phone-number\",\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"2022-11-27T17:05:37.331Z\",\n  \"updatedAt\": \"1947-04-08T08:06:07.132Z\",\n  \"credentialId\": \"string\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"status\": \"blocked\",\n  \"name\": \"string\",\n  \"assistantId\": \"string\",\n  \"workflowId\": \"string\",\n  \"squadId\": \"string\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  },\n  \"number\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1140fe8a-c81d-402c-a122-500b994fad9a",
+          "name": "List Phone Numbers",
+          "request": {
+            "name": "List Phone Numbers",
+            "description": {},
+            "url": {
+              "path": [
+                "phone-number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "This is the maximum number of items to return. Defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than or equal to the specified value."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ba002782-6faf-49ba-93f8-7cef16a089c4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone-number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "createdAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLe",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"provider\": \"byo-phone-number\",\n    \"id\": \"string\",\n    \"orgId\": \"string\",\n    \"createdAt\": \"2025-09-28T19:53:27.251Z\",\n    \"updatedAt\": \"2003-03-04T02:13:08.636Z\",\n    \"credentialId\": \"string\",\n    \"fallbackDestination\": {\n      \"type\": \"<string>\",\n      \"number\": \"<string>\",\n      \"message\": \"<string>\",\n      \"numberE164CheckEnabled\": true,\n      \"extension\": \"<string>\",\n      \"callerId\": \"<string>\",\n      \"transferPlan\": {\n        \"mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"message\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timeout\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sipVerb\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dialTimeout\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"holdAudioUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transferCompleteAudioUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contextEngineeringPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"twiml\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"summaryPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sipHeadersInReferToEnabled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fallbackPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"description\": \"<string>\"\n    },\n    \"hooks\": [\n      {\n        \"on\": \"<string>\",\n        \"do\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      {\n        \"on\": \"<string>\",\n        \"do\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    ],\n    \"numberE164CheckEnabled\": true,\n    \"status\": \"blocked\",\n    \"name\": \"string\",\n    \"assistantId\": \"string\",\n    \"workflowId\": \"string\",\n    \"squadId\": \"string\",\n    \"server\": {\n      \"timeoutSeconds\": 20,\n      \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"staticIpAddressesEnabled\": false,\n      \"encryptedPaths\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"headers\": \"<object>\",\n      \"backoffPlan\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maxRetries\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"baseDelaySeconds\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"excludedStatusCodes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"number\": \"string\"\n  },\n  {\n    \"provider\": \"byo-phone-number\",\n    \"id\": \"string\",\n    \"orgId\": \"string\",\n    \"createdAt\": \"1957-01-15T20:23:29.781Z\",\n    \"updatedAt\": \"2005-07-27T12:25:46.947Z\",\n    \"credentialId\": \"string\",\n    \"fallbackDestination\": {\n      \"type\": \"<string>\",\n      \"number\": \"<string>\",\n      \"message\": \"<string>\",\n      \"numberE164CheckEnabled\": true,\n      \"extension\": \"<string>\",\n      \"callerId\": \"<string>\",\n      \"transferPlan\": {\n        \"mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"message\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timeout\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sipVerb\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dialTimeout\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"holdAudioUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transferCompleteAudioUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contextEngineeringPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"twiml\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"summaryPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"sipHeadersInReferToEnabled\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fallbackPlan\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"description\": \"<string>\"\n    },\n    \"hooks\": [\n      {\n        \"on\": \"<string>\",\n        \"do\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      {\n        \"on\": \"<string>\",\n        \"do\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    ],\n    \"numberE164CheckEnabled\": true,\n    \"status\": \"blocked\",\n    \"name\": \"string\",\n    \"assistantId\": \"string\",\n    \"workflowId\": \"string\",\n    \"squadId\": \"string\",\n    \"server\": {\n      \"timeoutSeconds\": 20,\n      \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n      \"staticIpAddressesEnabled\": false,\n      \"encryptedPaths\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"url\": \"<string>\",\n      \"headers\": \"<object>\",\n      \"backoffPlan\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"maxRetries\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"baseDelaySeconds\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"excludedStatusCodes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"number\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16e431ee-d06c-4792-a2d3-056d5bf5d6b6",
+          "name": "List Phone Numbers",
+          "request": {
+            "name": "List Phone Numbers",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "phone-number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "This will search phone numbers by name, number, or SIP URI (partial match, case-insensitive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "This is the page number to return. Defaults to 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "This is the sort order for pagination. Defaults to 'DESC'."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "This is the column to sort by. Defaults to 'createdAt'."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "This is the maximum number of items to return. Defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than or equal to the specified value."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c3153d7c-3dc0-4696-90d8-062cd7ac4ea9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "phone-number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "createdAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLe",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"provider\": \"byo-phone-number\",\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1948-01-08T17:28:49.556Z\",\n      \"updatedAt\": \"1997-07-03T17:42:20.562Z\",\n      \"credentialId\": \"string\",\n      \"fallbackDestination\": {\n        \"type\": \"<string>\",\n        \"number\": \"<string>\",\n        \"message\": \"<string>\",\n        \"numberE164CheckEnabled\": true,\n        \"extension\": \"<string>\",\n        \"callerId\": \"<string>\",\n        \"transferPlan\": {\n          \"description\": \"This configures how transfer is executed and the experience of the destination party receiving the call. Defaults to `blind-transfer`.\\n\\n@default `transferPlan.mode='blind-transfer'`\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"<string>\"\n      },\n      \"hooks\": [\n        {\n          \"on\": \"<string>\",\n          \"do\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"filters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"on\": \"<string>\",\n          \"do\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"filters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"numberE164CheckEnabled\": true,\n      \"status\": \"activating\",\n      \"name\": \"string\",\n      \"assistantId\": \"string\",\n      \"workflowId\": \"string\",\n      \"squadId\": \"string\",\n      \"server\": {\n        \"timeoutSeconds\": 20,\n        \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"staticIpAddressesEnabled\": false,\n        \"encryptedPaths\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"url\": \"<string>\",\n        \"headers\": \"<object>\",\n        \"backoffPlan\": {\n          \"description\": \"This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).\\n\\n@default undefined (the request will not be retried)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"number\": \"string\"\n    },\n    {\n      \"provider\": \"byo-phone-number\",\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1971-07-19T18:47:27.250Z\",\n      \"updatedAt\": \"2007-07-02T23:19:01.714Z\",\n      \"credentialId\": \"string\",\n      \"fallbackDestination\": {\n        \"type\": \"<string>\",\n        \"number\": \"<string>\",\n        \"message\": \"<string>\",\n        \"numberE164CheckEnabled\": true,\n        \"extension\": \"<string>\",\n        \"callerId\": \"<string>\",\n        \"transferPlan\": {\n          \"description\": \"This configures how transfer is executed and the experience of the destination party receiving the call. Defaults to `blind-transfer`.\\n\\n@default `transferPlan.mode='blind-transfer'`\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"<string>\"\n      },\n      \"hooks\": [\n        {\n          \"on\": \"<string>\",\n          \"do\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"filters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"on\": \"<string>\",\n          \"do\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"filters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"numberE164CheckEnabled\": true,\n      \"status\": \"active\",\n      \"name\": \"string\",\n      \"assistantId\": \"string\",\n      \"workflowId\": \"string\",\n      \"squadId\": \"string\",\n      \"server\": {\n        \"timeoutSeconds\": 20,\n        \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"staticIpAddressesEnabled\": false,\n        \"encryptedPaths\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"url\": \"<string>\",\n        \"headers\": \"<object>\",\n        \"backoffPlan\": {\n          \"description\": \"This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).\\n\\n@default undefined (the request will not be retried)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"number\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"itemsPerPage\": 3352.3195069099334,\n    \"totalItems\": 53.36338368306826,\n    \"currentPage\": 3193.8066529993794,\n    \"totalPages\": 4502.684028844458,\n    \"hasNextPage\": false,\n    \"sortOrder\": \"DESC\",\n    \"itemsBeyondRetention\": true,\n    \"createdAtLe\": \"2009-08-08T07:55:02.258Z\",\n    \"createdAtGe\": \"1983-01-30T20:35:53.447Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ed937f6-1e39-4a61-96c6-54d8b149bf1c",
+          "name": "Get Phone Number",
+          "request": {
+            "name": "Get Phone Number",
+            "description": {},
+            "url": {
+              "path": [
+                "phone-number",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b6413c6-0f4c-48b2-a439-59dd0815de47",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone-number",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"provider\": \"byo-phone-number\",\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1966-01-10T06:18:10.490Z\",\n  \"updatedAt\": \"2008-04-18T23:44:50.742Z\",\n  \"credentialId\": \"string\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"status\": \"blocked\",\n  \"name\": \"string\",\n  \"assistantId\": \"string\",\n  \"workflowId\": \"string\",\n  \"squadId\": \"string\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  },\n  \"number\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a81b5bdd-7447-427e-b6ed-e1c7746f722f",
+          "name": "Update Phone Number",
+          "request": {
+            "name": "Update Phone Number",
+            "description": {},
+            "url": {
+              "path": [
+                "phone-number",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"name\": \"<string>\",\n  \"assistantId\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"squadId\": \"<string>\",\n  \"server\": {\n    \"timeoutSeconds\": \"<number>\",\n    \"credentialId\": \"<string>\",\n    \"staticIpAddressesEnabled\": \"<boolean>\",\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": \"<number>\",\n      \"baseDelaySeconds\": \"<number>\",\n      \"excludedStatusCodes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  },\n  \"number\": \"<string>\",\n  \"credentialId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "435d22fd-f1b4-43f6-b1ee-697e8810735c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone-number",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"name\": \"<string>\",\n  \"assistantId\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"squadId\": \"<string>\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  },\n  \"number\": \"<string>\",\n  \"credentialId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"provider\": \"byo-phone-number\",\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1966-01-10T06:18:10.490Z\",\n  \"updatedAt\": \"2008-04-18T23:44:50.742Z\",\n  \"credentialId\": \"string\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"status\": \"blocked\",\n  \"name\": \"string\",\n  \"assistantId\": \"string\",\n  \"workflowId\": \"string\",\n  \"squadId\": \"string\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  },\n  \"number\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b72b0a3c-4ee7-410a-a762-961efbcbab74",
+          "name": "Delete Phone Number",
+          "request": {
+            "name": "Delete Phone Number",
+            "description": {},
+            "url": {
+              "path": [
+                "phone-number",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cda0af81-d935-414d-92c6-a871dab99e9d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phone-number",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"provider\": \"byo-phone-number\",\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1966-01-10T06:18:10.490Z\",\n  \"updatedAt\": \"2008-04-18T23:44:50.742Z\",\n  \"credentialId\": \"string\",\n  \"fallbackDestination\": {\n    \"type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"message\": \"<string>\",\n    \"numberE164CheckEnabled\": true,\n    \"extension\": \"<string>\",\n    \"callerId\": \"<string>\",\n    \"transferPlan\": {\n      \"mode\": \"<string>\",\n      \"message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timeout\": 60,\n      \"sipVerb\": \"<object>\",\n      \"dialTimeout\": 60,\n      \"holdAudioUrl\": \"<string>\",\n      \"transferCompleteAudioUrl\": \"<string>\",\n      \"contextEngineeringPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"twiml\": \"<string>\",\n      \"summaryPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"sipHeadersInReferToEnabled\": \"<boolean>\",\n      \"fallbackPlan\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"description\": \"<string>\"\n  },\n  \"hooks\": [\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"on\": \"<string>\",\n      \"do\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filters\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"startsWith\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"numberE164CheckEnabled\": true,\n  \"status\": \"blocked\",\n  \"name\": \"string\",\n  \"assistantId\": \"string\",\n  \"workflowId\": \"string\",\n  \"squadId\": \"string\",\n  \"server\": {\n    \"timeoutSeconds\": 20,\n    \"credentialId\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"staticIpAddressesEnabled\": false,\n    \"encryptedPaths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"url\": \"<string>\",\n    \"headers\": \"<object>\",\n    \"backoffPlan\": {\n      \"type\": \"<object>\",\n      \"maxRetries\": 0,\n      \"baseDelaySeconds\": 1,\n      \"excludedStatusCodes\": [\n        400,\n        401,\n        403,\n        404\n      ]\n    }\n  },\n  \"number\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vapi.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d8d843c4-f48d-4c4c-becb-8a59e11abb86",
+    "name": "Vapi Analytics Phone Numbers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Voice AI for developers.",
+      "type": "text/plain"
+    }
+  }
+}

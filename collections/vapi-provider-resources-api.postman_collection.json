@@ -1,0 +1,1001 @@
+{
+  "item": [
+    {
+      "id": "2c33c235-2054-4633-afc1-c0cde9277be0",
+      "name": "Provider Resources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "563bcbf2-54ea-4bcb-969a-f052a6c15ed4",
+          "name": "Create Provider Resource",
+          "request": {
+            "name": "Create Provider Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "provider",
+                ":provider",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) The provider (e.g., 11labs)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "63b6c890-74fb-4720-9504-eff4aee40a87",
+              "name": "Successfully created provider resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1955-07-18T19:42:19.352Z\",\n  \"updatedAt\": \"2003-11-21T20:24:26.531Z\",\n  \"provider\": \"11labs\",\n  \"resourceName\": \"pronunciation-dictionary\",\n  \"resourceId\": \"string\",\n  \"resource\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bbb11c3-1673-4d03-8c32-5d0e474e1f1b",
+          "name": "List Provider Resources",
+          "request": {
+            "name": "List Provider Resources",
+            "description": {},
+            "url": {
+              "path": [
+                "provider",
+                ":provider",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resourceId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "This is the page number to return. Defaults to 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "This is the sort order for pagination. Defaults to 'DESC'."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "This is the column to sort by. Defaults to 'createdAt'."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "This is the maximum number of items to return. Defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the createdAt is less than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLt",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtGe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is greater than or equal to the specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtLe",
+                  "value": "<dateTime>",
+                  "description": "This will return items where the updatedAt is less than or equal to the specified value."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) The provider (e.g., 11labs)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3584d2e-fef0-404c-ada1-676e9011dcdd",
+              "name": "List of provider resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "createdAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtLe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtGe",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtLe",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1997-01-03T21:54:43.324Z\",\n      \"updatedAt\": \"2014-08-10T21:06:45.430Z\",\n      \"provider\": \"11labs\",\n      \"resourceName\": \"pronunciation-dictionary\",\n      \"resourceId\": \"string\",\n      \"resource\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"orgId\": \"string\",\n      \"createdAt\": \"1989-10-16T01:02:38.064Z\",\n      \"updatedAt\": \"1975-03-20T00:35:19.783Z\",\n      \"provider\": \"cartesia\",\n      \"resourceName\": \"pronunciation-dictionary\",\n      \"resourceId\": \"string\",\n      \"resource\": {}\n    }\n  ],\n  \"metadata\": {\n    \"itemsPerPage\": 9911.665022481788,\n    \"totalItems\": 1751.5159185852347,\n    \"currentPage\": 2363.481615876816,\n    \"totalPages\": 4294.785616145596,\n    \"hasNextPage\": true,\n    \"sortOrder\": \"ASC\",\n    \"itemsBeyondRetention\": false,\n    \"createdAtLe\": \"1969-02-06T05:13:47.914Z\",\n    \"createdAtGe\": \"1972-08-09T19:58:47.418Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29eaacac-3c1a-4726-84c7-1473f3ca769a",
+          "name": "Get Provider Resource",
+          "request": {
+            "name": "Get Provider Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "provider",
+                ":provider",
+                ":resourceName",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) The provider (e.g., 11labs)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6657034-11c0-41e5-b6ab-6bc065608882",
+              "name": "Successfully retrieved provider resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1955-07-18T19:42:19.352Z\",\n  \"updatedAt\": \"2003-11-21T20:24:26.531Z\",\n  \"provider\": \"11labs\",\n  \"resourceName\": \"pronunciation-dictionary\",\n  \"resourceId\": \"string\",\n  \"resource\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18b6c93d-6595-4f5e-9404-0c8a5e4452c4",
+              "name": "Provider resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96b344e2-05f4-46d9-a962-0309e1605e1b",
+          "name": "Delete Provider Resource",
+          "request": {
+            "name": "Delete Provider Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "provider",
+                ":provider",
+                ":resourceName",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) The provider (e.g., 11labs)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95a3b83d-ae41-4dc6-a175-1da480bbce7f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1955-07-18T19:42:19.352Z\",\n  \"updatedAt\": \"2003-11-21T20:24:26.531Z\",\n  \"provider\": \"11labs\",\n  \"resourceName\": \"pronunciation-dictionary\",\n  \"resourceId\": \"string\",\n  \"resource\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "862116ad-7850-46c5-9b7e-7ca7aac2586b",
+              "name": "Provider resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e04485a1-0e51-46ad-96f6-0999e65cedd8",
+          "name": "Update Provider Resource",
+          "request": {
+            "name": "Update Provider Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "provider",
+                ":provider",
+                ":resourceName",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) The provider (e.g., 11labs)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "45a244e9-4bfe-4f5c-a1d4-f5cd2d454c41",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"orgId\": \"string\",\n  \"createdAt\": \"1955-07-18T19:42:19.352Z\",\n  \"updatedAt\": \"2003-11-21T20:24:26.531Z\",\n  \"provider\": \"11labs\",\n  \"resourceName\": \"pronunciation-dictionary\",\n  \"resourceId\": \"string\",\n  \"resource\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b436ee6-be60-43f9-90a8-e7d747445895",
+              "name": "Provider resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provider",
+                    ":provider",
+                    ":resourceName",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) The provider (e.g., 11labs)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The resource name (e.g., pronunciation-dictionary)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vapi.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f991175c-15d3-46e0-b57b-aee639bed9c5",
+    "name": "Vapi Analytics Provider Resources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Voice AI for developers.",
+      "type": "text/plain"
+    }
+  }
+}
