@@ -22,6 +22,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/vapi.png
 tags:
+  - Artificial Intelligence
+  - Voice
+  - Agents
+  - Real-Time
+  - CPaaS
+tags_raw:
   - AI
   - Voice
   - Agents
@@ -40,6 +46,10 @@ apis:
   humanURL: https://docs.vapi.ai/server-url
   baseURL: https://docs.vapi.ai
   tags:
+  - Webhook
+  - Event
+  - Voice
+  tags_raw:
   - Webhooks
   - Events
   - Voice
@@ -148,6 +158,8 @@ apis:
   humanURL: https://docs.vapi.ai/api-reference
   baseURL: https://api.vapi.ai
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
