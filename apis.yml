@@ -7,6 +7,18 @@ description: >-
   SIP. The Vapi REST API exposes assistants, calls, chats, campaigns, phone numbers, tools, files, squads, sessions,
   structured outputs, and analytics, plus server/client webhook events. A published OpenAPI spec is available at
   https://api.vapi.ai/api-json.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
