@@ -311,6 +311,9 @@ apis:
   - type: Pricing
     url: https://vapi.ai/pricing
 common:
+  - type: CapabilityMap
+    url: capabilities/vapi-capability-edges.yml
+    name: Vapi Business Capability Map
   - type: AgenticAccess
     url: agentic-access/vapi-agentic-access.yml
   - type: TrustCenter
