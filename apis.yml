@@ -91,6 +91,8 @@ apis:
   humanURL: https://docs.vapi.ai/api-reference
   baseURL: https://api.vapi.ai
   tags:
+  - Assistant
+  tags_raw:
   - Assistants
   properties:
   - type: OpenAPI
