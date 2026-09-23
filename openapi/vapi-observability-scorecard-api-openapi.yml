@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Vapi Analytics Observability/Scorecard API
+  title: Vapi Observability/Scorecard API
   description: Voice AI for developers.
   version: '1.0'
   contact: {}
@@ -255,36 +255,43 @@ components:
       - createdAt
       - updatedAt
       - metrics
-    PaginationMeta:
+    ScorecardPaginatedResponse:
       type: object
       properties:
-        itemsPerPage:
-          type: number
-        totalItems:
-          type: number
-        currentPage:
-          type: number
-        totalPages:
-          type: number
-        hasNextPage:
-          type: boolean
-        sortOrder:
-          type: string
-          enum:
-          - ASC
-          - DESC
-        itemsBeyondRetention:
-          type: boolean
-        createdAtLe:
-          format: date-time
-          type: string
-        createdAtGe:
-          format: date-time
-          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scorecard'
+        metadata:
+          $ref: '#/components/schemas/PaginationMeta'
       required:
-      - itemsPerPage
-      - totalItems
-      - currentPage
+      - results
+      - metadata
+    UpdateScorecardDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: This is the name of the scorecard. It is only for user reference and will not be used for any evaluation.
+          maxLength: 80
+        description:
+          type: string
+          description: This is the description of the scorecard. It is only for user reference and will not be used for any evaluation.
+          maxLength: 500
+        metrics:
+          description: 'These are the metrics that will be used to evaluate the scorecard.
+
+            Each metric will have a set of conditions and points that will be used to generate the score.'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScorecardMetric'
+        assistantIds:
+          description: 'These are the assistant IDs that this scorecard is linked to.
+
+            When linked to assistants, this scorecard will be available for evaluation during those assistants'' calls.'
+          type: array
+          items:
+            type: string
     CreateScorecardDTO:
       type: object
       properties:
@@ -334,43 +341,36 @@ components:
       required:
       - structuredOutputId
       - conditions
-    UpdateScorecardDTO:
+    PaginationMeta:
       type: object
       properties:
-        name:
+        itemsPerPage:
+          type: number
+        totalItems:
+          type: number
+        currentPage:
+          type: number
+        totalPages:
+          type: number
+        hasNextPage:
+          type: boolean
+        sortOrder:
           type: string
-          description: This is the name of the scorecard. It is only for user reference and will not be used for any evaluation.
-          maxLength: 80
-        description:
+          enum:
+          - ASC
+          - DESC
+        itemsBeyondRetention:
+          type: boolean
+        createdAtLe:
+          format: date-time
           type: string
-          description: This is the description of the scorecard. It is only for user reference and will not be used for any evaluation.
-          maxLength: 500
-        metrics:
-          description: 'These are the metrics that will be used to evaluate the scorecard.
-
-            Each metric will have a set of conditions and points that will be used to generate the score.'
-          type: array
-          items:
-            $ref: '#/components/schemas/ScorecardMetric'
-        assistantIds:
-          description: 'These are the assistant IDs that this scorecard is linked to.
-
-            When linked to assistants, this scorecard will be available for evaluation during those assistants'' calls.'
-          type: array
-          items:
-            type: string
-    ScorecardPaginatedResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Scorecard'
-        metadata:
-          $ref: '#/components/schemas/PaginationMeta'
+        createdAtGe:
+          format: date-time
+          type: string
       required:
-      - results
-      - metadata
+      - itemsPerPage
+      - totalItems
+      - currentPage
   securitySchemes:
     bearer:
       scheme: bearer

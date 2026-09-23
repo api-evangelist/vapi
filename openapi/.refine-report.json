@@ -1,21 +1,7 @@
 {
   "provider": "vapi",
   "sources": [
-    "vapi-analytics-api-openapi.yml",
-    "vapi-assistants-api-openapi.yml",
-    "vapi-calls-api-openapi.yml",
-    "vapi-campaigns-api-openapi.yml",
-    "vapi-chats-api-openapi.yml",
-    "vapi-eval-api-openapi.yml",
-    "vapi-files-api-openapi.yml",
-    "vapi-insight-api-openapi.yml",
-    "vapi-observability-scorecard-api-openapi.yml",
-    "vapi-phone-numbers-api-openapi.yml",
-    "vapi-provider-resources-api-openapi.yml",
-    "vapi-sessions-api-openapi.yml",
-    "vapi-squads-api-openapi.yml",
-    "vapi-structured-outputs-api-openapi.yml",
-    "vapi-tools-api-openapi.yml"
+    "_original/vapi-openapi.yml"
   ],
   "outputs": [
     "vapi-analytics-api-openapi.yml",
@@ -37,6 +23,41 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "vapi-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "vapi-openapi.yml: declared missing tag: Analytics",
+    "vapi-openapi.yml: declared missing tag: Assistants",
+    "vapi-openapi.yml: declared missing tag: Calls",
+    "vapi-openapi.yml: declared missing tag: Campaigns",
+    "vapi-openapi.yml: declared missing tag: Chats",
+    "vapi-openapi.yml: declared missing tag: Eval",
+    "vapi-openapi.yml: declared missing tag: Files",
+    "vapi-openapi.yml: declared missing tag: Insight",
+    "vapi-openapi.yml: declared missing tag: Observability/Scorecard",
+    "vapi-openapi.yml: declared missing tag: Phone Numbers",
+    "vapi-openapi.yml: declared missing tag: Provider Resources",
+    "vapi-openapi.yml: declared missing tag: Sessions",
+    "vapi-openapi.yml: declared missing tag: Squads",
+    "vapi-openapi.yml: declared missing tag: Structured Outputs",
+    "vapi-openapi.yml: declared missing tag: Tools",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "vapi-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-assistants-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-calls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-campaigns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-chats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-eval-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-insight-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-observability-scorecard-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-phone-numbers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-provider-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-squads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-structured-outputs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vapi-tools-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
