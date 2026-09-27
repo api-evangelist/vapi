@@ -119,6 +119,23 @@ paths:
       - bearer: []
 components:
   schemas:
+    CreateFileDTO:
+      type: object
+      properties:
+        file:
+          type: string
+          description: This is the File you want to upload for use with the Knowledge Base.
+          format: binary
+      required:
+      - file
+    UpdateFileDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: This is the name of the file. This is just for your own reference.
+          minLength: 1
+          maxLength: 40
     File:
       type: object
       properties:
@@ -177,23 +194,6 @@ components:
       - orgId
       - createdAt
       - updatedAt
-    UpdateFileDTO:
-      type: object
-      properties:
-        name:
-          type: string
-          description: This is the name of the file. This is just for your own reference.
-          minLength: 1
-          maxLength: 40
-    CreateFileDTO:
-      type: object
-      properties:
-        file:
-          type: string
-          description: This is the File you want to upload for use with the Knowledge Base.
-          format: binary
-      required:
-      - file
   securitySchemes:
     bearer:
       scheme: bearer

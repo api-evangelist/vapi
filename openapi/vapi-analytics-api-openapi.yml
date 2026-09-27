@@ -37,6 +37,15 @@ paths:
       - bearer: []
 components:
   schemas:
+    VariableValueGroupBy:
+      type: object
+      properties:
+        key:
+          type: string
+          description: This is the key of the variable value to group by.
+          maxLength: 100
+      required:
+      - key
     TimeRange:
       type: object
       properties:
@@ -78,6 +87,56 @@ components:
 
 
             If not provided, defaults to UTC.'
+    AnalyticsQueryDTO:
+      type: object
+      properties:
+        queries:
+          description: This is the list of metric queries you want to perform.
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyticsQuery'
+      required:
+      - queries
+    AnalyticsOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          description: This is the aggregation operation you want to perform.
+          enum:
+          - sum
+          - avg
+          - count
+          - min
+          - max
+          - history
+        column:
+          type: string
+          description: This is the columns you want to perform the aggregation operation on.
+          enum:
+          - id
+          - cost
+          - costBreakdown.llm
+          - costBreakdown.stt
+          - costBreakdown.tts
+          - costBreakdown.vapi
+          - costBreakdown.transport
+          - costBreakdown.analysisBreakdown.summary
+          - costBreakdown.transcriber
+          - costBreakdown.ttsCharacters
+          - costBreakdown.llmPromptTokens
+          - costBreakdown.llmCompletionTokens
+          - costBreakdown.llmCachedPromptTokens
+          - duration
+          - concurrency
+          - minutesUsed
+        alias:
+          type: string
+          description: This is the alias for column name returned. Defaults to `${operation}${column}`.
+          maxLength: 40
+      required:
+      - operation
+      - column
     AnalyticsQueryResult:
       type: object
       properties:
@@ -97,25 +156,6 @@ components:
       - name
       - timeRange
       - result
-    VariableValueGroupBy:
-      type: object
-      properties:
-        key:
-          type: string
-          description: This is the key of the variable value to group by.
-          maxLength: 100
-      required:
-      - key
-    AnalyticsQueryDTO:
-      type: object
-      properties:
-        queries:
-          description: This is the list of metric queries you want to perform.
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyticsQuery'
-      required:
-      - queries
     AnalyticsQuery:
       type: object
       properties:
@@ -164,46 +204,6 @@ components:
       - table
       - name
       - operations
-    AnalyticsOperation:
-      type: object
-      properties:
-        operation:
-          type: string
-          description: This is the aggregation operation you want to perform.
-          enum:
-          - sum
-          - avg
-          - count
-          - min
-          - max
-          - history
-        column:
-          type: string
-          description: This is the columns you want to perform the aggregation operation on.
-          enum:
-          - id
-          - cost
-          - costBreakdown.llm
-          - costBreakdown.stt
-          - costBreakdown.tts
-          - costBreakdown.vapi
-          - costBreakdown.transport
-          - costBreakdown.analysisBreakdown.summary
-          - costBreakdown.transcriber
-          - costBreakdown.ttsCharacters
-          - costBreakdown.llmPromptTokens
-          - costBreakdown.llmCompletionTokens
-          - costBreakdown.llmCachedPromptTokens
-          - duration
-          - concurrency
-          - minutesUsed
-        alias:
-          type: string
-          description: This is the alias for column name returned. Defaults to `${operation}${column}`.
-          maxLength: 40
-      required:
-      - operation
-      - column
   securitySchemes:
     bearer:
       scheme: bearer
