@@ -37,106 +37,6 @@ paths:
       - bearer: []
 components:
   schemas:
-    VariableValueGroupBy:
-      type: object
-      properties:
-        key:
-          type: string
-          description: This is the key of the variable value to group by.
-          maxLength: 100
-      required:
-      - key
-    TimeRange:
-      type: object
-      properties:
-        step:
-          type: string
-          description: 'This is the time step for aggregations.
-
-
-            If not provided, defaults to returning for the entire time range.'
-          enum:
-          - second
-          - minute
-          - hour
-          - day
-          - week
-          - month
-          - quarter
-          - year
-          - decade
-          - century
-          - millennium
-        start:
-          format: date-time
-          type: string
-          description: 'This is the start date for the time range.
-
-
-            If not provided, defaults to the 7 days ago.'
-        end:
-          format: date-time
-          type: string
-          description: 'This is the end date for the time range.
-
-
-            If not provided, defaults to now.'
-        timezone:
-          type: string
-          description: 'This is the timezone you want to set for the query.
-
-
-            If not provided, defaults to UTC.'
-    AnalyticsQueryDTO:
-      type: object
-      properties:
-        queries:
-          description: This is the list of metric queries you want to perform.
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyticsQuery'
-      required:
-      - queries
-    AnalyticsOperation:
-      type: object
-      properties:
-        operation:
-          type: string
-          description: This is the aggregation operation you want to perform.
-          enum:
-          - sum
-          - avg
-          - count
-          - min
-          - max
-          - history
-        column:
-          type: string
-          description: This is the columns you want to perform the aggregation operation on.
-          enum:
-          - id
-          - cost
-          - costBreakdown.llm
-          - costBreakdown.stt
-          - costBreakdown.tts
-          - costBreakdown.vapi
-          - costBreakdown.transport
-          - costBreakdown.analysisBreakdown.summary
-          - costBreakdown.transcriber
-          - costBreakdown.ttsCharacters
-          - costBreakdown.llmPromptTokens
-          - costBreakdown.llmCompletionTokens
-          - costBreakdown.llmCachedPromptTokens
-          - duration
-          - concurrency
-          - minutesUsed
-        alias:
-          type: string
-          description: This is the alias for column name returned. Defaults to `${operation}${column}`.
-          maxLength: 40
-      required:
-      - operation
-      - column
     AnalyticsQueryResult:
       type: object
       properties:
@@ -156,6 +56,25 @@ components:
       - name
       - timeRange
       - result
+    AnalyticsQueryDTO:
+      type: object
+      properties:
+        queries:
+          description: This is the list of metric queries you want to perform.
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyticsQuery'
+      required:
+      - queries
+    VariableValueGroupBy:
+      type: object
+      properties:
+        key:
+          type: string
+          description: This is the key of the variable value to group by.
+          maxLength: 100
+      required:
+      - key
     AnalyticsQuery:
       type: object
       properties:
@@ -204,6 +123,87 @@ components:
       - table
       - name
       - operations
+    AnalyticsOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          description: This is the aggregation operation you want to perform.
+          enum:
+          - sum
+          - avg
+          - count
+          - min
+          - max
+          - history
+        column:
+          type: string
+          description: This is the columns you want to perform the aggregation operation on.
+          enum:
+          - id
+          - cost
+          - costBreakdown.llm
+          - costBreakdown.stt
+          - costBreakdown.tts
+          - costBreakdown.vapi
+          - costBreakdown.transport
+          - costBreakdown.analysisBreakdown.summary
+          - costBreakdown.transcriber
+          - costBreakdown.ttsCharacters
+          - costBreakdown.llmPromptTokens
+          - costBreakdown.llmCompletionTokens
+          - costBreakdown.llmCachedPromptTokens
+          - duration
+          - concurrency
+          - minutesUsed
+        alias:
+          type: string
+          description: This is the alias for column name returned. Defaults to `${operation}${column}`.
+          maxLength: 40
+      required:
+      - operation
+      - column
+    TimeRange:
+      type: object
+      properties:
+        step:
+          type: string
+          description: 'This is the time step for aggregations.
+
+
+            If not provided, defaults to returning for the entire time range.'
+          enum:
+          - second
+          - minute
+          - hour
+          - day
+          - week
+          - month
+          - quarter
+          - year
+          - decade
+          - century
+          - millennium
+        start:
+          format: date-time
+          type: string
+          description: 'This is the start date for the time range.
+
+
+            If not provided, defaults to the 7 days ago.'
+        end:
+          format: date-time
+          type: string
+          description: 'This is the end date for the time range.
+
+
+            If not provided, defaults to now.'
+        timezone:
+          type: string
+          description: 'This is the timezone you want to set for the query.
+
+
+            If not provided, defaults to UTC.'
   securitySchemes:
     bearer:
       scheme: bearer
