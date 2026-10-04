@@ -302,6 +302,18 @@ paths:
       - bearer: []
 components:
   schemas:
+    ProviderResourcePaginatedResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderResource'
+        metadata:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - results
+      - metadata
     PaginationMeta:
       type: object
       properties:
@@ -375,18 +387,6 @@ components:
       - resourceName
       - resourceId
       - resource
-    ProviderResourcePaginatedResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProviderResource'
-        metadata:
-          $ref: '#/components/schemas/PaginationMeta'
-      required:
-      - results
-      - metadata
   securitySchemes:
     bearer:
       scheme: bearer

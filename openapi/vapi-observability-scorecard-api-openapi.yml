@@ -337,18 +337,6 @@ components:
           type: array
           items:
             type: string
-    ScorecardPaginatedResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Scorecard'
-        metadata:
-          $ref: '#/components/schemas/PaginationMeta'
-      required:
-      - results
-      - metadata
     ScorecardMetric:
       type: object
       properties:
@@ -371,6 +359,18 @@ components:
       required:
       - structuredOutputId
       - conditions
+    ScorecardPaginatedResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scorecard'
+        metadata:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - results
+      - metadata
   securitySchemes:
     bearer:
       scheme: bearer
