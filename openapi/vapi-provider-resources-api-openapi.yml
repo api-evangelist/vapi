@@ -302,48 +302,6 @@ paths:
       - bearer: []
 components:
   schemas:
-    ProviderResourcePaginatedResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProviderResource'
-        metadata:
-          $ref: '#/components/schemas/PaginationMeta'
-      required:
-      - results
-      - metadata
-    PaginationMeta:
-      type: object
-      properties:
-        itemsPerPage:
-          type: number
-        totalItems:
-          type: number
-        currentPage:
-          type: number
-        totalPages:
-          type: number
-        hasNextPage:
-          type: boolean
-        sortOrder:
-          type: string
-          enum:
-          - ASC
-          - DESC
-        itemsBeyondRetention:
-          type: boolean
-        createdAtLe:
-          format: date-time
-          type: string
-        createdAtGe:
-          format: date-time
-          type: string
-      required:
-      - itemsPerPage
-      - totalItems
-      - currentPage
     ProviderResource:
       type: object
       properties:
@@ -387,6 +345,48 @@ components:
       - resourceName
       - resourceId
       - resource
+    PaginationMeta:
+      type: object
+      properties:
+        itemsPerPage:
+          type: number
+        totalItems:
+          type: number
+        currentPage:
+          type: number
+        totalPages:
+          type: number
+        hasNextPage:
+          type: boolean
+        sortOrder:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        itemsBeyondRetention:
+          type: boolean
+        createdAtLe:
+          format: date-time
+          type: string
+        createdAtGe:
+          format: date-time
+          type: string
+      required:
+      - itemsPerPage
+      - totalItems
+      - currentPage
+    ProviderResourcePaginatedResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderResource'
+        metadata:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - results
+      - metadata
   securitySchemes:
     bearer:
       scheme: bearer

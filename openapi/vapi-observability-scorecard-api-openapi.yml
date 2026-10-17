@@ -210,6 +210,65 @@ paths:
       - bearer: []
 components:
   schemas:
+    ScorecardMetric:
+      type: object
+      properties:
+        structuredOutputId:
+          type: string
+          description: 'This is the unique identifier for the structured output that will be used to evaluate the scorecard.
+
+            The structured output must be of type number or boolean only for now.'
+        conditions:
+          description: 'These are the conditions that will be used to evaluate the scorecard.
+
+            Each condition will have a comparator, value, and points that will be used to calculate the final score.
+
+            The points will be added to the overall score if the condition is met.
+
+            The overall score will be normalized to a 100 point scale to ensure uniformity across different scorecards.'
+          type: array
+          items:
+            type: object
+      required:
+      - structuredOutputId
+      - conditions
+    UpdateScorecardDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: This is the name of the scorecard. It is only for user reference and will not be used for any evaluation.
+          maxLength: 80
+        description:
+          type: string
+          description: This is the description of the scorecard. It is only for user reference and will not be used for any evaluation.
+          maxLength: 500
+        metrics:
+          description: 'These are the metrics that will be used to evaluate the scorecard.
+
+            Each metric will have a set of conditions and points that will be used to generate the score.'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScorecardMetric'
+        assistantIds:
+          description: 'These are the assistant IDs that this scorecard is linked to.
+
+            When linked to assistants, this scorecard will be available for evaluation during those assistants'' calls.'
+          type: array
+          items:
+            type: string
+    ScorecardPaginatedResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scorecard'
+        metadata:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - results
+      - metadata
     Scorecard:
       type: object
       properties:
@@ -312,65 +371,6 @@ components:
       - itemsPerPage
       - totalItems
       - currentPage
-    UpdateScorecardDTO:
-      type: object
-      properties:
-        name:
-          type: string
-          description: This is the name of the scorecard. It is only for user reference and will not be used for any evaluation.
-          maxLength: 80
-        description:
-          type: string
-          description: This is the description of the scorecard. It is only for user reference and will not be used for any evaluation.
-          maxLength: 500
-        metrics:
-          description: 'These are the metrics that will be used to evaluate the scorecard.
-
-            Each metric will have a set of conditions and points that will be used to generate the score.'
-          type: array
-          items:
-            $ref: '#/components/schemas/ScorecardMetric'
-        assistantIds:
-          description: 'These are the assistant IDs that this scorecard is linked to.
-
-            When linked to assistants, this scorecard will be available for evaluation during those assistants'' calls.'
-          type: array
-          items:
-            type: string
-    ScorecardMetric:
-      type: object
-      properties:
-        structuredOutputId:
-          type: string
-          description: 'This is the unique identifier for the structured output that will be used to evaluate the scorecard.
-
-            The structured output must be of type number or boolean only for now.'
-        conditions:
-          description: 'These are the conditions that will be used to evaluate the scorecard.
-
-            Each condition will have a comparator, value, and points that will be used to calculate the final score.
-
-            The points will be added to the overall score if the condition is met.
-
-            The overall score will be normalized to a 100 point scale to ensure uniformity across different scorecards.'
-          type: array
-          items:
-            type: object
-      required:
-      - structuredOutputId
-      - conditions
-    ScorecardPaginatedResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Scorecard'
-        metadata:
-          $ref: '#/components/schemas/PaginationMeta'
-      required:
-      - results
-      - metadata
   securitySchemes:
     bearer:
       scheme: bearer

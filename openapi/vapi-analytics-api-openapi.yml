@@ -37,6 +37,25 @@ paths:
       - bearer: []
 components:
   schemas:
+    AnalyticsQueryResult:
+      type: object
+      properties:
+        name:
+          type: string
+          description: This is the unique key for the query.
+        timeRange:
+          description: This is the time range for the query.
+          allOf:
+          - $ref: '#/components/schemas/TimeRange'
+        result:
+          description: "This is the result of the query, a list of unique groups with result of their aggregations.\n\nExample:\n\"result\": [\n  { \"date\": \"2023-01-01\", \"assistantId\": \"123\", \"endedReason\": \"customer-ended-call\", \"sumDuration\": 120, \"avgCost\": 10.5 },\n  { \"date\": \"2023-01-02\", \"assistantId\": \"123\", \"endedReason\": \"customer-did-not-give-microphone-permission\", \"sumDuration\": 0, \"avgCost\": 0 },\n  // Additional results\n]"
+          type: array
+          items:
+            type: object
+      required:
+      - name
+      - timeRange
+      - result
     AnalyticsOperation:
       type: object
       properties:
@@ -77,6 +96,25 @@ components:
       required:
       - operation
       - column
+    VariableValueGroupBy:
+      type: object
+      properties:
+        key:
+          type: string
+          description: This is the key of the variable value to group by.
+          maxLength: 100
+      required:
+      - key
+    AnalyticsQueryDTO:
+      type: object
+      properties:
+        queries:
+          description: This is the list of metric queries you want to perform.
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyticsQuery'
+      required:
+      - queries
     TimeRange:
       type: object
       properties:
@@ -166,44 +204,6 @@ components:
       - table
       - name
       - operations
-    AnalyticsQueryDTO:
-      type: object
-      properties:
-        queries:
-          description: This is the list of metric queries you want to perform.
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyticsQuery'
-      required:
-      - queries
-    AnalyticsQueryResult:
-      type: object
-      properties:
-        name:
-          type: string
-          description: This is the unique key for the query.
-        timeRange:
-          description: This is the time range for the query.
-          allOf:
-          - $ref: '#/components/schemas/TimeRange'
-        result:
-          description: "This is the result of the query, a list of unique groups with result of their aggregations.\n\nExample:\n\"result\": [\n  { \"date\": \"2023-01-01\", \"assistantId\": \"123\", \"endedReason\": \"customer-ended-call\", \"sumDuration\": 120, \"avgCost\": 10.5 },\n  { \"date\": \"2023-01-02\", \"assistantId\": \"123\", \"endedReason\": \"customer-did-not-give-microphone-permission\", \"sumDuration\": 0, \"avgCost\": 0 },\n  // Additional results\n]"
-          type: array
-          items:
-            type: object
-      required:
-      - name
-      - timeRange
-      - result
-    VariableValueGroupBy:
-      type: object
-      properties:
-        key:
-          type: string
-          description: This is the key of the variable value to group by.
-          maxLength: 100
-      required:
-      - key
   securitySchemes:
     bearer:
       scheme: bearer
